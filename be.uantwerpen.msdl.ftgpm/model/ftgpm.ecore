@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ftgpm" nsURI="http://www.example.org/ftgpm" nsPrefix="ftgpm">
+  <eClassifiers xsi:type="ecore:EClass" name="Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controlFlowTo" upperBound="-1"
+        eType="#//Node" eOpposite="#//Node/controlFlowFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowTo" upperBound="-1"
+        eType="#//Node" eOpposite="#//Node/dataFlowFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processmodel" lowerBound="1"
+        eType="#//ProcessModel" eOpposite="#//ProcessModel/node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowFrom" upperBound="-1"
+        eType="#//Node" eOpposite="#//Node/dataFlowTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controlFlowFrom" upperBound="-1"
+        eType="#//Node" eOpposite="#//Node/controlFlowTo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Control" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" lowerBound="1"
+        eType="#//Transformation" eOpposite="#//Transformation/action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cost" eType="#//Cost" containment="true"
+        eOpposite="#//Cost/activity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" lowerBound="1"
+        eType="#//Language" eOpposite="#//Language/object"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputOf" upperBound="-1"
+        eType="#//Dependency" eOpposite="#//Dependency/input"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputOf" upperBound="-1"
+        eType="#//Dependency" eOpposite="#//Dependency/output"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transformation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formalismtransformationgraph"
+        lowerBound="1" eType="#//FormalismTransformationGraph" eOpposite="#//FormalismTransformationGraph/transformation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="language" eType="#//Language"
+        eOpposite="#//Language/input"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" upperBound="-1"
+        eType="#//Activity" eOpposite="#//Activity/typedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
+        eType="#//Language" eOpposite="#//Language/transformation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Language" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
+        eType="#//Transformation" eOpposite="#//Transformation/language"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" upperBound="-1"
+        eType="#//Object" eOpposite="#//Object/typedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" upperBound="-1"
+        eType="#//Transformation" eOpposite="#//Transformation/output"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formalismtransformationgraph"
+        eType="#//FormalismTransformationGraph" eOpposite="#//FormalismTransformationGraph/language"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fork" eSuperTypes="#//Control"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//Control"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Merge" eSuperTypes="#//Control"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//Control"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Final" eSuperTypes="#//Control"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Initial" eSuperTypes="#//Control"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityFinal" eSuperTypes="#//Final"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowFinal" eSuperTypes="#//Final"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" upperBound="-1" eType="#//Node"
+        containment="true" eOpposite="#//Node/processmodel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system" lowerBound="1"
+        eType="#//System" eOpposite="#//System/processmodel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="System">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formalismtransformationgraph"
+        eType="#//FormalismTransformationGraph" containment="true" eOpposite="#//FormalismTransformationGraph/system"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processmodel" upperBound="-1"
+        eType="#//ProcessModel" containment="true" eOpposite="#//ProcessModel/system"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencymodel" eType="#//DependencyModel"
+        containment="true" eOpposite="#//DependencyModel/system"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertymodel" eType="#//PropertyModel"
+        containment="true" eOpposite="#//PropertyModel/system"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FormalismTransformationGraph">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" upperBound="-1"
+        eType="#//Transformation" containment="true" eOpposite="#//Transformation/formalismtransformationgraph"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="language" upperBound="-1"
+        eType="#//Language" containment="true" eOpposite="#//Language/formalismtransformationgraph"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system" lowerBound="1"
+        eType="#//System" eOpposite="#//System/formalismtransformationgraph"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DependencyModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" upperBound="-1"
+        eType="#//Dependency" containment="true" eOpposite="#//Dependency/dependencymodel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system" lowerBound="1"
+        eType="#//System" eOpposite="#//System/dependencymodel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cost">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+        eType="#//Activity" eOpposite="#//Activity/cost"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dependency">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencymodel" lowerBound="1"
+        eType="#//DependencyModel" eOpposite="#//DependencyModel/dependency"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
+        eType="#//Object" eOpposite="#//Object/inputOf"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
+        eType="#//Object" eOpposite="#//Object/outputOf"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expression" containment="true" eOpposite="#//Expression/dependency"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="L1" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"
+        eOpposite="#//Component/expression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="L3" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="L2" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertymodel" lowerBound="1"
+        eType="#//PropertyModel" eOpposite="#//PropertyModel/property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="derivedFrom" lowerBound="1"
+        upperBound="-1" eType="#//Component" eOpposite="#//Component/property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
+        eType="#//Constraint" eOpposite="#//Constraint/property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//Object">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//L1"
+        eOpposite="#//L1/component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"
+        eOpposite="#//Model/component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property" eOpposite="#//Property/derivedFrom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" lowerBound="1"
+        eType="#//Dependency" eOpposite="#//Dependency/expression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//Object">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
+        eType="#//Component" eOpposite="#//Component/model"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property" containment="true" eOpposite="#//Property/propertymodel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system" lowerBound="1"
+        eType="#//System" eOpposite="#//System/propertymodel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Manual" eSuperTypes="#//Activity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Automated" eSuperTypes="#//Activity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RatioScale" eSuperTypes="#//Cost">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ordinal" eSuperTypes="#//Cost"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expensive" abstract="true" eSuperTypes="#//Ordinal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cheap" abstract="true" eSuperTypes="#//Ordinal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property" eOpposite="#//Property/constraint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SoftConstraint" eSuperTypes="#//Constraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HardConstraint" eSuperTypes="#//Constraint"/>
+</ecore:EPackage>

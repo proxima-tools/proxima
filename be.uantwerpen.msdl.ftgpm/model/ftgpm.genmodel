@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/be.uantwerpen.msdl.ftgpm/src" modelPluginID="be.uantwerpen.msdl.ftgpm"
+    modelName="Ftgpm" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>ftgpm.ecore</foreignModel>
+  <genPackages prefix="Ftgpm" disposableProviderFactory="true" ecorePackage="ftgpm.ecore#/">
+    <genClasses ecoreClass="ftgpm.ecore#//Node">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Node/controlFlowTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Node/dataFlowTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Node/processmodel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Node/dataFlowFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Node/controlFlowFrom"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Control"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Activity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Activity/typedBy"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Activity/cost"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Object">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Object/typedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Object/inputOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Object/outputOf"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Transformation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Transformation/formalismtransformationgraph"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Transformation/language"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Transformation/action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Transformation/output"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Language">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Language/input"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Language/object"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Language/transformation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Language/formalismtransformationgraph"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Fork"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Join"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Merge"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Decision"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Final"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Initial"/>
+    <genClasses ecoreClass="ftgpm.ecore#//ActivityFinal"/>
+    <genClasses ecoreClass="ftgpm.ecore#//FlowFinal"/>
+    <genClasses ecoreClass="ftgpm.ecore#//ProcessModel">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//ProcessModel/node"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//ProcessModel/system"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//System">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//System/formalismtransformationgraph"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//System/processmodel"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//System/dependencymodel"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//System/propertymodel"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//FormalismTransformationGraph">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//FormalismTransformationGraph/transformation"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//FormalismTransformationGraph/language"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//FormalismTransformationGraph/system"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//DependencyModel">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//DependencyModel/dependency"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//DependencyModel/system"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Cost">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Cost/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Dependency">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Dependency/dependencymodel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Dependency/input"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Dependency/output"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Dependency/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//L1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//L1/component"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//L3"/>
+    <genClasses ecoreClass="ftgpm.ecore#//L2"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Property">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Property/propertymodel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Property/derivedFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Property/constraint"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Component">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Component/expression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Component/model"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Component/property"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Expression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Expression/dependency"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Model">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Model/component"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//PropertyModel">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//PropertyModel/property"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//PropertyModel/system"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Manual"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Automated"/>
+    <genClasses ecoreClass="ftgpm.ecore#//RatioScale">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ftgpm.ecore#//RatioScale/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//Ordinal"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Expensive"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Cheap"/>
+    <genClasses ecoreClass="ftgpm.ecore#//Constraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ftgpm.ecore#//Constraint/property"/>
+    </genClasses>
+    <genClasses ecoreClass="ftgpm.ecore#//SoftConstraint"/>
+    <genClasses ecoreClass="ftgpm.ecore#//HardConstraint"/>
+  </genPackages>
+</genmodel:GenModel>
