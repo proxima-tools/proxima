@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="property" nsURI="metamodels.property" nsPrefix="be.uantwerpen.msdl.metamodels">
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property" containment="true" eOpposite="#//Property/propertyModel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyModel" lowerBound="1"
+        eType="#//PropertyModel" eOpposite="#//PropertyModel/property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="impliesConstraint" upperBound="-1"
+        eType="#//Constraint" containment="true" eOpposite="#//Constraint/impliedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="derivedFrom" eType="ecore:EClass process.ecore#//Object"
+        eOpposite="process.ecore#//Object/property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="impliedBy" eType="#//Property"
+        eOpposite="#//Property/impliesConstraint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HardConstraint" eSuperTypes="#//Constraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SoftConstraint" eSuperTypes="#//Constraint"/>
+</ecore:EPackage>

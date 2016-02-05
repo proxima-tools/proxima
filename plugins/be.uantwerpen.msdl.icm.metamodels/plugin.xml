@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated icmmeta -->
+      <package
+            uri="icm.meta"
+            class="be.uantwerpen.msdl.icm.metamodel.MetamodelPackage"
+            genModel="model/icmmeta.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated icmmeta -->
+      <package
+            uri="http://www.example.org/ftgpm"
+            class="ftgpm.FtgpmPackage"
+            genModel="model/icmmeta.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.cost"
+            class="be.uantwerpen.msdl.icm.metamodels.cost.CostPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.process"
+            class="be.uantwerpen.msdl.icm.metamodels.process.ProcessPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.ftg"
+            class="be.uantwerpen.msdl.icm.metamodels.ftg.FtgPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.dependency"
+            class="be.uantwerpen.msdl.icm.metamodels.dependency.DependencyPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.property"
+            class="be.uantwerpen.msdl.icm.metamodels.property.PropertyPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
+</plugin>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dependency" nsURI="metamodels.dependency" nsPrefix="be.uantwerpen.msdl.metamodels">
+  <eClassifiers xsi:type="ecore:EClass" name="DependencyModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" upperBound="-1"
+        eType="#//Dependency" containment="true" eOpposite="#//Dependency/dependencyModel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dependency">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyModel" lowerBound="1"
+        eType="#//DependencyModel" eOpposite="#//DependencyModel/dependency"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expression" containment="true" eOpposite="#//Expression/dependency"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
+        eType="ecore:EClass process.ecore#//Object" eOpposite="process.ecore#//Object/dependencyInputOf"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
+        eType="ecore:EClass process.ecore#//Object" eOpposite="process.ecore#//Object/dependencyOutputOf"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" lowerBound="1"
+        eType="#//Dependency" eOpposite="#//Dependency/expression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="L1" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="L2" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="L3" eSuperTypes="#//Expression"/>
+</ecore:EPackage>
