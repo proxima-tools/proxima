@@ -1,0 +1,49 @@
+package be.uantwerpen.msdl.icm.queries
+
+import "metamodels.process"
+
+/*
+ * Finds all control precedence relationships between activities.
+ */
+pattern activityPrecedence(activity1 : Activity, activity2 : Activity, controlFlow : ControlFlow){
+	ControlFlow.fromNode(controlFlow, activity1);
+	ControlFlow.toNode(controlFlow, activity2);
+	activity1 != activity2;
+}
+
+pattern hardActivityPrecedence(activity1 : Activity, activity2 : Activity, controlFlow : ControlFlow){
+	find activityPrecedence(activity1, activity2, controlFlow);
+	ControlFlow.final(controlFlow, isFinal);
+	isFinal == true;
+}
+
+pattern softActivityPrecedence(activity1 : Activity, activity2 : Activity, controlFlow : ControlFlow){
+	find activityPrecedence(activity1, activity2, controlFlow);
+	ControlFlow.final(controlFlow, isFinal);
+	isFinal == false;
+}
+
+/*
+ * Finds directed control paths based on transitive precedence relationships between activities.
+ */
+//pattern directedActivityPath(activity1 : Activity, activity2 : Activity){
+//	find activityPrecedence+(activity1, activity2, _);
+//}
+
+/*
+ * Finds all dependencies between models.
+ */
+pattern model2modelDependency(model1 : Object, model2 : Object, dependency : Dependency){
+	Dependency.input(dependency, model1);
+	Dependency.output(dependency, model2);
+	model1 != model2;
+}
+
+/*
+ * Finds properties that are shared among models.
+ */
+pattern sharedProperty(model1 : Object, model2 : Object, property : Property){
+	Property.relatesTo(property, model1);
+	Property.relatesTo(property, model2);
+	model1 != model2;
+}
