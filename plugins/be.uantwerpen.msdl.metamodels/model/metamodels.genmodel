@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/be.uantwerpen.msdl.metamodels/src" modelPluginID="be.uantwerpen.msdl.metamodels"
+    modelName="Metamodels" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>process.ecore</foreignModel>
+  <genPackages prefix="Process" basePackage="be.uantwerpen.msdl.metamodels" disposableProviderFactory="true"
+      ecorePackage="process.ecore#/">
+    <genClasses ecoreClass="process.ecore#//ProcessModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//ProcessModel/process"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//ProcessModel/transformationGraph"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//ProcessModel/dependencyModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//ProcessModel/propertyModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//ProcessModel/costmodel"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//Process">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//Process/node"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//Process/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//Process/controlFlow"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//ControlFlow">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//ControlFlow/toNode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//ControlFlow/fromNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//ControlFlow/final"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//Node">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Node/dataFlowFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Node/dataFlowTo"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="process.ecore#//NamedNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//NamedNode/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="process.ecore#//Activity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Activity/typedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Activity/property"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//ManualActivity"/>
+    <genClasses ecoreClass="process.ecore#//AutomatedActivity"/>
+    <genClasses ecoreClass="process.ecore#//Object">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Object/typedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Object/dependencyInputOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Object/dependencyOutputOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Object/property"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//Initial"/>
+    <genClasses image="false" ecoreClass="process.ecore#//Final"/>
+    <genClasses ecoreClass="process.ecore#//ActivityFinal"/>
+    <genClasses ecoreClass="process.ecore#//FlowFinal"/>
+    <genClasses ecoreClass="process.ecore#//Fork"/>
+    <genClasses ecoreClass="process.ecore#//Join"/>
+    <genClasses ecoreClass="process.ecore#//Merge"/>
+    <genClasses ecoreClass="process.ecore#//Decision"/>
+    <genClasses ecoreClass="process.ecore#//TransformationGraph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//TransformationGraph/transformation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//TransformationGraph/language"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//Transformation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Transformation/inputLanguage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Transformation/outputLanguage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Transformation/types"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//Language">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Language/inputOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Language/outputOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Language/types"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//CostModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//CostModel/cost"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//CostItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//CostItem/cost"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="process.ecore#//Cost">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Cost/costItem"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//RatioScale">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//RatioScale/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="process.ecore#//Ordinal"/>
+    <genClasses ecoreClass="process.ecore#//Expensive"/>
+    <genClasses ecoreClass="process.ecore#//Cheap"/>
+    <genClasses ecoreClass="process.ecore#//PropertyModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//PropertyModel/property"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//Property">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//Property/impliesConstraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/relatesTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/manipulatedBy"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="process.ecore#//Constraint"/>
+    <genClasses ecoreClass="process.ecore#//HardConstraint"/>
+    <genClasses ecoreClass="process.ecore#//SoftConstraint"/>
+    <genClasses ecoreClass="process.ecore#//DependencyModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//DependencyModel/dependency"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//Dependency">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//Dependency/expression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Dependency/input"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Dependency/output"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="process.ecore#//Expression"/>
+    <genClasses ecoreClass="process.ecore#//L1"/>
+    <genClasses ecoreClass="process.ecore#//L2"/>
+    <genClasses ecoreClass="process.ecore#//L3"/>
+    <genClasses ecoreClass="process.ecore#//Infinite"/>
+  </genPackages>
+</genmodel:GenModel>
