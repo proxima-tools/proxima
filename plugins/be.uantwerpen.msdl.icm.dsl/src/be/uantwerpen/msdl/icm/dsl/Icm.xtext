@@ -17,23 +17,16 @@ Import:
 ;
 
 ModelElement:
-	PropertyDefinition
+	Language | Property
 ;
 
-PropertyDefinition:
-	SyntacticProperty | SemanticProperty
+Language:
+	'language' name=ID
 ;
 
-SyntacticProperty:
-	'syntacticProperty' name=ID ':' type=JvmTypeReference '{'
-		'from' 'query' reference = STRING
-		checkExpression = CheckExpression
-	'}'
-;
-
-SemanticProperty:
-	'semanticProperty' name=ID ':' type=JvmTypeReference '{'
-		'from' 'activity' reference = STRING
+Property:
+	'property' name=ID ':' type=JvmTypeReference '{'
+		'from' ('query' queryReference = STRING)? ('activity' activityReference = STRING)?
 		checkExpression = CheckExpression
 	'}'
 ;

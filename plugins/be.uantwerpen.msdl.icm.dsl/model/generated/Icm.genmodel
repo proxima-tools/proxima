@@ -14,15 +14,16 @@
     <genClasses ecoreClass="Icm.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Icm.ecore#//Import/importedNamespace"/>
     </genClasses>
-    <genClasses ecoreClass="Icm.ecore#//ModelElement"/>
-    <genClasses ecoreClass="Icm.ecore#//PropertyDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Icm.ecore#//PropertyDefinition/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Icm.ecore#//PropertyDefinition/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Icm.ecore#//PropertyDefinition/reference"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Icm.ecore#//PropertyDefinition/checkExpression"/>
+    <genClasses ecoreClass="Icm.ecore#//ModelElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Icm.ecore#//ModelElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="Icm.ecore#//SyntacticProperty"/>
-    <genClasses ecoreClass="Icm.ecore#//SemanticProperty"/>
+    <genClasses ecoreClass="Icm.ecore#//Language"/>
+    <genClasses ecoreClass="Icm.ecore#//Property">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Icm.ecore#//Property/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Icm.ecore#//Property/queryReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Icm.ecore#//Property/activityReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Icm.ecore#//Property/checkExpression"/>
+    </genClasses>
     <genClasses ecoreClass="Icm.ecore#//CheckExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Icm.ecore#//CheckExpression/checkExpression"/>
     </genClasses>

@@ -5,8 +5,8 @@ package be.uantwerpen.msdl.icm.dsl.jvmmodel
 
 import be.uantwerpen.msdl.icm.dsl.icm.Model
 import be.uantwerpen.msdl.icm.dsl.icm.ModelElement
-import be.uantwerpen.msdl.icm.dsl.icm.PropertyDefinition
-import be.uantwerpen.msdl.icm.dsl.icm.SemanticProperty
+import be.uantwerpen.msdl.icm.dsl.icm.Property
+import be.uantwerpen.msdl.metamodels.process.impl.PropertyImpl
 import com.google.inject.Inject
 import org.eclipse.xtext.common.types.JvmDeclaredType
 import org.eclipse.xtext.naming.IQualifiedNameProvider
@@ -14,7 +14,6 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor.IPostIndexingInitializing
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import be.uantwerpen.msdl.metamodels.process.impl.PropertyImpl
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -62,14 +61,24 @@ class IcmJvmModelInferrer extends AbstractModelInferrer {
 
 //		val semanticProperties = element.modelElements.filter[e|(e instanceof SemanticProperty)]
 //		val syntacticProperties = element.modelElements.filter[e|(e instanceof SyntacticProperty)]
-		val properties = element.modelElements.filter[e|(e instanceof PropertyDefinition)]
+		val properties = element.modelElements.filter[e|(e instanceof Property)]
 
 		for (property : properties) {
 			acceptor.accept(property.toClass(property.validJavaFqn)) [
 				superTypes += _typeReferenceBuilder.typeRef(PropertyImpl)
-				properties.filter[p|(p instanceof SemanticProperty)].forEach [ p |
+				
+				//Semantic properties
+				properties.filter[p|(p as Property).activityReference!=null].forEach [ p |
 					members += property.toField("reference", _typeReferenceBuilder.typeRef("String")) [
-						initializer = [append('''"«(p as SemanticProperty).reference»"''')]
+						initializer = [append('''"«(p as Property).activityReference»"''')]
+						final = true
+					]
+				]
+				
+				//Syntactic properties
+				properties.filter[p|(p as Property).queryReference!=null].forEach [ p |
+					members += property.toField("query", _typeReferenceBuilder.typeRef("String")) [
+						initializer = [append('''"«(p as Property).activityReference»"''')]
 						final = true
 					]
 				]
