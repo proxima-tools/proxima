@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.emf.common,
  org.eclipse.xtext.common.types,
  org.eclipse.xtext.xbase.lib,
- be.uantwerpen.msdl.icm.metamodels;bundle-version="0.1.0"
+ be.uantwerpen.msdl.metamodels;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: be.uantwerpen.msdl.icm.dsl.serializer,
  be.uantwerpen.msdl.icm.dsl.services,

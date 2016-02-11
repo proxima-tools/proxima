@@ -7,7 +7,6 @@ import be.uantwerpen.msdl.icm.dsl.icm.Model
 import be.uantwerpen.msdl.icm.dsl.icm.ModelElement
 import be.uantwerpen.msdl.icm.dsl.icm.PropertyDefinition
 import be.uantwerpen.msdl.icm.dsl.icm.SemanticProperty
-import be.uantwerpen.msdl.icm.metamodels.property.impl.PropertyImpl
 import com.google.inject.Inject
 import org.eclipse.xtext.common.types.JvmDeclaredType
 import org.eclipse.xtext.naming.IQualifiedNameProvider
@@ -15,6 +14,7 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor.IPostIndexingInitializing
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import be.uantwerpen.msdl.metamodels.process.impl.PropertyImpl
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
