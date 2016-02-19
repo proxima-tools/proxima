@@ -12,7 +12,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="FinalNode" domainClass="process.FlowFinal">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="final" hideLabelByDefault="true" resizeKind="NSEW" workspacePath="/be.uantwerpen.msdl.process.design/icons/activity-final.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="final" hideLabelByDefault="true" workspacePath="/be.uantwerpen.msdl.process.design/icons/activity-final.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -214,7 +214,7 @@
         </edgeMappings>
         <edgeMappings name="TypeLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='LanguageNode']" targetFinderExpression="feature:typedBy">
           <style lineStyle="dash" sizeComputationExpression="2" foldingStyle="SOURCE">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«typedBy»">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -300,7 +300,7 @@
         </edgeMappings>
         <edgeMappings name="OntologicalRelationship" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:property" sourceFinderExpression="aql:self.eContainer()" domainClass="process.OntologicalRelationship" useDomainElement="true">
           <style lineStyle="dot" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="aql:'«'.concat(self.name).concat('»')">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -363,7 +363,7 @@
         </nodeMappings>
         <edgeMappings name="CostLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='AutomatedActivityNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ManualActivityNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='CostLayer']/@nodeMappings[name='CostNode']" targetFinderExpression="feature:cost">
           <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2" foldingStyle="SOURCE">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
