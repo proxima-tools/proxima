@@ -9,12 +9,12 @@
         eType="#//Process" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transformationGraph" eType="#//TransformationGraph"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyModel" eType="#//DependencyModel"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyModel" eType="#//PropertyModel"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="costModel" eType="#//CostModel"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
+        eType="#//Intent" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="node" upperBound="-1" eType="#//Node"
@@ -39,20 +39,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//CostItem #//NamedElement #//Node">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//Transformation"
         eOpposite="#//Transformation/types"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="calculatedProperty" upperBound="-1"
-        eType="#//Property" eOpposite="#//Property/manipulatedBy"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ManualActivity" eSuperTypes="#//Activity"/>
   <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//Activity"/>
   <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//NamedElement #//Node">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" lowerBound="1"
         eType="#//Language" eOpposite="#//Language/types"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyInputOf" upperBound="-1"
-        eType="#//Dependency" eOpposite="#//Dependency/input"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyOutputOf" upperBound="-1"
-        eType="#//Dependency" eOpposite="#//Dependency/output"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relatedProperty" upperBound="-1"
-        eType="#//Property" eOpposite="#//Property/relatesTo"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Control" abstract="true" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="Initial" eSuperTypes="#//Control"/>
@@ -105,38 +97,47 @@
   <eClassifiers xsi:type="ecore:EClass" name="PropertyModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
         eType="#//Property" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
+        eType="#//Constraint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="impliesConstraint" upperBound="-1"
-        eType="#//Constraint" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relatesTo" upperBound="-1"
-        eType="#//Object" eOpposite="#//Object/relatedProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="manipulatedBy" upperBound="-1"
-        eType="#//Activity" eOpposite="#//Activity/calculatedProperty"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ontologicalRelationship"
         upperBound="-1" eType="#//OntologicalRelationship" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OntologicalRelationship" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//Property"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HardConstraint" eSuperTypes="#//Constraint"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SoftConstraint" eSuperTypes="#//Constraint"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DependencyModel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" upperBound="-1"
-        eType="#//Dependency" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Dependency">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
-        eType="#//Expression" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
-        eType="#//Object" eOpposite="#//Object/dependencyInputOf"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
-        eType="#//Object" eOpposite="#//Object/dependencyOutputOf"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quality" lowerBound="1"
+        eType="#//ExpressionQuality" defaultValueLiteral="L1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="L1" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="L2" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="L3" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Infinite" eSuperTypes="#//RatioScale"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Intent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//IntentType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+        eType="#//Activity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IntentType">
+    <eLiterals name="UNKNOWN" literal="UNKNOWN"/>
+    <eLiterals name="ADD" value="1"/>
+    <eLiterals name="READ" value="2"/>
+    <eLiterals name="MODIFY" value="3"/>
+    <eLiterals name="CHECK" value="4"/>
+    <eLiterals name="DELETE" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ExpressionQuality">
+    <eLiterals name="L1"/>
+    <eLiterals name="L2" value="1"/>
+    <eLiterals name="L3" value="2"/>
+  </eClassifiers>
 </ecore:EPackage>
