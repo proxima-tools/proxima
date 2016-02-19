@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/be.uantwerpen.msdl.icm.processmodeler.feature_0.1.0.201602190318.jar" id="be.uantwerpen.msdl.icm.processmodeler.feature" version="0.1.0.201602190318"/>
+   <feature url="features/be.uantwerpen.msdl.icm.processmodeler.feature_0.1.0.201602192342.jar" id="be.uantwerpen.msdl.icm.processmodeler.feature" version="0.1.0.201602192342">
+      <category name="processModeler"/>
+   </feature>
+   <category-def name="processModeler" label="Process Modeler"/>
 </site>
