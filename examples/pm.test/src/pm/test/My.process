@@ -21,6 +21,13 @@
     <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.2" name="enjoy the beauties of the nature (today's a sunny day)" calculatedProperty="//@propertyModel/@property.1"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Decision" name="okay?"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:FlowFinal"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:FlowFinal"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Meet Hans" calculatedProperty="//@propertyModel/@property.4"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Meet Klaas" dataFlowFrom="//@process.0/@node.26" calculatedProperty="//@propertyModel/@property.5"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.3" name="Kristof checks our models" dataFlowFrom="//@process.0/@node.26" dataFlowTo="//@process.0/@node.26"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Fork"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Join"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="Robot case" dataFlowFrom="//@process.0/@node.23" dataFlowTo="//@process.0/@node.22 //@process.0/@node.23" typedBy="//@transformationGraph/@language.5"/>
     <controlFlow fromNode="//@process.0/@node.1"/>
     <controlFlow toNode="//@process.0/@node.1" fromNode="//@process.0/@node.0"/>
     <controlFlow toNode="//@process.0/@node.6" fromNode="//@process.0/@node.5"/>
@@ -40,11 +47,21 @@
     <controlFlow name="yes" toNode="//@process.0/@node.4" fromNode="//@process.0/@node.18"/>
     <controlFlow name="no" toNode="//@process.0/@node.6" fromNode="//@process.0/@node.18"/>
     <controlFlow toNode="//@process.0/@node.19" fromNode="//@process.0/@node.7"/>
+    <controlFlow toNode="//@process.0/@node.21" fromNode="//@process.0/@node.24"/>
+    <controlFlow toNode="//@process.0/@node.23" fromNode="//@process.0/@node.24"/>
+    <controlFlow toNode="//@process.0/@node.25" fromNode="//@process.0/@node.23"/>
+    <controlFlow toNode="//@process.0/@node.25" fromNode="//@process.0/@node.21"/>
+    <controlFlow toNode="//@process.0/@node.22" fromNode="//@process.0/@node.25"/>
+    <controlFlow toNode="//@process.0/@node.20" fromNode="//@process.0/@node.22"/>
   </process>
   <process name="someOtherProcess"/>
   <process>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Initial"/>
     <controlFlow toNode="//@process.0/@node.8" fromNode="//@process.2/@node.0"/>
+  </process>
+  <process>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Initial"/>
+    <controlFlow toNode="//@process.0/@node.24" fromNode="//@process.3/@node.0"/>
   </process>
   <transformationGraph>
     <transformation name="CAD2Simulink" inputLanguage="//@transformationGraph/@language.0" outputLanguage="//@transformationGraph/@language.1"/>
@@ -53,6 +70,7 @@
     <language name="zip" types="//@process.0/@node.14"/>
     <language name="Eclipse" types="//@process.0/@node.15"/>
     <language name="awesomeness" types="//@process.0/@node.16"/>
+    <language name="FTG+PM" types="//@process.0/@node.26"/>
   </transformationGraph>
   <propertyModel>
     <property name="safety" relatesTo="//@process.0/@node.3" manipulatedBy="//@process.0/@node.1 //@process.0/@node.6">
@@ -63,10 +81,18 @@
     </property>
     <property name="p5"/>
     <property name="p2"/>
+    <property name="Scientific soundness" manipulatedBy="//@process.0/@node.21">
+      <ontologicalRelationship name="partOf" property="//@propertyModel/@property.5"/>
+    </property>
+    <property name="Successful workshop" manipulatedBy="//@process.0/@node.22"/>
+    <property name="My chances of getting a PhD">
+      <ontologicalRelationship name="requires" property="//@propertyModel/@property.4"/>
+    </property>
   </propertyModel>
   <costModel>
     <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.4" value="1000.0"/>
     <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.1" value="100.0"/>
     <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.17"/>
+    <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.23"/>
   </costModel>
 </be.uantwerpen.msdl.metamodels:ProcessModel>
