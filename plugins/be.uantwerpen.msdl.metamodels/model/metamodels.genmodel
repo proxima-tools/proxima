@@ -87,6 +87,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//Property/impliesConstraint"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/relatesTo"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/manipulatedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//Property/ontologicalRelationship"/>
+    </genClasses>
+    <genClasses ecoreClass="process.ecore#//OntologicalRelationship">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//OntologicalRelationship/property"/>
     </genClasses>
     <genClasses image="false" ecoreClass="process.ecore#//Constraint"/>
     <genClasses ecoreClass="process.ecore#//HardConstraint"/>

@@ -22,7 +22,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="controlFlow" upperBound="-1"
         eType="#//ControlFlow" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ControlFlow">
+  <eClassifiers xsi:type="ecore:EClass" name="ControlFlow" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="toNode" upperBound="-1"
         eType="#//Node"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromNode" upperBound="-1"
@@ -62,7 +62,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Fork" eSuperTypes="#//Control"/>
   <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//Control"/>
   <eClassifiers xsi:type="ecore:EClass" name="Merge" eSuperTypes="#//Control"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//Control"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//Control #//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="TransformationGraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" upperBound="-1"
         eType="#//Transformation" containment="true"/>
@@ -113,6 +113,11 @@
         eType="#//Object" eOpposite="#//Object/relatedProperty"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="manipulatedBy" upperBound="-1"
         eType="#//Activity" eOpposite="#//Activity/calculatedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ontologicalRelationship"
+        upperBound="-1" eType="#//OntologicalRelationship" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OntologicalRelationship" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//Property"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="HardConstraint" eSuperTypes="#//Constraint"/>
