@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.process">
+  <process name="someProcess">
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Initial"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.0" name="CAD2Simulink" dataFlowFrom="//@process.0/@node.2" dataFlowTo="//@process.0/@node.3" calculatedProperty="//@propertyModel/@property.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="cadModel" dataFlowTo="//@process.0/@node.1" typedBy="//@transformationGraph/@language.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="simulinkModel" dataFlowFrom="//@process.0/@node.1" typedBy="//@transformationGraph/@language.1" relatedProperty="//@propertyModel/@property.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:FlowFinal"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" cost="//@costModel/@cost.1" name="someWork"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Fork"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" name="computation" calculatedProperty="//@propertyModel/@property.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Join"/>
+    <controlFlow fromNode="//@process.0/@node.1"/>
+    <controlFlow toNode="//@process.0/@node.1" fromNode="//@process.0/@node.0"/>
+    <controlFlow toNode="//@process.0/@node.7" fromNode="//@process.0/@node.6"/>
+    <controlFlow toNode="//@process.0/@node.5" fromNode="//@process.0/@node.6"/>
+    <controlFlow toNode="//@process.0/@node.6" fromNode="//@process.0/@node.1"/>
+    <controlFlow toNode="//@process.0/@node.8" fromNode="//@process.0/@node.5"/>
+    <controlFlow toNode="//@process.0/@node.8" fromNode="//@process.0/@node.7"/>
+    <controlFlow toNode="//@process.0/@node.4" fromNode="//@process.0/@node.8"/>
+  </process>
+  <process name="someOtherProcess"/>
+  <transformationGraph>
+    <language name="CAD" types="//@process.0/@node.2"/>
+    <language name="Simulink" types="//@process.0/@node.3"/>
+  </transformationGraph>
+  <propertyModel>
+    <property name="safety" relatesTo="//@process.0/@node.3" manipulatedBy="//@process.0/@node.1 //@process.0/@node.7"/>
+  </propertyModel>
+  <costModel>
+    <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.1" value="10.0"/>
+    <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.5" value="1000.0"/>
+  </costModel>
+</be.uantwerpen.msdl.metamodels:ProcessModel>
