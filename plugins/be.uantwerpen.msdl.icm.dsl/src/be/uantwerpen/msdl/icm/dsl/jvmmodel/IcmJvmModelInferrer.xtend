@@ -55,44 +55,45 @@ class IcmJvmModelInferrer extends AbstractModelInferrer {
 	 *            <code>true</code>.
 	 */
 	def dispatch void infer(Model element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-		if (element == null || element.modelElements.empty) {
-			return
-		}
-
-//		val semanticProperties = element.modelElements.filter[e|(e instanceof SemanticProperty)]
-//		val syntacticProperties = element.modelElements.filter[e|(e instanceof SyntacticProperty)]
-		val properties = element.modelElements.filter[e|(e instanceof Property)]
-
-		for (property : properties) {
-			acceptor.accept(property.toClass(property.validJavaFqn)) [
-				superTypes += _typeReferenceBuilder.typeRef(PropertyImpl)
-				
-				//Semantic properties
-				properties.filter[p|(p as Property).activityReference!=null].forEach [ p |
-					members += property.toField("reference", _typeReferenceBuilder.typeRef("String")) [
-						initializer = [append('''"«(p as Property).activityReference»"''')]
-						final = true
-					]
-				]
-				
-				//Syntactic properties
-				properties.filter[p|(p as Property).queryReference!=null].forEach [ p |
-					members += property.toField("query", _typeReferenceBuilder.typeRef("String")) [
-						initializer = [append('''"«(p as Property).activityReference»"''')]
-						final = true
-					]
-				]
-//				members += property.toMethod("evaluateCheckExpression", _typeReferenceBuilder.typeRef("boolean")) [
-//					if ((property as SemanticProperty).checkExpression == null) {
-//						body = [
-//							append('''return true;''')
-//						]
-//					} else {
-//						body = pattern.checkExpression
-//					}
+//		
+//		if (element == null || element.modelElements.empty) {
+//			return
+//		}
+//
+////		val semanticProperties = element.modelElements.filter[e|(e instanceof SemanticProperty)]
+////		val syntacticProperties = element.modelElements.filter[e|(e instanceof SyntacticProperty)]
+//		val properties = element.modelElements.filter[e|(e instanceof Property)]
+//
+//		for (property : properties) {
+//			acceptor.accept(property.toClass(property.validJavaFqn)) [
+//				superTypes += _typeReferenceBuilder.typeRef(PropertyImpl)
+//				
+//				//Semantic properties
+//				properties.filter[p|(p as Property).activityReference!=null].forEach [ p |
+//					members += property.toField("reference", _typeReferenceBuilder.typeRef("String")) [
+//						initializer = [append('''"«(p as Property).activityReference»"''')]
+//						final = true
+//					]
 //				]
-			]
-		}
+//				
+//				//Syntactic properties
+//				properties.filter[p|(p as Property).queryReference!=null].forEach [ p |
+//					members += property.toField("query", _typeReferenceBuilder.typeRef("String")) [
+//						initializer = [append('''"«(p as Property).activityReference»"''')]
+//						final = true
+//					]
+//				]
+////				members += property.toMethod("evaluateCheckExpression", _typeReferenceBuilder.typeRef("boolean")) [
+////					if ((property as SemanticProperty).checkExpression == null) {
+////						body = [
+////							append('''return true;''')
+////						]
+////					} else {
+////						body = pattern.checkExpression
+////					}
+////				]
+//			]
+//		}
 	}
 
 	def getValidJavaFqn(ModelElement modelElement) {
