@@ -2,9 +2,10 @@
 <be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.process">
   <process>
     <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Concept-Design" dataFlowFrom="//@process.0/@node.3" dataFlowTo="//@process.0/@node.1"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="system-concept" dataFlowFrom="//@process.0/@node.0" typedBy="//@transformationGraph/@language.0"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="geo-concept" typedBy="//@transformationGraph/@language.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="system-concept" dataFlowFrom="//@process.0/@node.0" dataFlowTo="//@process.0/@node.4" typedBy="//@transformationGraph/@language.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="geo-concept" dataFlowFrom="//@process.0/@node.4" typedBy="//@transformationGraph/@language.1"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="system-requirements" dataFlowTo="//@process.0/@node.0" typedBy="//@transformationGraph/@language.2"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="" dataFlowFrom="//@process.0/@node.1" dataFlowTo="//@process.0/@node.2"/>
     <controlFlow final="false"/>
   </process>
   <process>
@@ -12,6 +13,7 @@
     <controlFlow toNode="//@process.0/@node.0" fromNode="//@process.1/@node.0"/>
   </process>
   <transformationGraph>
+    <transformation/>
     <language name="SysML-BDD" types="//@process.0/@node.1"/>
     <language name="Multi-Body" types="//@process.0/@node.2"/>
     <language name="SysML-REQ" types="//@process.0/@node.3"/>
