@@ -2,12 +2,12 @@
 <be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.process">
   <process name="someProcess">
     <node xsi:type="be.uantwerpen.msdl.metamodels:Initial"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.1" name="CAD2Simulink" dataFlowFrom="//@process.0/@node.2" dataFlowTo="//@process.0/@node.3" calculatedProperty="//@propertyModel/@property.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.1" name="CAD2Simulink" dataFlowFrom="//@process.0/@node.2" dataFlowTo="//@process.0/@node.3"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="cadModel" dataFlowTo="//@process.0/@node.1" typedBy="//@transformationGraph/@language.0"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="simulinkModel" dataFlowFrom="//@process.0/@node.1" typedBy="//@transformationGraph/@language.1" relatedProperty="//@propertyModel/@property.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="simulinkModel" dataFlowFrom="//@process.0/@node.1" typedBy="//@transformationGraph/@language.1"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" cost="//@costModel/@cost.0" name="someWork"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Fork"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" name="computation" calculatedProperty="//@propertyModel/@property.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" name="computation"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Join"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Download Eclipse" dataFlowTo="//@process.0/@node.14"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Unzip" dataFlowFrom="//@process.0/@node.14" dataFlowTo="//@process.0/@node.15"/>
@@ -18,12 +18,12 @@
     <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="mars" dataFlowFrom="//@process.0/@node.8" dataFlowTo="//@process.0/@node.9" typedBy="//@transformationGraph/@language.2"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="local copy" dataFlowFrom="//@process.0/@node.9" typedBy="//@transformationGraph/@language.3"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="Eclipse w/ Sirius" dataFlowFrom="//@process.0/@node.10" typedBy="//@transformationGraph/@language.4"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.2" name="enjoy the beauties of the nature (today's a sunny day)" calculatedProperty="//@propertyModel/@property.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.2" name="enjoy the beauties of the nature (today's a sunny day)"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Decision" name="okay?"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:FlowFinal"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:FlowFinal"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Meet Hans" calculatedProperty="//@propertyModel/@property.4"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Meet Klaas" dataFlowFrom="//@process.0/@node.26" calculatedProperty="//@propertyModel/@property.5"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Meet Hans"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Meet Klaas" dataFlowFrom="//@process.0/@node.26"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.3" name="Kristof checks our models" dataFlowFrom="//@process.0/@node.26" dataFlowTo="//@process.0/@node.26"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Fork"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Join"/>
@@ -73,21 +73,22 @@
     <language name="FTG+PM" types="//@process.0/@node.26"/>
   </transformationGraph>
   <propertyModel>
-    <property name="safety" relatesTo="//@process.0/@node.3" manipulatedBy="//@process.0/@node.1 //@process.0/@node.6">
+    <property name="safety">
       <ontologicalRelationship name="partOf" property="//@propertyModel/@property.3"/>
     </property>
-    <property name="happiness" manipulatedBy="//@process.0/@node.17">
+    <property name="happiness">
       <ontologicalRelationship property="//@propertyModel/@property.2"/>
     </property>
     <property name="p5"/>
     <property name="p2"/>
-    <property name="Scientific soundness" manipulatedBy="//@process.0/@node.21">
+    <property name="Scientific soundness">
       <ontologicalRelationship name="partOf" property="//@propertyModel/@property.5"/>
     </property>
-    <property name="Successful workshop" manipulatedBy="//@process.0/@node.22"/>
+    <property name="Successful workshop"/>
     <property name="My chances of getting a PhD">
       <ontologicalRelationship name="requires" property="//@propertyModel/@property.4"/>
     </property>
+    <constraint property="//@propertyModel/@property.0 //@propertyModel/@property.3" quality="L3"/>
   </propertyModel>
   <costModel>
     <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.4" value="1000.0"/>
@@ -95,4 +96,5 @@
     <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.17"/>
     <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.23"/>
   </costModel>
+  <intent property="//@propertyModel/@property.0" activity="//@process.0/@node.1"/>
 </be.uantwerpen.msdl.metamodels:ProcessModel>
