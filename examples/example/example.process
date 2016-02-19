@@ -2,24 +2,48 @@
 <be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.process">
   <process>
     <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Concept-Design" dataFlowFrom="//@process.0/@node.3" dataFlowTo="//@process.0/@node.1"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="system-concept" dataFlowFrom="//@process.0/@node.0" dataFlowTo="//@process.0/@node.4" typedBy="//@transformationGraph/@language.0"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="geo-concept" dataFlowFrom="//@process.0/@node.4" typedBy="//@transformationGraph/@language.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="system-concept" dataFlowFrom="//@process.0/@node.0 //@process.0/@node.7 //@process.0/@node.8" dataFlowTo="//@process.0/@node.4 //@process.0/@node.7 //@process.0/@node.8 //@process.0/@node.10" typedBy="//@transformationGraph/@language.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="geo-concept" dataFlowFrom="//@process.0/@node.4 //@process.0/@node.14" dataFlowTo="//@process.0/@node.14 //@process.0/@node.15" typedBy="//@transformationGraph/@language.1"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="system-requirements" dataFlowTo="//@process.0/@node.0" typedBy="//@transformationGraph/@language.2"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="" dataFlowFrom="//@process.0/@node.1" dataFlowTo="//@process.0/@node.2"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Geo-Design" dataFlowFrom="//@process.0/@node.1" dataFlowTo="//@process.0/@node.2"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Decision" name="consistencyCheckMotor"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="batteries" dataFlowTo="//@process.0/@node.7" typedBy="//@transformationGraph/@language.3"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Select Battery" dataFlowFrom="//@process.0/@node.1 //@process.0/@node.6" dataFlowTo="//@process.0/@node.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Select-Motor" dataFlowFrom="//@process.0/@node.9 //@process.0/@node.1" dataFlowTo="//@process.0/@node.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" dataFlowTo="//@process.0/@node.8" typedBy="//@transformationGraph/@language.4"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" name="GenerateMechanicalDesign" dataFlowFrom="//@process.0/@node.1" dataFlowTo="//@process.0/@node.11"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="ig" dataFlowFrom="//@process.0/@node.10" dataFlowTo="//@process.0/@node.12" typedBy="//@transformationGraph/@language.5"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" name="ExecuteMechanicalDesign" dataFlowFrom="//@process.0/@node.11" dataFlowTo="//@process.0/@node.13"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" dataFlowFrom="//@process.0/@node.12" dataFlowTo="//@process.0/@node.14" typedBy="//@transformationGraph/@language.6"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="AdaptMultiBodyModel" dataFlowFrom="//@process.0/@node.2 //@process.0/@node.13" dataFlowTo="//@process.0/@node.2"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" name="ExecuteMBM" dataFlowFrom="//@process.0/@node.2" dataFlowTo="//@process.0/@node.16"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" dataFlowFrom="//@process.0/@node.15" typedBy="//@transformationGraph/@language.7"/>
     <controlFlow final="false"/>
+    <controlFlow toNode="//@process.0/@node.4" fromNode="//@process.0/@node.0"/>
+    <controlFlow toNode="//@process.0/@node.7" fromNode="//@process.0/@node.4"/>
+    <controlFlow toNode="//@process.0/@node.8" fromNode="//@process.0/@node.7"/>
+    <controlFlow toNode="//@process.0/@node.10" fromNode="//@process.0/@node.8"/>
+    <controlFlow toNode="//@process.0/@node.12" fromNode="//@process.0/@node.10"/>
+    <controlFlow toNode="//@process.0/@node.14" fromNode="//@process.0/@node.12"/>
+    <controlFlow toNode="//@process.0/@node.15" fromNode="//@process.0/@node.14"/>
+    <controlFlow toNode="//@process.0/@node.5" fromNode="//@process.0/@node.15"/>
+    <controlFlow name="inconsistent" toNode="//@process.0/@node.8" fromNode="//@process.0/@node.5"/>
   </process>
   <process>
     <node xsi:type="be.uantwerpen.msdl.metamodels:Initial"/>
     <controlFlow toNode="//@process.0/@node.0" fromNode="//@process.1/@node.0"/>
   </process>
   <transformationGraph>
-    <transformation/>
     <language name="SysML-BDD" types="//@process.0/@node.1"/>
     <language name="Multi-Body" types="//@process.0/@node.2"/>
     <language name="SysML-REQ" types="//@process.0/@node.3"/>
+    <language name="Battery-Catalogue" types="//@process.0/@node.6"/>
+    <language name="Motor-Catalogue" types="//@process.0/@node.9"/>
+    <language name="Mechanical Design Language" types="//@process.0/@node.11"/>
+    <language name="MechanicalTrace" types="//@process.0/@node.13"/>
+    <language name="MBTrace" types="//@process.0/@node.16"/>
   </transformationGraph>
   <propertyModel>
-    <property name="Safety?"/>
     <property name="Inertia?"/>
     <property name="mass?"/>
     <property name="motor load?"/>
