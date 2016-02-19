@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:be.uantwerpen.msdl.metamodels="metamodels.process">
+  <process name="someProcess"/>
+  <process/>
+  <transformationGraph/>
+  <propertyModel/>
+  <costModel/>
+</be.uantwerpen.msdl.metamodels:ProcessModel>
