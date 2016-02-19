@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:be.uantwerpen.msdl.metamodels="metamodels.process">
-  <process name="someProcess"/>
-  <process/>
-  <transformationGraph/>
-  <propertyModel/>
+<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.process">
+  <process>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Concept-Design" dataFlowFrom="//@process.0/@node.3" dataFlowTo="//@process.0/@node.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="system-concept" dataFlowFrom="//@process.0/@node.0" typedBy="//@transformationGraph/@language.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="geo-concept" typedBy="//@transformationGraph/@language.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="system-requirements" dataFlowTo="//@process.0/@node.0" typedBy="//@transformationGraph/@language.2"/>
+    <controlFlow final="false"/>
+  </process>
+  <process>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Initial"/>
+    <controlFlow toNode="//@process.0/@node.0" fromNode="//@process.1/@node.0"/>
+  </process>
+  <transformationGraph>
+    <language name="SysML-BDD" types="//@process.0/@node.1"/>
+    <language name="Multi-Body" types="//@process.0/@node.2"/>
+    <language name="SysML-REQ" types="//@process.0/@node.3"/>
+  </transformationGraph>
+  <propertyModel>
+    <property name="Safety?"/>
+    <property name="Inertia?"/>
+    <property name="mass?"/>
+    <property name="motor load?"/>
+    <property name="motor power?"/>
+    <property name="trajectory?"/>
+    <property name="autonomy?"/>
+    <property name="battery size?"/>
+  </propertyModel>
   <costModel/>
 </be.uantwerpen.msdl.metamodels:ProcessModel>
