@@ -212,7 +212,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="TypeLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='LanguageNode']" targetFinderExpression="feature:typedBy">
+        <edgeMappings name="TypeLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='AutomatedActivityNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ManualActivityNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='LanguageNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:typedBy">
           <style lineStyle="dash" sizeComputationExpression="2" foldingStyle="SOURCE">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«typedBy»">
