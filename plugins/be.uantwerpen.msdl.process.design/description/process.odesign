@@ -225,8 +225,13 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.transformationGraph->first()">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Language" referenceName="language"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.transformationGraph->first()=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.TransformationGraph" referenceName="transformationGraph"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.transformationGraph->first()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Language" referenceName="language"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -234,8 +239,13 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.transformationGraph->first()">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Transformation" referenceName="transformation"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.transformationGraph->first()=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.TransformationGraph" referenceName="transformationGraph"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.transformationGraph->first()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Transformation" referenceName="transformation"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -319,8 +329,13 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.propertyModel->first()">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Property" referenceName="property"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.propertyModel->first()=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.PropertyModel" referenceName="propertyModel"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.propertyModel->first()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Property" referenceName="property"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -328,9 +343,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.propertyModel->first()">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Constraint" referenceName="constraint"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="createOntologicalRelationship" label="Ontological Relationship" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='OntologicalRelationship']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-red.png">
@@ -394,8 +407,13 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.costModel->first()">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.RatioScale" referenceName="cost"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.costModel->first()=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.CostModel" referenceName="costModel"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.costModel->first()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.RatioScale" referenceName="cost"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
