@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: be.uantwerpen.msdl.process.design
+Bundle-Name: ICM Process Modeler
 Bundle-SymbolicName: be.uantwerpen.msdl.process.design;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: be.uantwerpen.msdl.process.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -11,4 +11,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.common.acceleo.aql,
  be.uantwerpen.msdl.metamodels;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: Istvan David
