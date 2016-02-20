@@ -179,7 +179,6 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="ElementEdition"/>
       </additionalLayers>
       <additionalLayers name="LanguageLayer" label="Languages" activeByDefault="true">
         <nodeMappings name="LanguageNode" domainClass="process.Language">
@@ -260,29 +259,24 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createTransformedByRelationship" label="Transformed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@edgeMappings[name='TransformedByEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@edgeMappings[name='TransformationToEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="inputOf" valueExpression="var:target"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createTransformationToRelationship" label="Transformation to" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@edgeMappings[name='TransformationToEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="outputLanguage" valueExpression="var:target"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(process::Language)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="inputOf" valueExpression="var:target"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(process::Transformation)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="outputLanguage" valueExpression="var:target"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="TransformationGraphEditing"/>
       </additionalLayers>
       <additionalLayers name="PropertyLayer" label="Properties" activeByDefault="true">
         <nodeMappings name="PropertyNode" domainClass="process.Property">
@@ -300,7 +294,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="OntologicalRelationship" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:property" sourceFinderExpression="aql:self.eContainer()" domainClass="process.OntologicalRelationship" useDomainElement="true">
+        <edgeMappings name="OntologicalRelationship" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:ontologicalRelationshipTo" sourceFinderExpression="aql:self.eContainer()" domainClass="process.OntologicalRelationship" useDomainElement="true">
           <style lineStyle="dot" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="aql:'«'.concat(self.name).concat('»')">
@@ -308,7 +302,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="IntentEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='AutomatedActivityNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ManualActivityNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:property" sourceFinderExpression="feature:activity" domainClass="process.Intent" useDomainElement="true">
+        <edgeMappings name="IntentEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='AutomatedActivityNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ManualActivityNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:propertyOfIntent" sourceFinderExpression="feature:activity" domainClass="process.Intent" useDomainElement="true">
           <style lineStyle="dash" targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.type.toString().toLower()">
@@ -316,7 +310,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ConstraintedPropertiesEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='ConstraintNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:property">
+        <edgeMappings name="ConstraintedPropertiesEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='ConstraintNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:constrainedProperty">
           <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription>
@@ -343,7 +337,14 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.propertyModel->first()=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.PropertyModel" referenceName="propertyModel"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.propertyModel->first()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Constraint" referenceName="constraint"/>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="createOntologicalRelationship" label="Ontological Relationship" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='OntologicalRelationship']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-red.png">
@@ -354,7 +355,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.OntologicalRelationship" referenceName="ontologicalRelationship">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="property" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ontologicalRelationshipTo" valueExpression="var:target"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -368,7 +369,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer().eContainer()">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Intent" referenceName="intent">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:source"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="property" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="propertyOfIntent" valueExpression="var:target"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -380,11 +381,12 @@
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="property" valueExpression="var:target"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="constrainedProperty" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="PropertyModelEditing"/>
       </additionalLayers>
       <additionalLayers name="CostLayer" label="Costs" activeByDefault="true">
         <nodeMappings name="CostNode" domainClass="process.RatioScale">
@@ -394,7 +396,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="CostLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='AutomatedActivityNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ManualActivityNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='CostLayer']/@nodeMappings[name='CostNode']" targetFinderExpression="feature:cost">
+        <edgeMappings name="CostLink" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='CostLayer']/@toolSections.1/@ownedTools[name='unsetCostLink']" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='AutomatedActivityNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ManualActivityNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='CostLayer']/@nodeMappings[name='CostNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='CostLayer']/@nodeMappings[name='CostNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='AutomatedActivityNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ManualActivityNode']" targetFinderExpression="feature:cost">
           <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2" foldingStyle="SOURCE">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
             <centerLabelStyleDescription showIcon="false">
@@ -423,8 +425,25 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="cost" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(CostItem)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="cost" valueExpression="var:target"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(Cost)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="costItem" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="CostModelEditing">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="unsetCostLink">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="cost"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
