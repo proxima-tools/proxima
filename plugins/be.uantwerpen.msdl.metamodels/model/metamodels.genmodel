@@ -95,12 +95,14 @@
     </genClasses>
     <genClasses ecoreClass="process.ecore#//Property">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//Property/ontologicalRelationship"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/constraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/intent"/>
     </genClasses>
     <genClasses ecoreClass="process.ecore#//OntologicalRelationship">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//OntologicalRelationship/property"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//OntologicalRelationship/ontologicalRelationshipTo"/>
     </genClasses>
     <genClasses image="false" ecoreClass="process.ecore#//Constraint">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Constraint/property"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Constraint/constrainedProperty"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//Constraint/hard"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//Constraint/quality"/>
     </genClasses>

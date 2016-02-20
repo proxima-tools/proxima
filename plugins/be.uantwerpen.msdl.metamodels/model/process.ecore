@@ -103,13 +103,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ontologicalRelationship"
         upperBound="-1" eType="#//OntologicalRelationship" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraintOnProperty" upperBound="-1"
+        eType="#//Constraint" eOpposite="#//Constraint/constrainedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intentOfProperty" upperBound="-1"
+        eType="#//Intent" eOpposite="#//Intent/propertyOfIntent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OntologicalRelationship" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ontologicalRelationshipTo"
+        eType="#//Property"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
-        eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constrainedProperty" upperBound="-1"
+        eType="#//Property" eOpposite="#//Property/constraintOnProperty"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="quality" lowerBound="1"
@@ -122,8 +127,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Infinite" eSuperTypes="#//RatioScale"/>
   <eClassifiers xsi:type="ecore:EClass" name="Intent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//IntentType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
-        eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOfIntent" upperBound="-1"
+        eType="#//Property" eOpposite="#//Property/intentOfProperty"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
         eType="#//Activity"/>
   </eClassifiers>
