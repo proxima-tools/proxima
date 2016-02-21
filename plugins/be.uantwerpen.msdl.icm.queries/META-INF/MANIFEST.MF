@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: be.uantwerpen.msdl.icm.queries
+Bundle-Name: ICM Generic Query Plugin
 Bundle-SymbolicName: be.uantwerpen.msdl.icm.queries;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.1.0.qualifier
 Export-Package: be.uantwerpen.msdl.icm.queries,
  be.uantwerpen.msdl.icm.queries.util
 Require-Bundle: org.eclipse.emf.ecore,
@@ -11,3 +11,4 @@ Require-Bundle: org.eclipse.emf.ecore,
  be.uantwerpen.msdl.metamodels;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.log4j
+Bundle-Vendor: Istvan David
