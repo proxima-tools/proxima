@@ -66,7 +66,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="ObjectNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="process.Object">
-          <style xsi:type="style:SquareDescription" labelExpression="aql:self.name.concat(' : ').concat(self.typedBy.name)" iconPath="/be.uantwerpen.msdl.process.design/icons/cube.png" labelPosition="node" resizeKind="NSEW" width="13" height="3">
+          <style xsi:type="style:SquareDescription" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/be.uantwerpen.msdl.process.design/icons/cube.png" labelPosition="node" resizeKind="NSEW" width="13" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -412,7 +412,7 @@
         <toolSections name="PropertyModelEditing"/>
       </additionalLayers>
       <additionalLayers name="CostLayer" label="Costs" activeByDefault="true">
-        <nodeMappings name="CostNode" domainClass="process.RatioScale">
+        <nodeMappings name="CostNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='CostLayer']/@toolSections.1/@ownedTools[name='EditCostValue']" domainClass="process.RatioScale">
           <style xsi:type="style:EllipseNodeDescription" labelExpression="feature:value" iconPath="/be.uantwerpen.msdl.process.design/icons/cost-green.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -467,6 +467,14 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:Unset" featureName="cost"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditCostValue">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:0"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
