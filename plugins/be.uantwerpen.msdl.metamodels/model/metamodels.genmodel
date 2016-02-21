@@ -95,8 +95,8 @@
     </genClasses>
     <genClasses ecoreClass="process.ecore#//Property">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//Property/ontologicalRelationship"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/constraint"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/intent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/constraintOnProperty"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/intentOfProperty"/>
     </genClasses>
     <genClasses ecoreClass="process.ecore#//OntologicalRelationship">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//OntologicalRelationship/ontologicalRelationshipTo"/>
@@ -113,7 +113,7 @@
     <genClasses ecoreClass="process.ecore#//Infinite"/>
     <genClasses ecoreClass="process.ecore#//Intent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//Intent/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Intent/property"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Intent/propertyOfIntent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Intent/activity"/>
     </genClasses>
   </genPackages>

@@ -5,7 +5,7 @@
       <defaultLayer name="Default"/>
       <additionalLayers name="ProcessLayer" label="Processes" activeByDefault="true">
         <nodeMappings name="InitNode" domainClass="process.Initial">
-          <style xsi:type="style:DotDescription" showIcon="false" labelExpression="" sizeComputationExpression="2">
+          <style xsi:type="style:DotDescription" showIcon="false" labelExpression="aql:self.eContainer().name" sizeComputationExpression="2">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
