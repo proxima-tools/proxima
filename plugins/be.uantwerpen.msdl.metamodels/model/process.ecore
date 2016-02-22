@@ -98,13 +98,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
         eType="#//Property" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
-        eType="#//Constraint" containment="true"/>
+        eType="#//AbstractConstraint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ontologicalRelationship"
         upperBound="-1" eType="#//OntologicalRelationship" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraintOnProperty" upperBound="-1"
-        eType="#//Constraint" eOpposite="#//Constraint/constrainedProperty"/>
+        eType="#//AbstractConstraint" eOpposite="#//AbstractConstraint/constrainedProperty"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="intentOfProperty" upperBound="-1"
         eType="#//Intent" eOpposite="#//Intent/propertyOfIntent"/>
   </eClassifiers>
@@ -112,15 +112,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ontologicalRelationshipTo"
         eType="#//Property"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractConstraint" abstract="true"
+      eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constrainedProperty" upperBound="-1"
         eType="#//Property" eOpposite="#//Property/constraintOnProperty"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="quality" lowerBound="1"
         eType="#//ExpressionQuality" defaultValueLiteral="L1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//AbstractConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//AbstractConstraint"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ExpressionQuality">
+    <eLiterals name="L1"/>
+    <eLiterals name="L2" value="1"/>
+    <eLiterals name="L3" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="L1" eSuperTypes="#//Expression"/>
@@ -141,10 +147,5 @@
     <eLiterals name="MODIFY" value="3"/>
     <eLiterals name="CHECK" value="4"/>
     <eLiterals name="EVALUATE" value="5"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ExpressionQuality">
-    <eLiterals name="L1"/>
-    <eLiterals name="L2" value="1"/>
-    <eLiterals name="L3" value="2"/>
   </eClassifiers>
 </ecore:EPackage>
