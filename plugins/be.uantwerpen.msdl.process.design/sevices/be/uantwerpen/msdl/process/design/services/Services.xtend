@@ -44,12 +44,10 @@ class Services {
 		processModel.intent.filter [ intent |
 			intent.activity.equals(activity)
 		].forEach [ intent |
-			intent.propertyOfIntent.forEach [ property |
-				property.intentOfProperty.filter [ intent2 |
-					!intent2.equals(intent)
-				].forEach [ intent2 |
-					list.addAll(intent2.activity)
-				]
+			intent.propertyOfIntent.intentOfProperty.filter [ intent2 |
+				!intent2.equals(intent)
+			].forEach [ intent2 |
+				list.addAll(intent2.activity)
 			]
 		]
 

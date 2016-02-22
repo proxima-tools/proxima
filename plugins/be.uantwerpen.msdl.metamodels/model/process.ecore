@@ -24,9 +24,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlFlow" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="toNode" upperBound="-1"
-        eType="#//Node"/>
+        eType="#//Node" eOpposite="#//Node/fromControlFlow"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromNode" upperBound="-1"
-        eType="#//Node"/>
+        eType="#//Node" eOpposite="#//Node/toControlFlow"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
   </eClassifiers>
@@ -35,6 +35,10 @@
         eType="#//Node" eOpposite="#//Node/dataFlowTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowTo" upperBound="-1"
         eType="#//Node" eOpposite="#//Node/dataFlowFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toControlFlow" upperBound="-1"
+        eType="#//ControlFlow" eOpposite="#//ControlFlow/fromNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fromControlFlow" upperBound="-1"
+        eType="#//ControlFlow" eOpposite="#//ControlFlow/toNode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//CostItem #//NamedElement #//Node">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//Transformation"
@@ -135,7 +139,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Infinite" eSuperTypes="#//RatioScale"/>
   <eClassifiers xsi:type="ecore:EClass" name="Intent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//IntentType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOfIntent" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOfIntent" lowerBound="1"
         eType="#//Property" eOpposite="#//Property/intentOfProperty"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
         eType="#//Activity"/>
