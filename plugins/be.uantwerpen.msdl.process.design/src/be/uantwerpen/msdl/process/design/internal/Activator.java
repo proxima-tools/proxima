@@ -1,4 +1,4 @@
-package be.uantwerpen.msdl.process.design;
+package be.uantwerpen.msdl.process.design.internal;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 <plugin>
   <extension point="org.eclipse.sirius.componentization">
-    <component class="be.uantwerpen.msdl.process.design.Activator"
+    <component class="be.uantwerpen.msdl.process.design.internal.Activator"
                id="be.uantwerpen.msdl.process.design"
 	       name="process">
     </component>
