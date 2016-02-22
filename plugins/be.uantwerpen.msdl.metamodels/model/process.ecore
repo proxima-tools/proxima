@@ -119,6 +119,8 @@
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="quality" lowerBound="1"
         eType="#//ExpressionQuality" defaultValueLiteral="L1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requirement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="L1" eSuperTypes="#//Expression"/>
@@ -138,7 +140,7 @@
     <eLiterals name="READ" value="2"/>
     <eLiterals name="MODIFY" value="3"/>
     <eLiterals name="CHECK" value="4"/>
-    <eLiterals name="DELETE" value="5"/>
+    <eLiterals name="EVALUATE" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ExpressionQuality">
     <eLiterals name="L1"/>
