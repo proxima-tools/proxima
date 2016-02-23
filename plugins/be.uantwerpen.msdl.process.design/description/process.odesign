@@ -23,7 +23,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="FinalNode" domainClass="process.FlowFinal">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="final" hideLabelByDefault="true" workspacePath="/be.uantwerpen.msdl.process.design/icons/activity-final.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="final" hideLabelByDefault="true" workspacePath="/be.uantwerpen.msdl.process.design/icons/activity-final-2.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
