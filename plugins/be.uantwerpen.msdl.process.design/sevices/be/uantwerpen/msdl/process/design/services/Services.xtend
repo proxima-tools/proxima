@@ -54,7 +54,7 @@ class Services {
 		]
 	}
 
-	val dependencyImplications = #[new Pair(IntentType.READ, IntentType.MODIFY)]
+	val dependencyImplications = #[new Pair(IntentType.MODIFY, IntentType.READ)]
 
 	def boolean followedBy(Node node1, Node node2) {
 		node1.collectSubsequentNodes.contains(node2)
