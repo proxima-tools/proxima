@@ -1,9 +1,13 @@
 package be.uantwerpen.msdl.process.design.services
 
 import be.uantwerpen.msdl.metamodels.process.Activity
+import be.uantwerpen.msdl.metamodels.process.IntentType
+import be.uantwerpen.msdl.metamodels.process.Node
 import be.uantwerpen.msdl.metamodels.process.Process
 import be.uantwerpen.msdl.metamodels.process.ProcessModel
 import com.google.common.collect.Lists
+import com.google.common.collect.Sets
+import java.util.Set
 
 /**
  * Services for the editor
@@ -21,8 +25,7 @@ class Services {
 		var process = activity.eContainer as Process
 
 		process.node.filter [ node |
-			node.dataFlowFrom.contains(activity) &&
-			!node.dataFlowTo.contains(activity)
+			node.dataFlowFrom.contains(activity) && !node.dataFlowTo.contains(activity)
 		].fold(Lists::newArrayList) [ list, node |
 			list.addAll(node.dataFlowTo)
 			list
@@ -31,7 +34,6 @@ class Services {
 
 	/**
 	 * Collects property-based dependencies for a given activity.
-	 * TODO only the appropriate pairs of intents should be considered, e.g. read-modify
 	 */
 	public def getPropertyDependencies(Activity activity) {
 		var process = activity.eContainer as Process
@@ -42,8 +44,45 @@ class Services {
 		].fold(Lists::newArrayList) [ list, intent |
 			list.addAll(intent.propertyOfIntent.intentOfProperty.filter [ intent2 |
 				!intent2.equals(intent)
-			].map[x|x.activity])
+			].filter [ intent2 |
+				dependencyImplications.contains(new Pair(intent.type, intent2.type)) &&
+					followedBy(intent.activity, intent2.activity)
+			].map [ x |
+				x.activity
+			])
 			list
 		]
+	}
+
+	val dependencyImplications = #[new Pair(IntentType.READ, IntentType.MODIFY)]
+
+	def boolean followedBy(Node node1, Node node2) {
+		node1.collectSubsequentNodes.contains(node2)
+	}
+
+	def Set<Node> collectSubsequentNodes(Node node) {
+		collectSubsequentNodes(node, Sets::newHashSet)
+	}
+
+	def Set<Node> collectSubsequentNodes(Node node, Set<Node> subsequentNodes) {
+		val newNodes = Sets::newHashSet
+
+		node.toControlFlow.forEach [ controlFlow |
+			controlFlow.toNode.filter [ n |
+				!subsequentNodes.contains(n)
+			].forEach [ n |
+				newNodes.add(n)
+			]
+		]
+
+		subsequentNodes.addAll(newNodes)
+
+		if (newNodes.size > 0) {
+			for (n : newNodes) {
+				n.collectSubsequentNodes(subsequentNodes)
+			}
+		}
+
+		subsequentNodes
 	}
 }

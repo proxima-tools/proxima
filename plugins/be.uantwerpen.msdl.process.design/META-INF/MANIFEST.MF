@@ -10,10 +10,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius,
  org.eclipse.sirius.common.acceleo.aql,
  be.uantwerpen.msdl.metamodels;bundle-version="0.1.0",
- org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro,
  com.google.guava,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtend.lib
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: Istvan David
