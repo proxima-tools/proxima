@@ -3,7 +3,7 @@
    <description name="ICM Framework" url="msdl.cs.mcgill.ca/people/istvan/icm">
       A framework for inconsistency management.
    </description>
-   <feature url="features/be.uantwerpen.msdl.icm.processmodeler.feature_0.1.0.201602231207.jar" id="be.uantwerpen.msdl.icm.processmodeler.feature" version="0.1.0.201602231207">
+   <feature url="features/be.uantwerpen.msdl.icm.processmodeler.feature_0.1.0.201602231459.jar" id="be.uantwerpen.msdl.icm.processmodeler.feature" version="0.1.0.201602231459">
       <category name="processModeler"/>
    </feature>
    <category-def name="processModeler" label="Process Modeler"/>
