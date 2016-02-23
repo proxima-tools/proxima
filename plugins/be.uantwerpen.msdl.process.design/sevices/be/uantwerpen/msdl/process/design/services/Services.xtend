@@ -21,7 +21,8 @@ class Services {
 		var process = activity.eContainer as Process
 
 		process.node.filter [ node |
-			node.dataFlowFrom.contains(activity)
+			node.dataFlowFrom.contains(activity) &&
+			!node.dataFlowTo.contains(activity)
 		].fold(Lists::newArrayList) [ list, node |
 			list.addAll(node.dataFlowTo)
 			list
