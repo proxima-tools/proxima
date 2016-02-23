@@ -1,56 +1,48 @@
 package be.uantwerpen.msdl.process.design.services
 
 import be.uantwerpen.msdl.metamodels.process.Activity
-import com.google.common.collect.Lists
+import be.uantwerpen.msdl.metamodels.process.Process
 import be.uantwerpen.msdl.metamodels.process.ProcessModel
+import com.google.common.collect.Lists
 
+/**
+ * Services for the editor
+ * 
+ * @author Istvan David
+ */
 class Services {
 	new() {
 	}
 
-	public def getControlDependencies(Activity activity) {
-		val list = Lists::newArrayList()
-
-		var process = activity.eContainer as be.uantwerpen.msdl.metamodels.process.Process
-
-		process.controlFlow.filter [ cf |
-			cf.fromNode.contains(activity)
-		].forEach [ cf |
-			list.addAll(cf.toNode)
-		]
-
-		return list
-	}
-
+	/**
+	 * Collects data dependencies for a given activity.
+	 */
 	public def getDataDependencies(Activity activity) {
-		val list = Lists::newArrayList()
-		var process = activity.eContainer as be.uantwerpen.msdl.metamodels.process.Process
+		var process = activity.eContainer as Process
 
 		process.node.filter [ node |
 			node.dataFlowFrom.contains(activity)
-		].forEach [ node |
+		].fold(Lists::newArrayList) [ list, node |
 			list.addAll(node.dataFlowTo)
+			list
 		]
-
-		return list
 	}
 
+	/**
+	 * Collects property-based dependencies for a given activity.
+	 * TODO only the appropriate pairs of intents should be considered, e.g. read-modify
+	 */
 	public def getPropertyDependencies(Activity activity) {
-		val list = Lists::newArrayList()
-
-		var process = activity.eContainer as be.uantwerpen.msdl.metamodels.process.Process
+		var process = activity.eContainer as Process
 		var processModel = process.eContainer as ProcessModel
 
 		processModel.intent.filter [ intent |
 			intent.activity.equals(activity)
-		].forEach [ intent |
-			intent.propertyOfIntent.intentOfProperty.filter [ intent2 |
+		].fold(Lists::newArrayList) [ list, intent |
+			list.addAll(intent.propertyOfIntent.intentOfProperty.filter [ intent2 |
 				!intent2.equals(intent)
-			].forEach [ intent2 |
-				list.addAll(intent2.activity)
-			]
+			].map[x|x.activity])
+			list
 		]
-
-		return list
 	}
 }

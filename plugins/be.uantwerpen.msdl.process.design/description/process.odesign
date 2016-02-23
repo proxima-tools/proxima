@@ -505,13 +505,13 @@
     <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="DSM View" domainClass="process.Process">
       <ownedLineMappings name="ActivitiesLines" domainClass="process.Activity" semanticCandidatesExpression="aql:self.node" headerLabelExpression="feature:name"/>
       <ownedColumnMappings name="ActivityColumn" headerLabelExpression="feature:name" domainClass="process.Activity"/>
-      <intersection name="ControlDependency" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSM%20View']/@ownedLineMappings[name='ActivitiesLines']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSM%20View']/@ownedColumnMappings.0" labelExpression="C" columnFinderExpression="service:getControlDependencies">
+      <intersection name="MainDiagonal" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSM%20View']/@ownedLineMappings[name='ActivitiesLines']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSM%20View']/@ownedColumnMappings.0" columnFinderExpression="aql:self">
         <defaultForeground labelSize="8">
           <labelFormat>bold</labelFormat>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
         <defaultBackground>
-          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultBackground>
       </intersection>
       <intersection name="DataDependency" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSM%20View']/@ownedLineMappings[name='ActivitiesLines']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSM%20View']/@ownedColumnMappings.0" labelExpression="D" columnFinderExpression="service:getDataDependencies">
