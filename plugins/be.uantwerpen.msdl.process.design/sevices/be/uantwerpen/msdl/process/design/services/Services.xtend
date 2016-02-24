@@ -8,8 +8,6 @@ import be.uantwerpen.msdl.metamodels.process.ProcessModel
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import java.util.Set
-import be.uantwerpen.msdl.metamodels.process.PropertyConstraintLink
-import be.uantwerpen.msdl.metamodels.process.ConstraintDirection
 
 /**
  * Services for the editor
@@ -18,22 +16,6 @@ import be.uantwerpen.msdl.metamodels.process.ConstraintDirection
  */
 class Services {
 	new() {
-	}
-
-	public def propertyDirectedConstraint(PropertyConstraintLink link) {
-		link.direction.equals(ConstraintDirection::PROPERTY)
-	}
-
-	public def constraintDirectedConstraint(PropertyConstraintLink link) {
-		link.direction.equals(ConstraintDirection::CONSTRAINT)
-	}
-
-	public def undirectedConstraint(PropertyConstraintLink link) {
-		link.direction.equals(ConstraintDirection::UNDIRECTED)
-	}
-
-	public def setDirection(PropertyConstraintLink link, String direction) {
-		link.direction = ConstraintDirection.get(direction.toUpperCase)
 	}
 
 	/**
