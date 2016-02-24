@@ -437,16 +437,7 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="PropertyModelEditing">
-          <ownedTools xsi:type="tool:DirectEditLabel" name="ConstraintLinkEdition">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="direction" valueExpression="service:setDirection(0)"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-        </toolSections>
+        <toolSections name="PropertyModelEditing"/>
       </additionalLayers>
       <additionalLayers name="CostLayer" label="Costs" activeByDefault="true">
         <nodeMappings name="CostNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='CostLayer']/@toolSections.1/@ownedTools[name='EditCostValue']" domainClass="process.RatioScale">
@@ -543,7 +534,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="ConstraintEdge" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@toolSections.1/@ownedTools[name='ConstraintLinkEdition']" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='ConstraintNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='InputConstraintNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='ConstraintNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='InputConstraintNode']" targetFinderExpression="feature:property" sourceFinderExpression="feature:eContainer" domainClass="process.PropertyConstraintLink" useDomainElement="true">
+        <edgeMappings name="ConstraintEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='ConstraintNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='InputConstraintNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='ConstraintNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='InputConstraintNode']" targetFinderExpression="feature:property" sourceFinderExpression="feature:eContainer" domainClass="process.PropertyConstraintLink" useDomainElement="true">
           <conditionnalStyles predicateExpression="aql:self.direction.equals(process::ConstraintDirection::PROPERTY)">
             <style sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
