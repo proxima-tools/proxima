@@ -165,11 +165,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropertyLinkedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyLink" upperBound="-1"
-        eType="#//PropertyLink" eOpposite="#//PropertyLink/linkedElement"/>
+        eType="#//PropertyLink" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropertyLink">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="linkedElement" lowerBound="1"
-        eType="#//PropertyLinkedElement" eOpposite="#//PropertyLinkedElement/propertyLink"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkedProperty" lowerBound="1"
         eType="#//Property" eOpposite="#//Property/propertyLink"/>
   </eClassifiers>

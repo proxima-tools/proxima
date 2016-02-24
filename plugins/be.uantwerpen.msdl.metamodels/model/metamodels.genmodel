@@ -135,7 +135,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//PropertyLinkedElement/propertyLink"/>
     </genClasses>
     <genClasses ecoreClass="process.ecore#//PropertyLink">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//PropertyLink/linkedElement"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//PropertyLink/linkedProperty"/>
     </genClasses>
     <genClasses ecoreClass="process.ecore#//PropertyConstraintLink">
