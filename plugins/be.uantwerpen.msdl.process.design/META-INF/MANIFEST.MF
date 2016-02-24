@@ -4,15 +4,14 @@ Bundle-Name: ICM Process Modeler
 Bundle-SymbolicName: be.uantwerpen.msdl.process.design;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: be.uantwerpen.msdl.process.design.internal.Activator
+Bundle-Vendor: Istvan David
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.sirius,
  org.eclipse.sirius.common.acceleo.aql,
- be.uantwerpen.msdl.metamodels;bundle-version="0.1.0",
  com.google.guava,
- org.eclipse.xtend.lib
-Bundle-ActivationPolicy: lazy
+ org.eclipse.xtend.lib,
+ be.uantwerpen.msdl.metamodels;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Bundle-Vendor: Istvan David
-
+Bundle-ActivationPolicy: lazy

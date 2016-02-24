@@ -310,40 +310,10 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ConstraintNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="process.Constraint">
-          <style xsi:type="style:EllipseNodeDescription" labelExpression="aql:if (self.name.size()=0) then (self.quality.toString()) else (self.name.concat(' : ').concat(self.quality.toString())) endif" iconPath="/be.uantwerpen.msdl.process.design/icons/constraint.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="InputConstraintNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="process.Requirement">
-          <style xsi:type="style:EllipseNodeDescription" labelExpression="aql:if (self.name.size()=0) then (self.quality) else (self.name.concat(' : ').concat(self.quality.toString())) endif" iconPath="/be.uantwerpen.msdl.process.design/icons/req2.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
-          </style>
-        </nodeMappings>
         <edgeMappings name="OntologicalRelationship" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:ontologicalRelationshipTo" sourceFinderExpression="aql:self.eContainer()" domainClass="process.OntologicalRelationship" useDomainElement="true">
           <style lineStyle="dot" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="aql:'«'.concat(self.name).concat('»')">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="IntentEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='AutomatedActivityNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ManualActivityNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:propertyOfIntent" sourceFinderExpression="feature:activity" domainClass="process.Intent" useDomainElement="true">
-          <style lineStyle="dash" targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.type.toString().toLower()">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="ConstraintedPropertiesEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='ConstraintNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='InputConstraintNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:constrainedProperty">
-          <style targetArrow="NoDecoration" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-            <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -363,7 +333,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createConstraint" label="Constraint" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='ConstraintNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/constraint.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createConstraint" label="Constraint" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='ConstraintNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/constraint.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -377,7 +347,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createInputConstraint" label="Input Constraint" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='InputConstraintNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/req2.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createInputConstraint" label="Input Constraint" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='InputConstraintNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/req2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -404,7 +374,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createIntentEdge" label="Intent" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-red.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createIntentEdge" label="Intent" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ActivityIntents']/@edgeMappings[name='IntentEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-red.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -418,19 +388,65 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createConstraintedPropertyEdge" label="Constraint on property" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='ConstraintedPropertiesEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-red.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createDirectedConstraintLink" label="Constraint (Directed)" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@edgeMappings[name='ConstraintEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-red.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="constrainedProperty" valueExpression="var:target"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(AbstractConstraint)">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.PropertyConstraintLink" referenceName="link">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="property" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="direction" valueExpression="aql:process::ConstraintDirection::PROPERTY"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(Property)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.PropertyConstraintLink" referenceName="link">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="property" valueExpression="var:source"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="direction" valueExpression="aql:process::ConstraintDirection::CONSTRAINT"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createUndirectedConstraintLink" label="Constraint (Undirected)" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@edgeMappings[name='ConstraintEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/edge-red2.png">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(AbstractConstraint)">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.PropertyConstraintLink" referenceName="link">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="property" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="direction" valueExpression="aql:process::ConstraintDirection::UNDIRECTED"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(Property)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.PropertyConstraintLink" referenceName="link">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="property" valueExpression="var:source"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="direction" valueExpression="aql:process::ConstraintDirection::UNDIRECTED"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="PropertyModelEditing"/>
+        <toolSections name="PropertyModelEditing">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="ConstraintLinkEdition">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="direction" valueExpression="service:setDirection(0)"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </additionalLayers>
       <additionalLayers name="CostLayer" label="Costs" activeByDefault="true">
         <nodeMappings name="CostNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='CostLayer']/@toolSections.1/@ownedTools[name='EditCostValue']" domainClass="process.RatioScale">
@@ -469,7 +485,7 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(CostItem)">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="cost" valueExpression="var:target"/>
                 </subModelOperations>
@@ -500,6 +516,59 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+      </additionalLayers>
+      <additionalLayers name="ActivityIntents" label="Activity Intents" activeByDefault="true">
+        <edgeMappings name="IntentEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='AutomatedActivityNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ManualActivityNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="feature:propertyOfIntent" sourceFinderExpression="feature:activity" domainClass="process.Intent" useDomainElement="true">
+          <style lineStyle="dash" targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.type.toString().toLower()">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="Intents"/>
+      </additionalLayers>
+      <additionalLayers name="Constraints" activeByDefault="true">
+        <nodeMappings name="ConstraintNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="process.Constraint">
+          <style xsi:type="style:EllipseNodeDescription" labelExpression="aql:if (self.name.size()=0) then (self.quality.toString()) else (self.name.concat(' : ').concat(self.quality.toString())) endif" iconPath="/be.uantwerpen.msdl.process.design/icons/constraint.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="InputConstraintNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="process.Requirement">
+          <style xsi:type="style:EllipseNodeDescription" labelExpression="aql:if (self.name.size()=0) then (self.quality) else (self.name.concat(' : ').concat(self.quality.toString())) endif" iconPath="/be.uantwerpen.msdl.process.design/icons/req2.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="ConstraintEdge" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@toolSections.1/@ownedTools[name='ConstraintLinkEdition']" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='ConstraintNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='InputConstraintNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='ConstraintNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Constraints']/@nodeMappings[name='InputConstraintNode']" targetFinderExpression="feature:property" sourceFinderExpression="feature:eContainer" domainClass="process.PropertyConstraintLink" useDomainElement="true">
+          <conditionnalStyles predicateExpression="service:propertyDirectedConstraint()">
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:constraintDirectedConstraint()">
+            <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:undirectedConstraint()">
+            <style targetArrow="NoDecoration" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="DSM View" domainClass="process.Process">

@@ -21,6 +21,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="controlFlow" upperBound="-1"
         eType="#//ControlFlow" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activitygroup" upperBound="-1"
+        eType="#//ActivityGroup" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlFlow" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="toNode" upperBound="-1"
@@ -43,10 +45,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//CostItem #//NamedElement #//Node">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//Transformation"
         eOpposite="#//Transformation/types"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activityGroup" upperBound="-1"
+        eType="#//ActivityGroup" eOpposite="#//ActivityGroup/groupedActivity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ManualActivity" eSuperTypes="#//Activity"/>
   <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//Activity"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//NamedElement #//Node">
+  <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//NamedElement #//Node #//PropertyLinkedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" lowerBound="1"
         eType="#//Language" eOpposite="#//Language/types"/>
   </eClassifiers>
@@ -73,7 +77,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//Activity" eOpposite="#//Activity/typedBy"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//NamedElement #//PropertyLinkedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputOf" upperBound="-1"
         eType="#//Transformation" eOpposite="#//Transformation/inputLanguage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputOf" upperBound="-1"
@@ -107,10 +111,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ontologicalRelationship"
         upperBound="-1" eType="#//OntologicalRelationship" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constraintOnProperty" upperBound="-1"
-        eType="#//AbstractConstraint" eOpposite="#//AbstractConstraint/constrainedProperty"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="intentOfProperty" upperBound="-1"
         eType="#//Intent" eOpposite="#//Intent/propertyOfIntent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyLink" upperBound="-1"
+        eType="#//PropertyLink" eOpposite="#//PropertyLink/linkedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//PropertyConstraintLink"
+        eOpposite="#//PropertyConstraintLink/property"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OntologicalRelationship" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ontologicalRelationshipTo"
@@ -118,12 +124,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractConstraint" abstract="true"
       eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constrainedProperty" upperBound="-1"
-        eType="#//Property" eOpposite="#//Property/constraintOnProperty"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="quality" lowerBound="1"
         eType="#//ExpressionQuality" defaultValueLiteral="L1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//PropertyConstraintLink"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//AbstractConstraint"/>
   <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//AbstractConstraint"/>
@@ -138,11 +144,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="L3" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Infinite" eSuperTypes="#//RatioScale"/>
   <eClassifiers xsi:type="ecore:EClass" name="Intent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//IntentType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOfIntent" lowerBound="1"
         eType="#//Property" eOpposite="#//Property/intentOfProperty"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
         eType="#//Activity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//IntentType"
+        defaultValueLiteral="UNKNOWN"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="IntentType">
     <eLiterals name="UNKNOWN" literal="UNKNOWN"/>
@@ -151,5 +158,30 @@
     <eLiterals name="MODIFY" value="3"/>
     <eLiterals name="CHECK" value="4"/>
     <eLiterals name="EVALUATE" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityGroup" eSuperTypes="#//NamedElement #//CostItem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groupedActivity" upperBound="-1"
+        eType="#//Activity" eOpposite="#//Activity/activityGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyLinkedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyLink" upperBound="-1"
+        eType="#//PropertyLink" eOpposite="#//PropertyLink/linkedElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyLink">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkedElement" lowerBound="1"
+        eType="#//PropertyLinkedElement" eOpposite="#//PropertyLinkedElement/propertyLink"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkedProperty" lowerBound="1"
+        eType="#//Property" eOpposite="#//Property/propertyLink"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintDirection">
+    <eLiterals name="UNDIRECTED"/>
+    <eLiterals name="PROPERTY" value="1"/>
+    <eLiterals name="CONSTRAINT" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyConstraintLink">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" lowerBound="1"
+        eType="#//ConstraintDirection" defaultValueLiteral="UNDIRECTED"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
+        eType="#//Property" eOpposite="#//Property/link"/>
   </eClassifiers>
 </ecore:EPackage>
