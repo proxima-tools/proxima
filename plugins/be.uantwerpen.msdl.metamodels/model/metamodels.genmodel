@@ -18,7 +18,7 @@
       <genEnumLiterals ecoreEnumLiteral="process.ecore#//IntentType/READ"/>
       <genEnumLiterals ecoreEnumLiteral="process.ecore#//IntentType/MODIFY"/>
       <genEnumLiterals ecoreEnumLiteral="process.ecore#//IntentType/CHECK"/>
-      <genEnumLiterals ecoreEnumLiteral="process.ecore#//IntentType/EVALUATE"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//IntentType/CALCULATE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="process.ecore#//ConstraintDirection">
       <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConstraintDirection/UNDIRECTED"/>
@@ -104,7 +104,6 @@
     </genClasses>
     <genClasses ecoreClass="process.ecore#//Property">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference process.ecore#//Property/ontologicalRelationship"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/intentOfProperty"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/propertyLink"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Property/link"/>
     </genClasses>
@@ -124,7 +123,7 @@
     <genClasses ecoreClass="process.ecore#//L3"/>
     <genClasses ecoreClass="process.ecore#//Infinite"/>
     <genClasses ecoreClass="process.ecore#//Intent">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Intent/propertyOfIntent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Intent/subjectOfIntent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//Intent/activity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//Intent/type"/>
     </genClasses>
@@ -140,6 +139,9 @@
     <genClasses ecoreClass="process.ecore#//PropertyConstraintLink">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute process.ecore#//PropertyConstraintLink/direction"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//PropertyConstraintLink/property"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="process.ecore#//IntentSubject">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference process.ecore#//IntentSubject/intentOfProperty"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

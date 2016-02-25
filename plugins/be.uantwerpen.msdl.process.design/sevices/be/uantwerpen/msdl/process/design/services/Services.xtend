@@ -43,7 +43,7 @@ class Services {
 		processModel.intent.filter [ intent |
 			intent.activity.equals(activity)
 		].fold(Lists::newArrayList) [ list, intent |
-			list.addAll(intent.propertyOfIntent.intentOfProperty.filter [ intent2 |
+			list.addAll(intent.subjectOfIntent.intent.filter [ intent2 |
 				!intent2.equals(intent)
 			].filter [ intent2 |
 				dependencyImplications.contains(new Pair(intent.type, intent2.type)) &&
