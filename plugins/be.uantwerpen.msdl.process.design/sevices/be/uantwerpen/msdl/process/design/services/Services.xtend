@@ -42,7 +42,18 @@ class Services {
 
 		processModel.intent.filter [ intent |
 			intent.activity.equals(activity)
-		].fold(Lists::newArrayList) [ list, intent |
+		]
+//		.forEach [ intent |
+//			println("input intent: " + intent)
+//			println(intent.subjectOfIntent)
+//			intent.subjectOfIntent.intent.filter [ i2 |
+//				!i2.equals(intent)
+//			].forEach[i3 |
+//				println(i3)
+//			]
+//		]
+		.fold(Lists::newArrayList) [ list, intent |
+//			println("input intent: " + intent)
 			list.addAll(intent.subjectOfIntent.intent.filter [ intent2 |
 				!intent2.equals(intent)
 			].filter [ intent2 |
@@ -51,13 +62,15 @@ class Services {
 			].map [ x |
 				x.activity
 			])
+//			println("resulting list: " + list)
 			list
 		]
 	}
 
-	val dependencyImplications = #[new Pair(IntentType.MODIFY, IntentType.READ)]
+	val dependencyImplications = #[new Pair(IntentType.READ, IntentType.MODIFY)]
 
 	def boolean followedBy(Node node1, Node node2) {
+//		println("testing followedby relationship")
 		node1.collectSubsequentNodes.contains(node2)
 	}
 
