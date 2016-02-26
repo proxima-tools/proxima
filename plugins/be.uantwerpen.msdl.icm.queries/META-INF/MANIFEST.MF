@@ -3,12 +3,14 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ICM Generic Query Plugin
 Bundle-SymbolicName: be.uantwerpen.msdl.icm.queries;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Export-Package: be.uantwerpen.msdl.icm.queries,
- be.uantwerpen.msdl.icm.queries.util
+Bundle-Vendor: Istvan David
+Export-Package: be.uantwerpen.msdl.icm.queries.processrewrite,
+ be.uantwerpen.msdl.icm.queries.processrewrite.util,
+ be.uantwerpen.msdl.icm.queries.validation,
+ be.uantwerpen.msdl.icm.queries.validation.util
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.incquery.runtime,
  org.eclipse.xtext.xbase.lib,
  be.uantwerpen.msdl.metamodels;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.log4j
-Bundle-Vendor: Istvan David

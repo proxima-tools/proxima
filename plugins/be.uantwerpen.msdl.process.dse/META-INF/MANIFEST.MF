@@ -13,6 +13,12 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.viatra.dse.api;bundle-version="0.9.0",
  org.eclipse.viatra.dse.base;bundle-version="0.9.0",
  org.eclipse.emf.ecore.xmi,
- org.junit
+ org.junit,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.xtext.xbase.lib,
+ org.sat4j.core;bundle-version="2.3.5",
+ org.sat4j.pb;bundle-version="2.3.5"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+
