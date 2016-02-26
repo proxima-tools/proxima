@@ -16,7 +16,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
         eType="#//Intent" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//NamedElement #//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="node" upperBound="-1" eType="#//Node"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="controlFlow" upperBound="-1"
@@ -32,7 +32,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowFrom" upperBound="-1"
         eType="#//Node" eOpposite="#//Node/dataFlowTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowTo" upperBound="-1"
@@ -69,7 +69,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="language" upperBound="-1"
         eType="#//Language" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Transformation" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Transformation" eSuperTypes="#//NamedElement #//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputLanguage" upperBound="-1"
         eType="#//Language" eOpposite="#//Language/inputOf"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputLanguage" upperBound="-1"
@@ -77,7 +77,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//Activity" eOpposite="#//Activity/typedBy"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//NamedElement #//PropertyLinkedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//NamedElement #//PropertyLinkedElement #//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputOf" upperBound="-1"
         eType="#//Transformation" eOpposite="#//Transformation/inputLanguage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputOf" upperBound="-1"
@@ -92,7 +92,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="CostItem" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cost" eType="#//Cost" eOpposite="#//Cost/costItem"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Cost" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Cost" abstract="true" eSuperTypes="#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="costItem" lowerBound="1"
         eType="#//CostItem" eOpposite="#//CostItem/cost"/>
   </eClassifiers>
@@ -141,9 +141,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="L2" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="L3" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Infinite" eSuperTypes="#//RatioScale"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Intent">
+  <eClassifiers xsi:type="ecore:EClass" name="Intent" eSuperTypes="#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="subjectOfIntent" lowerBound="1"
-        eType="#//IntentSubject" eOpposite="#//IntentSubject/intentOfProperty"/>
+        eType="#//IntentSubject" eOpposite="#//IntentSubject/intent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
         eType="#//Activity"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//IntentType"
@@ -157,7 +157,7 @@
     <eLiterals name="CHECK" value="4"/>
     <eLiterals name="CALCULATE" value="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActivityGroup" eSuperTypes="#//NamedElement #//CostItem">
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityGroup" eSuperTypes="#//NamedElement #//CostItem #//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="groupedActivity" upperBound="-1"
         eType="#//Activity" eOpposite="#//Activity/activityGroup"/>
   </eClassifiers>
@@ -165,7 +165,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyLink" upperBound="-1"
         eType="#//PropertyLink" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyLink">
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyLink" eSuperTypes="#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkedProperty" lowerBound="1"
         eType="#//Property" eOpposite="#//Property/propertyLink"/>
   </eClassifiers>
@@ -174,14 +174,18 @@
     <eLiterals name="PROPERTY" value="1"/>
     <eLiterals name="CONSTRAINT" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyConstraintLink">
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyConstraintLink" eSuperTypes="#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" lowerBound="1"
         eType="#//ConstraintDirection" defaultValueLiteral="UNDIRECTED"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
         eType="#//Property" eOpposite="#//Property/link"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntentSubject" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="intentOfProperty" eType="#//Intent"
-        eOpposite="#//Intent/subjectOfIntent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntentSubject" abstract="true" eSuperTypes="#//Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
+        eType="#//Intent" eOpposite="#//Intent/subjectOfIntent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
   </eClassifiers>
 </ecore:EPackage>
