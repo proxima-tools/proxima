@@ -8,6 +8,8 @@ import be.uantwerpen.msdl.metamodels.process.ProcessModel
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import java.util.Set
+import java.util.UUID
+import be.uantwerpen.msdl.metamodels.process.Identifiable
 
 /**
  * Services for the editor
@@ -16,6 +18,10 @@ import java.util.Set
  */
 class Services {
 	new() {
+	}
+
+	public def getId(Identifiable identifiable) {
+		UUID.randomUUID.toString
 	}
 
 	/**
@@ -42,8 +48,7 @@ class Services {
 
 		processModel.intent.filter [ intent |
 			intent.activity.equals(activity)
-		]
-//		.forEach [ intent |
+		] // .forEach [ intent |
 //			println("input intent: " + intent)
 //			println(intent.subjectOfIntent)
 //			intent.subjectOfIntent.intent.filter [ i2 |
