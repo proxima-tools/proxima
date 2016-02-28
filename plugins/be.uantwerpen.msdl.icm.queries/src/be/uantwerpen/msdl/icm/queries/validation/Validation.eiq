@@ -63,33 +63,33 @@ pattern finalNodeWithControlOut(finalNode : FlowFinal){
 /**
  * FORK has exactly one input, at least one output
  */
-pattern forkNodeInvalidIns(forkNode : Fork){
+pattern forkNodeWithInvalidNumberOfIns(forkNode : Fork){
 	forkIns == count find nodeControlInput2(forkNode, _);
 	check(forkIns!=1);
 }
-pattern forkNodeInvalidOuts(forkNode : Fork){
+pattern forkNodeWithInvalidNumberOfOuts(forkNode : Fork){
 	forkOuts == count find nodeControlOutput2(forkNode, _);
 	check(forkOuts<1);
 }
  /**
  * JOIN has at least one input, exactly one output
  */
-pattern joinNodeInvalidIns(joinNode : Join){
+pattern joinNodeWithInvalidNumberOfIns(joinNode : Join){
  	joinIns == count find nodeControlInput2(joinNode, _);
 	check(joinIns<1);
 }
-pattern joinNodeInvalidOuts(joinNode : Join){
+pattern joinNodeWithInvalidNumberOfOuts(joinNode : Join){
 	joinOuts == count find nodeControlOutput2(joinNode, _);
 	check(joinOuts!=1);
 }
 /**
  * DECISION has at least one input, at least one output
  */
-pattern decisionNodeInvalidIns(decisionNode : Decision){
+pattern decisionNodeWithInvalidNumberOfIns(decisionNode : Decision){
  	ins == count find nodeControlInput2(decisionNode, _);
 	check(ins<1);
 }
-pattern decisionNodeInvalidOuts(decisionNode : Decision){
+pattern decisionNodeWithInvalidNumberOfOuts(decisionNode : Decision){
 	outs == count find nodeControlOutput2(decisionNode, _);
 	check(outs<1);
 }
@@ -103,4 +103,27 @@ pattern activityWithInvalidNumberOfControlIn(activity : Activity){
 pattern activityWithInvalidNumberOfControlOut(activity : Activity){
 	outs == count find nodeControlOutput2(activity, _);
 	check(outs<1);
+}
+
+/**
+ * CONTROL FLOWS have one input, one output
+ */
+pattern controlFlowWithInvalidNumberOfControlFrom(controlFlow: ControlFlow){
+ 	froms == count find nodeControlInput2(_, controlFlow);
+	check(froms != 1);
+}
+pattern controlFlowWithInvalidNumberOfControlTo(controlFlow: ControlFlow){
+	tos == count find nodeControlOutput2(_, controlFlow);
+	check(tos != 1);
+}
+/**
+ * Redundant control flows
+ */
+pattern redundantControlFlows(controlFlow1: ControlFlow, controlFlow2: ControlFlow){
+	ControlFlow.fromNode(controlFlow1, node1);
+	ControlFlow.toNode(controlFlow1, node2);
+	ControlFlow.fromNode(controlFlow2, node1);
+	ControlFlow.toNode(controlFlow2, node2);
+	
+	controlFlow1 != controlFlow2;
 }

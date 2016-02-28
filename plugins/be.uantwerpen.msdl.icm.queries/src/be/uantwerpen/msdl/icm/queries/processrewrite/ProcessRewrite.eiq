@@ -31,6 +31,11 @@ pattern softControlFlowBetweenActivities(activity1: Activity, activity2: Activit
 /**
  * Activities w/o control flow constraint
  */
+pattern independentActivities(process: Process, activity1: Activity, activity2: Activity){
+	find independentNodes(process, activity1, activity2);
+}
+ 
+ 
 pattern independentNodes(process: Process, node1: Node, node2: Node){
 	Process.node(process, node1);
 	Process.node(process, node2);
@@ -38,9 +43,13 @@ pattern independentNodes(process: Process, node1: Node, node2: Node){
 	neg find controlFlowBetweenNodes(node1, node2, _);
 }
 
-//pattern independentNodes2(node1: Node, node2: Node){
-//	find independentNodes(node1, node2);
-//}
+pattern independentNodes2(process: Process, node1: Node, node2: Node){
+	find independentNodes(process, node1, node2);
+}
+
+pattern controlFlow(process: Process, controlFlow: ControlFlow){
+	Process.controlFlow(process, controlFlow);
+}
 
 /**
  * Object flow
