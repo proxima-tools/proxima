@@ -7,19 +7,19 @@ import "metamodels.process"
  * Helper patterns
  */
 private pattern nodeControlOutput(node : Node){
-	Node.toControlFlow(node, _);
+	Node.controlOut(node, _);
 }
 
 private pattern nodeControlInput(node : Node){
-	Node.fromControlFlow(node, _);
+	Node.controlIn(node, _);
 }
 
 private pattern nodeControlOutput2(node : Node, controlFlow: ControlFlow){
-	Node.toControlFlow(node, controlFlow);
+	Node.controlOut(node, controlFlow);
 }
 
 private pattern nodeControlInput2(node : Node, controlFlow: ControlFlow){
-	Node.fromControlFlow(node, controlFlow);
+	Node.controlIn(node, controlFlow);
 }
 
 private pattern nodeDirectlyReachableFromNode(node1: Node, node2: Node){
@@ -27,7 +27,7 @@ private pattern nodeDirectlyReachableFromNode(node1: Node, node2: Node){
 	ControlFlow.toNode(controlFlow, node2);
 }
 
-private pattern nodeGloballyReachableFromNode(node1: Node, node2: Node){
+pattern nodeGloballyReachableFromNode(node1: Node, node2: Node){
 	find nodeDirectlyReachableFromNode+(node1, node2);
 }
 
@@ -37,6 +37,18 @@ private pattern nodeGloballyReachableFromNode(node1: Node, node2: Node){
 pattern initReachesFinal(initNode : Initial, finalNode : FlowFinal){
 	find nodeGloballyReachableFromNode(initNode, finalNode);
 }
+/**
+ * FINAL should be reachable from every node
+ */
+pattern finalNotReachableFromNode(node : Node, finalNode: FlowFinal ){
+	neg find nodeGloballyReachableFromNode(node, finalNode);
+}
+/**
+ * INIT should reach every node
+ */
+pattern initDoesNotReachNode(node : Node, initNode: Initial){
+	neg find nodeGloballyReachableFromNode(initNode, node);
+}
 
 
 
@@ -45,6 +57,9 @@ pattern initReachesFinal(initNode : Initial, finalNode : FlowFinal){
  */
 pattern initNodeWithControlIn(initNode : Initial){
 	find nodeControlInput(initNode);
+}
+pattern initNodeWithNoControlIn(initNode : Initial){
+	neg find nodeControlInput(initNode);
 }
 pattern initNodeWithInvalidNumberOfControlOut(initNode : Initial){
 	outs == count find nodeControlOutput2(initNode, _);
@@ -59,6 +74,9 @@ pattern finalNodeWithInvalidNumberOfIns(finalNode : FlowFinal){
 }
 pattern finalNodeWithControlOut(finalNode : FlowFinal){
 	find nodeControlOutput(finalNode);
+}
+pattern finalNodeWithNoControlOut(finalNode : FlowFinal){
+	neg find nodeControlOutput(finalNode);
 }
 /**
  * FORK has exactly one input, at least one output
