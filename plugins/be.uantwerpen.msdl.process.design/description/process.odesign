@@ -266,10 +266,10 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.transformationGraph->first()=null">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.TransformationGraph" referenceName="transformationGraph"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.languageModel->first()=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.LanguageModel" referenceName="languageModel"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.transformationGraph->first()">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.languageModel->first()">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Language" referenceName="language">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
                   </subModelOperations>
@@ -282,10 +282,10 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.transformationGraph->first()=null">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.TransformationGraph" referenceName="transformationGraph"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.languageModel->first()=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.LanguageModel" referenceName="languageModel"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.transformationGraph->first()">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.languageModel->first()">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="process.Transformation" referenceName="transformation">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
                   </subModelOperations>
@@ -626,7 +626,7 @@
         </edgeMappings>
       </additionalLayers>
       <additionalLayers name="PropertyLinks" label="Property Links">
-        <edgeMappings name="PropertyLinkEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='LanguageNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='LanguageNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" targetFinderExpression="feature:linkedProperty" sourceFinderExpression="feature:eContainer" domainClass="process.PropertyLink" useDomainElement="true">
+        <edgeMappings name="PropertyLinkEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" targetFinderExpression="feature:linkedProperty" sourceFinderExpression="feature:eContainer" domainClass="process.PropertyLink" useDomainElement="true">
           <style lineStyle="dot" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
             <centerLabelStyleDescription>
@@ -662,15 +662,6 @@
           <labelFormat>bold</labelFormat>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
-        <defaultBackground>
-          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
-        </defaultBackground>
-      </intersection>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="PropertyLinkTable" label="Property Link Table" domainClass="process.ProcessModel">
-      <ownedLineMappings name="PropertyLinkedElementLine" domainClass="process.PropertyLinkedElement"/>
-      <ownedColumnMappings name="PropertyColumn" headerLabelExpression="feature:name" domainClass="process.Property"/>
-      <intersection name="PropertyLink" canEdit="true" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='PropertyLinkTable']/@ownedLineMappings[name='PropertyLinkedElementLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='PropertyLinkTable']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="feature:linkedProperty" lineFinderExpression="feature:eContainer" domainClass="process.PropertyLink">
         <defaultBackground>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
         </defaultBackground>

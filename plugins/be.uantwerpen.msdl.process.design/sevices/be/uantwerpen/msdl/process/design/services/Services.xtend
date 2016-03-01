@@ -3,12 +3,9 @@ package be.uantwerpen.msdl.process.design.services
 import be.uantwerpen.msdl.metamodels.process.Activity
 import be.uantwerpen.msdl.metamodels.process.Identifiable
 import be.uantwerpen.msdl.metamodels.process.IntentType
-import be.uantwerpen.msdl.metamodels.process.Language
 import be.uantwerpen.msdl.metamodels.process.Node
-import be.uantwerpen.msdl.metamodels.process.Object
 import be.uantwerpen.msdl.metamodels.process.Process
 import be.uantwerpen.msdl.metamodels.process.ProcessModel
-import be.uantwerpen.msdl.metamodels.process.PropertyLink
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import java.util.Set
@@ -90,12 +87,10 @@ class Services {
 	def Set<Node> collectSubsequentNodes(Node node, Set<Node> subsequentNodes) {
 		val newNodes = Sets::newHashSet
 
-		node.toControlFlow.forEach [ controlFlow |
-			controlFlow.toNode.filter [ n |
-				!subsequentNodes.contains(n)
-			].forEach [ n |
-				newNodes.add(n)
-			]
+		node.controlOut.forEach [ controlFlow |
+			if(!subsequentNodes.contains(controlFlow.toNode)){
+				newNodes.add(controlFlow.toNode)
+			}
 		]
 
 		subsequentNodes.addAll(newNodes)
@@ -110,22 +105,22 @@ class Services {
 	}
 
 	// FIXME: it's not clear yet what do we want to show here, deprecated until further development
-	@Deprecated
-	def getLinkedProperty(PropertyLink propertyLink) {
-		val linkedElement = propertyLink.eContainer
-
-		val linkedProperties = Lists::newArrayList
-
-		switch linkedElement {
-			Object:
-				// if there's a related activity and the object's typing language is linked to the same property
-				linkedElement.typedBy.propertyLink.forEach [ pl |
-					linkedProperties += pl.linkedProperty
-				]
-			Language:
-				linkedProperties += propertyLink.linkedProperty
-		}
-
-		linkedProperties
-	}
+//	@Deprecated
+//	def getLinkedProperty(PropertyLink propertyLink) {
+//		val linkedElement = propertyLink.eContainer
+//
+//		val linkedProperties = Lists::newArrayList
+//
+//		switch linkedElement {
+//			Object:
+//				// if there's a related activity and the object's typing language is linked to the same property
+//				linkedElement.typedBy.propertyLink.forEach [ pl |
+//					linkedProperties += pl.linkedProperty
+//				]
+//			Language:
+//				linkedProperties += propertyLink.linkedProperty
+//		}
+//
+//		linkedProperties
+//	}
 }
