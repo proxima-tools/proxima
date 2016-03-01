@@ -46,8 +46,7 @@ public class SimulationRunner {
 
 		Simulator simulator = new Simulator(modelRoot);
 		if (simulator.canSimulate()) {
-			simulator.simulate();
-
+			cost = simulator.simulate();
 		} else {
 			cost = Double.POSITIVE_INFINITY;
 		}

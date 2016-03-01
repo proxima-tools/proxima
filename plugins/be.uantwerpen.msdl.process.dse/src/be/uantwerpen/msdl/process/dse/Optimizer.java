@@ -3,6 +3,7 @@ package be.uantwerpen.msdl.process.dse;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Level;
@@ -12,13 +13,13 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.incquery.runtime.base.api.TransitiveClosureHelper;
 import org.eclipse.incquery.runtime.base.exception.IncQueryBaseException;
 import org.eclipse.incquery.runtime.exception.IncQueryException;
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer;
 import org.eclipse.viatra.dse.api.Solution;
 import org.eclipse.viatra.dse.api.SolutionTrajectory;
 import org.eclipse.viatra.dse.api.Strategies;
+import org.eclipse.viatra.dse.solutionstore.StrategyDependentSolutionStore;
 import org.eclipse.viatra.dse.statecoding.simple.SimpleStateCoderFactory;
 import org.junit.After;
 import org.junit.Before;
@@ -39,7 +40,6 @@ public class Optimizer {
 	private Logger logger;
 	private ResourceSet resSet;
 	private Resource resource;
-	private TransitiveClosureHelper tcHelper;
 
 	@Before
 	public void setup() {
@@ -60,7 +60,6 @@ public class Optimizer {
 	public void tearDown() {
 		resource = null;
 		resSet = null;
-		tcHelper.dispose();
 		logger = null;
 	}
 
@@ -85,8 +84,9 @@ public class Optimizer {
 		stopwatch.reset().start();
 
 		// Objectives
-		new ValidityHardObjectives().addConstraints(dse);
 		new SoftObjectives().addConstraints(dse);
+		new ValidityHardObjectives().addConstraints(dse);
+
 		logger.debug("objectives added in " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + " ms");
 		stopwatch.reset().start();
 
@@ -98,7 +98,8 @@ public class Optimizer {
 
 		logger.debug("starting");
 		// Start
-		dse.startExploration(Strategies.createDFSStrategy(5));
+		dse.setSolutionStore(new StrategyDependentSolutionStore());
+		dse.startExploration(Strategies.creatHillClimbingStrategy());
 
 		logger.debug("exploration took " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + " ms");
 		stopwatch.stop();
@@ -106,14 +107,19 @@ public class Optimizer {
 		// Get results
 		logger.debug("number of solutions: " + dse.getSolutions().size());
 
-		logger.debug("persisting first solution");
-		Solution solution = dse.getSolutions().iterator().next();
-		SolutionTrajectory arbitraryTrajectory = solution.getArbitraryTrajectory();
-		arbitraryTrajectory.setModel(processModel);
-		arbitraryTrajectory.doTransformation();
-
-		resource.save(Collections.EMPTY_MAP);
-
-		logger.debug("solution persisted");
+		if (dse.getSolutions().size() > 0) {
+			logger.debug("persisting first solution");
+			Solution solution = dse.getSolutions().iterator().next();
+			SolutionTrajectory arbitraryTrajectory = solution.getArbitraryTrajectory();
+			arbitraryTrajectory.setModel(processModel);
+			arbitraryTrajectory.doTransformation();
+			logger.debug("Fitness values:");
+			for (Entry<String, Double> entry : arbitraryTrajectory.getFitness().entrySet()) {
+				logger.debug("\t" + entry.getKey() + "=" + entry.getValue());
+			}
+			resource.save(Collections.EMPTY_MAP);
+			logger.debug("solution persisted");
+		}
+		logger.debug("end");
 	}
 }

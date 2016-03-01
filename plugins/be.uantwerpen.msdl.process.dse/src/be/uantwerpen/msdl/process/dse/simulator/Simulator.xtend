@@ -1,6 +1,7 @@
 package be.uantwerpen.msdl.process.dse.simulator
 
 import be.uantwerpen.msdl.metamodels.process.ProcessModel
+import be.uantwerpen.msdl.metamodels.process.RatioScale
 
 class Simulator {
 
@@ -15,6 +16,6 @@ class Simulator {
 	}
 
 	def simulate() {
-		0.0
+		processModel.costModel.cost.filter[cost | cost instanceof RatioScale].map[cost | cost as RatioScale].fold(0.0)[sum, nextCost | sum + nextCost.value]
 	}
 }

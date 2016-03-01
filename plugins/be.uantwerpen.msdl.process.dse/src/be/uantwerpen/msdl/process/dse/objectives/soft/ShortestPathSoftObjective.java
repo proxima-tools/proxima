@@ -37,7 +37,7 @@ public class ShortestPathSoftObjective extends BaseObjective {
 	public Double getFitness(ThreadContext context) {
 		// Set up tchelper
 		HashSet<EReference> refs = new HashSet<EReference>();
-		refs.add((EReference) ProcessPackage.eINSTANCE.getNode_ToControlFlow());
+		refs.add((EReference) ProcessPackage.eINSTANCE.getNode_ControlOut());
 
 		SolutionTrajectory solutionTrajectroy = null;
 
