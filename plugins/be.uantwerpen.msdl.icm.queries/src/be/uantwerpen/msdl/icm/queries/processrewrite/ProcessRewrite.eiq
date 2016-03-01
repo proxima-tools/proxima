@@ -83,11 +83,9 @@ pattern readModifySharedProperty(activity1: Activity, activity2: Activity, prope
 	find nodeGloballyReachableFromNode(activity1, activity2);
 }
 
-pattern readModifySharedProperty2(activity1: Activity, activity2: Activity, property: Property, controlFlow : ControlFlow){
-	find readIntentOnActivity(activity1, property);
-	find modifyIntentOnActivity(activity2, property);
-	ControlFlow.fromNode(controlFlow, activity1);
-	ControlFlow.toNode(controlFlow, activity2);
+pattern readModifySharedProperty2(activity1: Activity, activity2: Activity, property: Property, process: Process){
+	find readModifySharedProperty(activity1, activity2, property);
+	Process.node(process, activity1);
 }
 
 pattern readIntentOnActivity(activity: Activity, property: Property){

@@ -5,6 +5,7 @@ import java.util.WeakHashMap;
 
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.incquery.runtime.api.IncQueryEngine;
 import org.eclipse.viatra.dse.base.DesignSpaceManager;
 import org.eclipse.viatra.dse.base.ThreadContext;
 import org.eclipse.viatra.dse.designspace.api.IState;
@@ -30,6 +31,7 @@ public class SimulationRunner {
 	private ProcessModel modelRoot;
 	private IState lastState = null;
 	private DesignSpaceManager dsm;
+	private IncQueryEngine queryEngine;
 
 	private SimulationRunner() {
 	}
@@ -37,6 +39,7 @@ public class SimulationRunner {
 	private void init(ThreadContext context) {
 		modelRoot = (ProcessModel) context.getModelRoot();
 		dsm = context.getDesignSpaceManager();
+		queryEngine = context.getIncqueryEngine();
 	}
 
 	public void runSimulation() {
@@ -44,7 +47,7 @@ public class SimulationRunner {
 			return;
 		}
 
-		Simulator simulator = new Simulator(modelRoot);
+		FixedIterationCostSimulator simulator = new FixedIterationCostSimulator(modelRoot, queryEngine);
 		if (simulator.canSimulate()) {
 			cost = simulator.simulate();
 		} else {

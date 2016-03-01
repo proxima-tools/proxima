@@ -6,6 +6,8 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Istvan David
 Export-Package: be.uantwerpen.msdl.icm.queries.processrewrite,
  be.uantwerpen.msdl.icm.queries.processrewrite.util,
+ be.uantwerpen.msdl.icm.queries.simulator,
+ be.uantwerpen.msdl.icm.queries.simulator.util,
  be.uantwerpen.msdl.icm.queries.validation,
  be.uantwerpen.msdl.icm.queries.validation.util
 Require-Bundle: org.eclipse.emf.ecore,

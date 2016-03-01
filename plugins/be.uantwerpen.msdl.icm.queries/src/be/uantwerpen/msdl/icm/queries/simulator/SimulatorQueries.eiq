@@ -1,0 +1,13 @@
+package be.uantwerpen.msdl.icm.queries.simulator
+
+import "metamodels.process"
+import pattern be.uantwerpen.msdl.icm.queries.validation.nodeGloballyReachableFromNode
+
+pattern costInCircle(cost: Cost, activity: Activity){
+	Activity.cost(activity, cost);
+	find nodeGloballyReachableFromNode(activity, activity);
+}
+
+pattern cost(cost: Cost){
+	Cost(cost);
+}

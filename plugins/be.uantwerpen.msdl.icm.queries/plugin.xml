@@ -17,4 +17,7 @@
   <extension id="be.uantwerpen.msdl.icm.queries.validation.Validation" point="org.eclipse.incquery.runtime.queryspecification">
     <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.validation.Validation" id="be.uantwerpen.msdl.icm.queries.validation.Validation"/>
   </extension>
+  <extension id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" point="org.eclipse.incquery.runtime.queryspecification">
+    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries"/>
+  </extension>
 </plugin>

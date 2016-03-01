@@ -1,6 +1,7 @@
 package be.uantwerpen.msdl.process.dse.rules
 
 import be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite
+import be.uantwerpen.msdl.icm.queries.processrewrite.util.ReadModifySharedProperty2Processor
 import be.uantwerpen.msdl.icm.queries.processrewrite.util.ReadModifySharedPropertyProcessor
 import be.uantwerpen.msdl.icm.queries.processrewrite.util.SoftControlFlowBetweenActivitiesProcessor
 import be.uantwerpen.msdl.metamodels.process.Activity
@@ -8,6 +9,7 @@ import be.uantwerpen.msdl.metamodels.process.ControlFlow
 import be.uantwerpen.msdl.metamodels.process.Process
 import be.uantwerpen.msdl.metamodels.process.ProcessFactory
 import be.uantwerpen.msdl.metamodels.process.Property
+import java.util.UUID
 import org.eclipse.viatra.dse.api.DSETransformationRule
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
 
@@ -22,42 +24,78 @@ class Rules {
 
 	def rules() {
 		#[
-//			deleteSoftControlFlow
-//			,
-//			sequenceNodes,
-//			parallelizeNodes,
-//			objectFlow
 			readModifyReorder
+//			,
+//			readModifyAugmentWithCheck
 		]
 	}
 
 	/**
-	 * Assign sequence READ-MODIFY 
+	 * Sequence READ-MODIFY pairs
 	 */
 	val readModifyReorder = new DSETransformationRule(
 		readModifySharedProperty,
 		new ReadModifySharedPropertyProcessor() {
 			override process(Activity activity1, Activity activity2, Property property) {
-				val tmp = createManualActivity;
-				tmp.id = "tmp";
+//				val tmp = createManualActivity;
+//				tmp.id = "tmp";
+//
+//				tmp.controlIn.addAll(activity1.controlIn)
+//				activity1.controlIn.removeAll(tmp.controlIn)
+//
+//				tmp.controlOut.addAll(activity1.controlOut)
+//				activity1.controlOut.removeAll(tmp.controlOut)
+//
+//				activity1.controlIn.addAll(activity2.controlIn)
+//				activity2.controlIn.removeAll(activity1.controlIn)
+//
+//				activity1.controlOut.addAll(activity2.controlOut)
+//				activity2.controlOut.removeAll(activity1.controlOut)
+//
+//				activity2.controlIn.addAll(tmp.controlIn)
+//				tmp.controlIn.removeAll(activity2.controlIn)
+//
+//				activity2.controlOut.addAll(tmp.controlOut)
+//				tmp.controlOut.removeAll(activity2.controlOut)
+			}
+		}
+	)
 
-				tmp.controlIn.addAll(activity1.controlIn)
-				activity1.controlIn.removeAll(tmp.controlIn)
+	/**
+	 * Create a check on a READ-MODIFY pair
+	 * FIXME This is not complete yet, there should be an activity with a check intent on the property
+	 * between A2 and D. Also: the pattern should look for this missing check with neg find.
+	 */
+	val readModifyAugmentWithCheck = new DSETransformationRule(
+		readModifySharedProperty2,
+		new ReadModifySharedProperty2Processor() {
+			override process(Activity activity1, Activity activity2, Property property, Process process) {
 
-				tmp.controlOut.addAll(activity1.controlOut)
-				activity1.controlOut.removeAll(tmp.controlOut)
+				val decision = createDecision
+				process.node += decision
+				decision.id = UUID.randomUUID.toString
+				decision.name = property.name + "?"
 
-				activity1.controlIn.addAll(activity2.controlIn)
-				activity2.controlIn.removeAll(activity1.controlIn)
+				// these are gonna be the OK nodes from the Decision node
+				activity2.controlOut.forEach [ cf |
+					cf.name = "OK"
+				]
+				decision.controlOut.addAll(activity2.controlOut)
+				activity2.controlOut.removeAll(decision.controlOut)
 
-				activity1.controlOut.addAll(activity2.controlOut)
-				activity2.controlOut.removeAll(activity1.controlOut)
+				// connecting Activity2 with the Decision node
+				val activityToDecision = createControlFlow
+				process.controlFlow += activityToDecision
+				activityToDecision.id = UUID.randomUUID.toString
+				activityToDecision.fromNode = activity2
+				activityToDecision.toNode = decision
 
-				activity2.controlIn.addAll(tmp.controlIn)
-				tmp.controlIn.removeAll(activity2.controlIn)
-
-				activity2.controlOut.addAll(tmp.controlOut)
-				tmp.controlOut.removeAll(activity2.controlOut)
+				val controlNO = createControlFlow
+				process.controlFlow += controlNO
+				controlNO.name = "NO"
+				controlNO.id = UUID.randomUUID.toString
+				controlNO.fromNode = decision
+				controlNO.toNode = activity1
 			}
 		}
 	)
