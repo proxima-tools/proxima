@@ -7,7 +7,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ProcessModel" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="process" upperBound="-1"
         eType="#//Process" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transformationGraph" eType="#//TransformationGraph"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="languageModel" eType="#//LanguageModel"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyModel" eType="#//PropertyModel"
         containment="true"/>
@@ -25,10 +25,10 @@
         eType="#//ActivityGroup" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlFlow" eSuperTypes="#//NamedElement #//Identifiable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toNode" upperBound="-1"
-        eType="#//Node" eOpposite="#//Node/fromControlFlow"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fromNode" upperBound="-1"
-        eType="#//Node" eOpposite="#//Node/toControlFlow"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toNode" lowerBound="1"
+        eType="#//Node" eOpposite="#//Node/controlIn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fromNode" lowerBound="1"
+        eType="#//Node" eOpposite="#//Node/controlOut"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
   </eClassifiers>
@@ -37,9 +37,9 @@
         eType="#//Node" eOpposite="#//Node/dataFlowTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowTo" upperBound="-1"
         eType="#//Node" eOpposite="#//Node/dataFlowFrom"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toControlFlow" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controlOut" upperBound="-1"
         eType="#//ControlFlow" eOpposite="#//ControlFlow/fromNode"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fromControlFlow" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controlIn" upperBound="-1"
         eType="#//ControlFlow" eOpposite="#//ControlFlow/toNode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//CostItem #//NamedElement #//Node">
@@ -63,7 +63,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//Control"/>
   <eClassifiers xsi:type="ecore:EClass" name="Merge" eSuperTypes="#//Control"/>
   <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//Control #//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TransformationGraph">
+  <eClassifiers xsi:type="ecore:EClass" name="LanguageModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" upperBound="-1"
         eType="#//Transformation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="language" upperBound="-1"
@@ -77,7 +77,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//Activity" eOpposite="#//Activity/typedBy"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//NamedElement #//PropertyLinkedElement #//Identifiable">
+  <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//NamedElement #//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputOf" upperBound="-1"
         eType="#//Transformation" eOpposite="#//Transformation/inputLanguage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputOf" upperBound="-1"
@@ -136,10 +136,6 @@
     <eLiterals name="L2" value="1"/>
     <eLiterals name="L3" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="L1" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="L2" eSuperTypes="#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="L3" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Infinite" eSuperTypes="#//RatioScale"/>
   <eClassifiers xsi:type="ecore:EClass" name="Intent" eSuperTypes="#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="subjectOfIntent" lowerBound="1"
@@ -151,11 +147,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="IntentType">
     <eLiterals name="UNKNOWN" literal="UNKNOWN"/>
-    <eLiterals name="ADD" value="1"/>
-    <eLiterals name="READ" value="2"/>
-    <eLiterals name="MODIFY" value="3"/>
-    <eLiterals name="CHECK" value="4"/>
-    <eLiterals name="CALCULATE" value="5"/>
+    <eLiterals name="READ" value="1"/>
+    <eLiterals name="MODIFY" value="2"/>
+    <eLiterals name="CHECK" value="3"/>
+    <eLiterals name="LOCK" value="4"/>
+    <eLiterals name="RELEASE" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActivityGroup" eSuperTypes="#//NamedElement #//CostItem #//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="groupedActivity" upperBound="-1"
