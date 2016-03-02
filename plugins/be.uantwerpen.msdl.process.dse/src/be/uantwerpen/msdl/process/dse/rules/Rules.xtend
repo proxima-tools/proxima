@@ -7,19 +7,19 @@ import be.uantwerpen.msdl.icm.queries.processrewrite.util.SoftControlFlowBetween
 import be.uantwerpen.msdl.metamodels.process.Activity
 import be.uantwerpen.msdl.metamodels.process.ControlFlow
 import be.uantwerpen.msdl.metamodels.process.Process
-import be.uantwerpen.msdl.metamodels.process.ProcessFactory
 import be.uantwerpen.msdl.metamodels.process.Property
-import java.util.UUID
 import org.eclipse.viatra.dse.api.DSETransformationRule
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
 
 class Rules {
 
 	val extension ProcessRewrite processRewriteQueries = ProcessRewrite::instance
-	val extension ProcessFactory processFactory = ProcessFactory::eINSTANCE
+	val extension ProcessFactory2 processFactory = new ProcessFactory2
 
 	def addTransformationRules(DesignSpaceExplorer dse) {
-		rules.forEach[rule|dse.addTransformationRule(rule)]
+		rules.forEach [ rule |
+			dse.addTransformationRule(rule)
+		]
 	}
 
 	def rules() {
@@ -37,26 +37,25 @@ class Rules {
 		readModifySharedProperty,
 		new ReadModifySharedPropertyProcessor() {
 			override process(Activity activity1, Activity activity2, Property property) {
-//				val tmp = createManualActivity;
-//				tmp.id = "tmp";
-//
-//				tmp.controlIn.addAll(activity1.controlIn)
-//				activity1.controlIn.removeAll(tmp.controlIn)
-//
-//				tmp.controlOut.addAll(activity1.controlOut)
-//				activity1.controlOut.removeAll(tmp.controlOut)
-//
-//				activity1.controlIn.addAll(activity2.controlIn)
-//				activity2.controlIn.removeAll(activity1.controlIn)
-//
-//				activity1.controlOut.addAll(activity2.controlOut)
-//				activity2.controlOut.removeAll(activity1.controlOut)
-//
-//				activity2.controlIn.addAll(tmp.controlIn)
-//				tmp.controlIn.removeAll(activity2.controlIn)
-//
-//				activity2.controlOut.addAll(tmp.controlOut)
-//				tmp.controlOut.removeAll(activity2.controlOut)
+				val tmp = createManualActivity("tmp");
+
+				tmp.controlIn.addAll(activity1.controlIn)
+				activity1.controlIn.removeAll(tmp.controlIn)
+
+				tmp.controlOut.addAll(activity1.controlOut)
+				activity1.controlOut.removeAll(tmp.controlOut)
+
+				activity1.controlIn.addAll(activity2.controlIn)
+				activity2.controlIn.removeAll(activity1.controlIn)
+
+				activity1.controlOut.addAll(activity2.controlOut)
+				activity2.controlOut.removeAll(activity1.controlOut)
+
+				activity2.controlIn.addAll(tmp.controlIn)
+				tmp.controlIn.removeAll(activity2.controlIn)
+
+				activity2.controlOut.addAll(tmp.controlOut)
+				tmp.controlOut.removeAll(activity2.controlOut)
 			}
 		}
 	)
@@ -71,10 +70,7 @@ class Rules {
 		new ReadModifySharedProperty2Processor() {
 			override process(Activity activity1, Activity activity2, Property property, Process process) {
 
-				val decision = createDecision
-				process.node += decision
-				decision.id = UUID.randomUUID.toString
-				decision.name = property.name + "?"
+				val decision = process.createDecision(property.name + "?")
 
 				// these are gonna be the OK nodes from the Decision node
 				activity2.controlOut.forEach [ cf |
@@ -84,18 +80,10 @@ class Rules {
 				activity2.controlOut.removeAll(decision.controlOut)
 
 				// connecting Activity2 with the Decision node
-				val activityToDecision = createControlFlow
-				process.controlFlow += activityToDecision
-				activityToDecision.id = UUID.randomUUID.toString
-				activityToDecision.fromNode = activity2
-				activityToDecision.toNode = decision
+				process.createControlFlow(activity2, decision)
 
-				val controlNO = createControlFlow
-				process.controlFlow += controlNO
+				val controlNO = process.createControlFlow(decision, activity1)
 				controlNO.name = "NO"
-				controlNO.id = UUID.randomUUID.toString
-				controlNO.fromNode = decision
-				controlNO.toNode = activity1
 			}
 		}
 	)
