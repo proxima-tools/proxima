@@ -23,9 +23,10 @@ pattern hardControlFlowBetweenActivities(activity1: Activity, activity2: Activit
 /**
  * Soft control flow constraint
  */
-pattern softControlFlowBetweenActivities(activity1: Activity, activity2: Activity, controlFlow: ControlFlow){
+pattern softControlFlowBetweenActivities(activity1: Activity, activity2: Activity, controlFlow: ControlFlow, process: Process){
 	find controlFlowBetweenNodes(activity1, activity2, controlFlow);
 	ControlFlow.final(controlFlow, f);
+	Process.controlFlow(process, controlFlow);
 	f != true;
 }
 
