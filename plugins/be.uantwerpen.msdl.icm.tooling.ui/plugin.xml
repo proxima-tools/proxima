@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="be.uantwerpen.msdl.icm.tooling.ui.category"
+            name="ICM">
+      </category>
+      <wizard
+            category="be.uantwerpen.msdl.icm.tooling.ui.category"
+            class="be.uantwerpen.msdl.icm.tooling.ui.wizards.NewProjectWizard"
+            id="be.uantwerpen.msdl.icm.tooling.ui.newproject"
+            name="New ICM Project"
+            preferredPerspectives="org.eclipse.pde.ui.PDEPerspective"
+            project="true">
+      </wizard>
+      <wizard
+            category="be.uantwerpen.msdl.icm.tooling.ui.category"
+            class="be.uantwerpen.msdl.icm.tooling.ui.wizards.NewProcessModelWizard"
+            finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
+            id="be.uantwerpen.msdl.icm.tooling.ui.newprocess"
+            name="New Process Model File"
+            preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling,org.eclipse.pde.ui.PDEPerspective,org.eclipse.jdt.ui.JavaPerspective"
+            project="false">
+      </wizard>
+   </extension>
+
+</plugin>

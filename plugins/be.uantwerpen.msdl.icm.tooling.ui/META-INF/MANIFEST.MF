@@ -1,12 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Tooling UI Plugin
-Bundle-SymbolicName: be.uantwerpen.msdl.icm.tooling.ui
+Bundle-SymbolicName: be.uantwerpen.msdl.icm.tooling.ui;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: be.uantwerpen.msdl.icm.tooling.ui.internal.Activator
 Bundle-Vendor: Istvan David
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- be.uantwerpen.msdl.icm.tooling.core;bundle-version="0.1.0"
+ be.uantwerpen.msdl.icm.tooling.core;bundle-version="0.1.0",
+ org.apache.log4j;bundle-version="1.2.15",
+ org.eclipse.core.resources;bundle-version="3.10.0",
+ org.eclipse.ui.ide;bundle-version="3.11.0",
+ com.google.guava;bundle-version="15.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
