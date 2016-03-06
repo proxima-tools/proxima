@@ -1,11 +1,14 @@
 package be.uantwerpen.msdl.process.dse.rules
 
+import be.uantwerpen.msdl.metamodels.process.Activity
 import be.uantwerpen.msdl.metamodels.process.Identifiable
 import be.uantwerpen.msdl.metamodels.process.Node
 import be.uantwerpen.msdl.metamodels.process.Process
 import be.uantwerpen.msdl.metamodels.process.ProcessFactory
+import be.uantwerpen.msdl.metamodels.process.Property
 import be.uantwerpen.msdl.metamodels.process.impl.ProcessFactoryImpl
 import java.util.UUID
+import be.uantwerpen.msdl.metamodels.process.IntentType
 
 class ProcessFactory2 extends ProcessFactoryImpl {
 
@@ -62,5 +65,18 @@ class ProcessFactory2 extends ProcessFactoryImpl {
 		controlFlow.fromNode = from
 		controlFlow.toNode = to
 		controlFlow
+	}
+
+	override createIntent() {
+		val intent = processFactory.createIntent
+		intent.setId
+		intent
+	}
+
+	def createIntent(Activity from, Property to, IntentType intentType) {
+		val intent = createIntent
+		intent.activity = from
+		intent.subjectOfIntent = to
+		intent.type = intentType
 	}
 }

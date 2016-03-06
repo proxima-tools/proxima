@@ -4,8 +4,8 @@ import be.uantwerpen.msdl.icm.queries.processrewrite.util.SoftControlFlowBetween
 import be.uantwerpen.msdl.metamodels.process.Activity
 import be.uantwerpen.msdl.metamodels.process.ControlFlow
 import be.uantwerpen.msdl.metamodels.process.Process
-import org.eclipse.viatra.dse.api.DSETransformationRule
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
+import org.eclipse.viatra.dse.api.DSETransformationRule
 
 class Generic extends RuleGroup{
 	

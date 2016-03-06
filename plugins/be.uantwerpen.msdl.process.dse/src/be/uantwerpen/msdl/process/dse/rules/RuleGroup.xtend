@@ -2,10 +2,10 @@ package be.uantwerpen.msdl.process.dse.rules
 
 import be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite
 import java.util.List
-import org.eclipse.incquery.runtime.api.impl.BaseMatcher
-import org.eclipse.incquery.runtime.api.impl.BasePatternMatch
 import org.eclipse.viatra.dse.api.DSETransformationRule
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
+import org.eclipse.viatra.query.runtime.api.impl.BaseMatcher
+import org.eclipse.viatra.query.runtime.api.impl.BasePatternMatch
 
 abstract class RuleGroup {
 

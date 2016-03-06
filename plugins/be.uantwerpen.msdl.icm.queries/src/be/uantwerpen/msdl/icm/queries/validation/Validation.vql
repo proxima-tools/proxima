@@ -2,7 +2,6 @@ package be.uantwerpen.msdl.icm.queries.validation
 
 import "metamodels.process"
 
-
 /**
  * Helper patterns
  */

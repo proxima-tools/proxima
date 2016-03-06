@@ -6,15 +6,15 @@ import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.incquery.runtime.base.api.IncQueryBaseFactory;
-import org.eclipse.incquery.runtime.base.api.TransitiveClosureHelper;
-import org.eclipse.incquery.runtime.base.exception.IncQueryBaseException;
-import org.eclipse.incquery.runtime.exception.IncQueryException;
 import org.eclipse.viatra.dse.api.SolutionTrajectory;
 import org.eclipse.viatra.dse.base.ThreadContext;
 import org.eclipse.viatra.dse.objectives.Comparators;
 import org.eclipse.viatra.dse.objectives.IObjective;
 import org.eclipse.viatra.dse.objectives.impl.BaseObjective;
+import org.eclipse.viatra.query.runtime.base.api.TransitiveClosureHelper;
+import org.eclipse.viatra.query.runtime.base.api.ViatraBaseFactory;
+import org.eclipse.viatra.query.runtime.base.exception.ViatraBaseException;
+import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
 import be.uantwerpen.msdl.metamodels.process.FlowFinal;
 import be.uantwerpen.msdl.metamodels.process.Initial;
@@ -43,15 +43,15 @@ public class ShortestPathSoftObjective extends BaseObjective {
 
 		try {
 			ProcessModel modelRoot = (ProcessModel) context.getModelRoot();
-			tcHelper = IncQueryBaseFactory.getInstance().createTransitiveClosureHelper(modelRoot, refs);
+			tcHelper = ViatraBaseFactory.getInstance().createTransitiveClosureHelper(modelRoot, refs);
 
 			solutionTrajectroy = context.getDesignSpaceManager().createSolutionTrajectroy();
 			solutionTrajectroy.setModel(modelRoot);
 			solutionTrajectroy.doTransformation();
 
-		} catch (IncQueryException e1) {
+		} catch (ViatraQueryException e1) {
 			e1.printStackTrace();
-		} catch (IncQueryBaseException e) {
+		} catch (ViatraBaseException e) {
 			e.printStackTrace();
 		}
 

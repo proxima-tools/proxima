@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin>
-  <extension id="be.uantwerpen.msdl.icm.queries.Icmqueries" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.Icmqueries" id="be.uantwerpen.msdl.icm.queries.Icmqueries"/>
+  <extension id="be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite" id="be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite"/>
   </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.Constraints" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.Constraints" id="be.uantwerpen.msdl.icm.queries.Constraints"/>
+  <extension id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries"/>
   </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.rewriting.Processrewrite" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.rewriting.Processrewrite" id="be.uantwerpen.msdl.icm.queries.rewriting.Processrewrite"/>
-  </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.processrewrite.Processrewrite" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.processrewrite.Processrewrite" id="be.uantwerpen.msdl.icm.queries.processrewrite.Processrewrite"/>
-  </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite" id="be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite"/>
-  </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.validation.Validation" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.validation.Validation" id="be.uantwerpen.msdl.icm.queries.validation.Validation"/>
-  </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries"/>
+  <extension id="be.uantwerpen.msdl.icm.queries.validation.Validation" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.validation.Validation" id="be.uantwerpen.msdl.icm.queries.validation.Validation"/>
   </extension>
 </plugin>

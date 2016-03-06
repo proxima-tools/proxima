@@ -16,20 +16,19 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
-import org.eclipse.incquery.runtime.base.exception.IncQueryBaseException
-import org.eclipse.incquery.runtime.exception.IncQueryException
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
 import org.eclipse.viatra.dse.api.Strategies
 import org.eclipse.viatra.dse.solutionstore.StrategyDependentSolutionStore
 import org.eclipse.viatra.dse.statecoding.simple.SimpleStateCoderFactory
+import org.eclipse.viatra.query.runtime.base.exception.ViatraBaseException
+import org.eclipse.viatra.query.runtime.exception.ViatraQueryException
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
 class DSERunner {
-	private static final val LEVEL = Level.
+	private static final val LEVEL = Level::
 		DEBUG
-
 	private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/robot/be.uantwerpen.msdl.icm.robot/robot2.process"
 
 	private ResourceSet resourceSet
@@ -59,7 +58,7 @@ class DSERunner {
 	}
 
 	@Test
-	def void explore() throws IncQueryException, IOException, IncQueryBaseException {
+	def void explore() throws ViatraQueryException, IOException, ViatraBaseException {
 		// Load persisted model
 		val processModel = resource.contents.head as ProcessModel
 
@@ -77,7 +76,7 @@ class DSERunner {
 		RulesFactory.ruleGroups.forEach [ ruleGroup |
 			ruleGroup.addTransformationRules(dse)
 		]
-		logger.debug(String.format("trafo rules added in %d ms", timeElapsed))
+		logger.debug(String.format("%d trafo rules added in %d ms", dse.globalContext.transformations.size, timeElapsed))
 		stopwatch.resetAndRestart
 
 		// Objectives
@@ -122,11 +121,12 @@ class DSERunner {
 		logger.debug("end")
 	}
 
-	def private resetAndRestart(Stopwatch stopwatch) {
+	private def resetAndRestart(Stopwatch stopwatch) {
 		stopwatch.reset.start
 	}
-	
-	def private timeElapsed(){
+
+	private def timeElapsed() {
 		stopwatch.elapsed(TimeUnit.MILLISECONDS)
 	}
+
 }

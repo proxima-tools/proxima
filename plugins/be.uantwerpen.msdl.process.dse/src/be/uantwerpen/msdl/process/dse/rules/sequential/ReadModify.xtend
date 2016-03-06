@@ -3,16 +3,18 @@ package be.uantwerpen.msdl.process.dse.rules.sequential
 import be.uantwerpen.msdl.icm.queries.processrewrite.util.ReadModifySharedProperty2Processor
 import be.uantwerpen.msdl.icm.queries.processrewrite.util.ReadModifySharedPropertyProcessor
 import be.uantwerpen.msdl.metamodels.process.Activity
+import be.uantwerpen.msdl.metamodels.process.IntentType
 import be.uantwerpen.msdl.metamodels.process.Process
 import be.uantwerpen.msdl.metamodels.process.Property
-import org.eclipse.viatra.dse.api.DSETransformationRule
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
+import org.eclipse.viatra.dse.api.DSETransformationRule
 
 class ReadModify extends RuleGroup {
 
 	override rules() {
 		#[
-			readModifyReorder,
+//			readModifyReorder
+//			,
 			readModifyAugmentWithCheck
 		]
 	}
@@ -65,9 +67,13 @@ class ReadModify extends RuleGroup {
 				]
 				decision.controlOut.addAll(activity2.controlOut)
 				activity2.controlOut.removeAll(decision.controlOut)
-
-				// connecting Activity2 with the Decision node
-				process.createControlFlow(activity2, decision)
+				
+				val checkActivity = createManualActivity("check"+property.name)
+				createIntent(checkActivity, property, IntentType::CHECK)
+				
+				// connecting Activity2 with the check activity and that with the Decision 
+				process.createControlFlow(activity2, checkActivity)
+				process.createControlFlow(checkActivity, decision)
 
 				val controlNO = process.createControlFlow(decision, activity1)
 				controlNO.name = "NO"

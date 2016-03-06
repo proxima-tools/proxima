@@ -5,21 +5,21 @@ import be.uantwerpen.msdl.icm.queries.simulator.util.CostQuerySpecification
 import be.uantwerpen.msdl.metamodels.process.Cost
 import be.uantwerpen.msdl.metamodels.process.ProcessModel
 import be.uantwerpen.msdl.metamodels.process.RatioScale
-import org.eclipse.incquery.runtime.api.IncQueryEngine
+import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 
 class FixedIterationCostSimulator {
 
 	private static final int DEFAULT_ITERATION_NUMBER = 5
 
 	private ProcessModel processModel
-	private IncQueryEngine queryEngine
+	private ViatraQueryEngine queryEngine
 	private int iterations
 
-	new(ProcessModel processModel, IncQueryEngine queryEngine) {
+	new(ProcessModel processModel, ViatraQueryEngine queryEngine) {
 		this(processModel, queryEngine, DEFAULT_ITERATION_NUMBER)
 	}
 
-	new(ProcessModel processModel, IncQueryEngine queryEngine, int iterations) {
+	new(ProcessModel processModel, ViatraQueryEngine queryEngine, int iterations) {
 		this.processModel = processModel
 		this.queryEngine = queryEngine
 		this.iterations = iterations
