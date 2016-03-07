@@ -1,124 +1,100 @@
 package be.uantwerpen.msdl.icm.queries.validation
 
 import "metamodels.process"
+import pattern be.uantwerpen.msdl.icm.queries.general.nodeControlInput
+import pattern be.uantwerpen.msdl.icm.queries.general.nodeControlOutput
+import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode
 
-/**
- * Helper patterns
- */
-private pattern nodeControlOutput(node : Node){
-	Node.controlOut(node, _);
-}
+///**
+// * INIT->FINAL is guaranteed
+// */
+//pattern initReachesFinal(initNode : Initial, finalNode : FlowFinal){
+//	find nodeGloballyReachableFromNode(initNode, finalNode);
+//}
 
-private pattern nodeControlInput(node : Node){
-	Node.controlIn(node, _);
-}
-
-private pattern nodeControlOutput2(node : Node, controlFlow: ControlFlow){
-	Node.controlOut(node, controlFlow);
-}
-
-private pattern nodeControlInput2(node : Node, controlFlow: ControlFlow){
-	Node.controlIn(node, controlFlow);
-}
-
-private pattern nodeDirectlyReachableFromNode(node1: Node, node2: Node){
-	ControlFlow.fromNode(controlFlow, node1);
-	ControlFlow.toNode(controlFlow, node2);
-}
-
-pattern nodeGloballyReachableFromNode(node1: Node, node2: Node){
-	find nodeDirectlyReachableFromNode+(node1, node2);
-}
-
-/**
- * INIT->FINAL is guaranteed
- */
-pattern initReachesFinal(initNode : Initial, finalNode : FlowFinal){
-	find nodeGloballyReachableFromNode(initNode, finalNode);
-}
 /**
  * FINAL should be reachable from every node
  */
 pattern finalNotReachableFromNode(node : Node, finalNode: FlowFinal ){
 	neg find nodeGloballyReachableFromNode(node, finalNode);
+	node != finalNode;
 }
 /**
  * INIT should reach every node
  */
 pattern initDoesNotReachNode(node : Node, initNode: Initial){
 	neg find nodeGloballyReachableFromNode(initNode, node);
+	node != initNode;
 }
-
-
 
 /**
  * INIT has no input and exactly one output
  */
 pattern initNodeWithControlIn(initNode : Initial){
-	find nodeControlInput(initNode);
+	find nodeControlInput(initNode, _);
 }
 pattern initNodeWithNoControlIn(initNode : Initial){
-	neg find nodeControlInput(initNode);
+	neg find nodeControlInput(initNode, _);
 }
 pattern initNodeWithInvalidNumberOfControlOut(initNode : Initial){
-	outs == count find nodeControlOutput2(initNode, _);
+	outs == count find nodeControlOutput(initNode, _);
 	check(outs!=1);
 }
 /**
  * FINAL has only one input, no output
  */
 pattern finalNodeWithInvalidNumberOfIns(finalNode : FlowFinal){
-	ins == count find nodeControlInput2(finalNode, _);
+	ins == count find nodeControlInput(finalNode, _);
 	check(ins!=1);
 }
 pattern finalNodeWithControlOut(finalNode : FlowFinal){
-	find nodeControlOutput(finalNode);
+	find nodeControlOutput(finalNode, _);
 }
 pattern finalNodeWithNoControlOut(finalNode : FlowFinal){
-	neg find nodeControlOutput(finalNode);
+	neg find nodeControlOutput(finalNode, _);
 }
 /**
  * FORK has exactly one input, at least one output
  */
 pattern forkNodeWithInvalidNumberOfIns(forkNode : Fork){
-	forkIns == count find nodeControlInput2(forkNode, _);
+	forkIns == count find nodeControlInput(forkNode, _);
 	check(forkIns!=1);
 }
 pattern forkNodeWithInvalidNumberOfOuts(forkNode : Fork){
-	forkOuts == count find nodeControlOutput2(forkNode, _);
+	forkOuts == count find nodeControlOutput(forkNode, _);
 	check(forkOuts<1);
 }
  /**
  * JOIN has at least one input, exactly one output
  */
 pattern joinNodeWithInvalidNumberOfIns(joinNode : Join){
- 	joinIns == count find nodeControlInput2(joinNode, _);
+ 	joinIns == count find nodeControlInput(joinNode, _);
 	check(joinIns<1);
 }
 pattern joinNodeWithInvalidNumberOfOuts(joinNode : Join){
-	joinOuts == count find nodeControlOutput2(joinNode, _);
+	joinOuts == count find nodeControlOutput(joinNode, _);
 	check(joinOuts!=1);
 }
 /**
  * DECISION has at least one input, at least one output
  */
 pattern decisionNodeWithInvalidNumberOfIns(decisionNode : Decision){
- 	ins == count find nodeControlInput2(decisionNode, _);
+ 	ins == count find nodeControlInput(decisionNode, _);
 	check(ins<1);
 }
 pattern decisionNodeWithInvalidNumberOfOuts(decisionNode : Decision){
-	outs == count find nodeControlOutput2(decisionNode, _);
+	outs == count find nodeControlOutput(decisionNode, _);
 	check(outs<1);
 }
 /**
  * ACTIVITIES have at least one input, at least one output
  */
 pattern activityWithInvalidNumberOfControlIn(activity : Activity){
- 	ins == count find nodeControlInput2(activity, _);
+ 	ins == count find nodeControlInput(activity, _);
 	check(ins<1);
 }
 pattern activityWithInvalidNumberOfControlOut(activity : Activity){
-	outs == count find nodeControlOutput2(activity, _);
+	outs == count find nodeControlOutput(activity, _);
 	check(outs<1);
 }
 
@@ -126,11 +102,11 @@ pattern activityWithInvalidNumberOfControlOut(activity : Activity){
  * CONTROL FLOWS have one input, one output
  */
 pattern controlFlowWithInvalidNumberOfControlFrom(controlFlow: ControlFlow){
- 	froms == count find nodeControlInput2(_, controlFlow);
+ 	froms == count find nodeControlInput(_, controlFlow);
 	check(froms != 1);
 }
 pattern controlFlowWithInvalidNumberOfControlTo(controlFlow: ControlFlow){
-	tos == count find nodeControlOutput2(_, controlFlow);
+	tos == count find nodeControlOutput(_, controlFlow);
 	check(tos != 1);
 }
 /**

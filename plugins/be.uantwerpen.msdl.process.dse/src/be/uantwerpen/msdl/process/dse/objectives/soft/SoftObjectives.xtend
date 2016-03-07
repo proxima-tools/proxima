@@ -1,12 +1,13 @@
 package be.uantwerpen.msdl.process.dse.objectives.soft
 
-import be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
 import org.eclipse.viatra.dse.objectives.Comparators
+import org.eclipse.viatra.dse.objectives.impl.WeightedQueriesSoftObjective
+import be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns
 
 class SoftObjectives {
 
-	val extension ProcessRewrite processRewrite = ProcessRewrite::instance
+	val extension InconsistencyPatterns inconsistencyPatterns = InconsistencyPatterns::instance
 
 	def addConstraints(DesignSpaceExplorer dse) {
 		objectives.forEach [ objective |
@@ -16,13 +17,15 @@ class SoftObjectives {
 
 	def objectives() {
 		#[
-			cheapestProcessObjective
-//			,consistencyObjective
+			consistencyObjective.withLevel(1),
+			cheapestProcessObjective.withLevel(2)
 		]
 	}
 
-//	val consistencyObjective = new WeightedQueriesSoftObjective("consistencyObjective").withConstraint(readModifySharedProperty, 10).withConstraint(readModifySharedProperty2, 10).
-//		withComparator(Comparators.LOWER_IS_BETTER).withLevel(1)
-	val cheapestProcessObjective = new CheapestProcessSoftObjective().withComparator(Comparators.LOWER_IS_BETTER)
-//	.	withLevel(1)
+	val consistencyObjective = new WeightedQueriesSoftObjective("consistencyObjective")
+		.withConstraint(readModifySharedProperty, 1)
+		.withComparator(Comparators.LOWER_IS_BETTER)
+	
+	val cheapestProcessObjective = new CheapestProcessSoftObjective()
+		.withComparator(Comparators.LOWER_IS_BETTER)
 }

@@ -1,7 +1,7 @@
 package be.uantwerpen.msdl.process.dse.rules.sequential
 
-import be.uantwerpen.msdl.icm.queries.processrewrite.util.ReadModifySharedProperty2Processor
-import be.uantwerpen.msdl.icm.queries.processrewrite.util.ReadModifySharedPropertyProcessor
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.ReadModifySharedProperty2Processor
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.ReadModifySharedPropertyProcessor
 import be.uantwerpen.msdl.metamodels.process.Activity
 import be.uantwerpen.msdl.metamodels.process.IntentType
 import be.uantwerpen.msdl.metamodels.process.Process
@@ -13,9 +13,8 @@ class ReadModify extends RuleGroup {
 
 	override rules() {
 		#[
-//			readModifyReorder
-//			,
-			readModifyAugmentWithCheck
+			readModifyReorder
+			,readModifyAugmentWithCheck
 		]
 	}
 
@@ -25,7 +24,7 @@ class ReadModify extends RuleGroup {
 	val readModifyReorder = new DSETransformationRule(
 		readModifySharedProperty,
 		new ReadModifySharedPropertyProcessor() {
-			override process(Activity activity1, Activity activity2, Property property) {
+			override process(Activity activity1, Activity activity2, Property property, Process process) {
 				val tmp = createManualActivity("tmp");
 
 				tmp.controlIn.addAll(activity1.controlIn)
@@ -67,10 +66,10 @@ class ReadModify extends RuleGroup {
 				]
 				decision.controlOut.addAll(activity2.controlOut)
 				activity2.controlOut.removeAll(decision.controlOut)
-				
-				val checkActivity = createManualActivity("check"+property.name)
+
+				val checkActivity = createManualActivity("check" + property.name)
 				createIntent(checkActivity, property, IntentType::CHECK)
-				
+
 				// connecting Activity2 with the check activity and that with the Decision 
 				process.createControlFlow(activity2, checkActivity)
 				process.createControlFlow(checkActivity, decision)

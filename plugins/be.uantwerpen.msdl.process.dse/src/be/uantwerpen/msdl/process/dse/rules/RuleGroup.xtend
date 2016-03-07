@@ -1,6 +1,6 @@
 package be.uantwerpen.msdl.process.dse.rules
 
-import be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite
+import be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns
 import java.util.List
 import org.eclipse.viatra.dse.api.DSETransformationRule
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
@@ -9,7 +9,7 @@ import org.eclipse.viatra.query.runtime.api.impl.BasePatternMatch
 
 abstract class RuleGroup {
 
-	protected val extension ProcessRewrite processRewriteQueries = ProcessRewrite::instance
+	protected val extension InconsistencyPatterns inconsistencyPatterns = InconsistencyPatterns::instance
 	protected val extension ProcessFactory2 processFactory = new ProcessFactory2
 
 	public def addTransformationRules(DesignSpaceExplorer dse) {

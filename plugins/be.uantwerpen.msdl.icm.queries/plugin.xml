@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin>
-  <extension id="be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite" id="be.uantwerpen.msdl.icm.queries.processrewrite.ProcessRewrite"/>
+  <extension id="be.uantwerpen.msdl.icm.queries.general.GeneralPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.general.GeneralPatterns" id="be.uantwerpen.msdl.icm.queries.general.GeneralPatterns"/>
+  </extension>
+  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns"/>
   </extension>
   <extension id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
     <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries"/>

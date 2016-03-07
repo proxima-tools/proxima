@@ -1,0 +1,69 @@
+package be.uantwerpen.msdl.icm.queries.general
+
+import "metamodels.process"
+
+pattern controlFlow(process: Process, controlFlow: ControlFlow){
+	Process.controlFlow(process, controlFlow);
+}
+
+pattern intent(activity: Activity, property: Property, intent: Intent){
+	Intent.activity(intent, activity);
+	Intent.subjectOfIntent(intent, property);
+}
+
+pattern controlFlowBetweenNodes(node1: Node, node2: Node, controlFlow: ControlFlow){
+	ControlFlow.fromNode(controlFlow, node1);
+	ControlFlow.toNode(controlFlow, node2);
+}
+
+pattern hardControlFlowBetweenActivities(activity1: Activity, activity2: Activity, controlFlow: ControlFlow){
+	find controlFlowBetweenNodes(activity1, activity2, controlFlow);
+	ControlFlow.final(controlFlow, f);
+	f == true;
+}
+
+pattern softControlFlowBetweenActivities(activity1: Activity, activity2: Activity, controlFlow: ControlFlow, process: Process){
+	find controlFlowBetweenNodes(activity1, activity2, controlFlow);
+	ControlFlow.final(controlFlow, f);
+	Process.controlFlow(process, controlFlow);
+	f != true;
+}
+
+
+pattern nodeControlOutput(node : Node, controlFlow: ControlFlow){
+	Node.controlOut(node, controlFlow);
+}
+
+pattern nodeControlInput(node : Node, controlFlow: ControlFlow){
+	Node.controlIn(node, controlFlow);
+}
+
+pattern nodeDirectlyReachableFromNode(node1: Node, node2: Node){
+	ControlFlow.fromNode(controlFlow, node1);
+	ControlFlow.toNode(controlFlow, node2);
+}
+
+pattern nodeGloballyReachableFromNode(node1: Node, node2: Node){
+	find nodeDirectlyReachableFromNode+(node1, node2);
+}
+
+//pattern objectFlowBetweenIndependentActivities(activity1: Activity, activity2: Activity){
+//	find controlFlowBetweenNodes(activity1, activity2, _);
+//	
+//	Object.dataFlowFrom(object, activity1);
+//	Object.dataFlowTo(object, activity2);
+//}
+//
+//pattern independentNodes(process: Process, node1: Node, node2: Node){
+//	Process.node(process, node1);
+//	Process.node(process, node2);
+//	node1!=node2;
+//	neg find controlFlowBetweenNodes(node1, node2, _);
+//}
+//pattern independentActivities(process: Process, activity1: Activity, activity2: Activity){
+//	find independentNodes(process, activity1, activity2);
+//}
+//
+//pattern independentNodes2(process: Process, node1: Node, node2: Node){
+//	find independentNodes(process, node1, node2);
+//}
