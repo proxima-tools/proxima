@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="be.uantwerpen.msdl.icm.processmodeler.feature"
-      label="ICM Process Modeler"
+      label="Process Modeler"
       version="0.1.0.qualifier"
       provider-name="Istvan David">
 
