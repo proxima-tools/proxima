@@ -1,100 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.process">
-  <process name="someProcess">
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Initial"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.1" name="CAD2Simulink" dataFlowFrom="//@process.0/@node.2" dataFlowTo="//@process.0/@node.3"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="cadModel" dataFlowTo="//@process.0/@node.1" typedBy="//@transformationGraph/@language.0"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="simulinkModel" dataFlowFrom="//@process.0/@node.1" typedBy="//@transformationGraph/@language.1"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" cost="//@costModel/@cost.0" name="someWork"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Fork"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" name="computation"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Join"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Download Eclipse" dataFlowTo="//@process.0/@node.14"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Unzip" dataFlowFrom="//@process.0/@node.14" dataFlowTo="//@process.0/@node.15"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Install Sirius" dataFlowTo="//@process.0/@node.16"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Fork"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Join"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:FlowFinal"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="mars" dataFlowFrom="//@process.0/@node.8" dataFlowTo="//@process.0/@node.9" typedBy="//@transformationGraph/@language.2"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="local copy" dataFlowFrom="//@process.0/@node.9" typedBy="//@transformationGraph/@language.3"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="Eclipse w/ Sirius" dataFlowFrom="//@process.0/@node.10" typedBy="//@transformationGraph/@language.4"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.2" name="enjoy the beauties of the nature (today's a sunny day)"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Decision" name="okay?"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:FlowFinal"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:FlowFinal"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Meet Hans"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="Meet Klaas" dataFlowFrom="//@process.0/@node.26"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" cost="//@costModel/@cost.3" name="Kristof checks our models" dataFlowFrom="//@process.0/@node.26" dataFlowTo="//@process.0/@node.26"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Fork"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Join"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="Robot case" dataFlowFrom="//@process.0/@node.23" dataFlowTo="//@process.0/@node.22 //@process.0/@node.23" typedBy="//@transformationGraph/@language.5"/>
-    <controlFlow fromNode="//@process.0/@node.1"/>
-    <controlFlow toNode="//@process.0/@node.1" fromNode="//@process.0/@node.0"/>
-    <controlFlow toNode="//@process.0/@node.6" fromNode="//@process.0/@node.5"/>
-    <controlFlow toNode="//@process.0/@node.4" fromNode="//@process.0/@node.5"/>
-    <controlFlow toNode="//@process.0/@node.5" fromNode="//@process.0/@node.1"/>
-    <controlFlow toNode="//@process.0/@node.7" fromNode="//@process.0/@node.4"/>
-    <controlFlow toNode="//@process.0/@node.7" fromNode="//@process.0/@node.6"/>
-    <controlFlow fromNode="//@process.0/@node.7"/>
-    <controlFlow toNode="//@process.0/@node.11" fromNode="//@process.0/@node.9"/>
-    <controlFlow toNode="//@process.0/@node.10" fromNode="//@process.0/@node.11"/>
-    <controlFlow toNode="//@process.0/@node.12" fromNode="//@process.0/@node.10"/>
-    <controlFlow toNode="//@process.0/@node.13" fromNode="//@process.0/@node.12"/>
-    <controlFlow toNode="//@process.0/@node.17" fromNode="//@process.0/@node.11"/>
-    <controlFlow toNode="//@process.0/@node.12" fromNode="//@process.0/@node.17"/>
-    <controlFlow toNode="//@process.0/@node.9" fromNode="//@process.0/@node.8"/>
-    <controlFlow toNode="//@process.0/@node.18" fromNode="//@process.0/@node.1"/>
-    <controlFlow name="yes" toNode="//@process.0/@node.4" fromNode="//@process.0/@node.18"/>
-    <controlFlow name="no" toNode="//@process.0/@node.6" fromNode="//@process.0/@node.18"/>
-    <controlFlow toNode="//@process.0/@node.19" fromNode="//@process.0/@node.7"/>
-    <controlFlow toNode="//@process.0/@node.21" fromNode="//@process.0/@node.24"/>
-    <controlFlow toNode="//@process.0/@node.23" fromNode="//@process.0/@node.24"/>
-    <controlFlow toNode="//@process.0/@node.25" fromNode="//@process.0/@node.23"/>
-    <controlFlow toNode="//@process.0/@node.25" fromNode="//@process.0/@node.21"/>
-    <controlFlow toNode="//@process.0/@node.22" fromNode="//@process.0/@node.25"/>
-    <controlFlow toNode="//@process.0/@node.20" fromNode="//@process.0/@node.22"/>
-  </process>
-  <process name="someOtherProcess"/>
   <process>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Initial"/>
-    <controlFlow toNode="//@process.0/@node.8" fromNode="//@process.2/@node.0"/>
-  </process>
-  <process>
-    <node xsi:type="be.uantwerpen.msdl.metamodels:Initial"/>
-    <controlFlow toNode="//@process.0/@node.24" fromNode="//@process.3/@node.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Initial" toControlFlow="//@process.0/@controlFlow.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:FlowFinal" fromControlFlow="//@process.0/@controlFlow.6"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Fork" toControlFlow="//@process.0/@controlFlow.1 //@process.0/@controlFlow.2" fromControlFlow="//@process.0/@controlFlow.0 //@process.0/@controlFlow.7"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Join" toControlFlow="//@process.0/@controlFlow.5 //@process.0/@controlFlow.9" fromControlFlow="//@process.0/@controlFlow.3 //@process.0/@controlFlow.4"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" name="someSimulation" dataFlowFrom="//@process.0/@node.7" dataFlowTo="//@process.0/@node.9" toControlFlow="//@process.0/@controlFlow.4" fromControlFlow="//@process.0/@controlFlow.2 //@process.0/@controlFlow.8" typedBy="//@transformationGraph/@transformation.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:ManualActivity" name="someTask" toControlFlow="//@process.0/@controlFlow.3" fromControlFlow="//@process.0/@controlFlow.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Decision" toControlFlow="//@process.0/@controlFlow.6 //@process.0/@controlFlow.7" fromControlFlow="//@process.0/@controlFlow.5" name="P?"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="req" dataFlowTo="//@process.0/@node.4" typedBy="//@transformationGraph/@language.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:AutomatedActivity" dataFlowFrom="//@process.0/@node.9" toControlFlow="//@process.0/@controlFlow.8" fromControlFlow="//@process.0/@controlFlow.9"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels:Object" name="costmodel" dataFlowFrom="//@process.0/@node.4" dataFlowTo="//@process.0/@node.8" typedBy="//@transformationGraph/@language.1"/>
+    <controlFlow toNode="//@process.0/@node.2" fromNode="//@process.0/@node.0"/>
+    <controlFlow toNode="//@process.0/@node.5" fromNode="//@process.0/@node.2"/>
+    <controlFlow toNode="//@process.0/@node.4" fromNode="//@process.0/@node.2"/>
+    <controlFlow toNode="//@process.0/@node.3" fromNode="//@process.0/@node.5"/>
+    <controlFlow toNode="//@process.0/@node.3" fromNode="//@process.0/@node.4"/>
+    <controlFlow toNode="//@process.0/@node.6" fromNode="//@process.0/@node.3"/>
+    <controlFlow name="OK" toNode="//@process.0/@node.1" fromNode="//@process.0/@node.6"/>
+    <controlFlow name="NO" toNode="//@process.0/@node.2" fromNode="//@process.0/@node.6"/>
+    <controlFlow toNode="//@process.0/@node.4" fromNode="//@process.0/@node.8"/>
+    <controlFlow toNode="//@process.0/@node.8" fromNode="//@process.0/@node.3"/>
   </process>
   <transformationGraph>
-    <transformation name="CAD2Simulink" inputLanguage="//@transformationGraph/@language.0" outputLanguage="//@transformationGraph/@language.1"/>
-    <language name="CAD" inputOf="//@transformationGraph/@transformation.0" types="//@process.0/@node.2"/>
-    <language name="Simulink" outputOf="//@transformationGraph/@transformation.0" types="//@process.0/@node.3"/>
-    <language name="zip" types="//@process.0/@node.14"/>
-    <language name="Eclipse" types="//@process.0/@node.15"/>
-    <language name="awesomeness" types="//@process.0/@node.16"/>
-    <language name="FTG+PM" types="//@process.0/@node.26"/>
+    <transformation name="Jazz2Costs" inputLanguage="//@transformationGraph/@language.0" outputLanguage="//@transformationGraph/@language.1" types="//@process.0/@node.4"/>
+    <language name="Jazz" inputOf="//@transformationGraph/@transformation.0" types="//@process.0/@node.7"/>
+    <language name="Cost" outputOf="//@transformationGraph/@transformation.0" types="//@process.0/@node.9"/>
   </transformationGraph>
   <propertyModel>
-    <property name="safety">
-      <ontologicalRelationship name="partOf" property="//@propertyModel/@property.3"/>
-    </property>
-    <property name="happiness">
-      <ontologicalRelationship property="//@propertyModel/@property.2"/>
-    </property>
-    <property name="p5"/>
-    <property name="p2"/>
-    <property name="Scientific soundness">
-      <ontologicalRelationship name="partOf" property="//@propertyModel/@property.5"/>
-    </property>
-    <property name="Successful workshop"/>
-    <property name="My chances of getting a PhD">
-      <ontologicalRelationship name="requires" property="//@propertyModel/@property.4"/>
-    </property>
-    <constraint property="//@propertyModel/@property.0 //@propertyModel/@property.3" quality="L3"/>
+    <property name="P1" intent="//@intent.0 //@intent.1" link="//@propertyModel/@constraint.0/@link.1"/>
+    <property name="P2" link="//@propertyModel/@constraint.0/@link.0"/>
+    <constraint xsi:type="be.uantwerpen.msdl.metamodels:Constraint">
+      <link direction="CONSTRAINT" property="//@propertyModel/@property.1"/>
+      <link property="//@propertyModel/@property.0"/>
+    </constraint>
+    <constraint xsi:type="be.uantwerpen.msdl.metamodels:Constraint"/>
   </propertyModel>
-  <costModel>
-    <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.4" value="1000.0"/>
-    <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.1" value="100.0"/>
-    <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.17"/>
-    <cost xsi:type="be.uantwerpen.msdl.metamodels:RatioScale" costItem="//@process.0/@node.23"/>
-  </costModel>
-  <intent property="//@propertyModel/@property.0" activity="//@process.0/@node.1"/>
+  <costModel/>
+  <intent subjectOfIntent="//@propertyModel/@property.0" activity="//@process.0/@node.8" type="MODIFY"/>
+  <intent subjectOfIntent="//@propertyModel/@property.0" activity="//@process.0/@node.4" type="READ"/>
 </be.uantwerpen.msdl.metamodels:ProcessModel>

@@ -1,9 +1,9 @@
 package be.uantwerpen.msdl.process.dse.objectives.soft
 
+import be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
 import org.eclipse.viatra.dse.objectives.Comparators
-import org.eclipse.viatra.dse.objectives.impl.WeightedQueriesSoftObjective
-import be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns
+import org.eclipse.viatra.dse.objectives.impl.ConstraintsObjective
 
 class SoftObjectives {
 
@@ -17,13 +17,14 @@ class SoftObjectives {
 
 	def objectives() {
 		#[
-			consistencyObjective.withLevel(1),
-			cheapestProcessObjective.withLevel(2)
+			consistencyObjective
+//			,//.withLevel(1),
+//			cheapestProcessObjective//.withLevel(0)
 		]
-	}
 
-	val consistencyObjective = new WeightedQueriesSoftObjective("consistencyObjective")
-		.withConstraint(readModifySharedProperty, 1)
+	}
+	val consistencyObjective = new ConstraintsObjective()
+		.withSoftConstraint("consistencyObjective",readModifySharedProperty, 10d)
 		.withComparator(Comparators.LOWER_IS_BETTER)
 	
 	val cheapestProcessObjective = new CheapestProcessSoftObjective()

@@ -2,27 +2,29 @@ package be.uantwerpen.msdl.process.dse.objectives.hard
 
 import be.uantwerpen.msdl.icm.queries.validation.Validation
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
+import org.eclipse.viatra.dse.objectives.impl.ConstraintsObjective
 import org.eclipse.viatra.dse.objectives.impl.ModelQueriesGlobalConstraint
-import org.eclipse.viatra.dse.objectives.impl.ModelQueriesHardObjective
 import org.eclipse.viatra.dse.objectives.impl.ModelQueryType
+import org.eclipse.viatra.dse.objectives.Comparators
+import org.eclipse.viatra.dse.objectives.impl.ModelQueriesHardObjective
 
 class ValidityHardObjectives {
 	val extension Validation validationQueries = Validation::instance
 
 	def addConstraints(DesignSpaceExplorer dse) {
-		globalConstraints.forEach [ constraint |
-			dse.addGlobalConstraint(constraint)
-		]
+//		globalConstraints.forEach [ constraint |
+//			dse.addGlobalConstraint(constraint)
+//		]
 		objectives.forEach [ objective |
 			dse.addObjective(objective)
 		]
 	}
 
-	def globalConstraints() {
-		#[
-			globalConstraint
-		]
-	}
+//	def globalConstraints() {
+//		#[
+//			globalConstraint
+//		]
+//	}
 
 	def objectives() {
 		#[
@@ -30,27 +32,28 @@ class ValidityHardObjectives {
 		]
 	}
 
-	val globalConstraint = new ModelQueriesGlobalConstraint("globalConstraints1")
-		.withConstraint(initNodeWithNoControlIn)
-		.withConstraint(finalNodeWithNoControlOut)
-		.withType(ModelQueryType::ALL_MUST_HAVE_MATCH)
+//	val globalConstraint = new ModelQueriesGlobalConstraint("globalConstraints1")
+//		.withConstraint(initNodeWithNoControlIn)
+//		.withConstraint(finalNodeWithNoControlOut)
+//		.withType(ModelQueryType::MUST_HAVE_MATCH)
 
-	val validationObjectives = new ModelQueriesHardObjective("validProcess")
-		.withConstraint(initNodeWithInvalidNumberOfControlOut)
-		.withConstraint(finalNodeWithInvalidNumberOfIns)
-		.withConstraint(forkNodeWithInvalidNumberOfIns)
-		.withConstraint(forkNodeWithInvalidNumberOfOuts)
-		.withConstraint(joinNodeWithInvalidNumberOfIns)
-		.withConstraint(joinNodeWithInvalidNumberOfOuts)
-		.withConstraint(decisionNodeWithInvalidNumberOfIns)
-		.withConstraint(decisionNodeWithInvalidNumberOfOuts)
-		.withConstraint(activityWithInvalidNumberOfControlIn)
-		.withConstraint(activityWithInvalidNumberOfControlOut)
-		.withConstraint(controlFlowWithInvalidNumberOfControlFrom)
-		.withConstraint(controlFlowWithInvalidNumberOfControlTo)
-		.withConstraint(redundantControlFlows)
-		.withConstraint(finalNotReachableFromNode)
-		.withConstraint(initDoesNotReachNode)
-		.withType(ModelQueryType::NO_MATCH)
-		.withLevel(0)	
+	val validationObjectives = new ConstraintsObjective("validProcess")
+		.withHardConstraint(initNodeWithInvalidNumberOfControlOut, ModelQueryType::NO_MATCH)
+		.withHardConstraint(initNodeWithControlIn, ModelQueryType::NO_MATCH)
+		.withHardConstraint(finalNodeWithInvalidNumberOfIns, ModelQueryType::NO_MATCH)
+		.withHardConstraint(finalNodeWithControlOut, ModelQueryType::NO_MATCH)
+		.withHardConstraint(forkNodeWithInvalidNumberOfIns, ModelQueryType::NO_MATCH)
+		.withHardConstraint(forkNodeWithInvalidNumberOfOuts, ModelQueryType::NO_MATCH)
+		.withHardConstraint(joinNodeWithInvalidNumberOfIns, ModelQueryType::NO_MATCH)
+		.withHardConstraint(joinNodeWithInvalidNumberOfOuts, ModelQueryType::NO_MATCH)
+		.withHardConstraint(decisionNodeWithInvalidNumberOfIns, ModelQueryType::NO_MATCH)
+		.withHardConstraint(decisionNodeWithInvalidNumberOfOuts, ModelQueryType::NO_MATCH)
+		.withHardConstraint(activityWithInvalidNumberOfControlIn, ModelQueryType::NO_MATCH)
+		.withHardConstraint(activityWithInvalidNumberOfControlOut, ModelQueryType::NO_MATCH)
+		.withHardConstraint(controlFlowWithInvalidNumberOfControlFrom, ModelQueryType::NO_MATCH)
+		.withHardConstraint(controlFlowWithInvalidNumberOfControlTo, ModelQueryType::NO_MATCH)
+		.withHardConstraint(redundantControlFlows, ModelQueryType::NO_MATCH)
+		.withHardConstraint(finalNotReachableFromNode, ModelQueryType::NO_MATCH)
+		.withHardConstraint(initDoesNotReachNode, ModelQueryType::NO_MATCH)
+		.withLevel(0)
 }

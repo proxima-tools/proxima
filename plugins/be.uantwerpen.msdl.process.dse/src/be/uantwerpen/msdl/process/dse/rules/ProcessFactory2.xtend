@@ -9,6 +9,7 @@ import be.uantwerpen.msdl.metamodels.process.Property
 import be.uantwerpen.msdl.metamodels.process.impl.ProcessFactoryImpl
 import java.util.UUID
 import be.uantwerpen.msdl.metamodels.process.IntentType
+import be.uantwerpen.msdl.metamodels.process.ProcessModel
 
 class ProcessFactory2 extends ProcessFactoryImpl {
 
@@ -27,6 +28,13 @@ class ProcessFactory2 extends ProcessFactoryImpl {
 	def createManualActivity(String name) {
 		val manualActivity = createManualActivity
 		manualActivity.name = name
+		manualActivity
+	}
+	
+	def createManualActivity(Process process, String name) {
+		val manualActivity = createManualActivity
+		manualActivity.name = name
+		process.node+=manualActivity
 		manualActivity
 	}
 
@@ -77,6 +85,7 @@ class ProcessFactory2 extends ProcessFactoryImpl {
 		val intent = createIntent
 		intent.activity = from
 		intent.subjectOfIntent = to
-		intent.type = intentType
+		intent.type = intentType;
+		(from.eContainer.eContainer as ProcessModel).intent+=intent
 	}
 }

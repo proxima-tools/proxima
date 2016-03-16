@@ -18,7 +18,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
 import org.eclipse.viatra.dse.api.Strategies
-import org.eclipse.viatra.dse.solutionstore.StrategyDependentSolutionStore
+import org.eclipse.viatra.dse.api.strategy.impl.DepthFirstStrategy
+import org.eclipse.viatra.dse.solutionstore.SolutionStore
 import org.eclipse.viatra.dse.statecoding.simple.SimpleStateCoderFactory
 import org.eclipse.viatra.query.runtime.base.exception.ViatraBaseException
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException
@@ -76,13 +77,14 @@ class DSERunner {
 		RulesFactory.ruleGroups.forEach [ ruleGroup |
 			ruleGroup.addTransformationRules(dse)
 		]
-		logger.debug(String.format("%d trafo rules added in %d ms", dse.globalContext.transformations.size, timeElapsed))
+		logger.debug(
+			String.format("%d trafo rules added in %d ms", dse.globalContext.transformations.size, timeElapsed))
 		stopwatch.resetAndRestart
 
 		// Objectives
 		new SoftObjectives().addConstraints(dse)
 		new ValidityHardObjectives().addConstraints(dse)
-		logger.debug(String.format("objectives added in %d ms", timeElapsed))
+		logger.debug(String.format("%d objectives added in %d ms", dse.globalContext.objectives.size, timeElapsed))
 		stopwatch.resetAndRestart
 
 		// State coding
@@ -93,8 +95,10 @@ class DSERunner {
 
 		// Start
 		logger.debug("starting")
-		dse.solutionStore = new StrategyDependentSolutionStore()
-		dse.startExploration(Strategies.creatHillClimbingStrategy())
+		dse.solutionStore = new SolutionStore(1);
+		dse.setMaxNumberOfThreads(1);
+		dse.startExploration(Strategies::creatHillClimbingStrategy)
+//		Logger.getLogger(typeof(DepthFirstStrategy)).setLevel(Level.DEBUG);
 
 		// Finish
 		logger.debug(String.format("exploration took %d ms", timeElapsed))
@@ -104,6 +108,7 @@ class DSERunner {
 		logger.debug("number of solutions: " + dse.solutions.size)
 
 		if (dse.solutions.size() > 0) {
+//			println(dse.toStringSolutions)
 			logger.debug("persisting first solution")
 			val solution = dse.solutions.head
 			val trajectory = solution.arbitraryTrajectory

@@ -5,22 +5,20 @@ import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromN
 import pattern be.uantwerpen.msdl.icm.queries.general.intent
 
 
-pattern sharedProperty(activity1: Activity, intent1: Intent, activity2: Activity, intent2: Intent, property: Property, process: Process){
+pattern sharedProperty(activity1: Activity, intent1: Intent, activity2: Activity, intent2: Intent, property: Property){
 	find intent(activity1, property, intent1);
 	find intent(activity2, property, intent2);
 	find nodeGloballyReachableFromNode(activity1, activity2);
-	Process.node(process, activity1);
-	Process.node(process, activity2);
 }
 
-pattern readModifySharedProperty(activity1: Activity, activity2: Activity, property: Property, process: Process){
-	find sharedProperty(activity1, intent1, activity2, intent2, property, process);
+pattern readModifySharedProperty(activity1: Activity, activity2: Activity, property: Property){
+	find sharedProperty(activity1, intent1, activity2, intent2, property);
 	Intent.type(intent1, IntentType::READ);
 	Intent.type(intent2, IntentType::MODIFY);
 }
 
-pattern readModifySharedProperty2(activity1: Activity, activity2: Activity, property: Property, process: Process){
-	find readModifySharedProperty(activity1, activity2, property, process);
+pattern readModifySharedProperty2(activity1: Activity, activity2: Activity, property: Property){
+	find readModifySharedProperty(activity1, activity2, property);
 }
 
 pattern readIntentOnActivity(activity: Activity, property: Property){
