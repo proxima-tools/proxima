@@ -19,6 +19,7 @@
       <genEnumLiterals ecoreEnumLiteral="process.ecore#//IntentType/CHECK"/>
       <genEnumLiterals ecoreEnumLiteral="process.ecore#//IntentType/LOCK"/>
       <genEnumLiterals ecoreEnumLiteral="process.ecore#//IntentType/RELEASE"/>
+      <genEnumLiterals ecoreEnumLiteral="process.ecore#//IntentType/CONTRACT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="process.ecore#//ConstraintDirection">
       <genEnumLiterals ecoreEnumLiteral="process.ecore#//ConstraintDirection/UNDIRECTED"/>

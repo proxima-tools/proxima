@@ -152,6 +152,7 @@
     <eLiterals name="CHECK" value="3"/>
     <eLiterals name="LOCK" value="4"/>
     <eLiterals name="RELEASE" value="5"/>
+    <eLiterals name="CONTRACT" value="6"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActivityGroup" eSuperTypes="#//NamedElement #//CostItem #//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="groupedActivity" upperBound="-1"
