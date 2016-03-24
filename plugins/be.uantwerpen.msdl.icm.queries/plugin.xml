@@ -11,4 +11,13 @@
   <extension id="be.uantwerpen.msdl.icm.queries.validation.Validation" point="org.eclipse.viatra.query.runtime.queryspecification">
     <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.validation.Validation" id="be.uantwerpen.msdl.icm.queries.validation.Validation"/>
   </extension>
+  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns"/>
+  </extension>
+  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.ExposedProperties" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.ExposedProperties" id="be.uantwerpen.msdl.icm.queries.inconsistencies.ExposedProperties"/>
+  </extension>
+  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns"/>
+  </extension>
 </plugin>

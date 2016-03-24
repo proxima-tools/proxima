@@ -1,10 +1,21 @@
 package be.uantwerpen.msdl.icm.queries.inconsistencies
 
-//pattern checkProperty(){
-//	
-//}
+import "metamodels.process"
+import pattern be.uantwerpen.msdl.icm.queries.general.checkIntentOnProperty
+import be.uantwerpen.msdl.icm.queries.general.contractIntentOnProperty
+import be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode
 
-//pattern contract(){
-//	
-//}
+pattern checkProperty(activity: Activity, checkActivity: Activity, property: Property){
+	find checkIntentOnProperty(checkActivity, property);
+	
+	Decision(decision);
+	Activity.controlOut(checkActivity, cfToDecision);
+	Decision.controlIn(decision, cfToDecision);
+	
+	find nodeGloballyReachableFromNode(checkActivity, activity);
+}
 
+pattern contract(contractActivity: Activity, activity: Activity, property: Property){
+	find contractIntentOnProperty(contractActivity, property);
+	find nodeGloballyReachableFromNode(activity, contractActivity);
+}

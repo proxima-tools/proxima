@@ -4,11 +4,10 @@ import "metamodels.process"
 import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode
 import pattern be.uantwerpen.msdl.icm.queries.general.intent
 
-
 pattern sharedProperty(activity1: Activity, intent1: Intent, activity2: Activity, intent2: Intent, property: Property){
 	find intent(activity1, property, intent1);
 	find intent(activity2, property, intent2);
-	find nodeGloballyReachableFromNode(activity1, activity2);
+	find nodeGloballyReachableFromNode(activity2, activity1);
 }
 
 pattern readModifySharedProperty(activity1: Activity, activity2: Activity, property: Property){
@@ -17,33 +16,10 @@ pattern readModifySharedProperty(activity1: Activity, activity2: Activity, prope
 	Intent.type(intent2, IntentType::MODIFY);
 }
 
-pattern readModifySharedProperty2(activity1: Activity, activity2: Activity, property: Property){
+pattern readModifySharedProperty2(activity1: Activity, activity2: Activity, property: Property, process: Process){
 	find readModifySharedProperty(activity1, activity2, property);
-}
-
-pattern readIntentOnActivity(activity: Activity, property: Property){
-	find intent(activity, property, intent);
-	Intent.type(intent, IntentType::READ);
-}
-
-pattern modifyIntentOnActivity(activity: Activity, property: Property){
-	find intent(activity, property, intent);
-	Intent.type(intent, IntentType::MODIFY);
-}
-
-pattern checkIntentOnActivity(activity: Activity, property: Property){
-	find intent(activity, property, intent);
-	Intent.type(intent, IntentType::CHECK);
-}
-
-pattern lockIntentOnActivity(activity: Activity, property: Property){
-	find intent(activity, property, intent);
-	Intent.type(intent, IntentType::LOCK);
-}
-
-pattern releaseIntentOnActivity(activity: Activity, property: Property){
-	find intent(activity, property, intent);
-	Intent.type(intent, IntentType::RELEASE);
+	Process.node(process, activity1);
+	Process.node(process, activity2);
 }
 
 pattern forkOutControl(forkNode : Fork){

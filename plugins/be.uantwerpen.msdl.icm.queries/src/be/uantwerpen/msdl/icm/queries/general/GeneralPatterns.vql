@@ -11,6 +11,36 @@ pattern intent(activity: Activity, property: Property, intent: Intent){
 	Intent.subjectOfIntent(intent, property);
 }
 
+pattern readIntentOnProperty(activity: Activity, property: Property){
+	find intent(activity, property, intent);
+	Intent.type(intent, IntentType::READ);
+}
+
+pattern modifyIntentOnProperty(activity: Activity, property: Property){
+	find intent(activity, property, intent);
+	Intent.type(intent, IntentType::MODIFY);
+}
+
+pattern checkIntentOnProperty(activity: Activity, property: Property){
+	find intent(activity, property, intent);
+	Intent.type(intent, IntentType::CHECK);
+}
+
+pattern contractIntentOnProperty(activity: Activity, property: Property){
+	find intent(activity, property, intent);
+	Intent.type(intent, IntentType::CONTRACT);
+}
+
+pattern lockIntentOnProperty(activity: Activity, property: Property){
+	find intent(activity, property, intent);
+	Intent.type(intent, IntentType::LOCK);
+}
+
+pattern releaseIntentOnProperty(activity: Activity, property: Property){
+	find intent(activity, property, intent);
+	Intent.type(intent, IntentType::RELEASE);
+}
+
 pattern controlFlowBetweenNodes(node1: Node, node2: Node, controlFlow: ControlFlow){
 	ControlFlow.fromNode(controlFlow, node1);
 	ControlFlow.toNode(controlFlow, node2);
@@ -29,6 +59,17 @@ pattern softControlFlowBetweenActivities(activity1: Activity, activity2: Activit
 	f != true;
 }
 
+pattern independentNodes(activity1: Activity, activity2: Activity, process: Process){
+	neg find controlFlowBetweenNodes(activity1, activity2, _);
+	Process.node(process, activity1);
+	Process.node(process, activity2);
+}or{
+	find softControlFlowBetweenActivities(activity1, activity2, _, process);
+}
+
+pattern independentNodes2(activity1: Activity, activity2: Activity, process: Process){
+	find independentNodes(activity1, activity2, process);
+}
 
 pattern nodeControlOutput(node : Node, controlFlow: ControlFlow){
 	Node.controlOut(node, controlFlow);
@@ -38,13 +79,13 @@ pattern nodeControlInput(node : Node, controlFlow: ControlFlow){
 	Node.controlIn(node, controlFlow);
 }
 
-pattern nodeDirectlyReachableFromNode(node1: Node, node2: Node){
-	ControlFlow.fromNode(controlFlow, node1);
-	ControlFlow.toNode(controlFlow, node2);
+pattern nodeDirectlyReachableFromNode(toNode: Node, fromNode: Node){
+	ControlFlow.fromNode(controlFlow, fromNode);
+	ControlFlow.toNode(controlFlow, toNode);
 }
 
-pattern nodeGloballyReachableFromNode(node1: Node, node2: Node){
-	find nodeDirectlyReachableFromNode+(node1, node2);
+pattern nodeGloballyReachableFromNode(toNode: Node, fromNode: Node){
+	find nodeDirectlyReachableFromNode+(toNode, fromNode);
 }
 
 //pattern objectFlowBetweenIndependentActivities(activity1: Activity, activity2: Activity){

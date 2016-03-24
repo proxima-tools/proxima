@@ -16,14 +16,14 @@ import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromN
  * FINAL should be reachable from every node
  */
 pattern finalNotReachableFromNode(node : Node, finalNode: FlowFinal ){
-	neg find nodeGloballyReachableFromNode(node, finalNode);
+	neg find nodeGloballyReachableFromNode(finalNode, node);
 	node != finalNode;
 }
 /**
  * INIT should reach every node
  */
 pattern initDoesNotReachNode(node : Node, initNode: Initial){
-	neg find nodeGloballyReachableFromNode(initNode, node);
+	neg find nodeGloballyReachableFromNode(node, initNode);
 	node != initNode;
 }
 
