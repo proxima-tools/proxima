@@ -42,7 +42,7 @@ public class ShortestPathSoftObjective extends BaseObjective {
 		SolutionTrajectory solutionTrajectroy = null;
 
 		try {
-			ProcessModel modelRoot = (ProcessModel) context.getModelRoot();
+			ProcessModel modelRoot = (ProcessModel) context.getModel();
 			tcHelper = ViatraBaseFactory.getInstance().createTransitiveClosureHelper(modelRoot, refs);
 
 			solutionTrajectroy = context.getDesignSpaceManager().createSolutionTrajectroy();
@@ -57,7 +57,7 @@ public class ShortestPathSoftObjective extends BaseObjective {
 
 		// return 1.0;
 
-		ProcessModel pm = (ProcessModel) context.getModelRoot();
+		ProcessModel pm = (ProcessModel) context.getModel();
 
 		Initial initNode = null;
 		FlowFinal finalNode = null;

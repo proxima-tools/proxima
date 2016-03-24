@@ -55,6 +55,30 @@ class ProcessFactory2 extends ProcessFactoryImpl {
 		process.node += decision
 		decision
 	}
+	
+	override createFork() {
+		val fork = processFactory.createFork
+		fork.setId
+		fork
+	}
+	
+	def createFork(Process process) {
+		val fork = createFork
+		process.node+=fork
+		fork
+	}
+	
+	override createJoin() {
+		val join = processFactory.createJoin
+		join.setId
+		join
+	}
+	
+	def createJoin(Process process) {
+		val join = createJoin
+		process.node+=join
+		join
+	}
 
 	override createControlFlow() {
 		val controlFlow = processFactory.createControlFlow

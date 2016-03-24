@@ -1,6 +1,12 @@
 package be.uantwerpen.msdl.process.dse.rules
 
+import be.uantwerpen.msdl.icm.queries.general.GeneralPatterns
+import be.uantwerpen.msdl.icm.queries.general.util.IndependentNodes2Processor
+import be.uantwerpen.msdl.icm.queries.general.util.IndependentNodesProcessor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns
+import be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns
+import be.uantwerpen.msdl.metamodels.process.Activity
+import be.uantwerpen.msdl.metamodels.process.Process
 import java.util.List
 import org.eclipse.viatra.dse.api.DSETransformationRule
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
@@ -9,11 +15,18 @@ import org.eclipse.viatra.query.runtime.api.impl.BasePatternMatch
 
 abstract class RuleGroup {
 
+	protected val contractCost = 10;
+	protected val checkCost = -10;
+
 	protected val extension InconsistencyPatterns inconsistencyPatterns = InconsistencyPatterns::instance
+	protected val extension UnmanagedPatterns unmanagedPatterns = UnmanagedPatterns::instance
+	protected val extension GeneralPatterns generalPatterns = GeneralPatterns::instance
 	protected val extension ProcessFactory2 processFactory = new ProcessFactory2
 
 	public def addTransformationRules(DesignSpaceExplorer dse) {
-		rules.
+		(rules
+			//+ generalRules
+		).
 			forEach [ rule |
 				dse.addTransformationRule(rule)
 			]
@@ -21,75 +34,50 @@ abstract class RuleGroup {
 
 	abstract protected def List<DSETransformationRule<? extends BasePatternMatch, ? extends BaseMatcher<? extends BasePatternMatch>>> rules()
 
-//	/**
-//	 * Organize independent nodes into a sequence
-//	 */
-//	val sequenceNodes = new DSETransformationRule(
-//		independentNodes,
-//		new IndependentNodesProcessor() {
-//			override process(Process process, Node node1, Node node2) {
-//				val cf = createControlFlow();
-//				cf.id = UUID.randomUUID.toString;
-//				process.controlFlow += cf;
-//				cf.fromNode = node1
-//				cf.toNode = node2
-//			}
-//		}
-//	)
-//
-//	/**
-//	 * Organize independent nodes into a parallel structure
-//	 */
-//	val parallelizeNodes = new DSETransformationRule(
-//		independentNodes2,
-//		new IndependentNodes2Processor() {
-//			override process(Process process, Node node1, Node node2) {
-//				val fork = createFork;
-//				fork.id = UUID.randomUUID.toString;
-//				process.node += fork
-//				val join = createJoin;
-//				join.id = UUID.randomUUID.toString;
-//				process.node += join
-//
-//				// control inputs of node1 and node2 should be redirected to the fork
-//				fork.controlIn += node1.controlIn + node2.controlIn
-//
-//				// control outputs of node1 and node2 should be redirected from the join
-//				join.controlOut += node1.controlOut + node2.controlOut
-//
-//				// wave activities into the fork-join structure
-//				#[node1, node2].forEach [ node |
-//					val controlFlow1 = createControlFlow
-//					process.controlFlow += controlFlow1
-//					controlFlow1.id = UUID.randomUUID.toString
-//					controlFlow1.fromNode = fork
-//					controlFlow1.toNode = node
-//
-//					val controlFlow2 = createControlFlow
-//					process.controlFlow += controlFlow2
-//					controlFlow2.id = UUID.randomUUID.toString
-//					controlFlow2.fromNode = node
-//					controlFlow2.toNode = join
-//				]
-//			}
-//		}
-//	)
-//
-//	/**
-//	 * Object flow patterns
-//	 */
-//	val objectFlow = new DSETransformationRule(
-//		objectFlowBetweenIndependentActivities,
-//		new ObjectFlowBetweenIndependentActivitiesProcessor() {
-//			override process(Activity activity1, Activity activity2) {
-//				val process = (activity1.eContainer as Process)
-//
-//				val controlFlow = createControlFlow
-//				process.controlFlow += controlFlow
-//
-//				controlFlow.fromNode = activity1
-//				controlFlow.toNode = activity2
-//			}
-//		}
-//	)
+	def generalRules() {
+		#[
+			sequenceNodes,
+			parallelizeNodes
+		]
+	}
+
+	/**
+	 * Organize independent nodes into a sequence
+	 */
+	val sequenceNodes = new DSETransformationRule(
+		independentNodes,
+		new IndependentNodesProcessor() {
+			override process(Activity activity1, Activity activity2, Process process) {
+				process.createControlFlow(activity1, activity2)
+			}
+
+		}
+	)
+
+	/**
+	 * Organize independent nodes into a parallel structure
+	 */
+	val parallelizeNodes = new DSETransformationRule(
+		independentNodes2,
+		new IndependentNodes2Processor() {
+			override process(Activity activity1, Activity activity2, Process process) {
+				val fork = process.createFork;
+				val join = process.createJoin;
+
+				// control inputs of activity1 and activity2 should be redirected to the fork
+				fork.controlIn += activity1.controlIn
+				fork.controlIn += activity2.controlIn
+
+				// control outputs of activity1 and activity2 should be redirected from the join
+				join.controlOut += activity1.controlOut
+				join.controlOut += activity2.controlOut
+
+				// wave activities into the fork-join structure
+				#[activity1, activity2].forEach [ activity |
+					process.createControlFlow(fork, activity)
+					process.createControlFlow(activity, join)
+				]
+			}
+		}
+	)
 }
