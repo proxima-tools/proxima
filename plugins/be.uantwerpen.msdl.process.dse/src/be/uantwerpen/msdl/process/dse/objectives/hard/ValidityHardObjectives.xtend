@@ -5,26 +5,24 @@ import org.eclipse.viatra.dse.api.DesignSpaceExplorer
 import org.eclipse.viatra.dse.objectives.impl.ConstraintsObjective
 import org.eclipse.viatra.dse.objectives.impl.ModelQueriesGlobalConstraint
 import org.eclipse.viatra.dse.objectives.impl.ModelQueryType
-import org.eclipse.viatra.dse.objectives.Comparators
-import org.eclipse.viatra.dse.objectives.impl.ModelQueriesHardObjective
 
 class ValidityHardObjectives {
 	val extension Validation validationQueries = Validation::instance
 
 	def addConstraints(DesignSpaceExplorer dse) {
-//		globalConstraints.forEach [ constraint |
-//			dse.addGlobalConstraint(constraint)
-//		]
+		globalConstraints.forEach [ constraint |
+			dse.addGlobalConstraint(constraint)
+		]
 		objectives.forEach [ objective |
 			dse.addObjective(objective)
 		]
 	}
 
-//	def globalConstraints() {
-//		#[
-//			globalConstraint
-//		]
-//	}
+	def globalConstraints() {
+		#[
+			globalConstraint
+		]
+	}
 
 	def objectives() {
 		#[
@@ -32,16 +30,16 @@ class ValidityHardObjectives {
 		]
 	}
 
-//	val globalConstraint = new ModelQueriesGlobalConstraint("globalConstraints1")
-//		.withConstraint(initNodeWithNoControlIn)
-//		.withConstraint(finalNodeWithNoControlOut)
-//		.withType(ModelQueryType::MUST_HAVE_MATCH)
+	val globalConstraint = new ModelQueriesGlobalConstraint("globalConstraints1")
+		.withConstraint(initNodeWithControlIn)
+		.withConstraint(finalNodeWithControlOut)
+		.withType(ModelQueryType::NO_MATCH)	
 
 	val validationObjectives = new ConstraintsObjective("validProcess")
 		.withHardConstraint(initNodeWithInvalidNumberOfControlOut, ModelQueryType::NO_MATCH)
-		.withHardConstraint(initNodeWithControlIn, ModelQueryType::NO_MATCH)
+//		.withHardConstraint(initNodeWithControlIn, ModelQueryType::NO_MATCH)
 		.withHardConstraint(finalNodeWithInvalidNumberOfIns, ModelQueryType::NO_MATCH)
-		.withHardConstraint(finalNodeWithControlOut, ModelQueryType::NO_MATCH)
+//		.withHardConstraint(finalNodeWithControlOut, ModelQueryType::NO_MATCH)
 		.withHardConstraint(forkNodeWithInvalidNumberOfIns, ModelQueryType::NO_MATCH)
 		.withHardConstraint(forkNodeWithInvalidNumberOfOuts, ModelQueryType::NO_MATCH)
 		.withHardConstraint(joinNodeWithInvalidNumberOfIns, ModelQueryType::NO_MATCH)

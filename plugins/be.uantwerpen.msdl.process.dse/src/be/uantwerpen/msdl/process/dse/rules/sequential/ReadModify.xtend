@@ -27,7 +27,7 @@ class ReadModify extends RuleGroup {
 	val readModifyReorder = new DSETransformationRule(
 		unmanagedReadModify,
 		new UnmanagedReadModifyProcessor() {
-			override process(Activity activity1, Activity activity2, Property property) {
+			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
 				val tmp = createManualActivity("tmp");
 
 				tmp.controlIn.addAll(activity1.controlIn)
@@ -57,11 +57,11 @@ class ReadModify extends RuleGroup {
 	val readModifyAugmentWithCheck = new DSETransformationRule(
 		unmanagedReadModify2,
 		new UnmanagedReadModify2Processor() {
-			override process(Activity activity1, Activity activity2, Property property) {
+			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
 
 				val process = activity1.eContainer as Process
 
-				val decision = process.createDecision(property.name + "?")
+				val decision = process.createDecision(property1.name + "?")
 
 				// these are gonna be the OK nodes from the Decision node
 				activity2.controlOut.forEach [ cf |
@@ -70,14 +70,14 @@ class ReadModify extends RuleGroup {
 				decision.controlOut.addAll(activity2.controlOut)
 				activity2.controlOut.removeAll(decision.controlOut)
 
-				val checkActivity = process.createManualActivity("check" + property.name)
+				val checkActivity = process.createManualActivity("check" + property1.name)
 				val cost = createRatioScale;
 				(process.eContainer as ProcessModel).costModel.cost += cost
 				cost.value = checkCost
 
 				checkActivity.cost = cost
 
-				createIntent(checkActivity, property, IntentType::CHECK)
+				createIntent(checkActivity, property1, IntentType::CHECK)
 
 				// connecting Activity2 with the check activity and that with the Decision 
 				process.createControlFlow(activity2, checkActivity)
@@ -92,7 +92,7 @@ class ReadModify extends RuleGroup {
 	val readModifyAugmentWithContract = new DSETransformationRule(
 		unmanagedReadModify3,
 		new UnmanagedReadModify3Processor() {
-			override process(Activity activity1, Activity activity2, Property property) {
+			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
 			}
 		}
 	)
