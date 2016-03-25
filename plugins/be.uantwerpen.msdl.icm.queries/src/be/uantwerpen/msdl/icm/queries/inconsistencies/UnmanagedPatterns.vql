@@ -2,17 +2,17 @@ package be.uantwerpen.msdl.icm.queries.inconsistencies
 
 import "metamodels.process"
 
-pattern unmanagedReadModify(activity1: Activity, activity2: Activity, property: Property){
-	find readModifySharedProperty(activity1, activity2, property);
-	checkProperty == count find checkProperty(activity2, _, property);
-	contracts == count find contract(_, activity1, property);
+pattern unmanagedReadModify(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
+	find readModifySharedProperty(activity1, property1, activity2, property2);
+	checkProperty == count find checkProperty(activity2, _, property2);
+	contracts == count find contract(_, activity1, property1);
 	check(checkProperty+contracts==0);
 }
 
-pattern unmanagedReadModify2(activity1: Activity, activity2: Activity, property: Property){
-	find unmanagedReadModify(activity1, activity2, property);
+pattern unmanagedReadModify2(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
+	find unmanagedReadModify(activity1, property1, activity2, property2);
 }
 
-pattern unmanagedReadModify3(activity1: Activity, activity2: Activity, property: Property){
-	find unmanagedReadModify(activity1, activity2, property);
+pattern unmanagedReadModify3(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
+	find unmanagedReadModify(activity1, property1, activity2, property2);
 }
