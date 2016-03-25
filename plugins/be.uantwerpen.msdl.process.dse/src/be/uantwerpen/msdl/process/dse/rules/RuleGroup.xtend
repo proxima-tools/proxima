@@ -16,7 +16,7 @@ import org.eclipse.viatra.query.runtime.api.impl.BasePatternMatch
 abstract class RuleGroup {
 
 	protected val contractCost = 10;
-	protected val checkCost = -10;
+	protected val checkCost = 10;
 
 	protected val extension InconsistencyPatterns inconsistencyPatterns = InconsistencyPatterns::instance
 	protected val extension UnmanagedPatterns unmanagedPatterns = UnmanagedPatterns::instance
