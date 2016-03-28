@@ -10,8 +10,9 @@ The features of the framework include:
 
 ### Architecture
 -sirius, viatra, graph queries, mts, etc
+
 ### Versioning and roadmap
-The initial relase with version number ```0.1.0``` is planned for 18th of April 2016.
+The first public release is planned for Summer of 2016.
 
 ### Installation guide
 1. Download the latest [Eclipse Modeling](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/lunar) package.
