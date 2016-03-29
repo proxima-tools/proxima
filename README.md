@@ -9,7 +9,7 @@ The features of the framework include:
 
 
 ### Architecture
--sirius, viatra, graph queries, mts, etc
+![alt text](https://dl.dropboxusercontent.com/u/44011277/icm/architecture.png, "Architectural overview")
 
 ### Versioning and roadmap
 The first public release is planned for Summer of 2016.
