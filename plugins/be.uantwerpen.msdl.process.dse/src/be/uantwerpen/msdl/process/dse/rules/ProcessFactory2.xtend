@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 2016 Istvan David
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Istvan David - initial API and implementation
+ *******************************************************************************/
+
 package be.uantwerpen.msdl.process.dse.rules
 
 import be.uantwerpen.msdl.metamodels.process.Activity
@@ -30,11 +41,11 @@ class ProcessFactory2 extends ProcessFactoryImpl {
 		manualActivity.name = name
 		manualActivity
 	}
-	
+
 	def createManualActivity(Process process, String name) {
 		val manualActivity = createManualActivity
 		manualActivity.name = name
-		process.node+=manualActivity
+		process.node += manualActivity
 		manualActivity
 	}
 
@@ -55,28 +66,28 @@ class ProcessFactory2 extends ProcessFactoryImpl {
 		process.node += decision
 		decision
 	}
-	
+
 	override createFork() {
 		val fork = processFactory.createFork
 		fork.setId
 		fork
 	}
-	
+
 	def createFork(Process process) {
 		val fork = createFork
-		process.node+=fork
+		process.node += fork
 		fork
 	}
-	
+
 	override createJoin() {
 		val join = processFactory.createJoin
 		join.setId
 		join
 	}
-	
+
 	def createJoin(Process process) {
 		val join = createJoin
-		process.node+=join
+		process.node += join
 		join
 	}
 
@@ -110,6 +121,6 @@ class ProcessFactory2 extends ProcessFactoryImpl {
 		intent.activity = from
 		intent.subjectOfIntent = to
 		intent.type = intentType;
-		(from.eContainer.eContainer as ProcessModel).intent+=intent
+		(from.eContainer.eContainer as ProcessModel).intent += intent
 	}
 }
