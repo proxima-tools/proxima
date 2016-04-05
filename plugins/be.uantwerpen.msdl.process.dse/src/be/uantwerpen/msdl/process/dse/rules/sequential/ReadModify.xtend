@@ -11,13 +11,12 @@
 
 package be.uantwerpen.msdl.process.dse.rules.sequential
 
-import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedReadModify2Processor
-import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedReadModify3Processor
-import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedReadModifyProcessor
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.Unmanaged2Processor
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.Unmanaged3Processor
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedProcessor
 import be.uantwerpen.msdl.metamodels.process.Activity
 import be.uantwerpen.msdl.metamodels.process.IntentType
 import be.uantwerpen.msdl.metamodels.process.Process
-import be.uantwerpen.msdl.metamodels.process.ProcessModel
 import be.uantwerpen.msdl.metamodels.process.Property
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
 import org.eclipse.viatra.dse.api.DSETransformationRule
@@ -36,8 +35,8 @@ class ReadModify extends RuleGroup {
 	 * Reordering
 	 */
 	val readModifyReorder = new DSETransformationRule(
-		unmanagedReadModify,
-		new UnmanagedReadModifyProcessor() {
+		unmanaged,
+		new UnmanagedProcessor() {
 			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
 				val tmp = createManualActivity("tmp");
 
@@ -66,8 +65,8 @@ class ReadModify extends RuleGroup {
 	 * Check property
 	 */
 	val readModifyAugmentWithCheck = new DSETransformationRule(
-		unmanagedReadModify2,
-		new UnmanagedReadModify2Processor() {
+		unmanaged2,
+		new Unmanaged2Processor() {
 			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
 
 				val process = activity1.eContainer as Process
@@ -82,11 +81,7 @@ class ReadModify extends RuleGroup {
 				activity2.controlOut.removeAll(decision.controlOut)
 
 				val checkActivity = process.createManualActivity("check" + property1.name)
-				val cost = createRatioScale;
-				(process.eContainer as ProcessModel).costModel.cost += cost
-				cost.value = checkCost
-
-				checkActivity.cost = cost
+				checkActivity.createCost(checkCost)
 
 				createIntent(checkActivity, property1, IntentType::CHECK)
 
@@ -101,9 +96,18 @@ class ReadModify extends RuleGroup {
 	)
 
 	val readModifyAugmentWithContract = new DSETransformationRule(
-		unmanagedReadModify3,
-		new UnmanagedReadModify3Processor() {
+		unmanaged3,
+		new Unmanaged3Processor() {
 			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
+				val process = activity1.eContainer as Process
+				
+				val contractActivity = process.createManualActivity("contract")
+				contractActivity.createCost(contractCost)
+				
+				createIntent(contractActivity, property1, IntentType::CONTRACT)
+				
+				contractActivity.controlIn.addAll(activity1.controlIn)
+				process.createControlFlow(contractActivity, activity1)
 			}
 		}
 	)

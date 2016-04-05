@@ -123,4 +123,16 @@ class ProcessFactory2 extends ProcessFactoryImpl {
 		intent.type = intentType;
 		(from.eContainer.eContainer as ProcessModel).intent += intent
 	}
+
+	def createCost(Activity activity, double value) {
+		val cost = createRatioScale;
+		val processModel = (activity.eContainer as Process).eContainer as ProcessModel
+		if (processModel.costModel == null) {
+			processModel.costModel = createCostModel
+		}
+		processModel.costModel.cost += cost
+		cost.value = value
+		activity.cost = cost
+		cost
+	}
 }
