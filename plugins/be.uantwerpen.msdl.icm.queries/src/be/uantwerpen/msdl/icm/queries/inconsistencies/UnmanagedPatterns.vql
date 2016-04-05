@@ -15,15 +15,29 @@ import "metamodels.process"
 
 pattern unmanagedReadModify(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
 	find readModifySharedProperty(activity1, property1, activity2, property2);
-	checkProperty == count find checkProperty(activity2, _, property2);
+	checkProperty == count find checkProperty(activity2, _, property1);
 	contracts == count find contract(_, activity1, property1);
 	check(checkProperty+contracts==0);
 }
 
-pattern unmanagedReadModify2(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
-	find unmanagedReadModify(activity1, property1, activity2, property2);
+pattern unmanagedModifyModify(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
+	find modifyModifySharedProperty(activity1, property1, activity2, property2);
+	checkProperty == count find checkProperty(activity2, _, property1);
+	contracts == count find contract(_, activity1, property1);
+	check(checkProperty+contracts==0);
 }
 
-pattern unmanagedReadModify3(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
+pattern unmanaged(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
 	find unmanagedReadModify(activity1, property1, activity2, property2);
+}
+or{
+	find unmanagedModifyModify(activity1, property1, activity2, property2);
+}
+
+pattern unmanaged2(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
+	find unmanaged(activity1, property1, activity2, property2);
+}
+
+pattern unmanaged3(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
+	find unmanaged(activity1, property1, activity2, property2);
 }

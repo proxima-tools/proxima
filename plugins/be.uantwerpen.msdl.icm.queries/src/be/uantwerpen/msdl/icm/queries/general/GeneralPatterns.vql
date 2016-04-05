@@ -99,6 +99,11 @@ pattern nodeGloballyReachableFromNode(toNode: Node, fromNode: Node){
 	find nodeDirectlyReachableFromNode+(toNode, fromNode);
 }
 
+pattern parallelNodes(node1: Node, node2: Node){
+	neg find nodeGloballyReachableFromNode(node1, node2);
+	neg find nodeGloballyReachableFromNode(node2, node1);
+}
+
 pattern associatedProperties(property1: Property, link1: PropertyConstraintLink, property2: Property, link2: PropertyConstraintLink){
 //	property1 != property2;
 	AbstractConstraint.link(constraint, link1);
@@ -120,6 +125,8 @@ pattern propertyDirectlyReachableFromProperty(toProperty: Property, fromProperty
 	find associatedProperties(toProperty, toPropertyLink, fromProperty, fromPropertyLink);
 	PropertyConstraintLink.direction(fromPropertyLink, ConstraintDirection::PROPERTY);
 	PropertyConstraintLink.direction(toPropertyLink, ConstraintDirection::PROPERTY);
+}or{
+	toProperty==fromProperty;
 }
 
 pattern propertyGloballyReachableFromProperty(toProperty: Property, fromProperty: Property){
