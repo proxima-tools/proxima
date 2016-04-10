@@ -18,4 +18,4 @@ The first public release is planned for Summer of 2016.
 1. Download the latest [Eclipse Modeling](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/lunar) package.
 2. Install [Sirius](https://eclipse.org/sirius/download.html).
 3. Install [VIATRA](https://eclipse.org/viatra/downloads.php).
-4. Install the  [inconsistency management tool](https://github.com/david-istvan/icm/raw/master/releng/be.uantwerpen.msdl.icm.processmodeler.update/site.xml).
+4. Import the plugins from this repository.
