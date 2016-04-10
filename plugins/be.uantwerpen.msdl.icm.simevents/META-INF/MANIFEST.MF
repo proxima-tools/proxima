@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SimEvents Integration
+Bundle-SymbolicName: be.uantwerpen.msdl.icm.simevents
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: be.uantwerpen.msdl.icm.simevents.internal.Activator
+Bundle-Vendor: Istvan David
+Require-Bundle: org.eclipse.core.runtime,
+ hu.bme.mit.massif.simulink;bundle-version="0.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
