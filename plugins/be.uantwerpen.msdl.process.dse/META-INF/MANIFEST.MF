@@ -6,19 +6,17 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: be.uantwerpen.msdl.process.dse.internal.Activator
 Bundle-Vendor: Istvan David
 Require-Bundle: org.eclipse.core.runtime,
- be.uantwerpen.msdl.metamodels;bundle-version="0.1.0",
+ be.uantwerpen.msdl.metamodels;bundle-version="[0.1.0,0.2.0)",
  org.apache.log4j;bundle-version="1.2.15",
  com.google.guava;bundle-version="15.0.0",
- be.uantwerpen.msdl.icm.queries;bundle-version="0.1.0",
- org.eclipse.viatra.dse.api;bundle-version="0.9.0",
- org.eclipse.viatra.dse.base;bundle-version="0.9.0",
+ be.uantwerpen.msdl.icm.queries;bundle-version="[0.1.0,0.2.0)",
+ org.eclipse.viatra.dse.api;bundle-version="[0.12.0,1.0.0)",
+ org.eclipse.viatra.dse.base;bundle-version="[0.12.0,1.0.0)",
  org.eclipse.emf.ecore.xmi,
  org.junit,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- org.eclipse.xtext.xbase.lib,
- org.sat4j.core;bundle-version="2.3.5",
- org.sat4j.pb;bundle-version="2.3.5"
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 
