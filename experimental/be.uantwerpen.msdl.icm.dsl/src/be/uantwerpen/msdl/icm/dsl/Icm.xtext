@@ -1,0 +1,36 @@
+grammar be.uantwerpen.msdl.icm.dsl.Icm with org.eclipse.xtext.xbase.Xbase
+
+//import "http://www.eclipse.org/incquery/patternlanguage/PatternLanguage" as iqpl
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as jvmTypes
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate icm "http://www.uantwerpen.be/msdl/icm/dsl/Icm"
+
+Model:
+	'package' name=QualifiedName
+	imports+=Import*
+	modelElements+=ModelElement*
+;
+
+Import:
+	'import' importedNamespace=QualifiedNameWithWildcard
+;
+
+ModelElement:
+	Language | Property
+;
+
+Language:
+	'language' name=ID
+;
+
+Property:
+	'property' name=ID ':' type=JvmTypeReference '{'
+		'from' ('query' queryReference = STRING)? ('activity' activityReference = STRING)?
+		checkExpression = CheckExpression
+	'}'
+;
+
+CheckExpression:
+	'check'	checkExpression = XBlockExpression
+;

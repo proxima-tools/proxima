@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: be.uantwerpen.msdl.icm.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: be.uantwerpen.msdl.icm.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.xtext.util,
+ org.antlr.runtime,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common,
+ org.eclipse.xtext.common.types,
+ org.eclipse.xtext.xbase.lib,
+ be.uantwerpen.msdl.metamodels;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: be.uantwerpen.msdl.icm.dsl.serializer,
+ be.uantwerpen.msdl.icm.dsl.services,
+ be.uantwerpen.msdl.icm.dsl.parser.antlr.internal,
+ be.uantwerpen.msdl.icm.dsl.validation,
+ be.uantwerpen.msdl.icm.dsl.icm.impl,
+ be.uantwerpen.msdl.icm.dsl.icm.util,
+ be.uantwerpen.msdl.icm.dsl.jvmmodel,
+ be.uantwerpen.msdl.icm.dsl,
+ be.uantwerpen.msdl.icm.dsl.icm,
+ be.uantwerpen.msdl.icm.dsl.scoping,
+ be.uantwerpen.msdl.icm.dsl.parser.antlr
+Import-Package: org.apache.log4j
