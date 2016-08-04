@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DSE Tests
+Bundle-SymbolicName: be.uantwerpen.msdl.icm.dse.tests
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Istvan David
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: be.uantwerpen.msdl.process.dse;bundle-version="0.1.0",
+ be.uantwerpen.msdl.icm.queries;bundle-version="0.1.0"

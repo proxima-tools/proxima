@@ -17,7 +17,7 @@ import java.util.WeakHashMap;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.viatra.dse.base.DesignSpaceManager;
 import org.eclipse.viatra.dse.base.ThreadContext;
-import org.eclipse.viatra.dse.designspace.api.IState;
+import org.eclipse.viatra.dse.designspace.api.IDesignSpace;
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine;
 
 import be.uantwerpen.msdl.metamodels.process.ProcessModel;
@@ -39,7 +39,7 @@ public class SimulationRunner {
 
 	private double cost;
 	private ProcessModel modelRoot;
-	private IState lastState = null;
+	private IDesignSpace lastState = null;
 	private DesignSpaceManager dsm;
 	private ViatraQueryEngine queryEngine;
 
@@ -53,7 +53,7 @@ public class SimulationRunner {
 	}
 
 	public void runSimulation() {
-		if (dsm.getCurrentState().getId().equals(lastState)) {
+		if (dsm.getCurrentState().equals(lastState)) {
 			return;
 		}
 
