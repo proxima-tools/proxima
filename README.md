@@ -15,7 +15,7 @@ The features of the framework include:
 The first public release is planned for Summer of 2016.
 
 ### Installation guide
-1. Download the latest [Eclipse Modeling](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/lunar) package.
+1. Download the [Eclipse Neon Modeling](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/neonr) package.
 2. Install [Sirius](https://eclipse.org/sirius/download.html).
 3. Install [VIATRA](https://eclipse.org/viatra/downloads.php).
 4. Import the plugins from this repository.
