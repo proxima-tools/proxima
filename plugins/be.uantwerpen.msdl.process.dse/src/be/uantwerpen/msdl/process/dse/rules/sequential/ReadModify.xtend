@@ -14,10 +14,10 @@ package be.uantwerpen.msdl.process.dse.rules.sequential
 import be.uantwerpen.msdl.icm.queries.inconsistencies.util.Unmanaged2Processor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.util.Unmanaged3Processor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedProcessor
-import be.uantwerpen.msdl.metamodels.process.Activity
-import be.uantwerpen.msdl.metamodels.process.IntentType
-import be.uantwerpen.msdl.metamodels.process.Process
-import be.uantwerpen.msdl.metamodels.process.Property
+import be.uantwerpen.msdl.processmodel.pm.Activity
+import be.uantwerpen.msdl.processmodel.IntentType
+import be.uantwerpen.msdl.processmodel.pm.Process
+import be.uantwerpen.msdl.processmodel.properties.Property
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
 import org.eclipse.viatra.dse.api.DSETransformationRule
 

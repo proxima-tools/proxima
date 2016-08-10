@@ -11,7 +11,10 @@
 
 package be.uantwerpen.msdl.icm.queries.inconsistencies
 
-import "metamodels.process"
+import "metamodels.pm"
+import "metamodels.properties"
+import "metamodels.processmodel"
+
 import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode
 import pattern be.uantwerpen.msdl.icm.queries.general.intent
 import be.uantwerpen.msdl.icm.queries.general.propertyGloballyReachableFromProperty

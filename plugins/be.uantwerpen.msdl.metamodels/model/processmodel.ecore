@@ -23,7 +23,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
         eType="#//pm/Activity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subject" lowerBound="1"
-        eType="#//properties/IntentSubject"/>
+        eType="#//properties/IntentSubject" eOpposite="#//properties/IntentSubject/intent"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//IntentType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceConstraint" eSuperTypes="#//base/Identifiable">
@@ -97,6 +97,8 @@
           eType="#//pm/Node" eOpposite="#//pm/Node/controlOut"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//pm/Node"
           eOpposite="#//pm/Node/controlIn"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//pm/Node #//base/NamedElement #//cost/CostItem">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/Transformation"
@@ -127,17 +129,19 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationshipLink" upperBound="-1"
-          eType="#//properties/PropertyRelationshipLink"/>
+          eType="#//properties/PropertyRelationshipLink" eOpposite="#//properties/PropertyRelationshipLink/property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" lowerBound="1"
           eType="#//properties/Precision"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyLink" upperBound="-1"
-          eType="#//properties/PropertyRelationshipLink"/>
+          eType="#//properties/PropertyRelationshipLink" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PropertyRelationshipLink" eSuperTypes="#//base/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" lowerBound="1"
           eType="#//properties/RelationshipDirection"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
+          eType="#//properties/Property" eOpposite="#//properties/Property/relationshipLink"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//properties/Relationship"/>
     <eClassifiers xsi:type="ecore:EEnum" name="Precision">
@@ -150,7 +154,10 @@
       <eLiterals name="PROPERTY" value="1"/>
       <eLiterals name="CONSTRAINT" value="2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IntentSubject" abstract="true" eSuperTypes="#//base/Identifiable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IntentSubject" abstract="true" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
+          eType="#//Intent" eOpposite="#//Intent/subject"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="resources" nsURI="metamodels.resources" nsPrefix="be.uantwerpen.msdl.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="ResourceModel">

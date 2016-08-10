@@ -20,7 +20,7 @@ import org.eclipse.viatra.dse.base.ThreadContext;
 import org.eclipse.viatra.dse.designspace.api.IDesignSpace;
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine;
 
-import be.uantwerpen.msdl.metamodels.process.ProcessModel;
+import be.uantwerpen.msdl.processmodel.ProcessModel;
 
 public class SimulationRunner {
 

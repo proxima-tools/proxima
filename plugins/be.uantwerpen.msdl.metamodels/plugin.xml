@@ -9,9 +9,56 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated metamodels -->
       <package
-            uri="metamodels.process"
-            class="be.uantwerpen.msdl.metamodels.process.ProcessPackage"
+            uri="metamodels.processmodel"
+            class="be.uantwerpen.msdl.processmodel.ProcessmodelPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.ftg"
+            class="be.uantwerpen.msdl.processmodel.ftg.FtgPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.pm"
+            class="be.uantwerpen.msdl.processmodel.pm.PmPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.properties"
+            class="be.uantwerpen.msdl.processmodel.properties.PropertiesPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.resources"
+            class="be.uantwerpen.msdl.processmodel.resources.ResourcesPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.cost"
+            class="be.uantwerpen.msdl.processmodel.cost.CostPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.base"
+            class="be.uantwerpen.msdl.processmodel.base.BasePackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
 </plugin>

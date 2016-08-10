@@ -13,10 +13,10 @@ package be.uantwerpen.msdl.process.dse.rules.generic
 
 import be.uantwerpen.msdl.icm.queries.general.GeneralPatterns
 import be.uantwerpen.msdl.icm.queries.general.util.SoftControlFlowBetweenActivitiesProcessor
-import be.uantwerpen.msdl.metamodels.process.Activity
-import be.uantwerpen.msdl.metamodels.process.ControlFlow
-import be.uantwerpen.msdl.metamodels.process.Process
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
+import be.uantwerpen.msdl.processmodel.pm.Activity
+import be.uantwerpen.msdl.processmodel.pm.ControlFlow
+import be.uantwerpen.msdl.processmodel.pm.Process
 import org.eclipse.viatra.dse.api.DSETransformationRule
 
 class Generic extends RuleGroup {

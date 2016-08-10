@@ -16,8 +16,8 @@ import be.uantwerpen.msdl.icm.queries.general.util.IndependentNodes2Processor
 import be.uantwerpen.msdl.icm.queries.general.util.IndependentNodesProcessor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns
 import be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns
-import be.uantwerpen.msdl.metamodels.process.Activity
-import be.uantwerpen.msdl.metamodels.process.Process
+import be.uantwerpen.msdl.processmodel.pm.Activity
+import be.uantwerpen.msdl.processmodel.pm.Process
 import java.util.List
 import org.eclipse.viatra.dse.api.DSETransformationRule
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
@@ -33,6 +33,8 @@ abstract class RuleGroup {
 	protected val extension UnmanagedPatterns unmanagedPatterns = UnmanagedPatterns::instance
 	protected val extension GeneralPatterns generalPatterns = GeneralPatterns::instance
 	protected val extension ProcessFactory2 processFactory = new ProcessFactory2
+	protected val extension PmFactory2 pmFactory = new PmFactory2
+	protected val extension CostFactory2 costFactory = new CostFactory2
 
 	public def addTransformationRules(DesignSpaceExplorer dse) {
 		(rules

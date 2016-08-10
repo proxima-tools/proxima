@@ -1,11 +1,11 @@
 package be.uantwerpen.msdl.process.design.services
 
-import be.uantwerpen.msdl.metamodels.process.Activity
-import be.uantwerpen.msdl.metamodels.process.Identifiable
-import be.uantwerpen.msdl.metamodels.process.IntentType
-import be.uantwerpen.msdl.metamodels.process.Node
-import be.uantwerpen.msdl.metamodels.process.Process
-import be.uantwerpen.msdl.metamodels.process.ProcessModel
+import be.uantwerpen.msdl.processmodel.IntentType
+import be.uantwerpen.msdl.processmodel.ProcessModel
+import be.uantwerpen.msdl.processmodel.base.Identifiable
+import be.uantwerpen.msdl.processmodel.pm.Activity
+import be.uantwerpen.msdl.processmodel.pm.Node
+import be.uantwerpen.msdl.processmodel.pm.Process
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import java.util.Set
@@ -59,7 +59,7 @@ class Services {
 //		]
 		.fold(Lists::newArrayList) [ list, intent |
 //			println("input intent: " + intent)
-			list.addAll(intent.subjectOfIntent.intent // TODO here, it should be made transitive over the P-map
+			list.addAll(intent.subject.intent // TODO here, it should be made transitive over the P-map
 			.filter [ intent2 |
 				!intent2.equals(intent)
 			].filter [ intent2 |
@@ -88,8 +88,8 @@ class Services {
 		val newNodes = Sets::newHashSet
 
 		node.controlOut.forEach [ controlFlow |
-			if(!subsequentNodes.contains(controlFlow.toNode)){
-				newNodes.add(controlFlow.toNode)
+			if(!subsequentNodes.contains(controlFlow.to)){
+				newNodes.add(controlFlow.to)
 			}
 		]
 

@@ -11,8 +11,8 @@
 
 package be.uantwerpen.msdl.process.dse
 
-import be.uantwerpen.msdl.metamodels.process.ProcessModel
-import be.uantwerpen.msdl.metamodels.process.ProcessPackage
+import be.uantwerpen.msdl.processmodel.ProcessModel
+import be.uantwerpen.msdl.processmodel.ProcessmodelPackage
 import be.uantwerpen.msdl.process.dse.objectives.hard.ValidityHardObjectives
 import be.uantwerpen.msdl.process.dse.objectives.soft.SoftObjectives
 import be.uantwerpen.msdl.process.dse.rules.RulesFactory
@@ -52,7 +52,7 @@ class DSERunner {
 		logger.setLevel(LEVEL)
 
 		// init
-		ProcessPackage.eINSTANCE.eClass()
+		ProcessmodelPackage.eINSTANCE.eClass()
 
 		val extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.extensionToFactoryMap
 		extensionToFactoryMap.put("process", new XMIResourceFactoryImpl())
@@ -97,7 +97,7 @@ class DSERunner {
 		stopwatch.resetAndRestart
 
 		// State coding
-		dse.addMetaModelPackage(ProcessPackage.eINSTANCE)
+		dse.addMetaModelPackage(ProcessmodelPackage.eINSTANCE)
 		dse.setStateCoderFactory(new SimpleStateCoderFactory(dse.metaModelPackages))
 		logger.debug(String.format("state coding done in %d ms", timeElapsed))
 		stopwatch.resetAndRestart

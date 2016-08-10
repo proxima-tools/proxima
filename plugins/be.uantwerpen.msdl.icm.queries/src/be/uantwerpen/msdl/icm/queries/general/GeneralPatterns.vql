@@ -11,7 +11,9 @@
 
 package be.uantwerpen.msdl.icm.queries.general
 
-import "metamodels.process"
+import "metamodels.processmodel"
+import "metamodels.pm"
+import "metamodels.properties"
 
 pattern controlFlow(process: Process, controlFlow: ControlFlow){
 	Process.controlFlow(process, controlFlow);
@@ -19,7 +21,7 @@ pattern controlFlow(process: Process, controlFlow: ControlFlow){
 
 pattern intent(activity: Activity, property: Property, intent: Intent){
 	Intent.activity(intent, activity);
-	Intent.subjectOfIntent(intent, property);
+	Intent.subject(intent, property);
 }
 
 pattern readIntentOnProperty(activity: Activity, property: Property){
@@ -53,8 +55,8 @@ pattern releaseIntentOnProperty(activity: Activity, property: Property){
 }
 
 pattern controlFlowBetweenNodes(node1: Node, node2: Node, controlFlow: ControlFlow){
-	ControlFlow.fromNode(controlFlow, node1);
-	ControlFlow.toNode(controlFlow, node2);
+	ControlFlow.from(controlFlow, node1);
+	ControlFlow.to(controlFlow, node2);
 }
 
 pattern hardControlFlowBetweenActivities(activity1: Activity, activity2: Activity, controlFlow: ControlFlow){
@@ -91,8 +93,8 @@ pattern nodeControlInput(node : Node, controlFlow: ControlFlow){
 }
 
 pattern nodeDirectlyReachableFromNode(toNode: Node, fromNode: Node){
-	ControlFlow.fromNode(controlFlow, fromNode);
-	ControlFlow.toNode(controlFlow, toNode);
+	ControlFlow.from(controlFlow, fromNode);
+	ControlFlow.to(controlFlow, toNode);
 }
 
 pattern nodeGloballyReachableFromNode(toNode: Node, fromNode: Node){
@@ -104,27 +106,27 @@ pattern parallelNodes(node1: Node, node2: Node){
 	neg find nodeGloballyReachableFromNode(node2, node1);
 }
 
-pattern associatedProperties(property1: Property, link1: PropertyConstraintLink, property2: Property, link2: PropertyConstraintLink){
+pattern associatedProperties(property1: Property, link1: PropertyRelationshipLink, property2: Property, link2: PropertyRelationshipLink){
 //	property1 != property2;
-	AbstractConstraint.link(constraint, link1);
-	Property.link(property1, link1);
+	Relationship.propertyLink(relationship, link1);
+	Property.relationshipLink(property1, link1);
 	
-	AbstractConstraint.link(constraint, link2);
-	Property.link(property2, link2);
+	Relationship.propertyLink(relationship, link2);
+	Property.relationshipLink(property2, link2);
 }
 
 pattern propertyDirectlyReachableFromProperty(toProperty: Property, fromProperty: Property){
 	find associatedProperties(toProperty, toPropertyLink, fromProperty, fromPropertyLink);
-	PropertyConstraintLink.direction(fromPropertyLink, ConstraintDirection::UNDIRECTED);
-	PropertyConstraintLink.direction(toPropertyLink, ConstraintDirection::UNDIRECTED);
+	PropertyRelationshipLink.direction(fromPropertyLink, RelationshipDirection::UNDIRECTED);
+	PropertyRelationshipLink.direction(toPropertyLink, RelationshipDirection::UNDIRECTED);
 }or{
 	find associatedProperties(toProperty, toPropertyLink, fromProperty, fromPropertyLink);
-	PropertyConstraintLink.direction(fromPropertyLink, ConstraintDirection::CONSTRAINT);
-	PropertyConstraintLink.direction(toPropertyLink, ConstraintDirection::PROPERTY);
+	PropertyRelationshipLink.direction(fromPropertyLink, RelationshipDirection::CONSTRAINT);
+	PropertyRelationshipLink.direction(toPropertyLink, RelationshipDirection::PROPERTY);
 }or{
 	find associatedProperties(toProperty, toPropertyLink, fromProperty, fromPropertyLink);
-	PropertyConstraintLink.direction(fromPropertyLink, ConstraintDirection::PROPERTY);
-	PropertyConstraintLink.direction(toPropertyLink, ConstraintDirection::PROPERTY);
+	PropertyRelationshipLink.direction(fromPropertyLink, RelationshipDirection::PROPERTY);
+	PropertyRelationshipLink.direction(toPropertyLink, RelationshipDirection::PROPERTY);
 }or{
 	toProperty==fromProperty;
 }

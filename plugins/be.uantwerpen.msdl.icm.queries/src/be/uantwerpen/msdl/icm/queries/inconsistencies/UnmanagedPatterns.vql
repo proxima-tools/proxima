@@ -11,7 +11,8 @@
 
 package be.uantwerpen.msdl.icm.queries.inconsistencies
 
-import "metamodels.process"
+import "metamodels.pm"
+import "metamodels.properties"
 
 pattern unmanagedReadModify(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
 	find readModifySharedProperty(activity1, property1, activity2, property2);

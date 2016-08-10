@@ -13,9 +13,9 @@ package be.uantwerpen.msdl.process.dse.simulator
 
 import be.uantwerpen.msdl.icm.queries.simulator.util.CostInCircleQuerySpecification
 import be.uantwerpen.msdl.icm.queries.simulator.util.CostQuerySpecification
-import be.uantwerpen.msdl.metamodels.process.Cost
-import be.uantwerpen.msdl.metamodels.process.ProcessModel
-import be.uantwerpen.msdl.metamodels.process.RatioScale
+import be.uantwerpen.msdl.processmodel.ProcessModel
+import be.uantwerpen.msdl.processmodel.cost.Cost
+import be.uantwerpen.msdl.processmodel.cost.RatioScale
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 
 class FixedIterationCostSimulator {

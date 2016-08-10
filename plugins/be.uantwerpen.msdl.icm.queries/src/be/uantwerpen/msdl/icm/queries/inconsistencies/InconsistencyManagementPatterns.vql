@@ -11,7 +11,9 @@
 
 package be.uantwerpen.msdl.icm.queries.inconsistencies
 
-import "metamodels.process"
+import "metamodels.pm"
+import "metamodels.properties"
+
 import pattern be.uantwerpen.msdl.icm.queries.general.checkIntentOnProperty
 import be.uantwerpen.msdl.icm.queries.general.contractIntentOnProperty
 import be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode

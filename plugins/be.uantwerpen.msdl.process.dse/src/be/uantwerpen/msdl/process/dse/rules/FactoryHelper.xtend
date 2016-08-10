@@ -4,22 +4,20 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *    Istvan David - initial API and implementation
  *******************************************************************************/
 
-package be.uantwerpen.msdl.icm.queries.simulator
+package be.uantwerpen.msdl.process.dse.rules
 
-import "metamodels.pm"
-import "metamodels.cost"
-import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode
+import be.uantwerpen.msdl.processmodel.base.Identifiable
+import java.util.UUID
 
-pattern costInCircle(cost: Cost, activity: Activity){
-	Activity.cost(activity, cost);
-	find nodeGloballyReachableFromNode(activity, activity);
-}
+class FactoryHelper {
 
-pattern cost(cost: Cost){
-	Cost(cost);
+	public static def setId(Identifiable identifiable) {
+		identifiable.id = UUID.randomUUID.toString
+	}
+
 }
