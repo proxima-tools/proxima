@@ -97,6 +97,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="pm.Process" referenceName="process">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="pm.Initial" referenceName="node">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
@@ -259,7 +260,7 @@
           </ownedTools>
         </toolSections>
       </additionalLayers>
-      <additionalLayers name="Objects">
+      <additionalLayers name="Objects" activeByDefault="true">
         <nodeMappings name="ObjectNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="pm.Object">
           <style xsi:type="style:SquareDescription" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/be.uantwerpen.msdl.process.design/icons/cube.png" labelPosition="node" resizeKind="NSEW" width="13" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -276,8 +277,8 @@
           </style>
         </edgeMappings>
       </additionalLayers>
-      <additionalLayers name="LanguageLayer" label="Languages" activeByDefault="true">
-        <nodeMappings name="LanguageNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Formalism">
+      <additionalLayers name="FormalismLayer" label="Formalisms" activeByDefault="true">
+        <nodeMappings name="FormalismNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Formalism">
           <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -291,7 +292,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="TransformedByEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='LanguageNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:inputOf">
+        <edgeMappings name="TransformedByEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@nodeMappings[name='FormalismNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:inputOf">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«transformedBy»">
@@ -299,7 +300,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="TransformationToEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='TransformationNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='LanguageNode']" targetFinderExpression="feature:output">
+        <edgeMappings name="TransformationToEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@nodeMappings[name='TransformationNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:output">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«transformationTo»">
@@ -307,7 +308,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="TypeLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@nodeMappings[name='ObjectNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='LanguageNode']" targetFinderExpression="feature:typedBy">
+        <edgeMappings name="TypeLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@nodeMappings[name='ObjectNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:typedBy">
           <style lineStyle="dash" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«typedBy»">
@@ -315,7 +316,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="RealizationLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:typedBy">
+        <edgeMappings name="RealizationLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:typedBy">
           <style lineStyle="dash" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«realizes»">
@@ -324,13 +325,13 @@
           </style>
         </edgeMappings>
         <toolSections name="Languages">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createLanguage" label="Language" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='LanguageNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@nodeMappings[name='FormalismNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.ftg->first()=null">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="languageModel"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.ftg=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="ftg"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.ftg->first()">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.Formalism" referenceName="formalism">
@@ -340,13 +341,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@nodeMappings[name='TransformationNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/transformation.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@nodeMappings[name='TransformationNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/transformation.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.ftg->first()=null">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="languageModel"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.ftg=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="ftg"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.ftg->first()">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.Transformation" referenceName="transformation">
@@ -356,7 +357,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@edgeMappings[name='TypeLink']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@edgeMappings[name='TypeLink']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -367,7 +368,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createRealizationRelationship" label="Realizes" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@edgeMappings[name='RealizationLink']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createRealizationRelationship" label="Realizes" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@edgeMappings[name='RealizationLink']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -378,7 +379,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='LanguageLayer']/@edgeMappings[name='TransformationToEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@edgeMappings[name='TransformationToEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -582,6 +583,165 @@
           </conditionnalStyles>
         </edgeMappings>
       </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ResourcesModel" label="Resource Model" domainClass="processmodel.ProcessModel">
+      <defaultLayer name="Default">
+        <containerMappings name="ResourceContainer" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="resources.Resource" dropDescriptions="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@toolSections.0/@ownedTools[name='DropAllocationConstraint']" childrenPresentation="List">
+          <subNodeMappings name="CostSubNodeForResource" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='EditCostValue']" semanticCandidatesExpression="aql:self.cost" domainClass="cost.RatioScale">
+            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.value" iconPath="/be.uantwerpen.msdl.process.design/icons/dollar.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="ResourceConstraintSubnode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='EditCostValue']" semanticCandidatesExpression="aql:self.allocationConstraint" domainClass="processmodel.ResourceConstraint">
+            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.transformation.name" iconPath="/be.uantwerpen.msdl.process.design/icons/transformation.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" iconPath="/be.uantwerpen.msdl.process.design/icons/resource.png" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="AllTransformations" domainClass="ftg.FormalismTransformationGraph" childrenPresentation="List">
+          <subNodeMappings name="TransformationSubnode" preconditionExpression="aql:self.resourceConstraint=null" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='EditCostValue']" semanticCandidatesExpression="aql:self.transformation" domainClass="ftg.Transformation">
+            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.name" iconPath="/be.uantwerpen.msdl.process.design/icons/transformation.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="Unconstrained transformations" widthComputationExpression="16" heightComputationExpression="10">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Resources">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCost" label="Cost" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subNodeMappings[name='CostSubNodeForResource']" iconPath="/be.uantwerpen.msdl.process.design/icons/dollar.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer().eContainer()">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.costModel->first()=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cost.CostModel" referenceName="costModel"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.costModel->first()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cost.RatioScale" referenceName="cost">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="costItem" valueExpression="var:container"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Resource" label="Resource" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']" iconPath="/be.uantwerpen.msdl.process.design/icons/resource.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.resourceModel=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="resources.ResourceModel" referenceName="resourceModel"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.resourceModel">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="resources.Resource" referenceName="resource">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditNamedElementName">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DropAllocationConstraint" mappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subNodeMappings[name='ResourceConstraintSubnode']" dragSource="BOTH">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newSemanticContainer">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="allocationConstraint" valueExpression="var:element"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="ResourceConstraintTable" label="Constraint Table" domainClass="processmodel.ProcessModel">
+      <ownedLineMappings name="TransformationLine" domainClass="ftg.Transformation" semanticCandidatesExpression="aql:self.ftg.transformation" headerLabelExpression="aql:self.name"/>
+      <ownedColumnMappings name="ResourceConstraintColumn" headerLabelExpression="aql:self.name" domainClass="resources.Resource"/>
+      <intersection name="Constraint" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceConstraintTable']/@ownedLineMappings[name='TransformationLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceConstraintTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.resourceConstraint.resource">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
+            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.ResourceConstraint" referenceName="resourceConstraint">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="resource" valueExpression="var:columnSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="transformation" valueExpression="var:lineSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </directEdit>
+        <defaultForeground>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+        </defaultBackground>
+        <create name="CreateCell">
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
+            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.ResourceConstraint" referenceName="resourceConstraint">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="resource" valueExpression="var:columnSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="transformation" valueExpression="var:lineSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </create>
+      </intersection>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="ResourceAllocationTable" label="Allocation Table" domainClass="processmodel.ProcessModel">
+      <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
+      <ownedColumnMappings name="ResourceColumn" headerLabelExpression="aql:self.name" domainClass="resources.Resource"/>
+      <intersection name="Allocation" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceAllocationTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceAllocationTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.allocation.resource">
+        <defaultForeground>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+        </defaultBackground>
+        <create name="CreateCell">
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
+            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Allocation" referenceName="allocation">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="resource" valueExpression="var:columnSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </create>
+      </intersection>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="DSMView" label="DSM View" domainClass="pm.Process">
       <ownedLineMappings name="ActivitiesLines" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.node" headerLabelExpression="feature:name"/>

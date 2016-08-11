@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm" xmlns:be.uantwerpen.msdl.metamodels_2="metamodels.cost">
+  <ftg>
+    <formalism id="e852e5d6-b43b-4757-a4f2-b9515f46ed2f" name="form1" types="//@process.0/@node.3"/>
+    <formalism id="56bd1054-1fb4-4d2a-98b3-7e85a12dc648" name="form2" types="//@process.0/@node.4"/>
+    <transformation id="aacf5b4c-be5b-4dc9-be7a-76fcacbc6bbc" name="trafo1" types="//@process.0/@node.2" resourceConstraint="//@resourceConstraint.0"/>
+    <transformation id="baeab778-1282-49e5-938a-f08865711679" name="trafo2" types="//@process.0/@node.5" resourceConstraint="//@resourceConstraint.1"/>
+  </ftg>
+  <process id="88f5e765-a981-4484-84c1-9af8e6884c5e">
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Initial" id="b921146b-7cae-432f-9376-445bb77c9042" controlOut="//@process.0/@controlFlow.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:FlowFinal" id="4e91e3fe-d204-48c8-9716-22e99cd7cc11" controlIn="//@process.0/@controlFlow.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="17d93f76-30ad-4f94-82c8-a9a8c5b326a9" dataFlowFrom="//@process.0/@node.3" dataFlowTo="//@process.0/@node.4" controlIn="//@process.0/@controlFlow.0" controlOut="//@process.0/@controlFlow.1" name="a1" cost="//@costModel.0/@cost.2" typedBy="//@ftg/@transformation.0" allocation="//@allocation.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="cc702d98-44a4-4ae1-a4ae-41d5435a4220" dataFlowTo="//@process.0/@node.2" name="model1" typedBy="//@ftg/@formalism.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="cbd78a87-428e-4e05-b575-cd1db60be04f" dataFlowFrom="//@process.0/@node.2" name="model2" typedBy="//@ftg/@formalism.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="75e8c1cc-298d-473b-975a-896e8bd6b8ed" name="a2" typedBy="//@ftg/@transformation.1" allocation="//@allocation.1"/>
+    <controlFlow id="bc1a31c4-edac-44f5-bf51-c348e20c1ac4" from="//@process.0/@node.0" to="//@process.0/@node.2"/>
+    <controlFlow id="73022289-7f27-4057-9f24-070e8cd7bf20" from="//@process.0/@node.2" to="//@process.0/@node.1"/>
+  </process>
+  <resourceModel>
+    <resource name="resource1" cost="//@costModel.0/@cost.0" allocation="//@allocation.0" allocationConstraint="//@resourceConstraint.0"/>
+    <resource name="resource2" cost="//@costModel.0/@cost.1" allocation="//@allocation.1" allocationConstraint="//@resourceConstraint.1"/>
+  </resourceModel>
+  <costModel>
+    <cost xsi:type="be.uantwerpen.msdl.metamodels_2:RatioScale" id="747fcef0-070a-484e-88ea-d72757403bad" costItem="//@resourceModel/@resource.0" value="1000.0"/>
+    <cost xsi:type="be.uantwerpen.msdl.metamodels_2:RatioScale" id="7939be00-684b-4145-9130-db791044e3a8" costItem="//@resourceModel/@resource.1" value="100.0"/>
+    <cost xsi:type="be.uantwerpen.msdl.metamodels_2:RatioScale" id="68d96046-a6ab-4779-b85e-0b892effbebc" costItem="//@process.0/@node.2" value="100.0"/>
+  </costModel>
+  <resourceConstraint id="006a32c6-6242-45c5-b593-0fc6e169f3dd" resource="//@resourceModel/@resource.0" transformation="//@ftg/@transformation.0"/>
+  <resourceConstraint id="8fd21e2e-c14c-474e-afb4-e6bc17e0300d" resource="//@resourceModel/@resource.1" transformation="//@ftg/@transformation.1"/>
+  <allocation id="72945231-36f5-470b-81fe-d53ef5eec161" activity="//@process.0/@node.2" resource="//@resourceModel/@resource.0"/>
+  <allocation id="7a32e7fb-9962-4f8d-b37c-b07ce0f43859" activity="//@process.0/@node.5" resource="//@resourceModel/@resource.1"/>
+</be.uantwerpen.msdl.metamodels:ProcessModel>
