@@ -12,4 +12,8 @@
         eType="#//Token" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Token"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityState" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Ready" eSuperTypes="#//ActivityState"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Running" eSuperTypes="#//ActivityState"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Finished" eSuperTypes="#//ActivityState"/>
 </ecore:EPackage>
