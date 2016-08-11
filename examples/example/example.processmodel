@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm" xmlns:be.uantwerpen.msdl.metamodels_2="metamodels.properties" xmlns:be.uantwerpen.msdl.metamodels_3="metamodels.cost">
+  <ftg>
+    <formalism id="123123"/>
+    <formalism id="bb606e92-a237-4045-9bc7-606b97beeeb0" types="//@process.0/@node.2"/>
+    <transformation id="21741526-1b6b-4b53-ab1e-942c0b54cd88" types="//@process.0/@node.0"/>
+  </ftg>
+  <process id="12312312312" name="p1">
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="1231231231" controlOut="//@process.0/@controlFlow.0" name="a1" typedBy="//@ftg/@transformation.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:FlowFinal" id="bf90791b-349a-4627-976a-4854736f0cfd" controlIn="//@process.0/@controlFlow.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="9f914463-2852-4172-8735-90b842ab26ad" typedBy="//@ftg/@formalism.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="c771a8ad-437a-454c-a765-2006ac24d5b3"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="407730d8-78aa-49d9-a973-5a5b6668c835"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" id="d184dcf4-e71c-4e3f-b796-5a765b9b574a" cost="//@costModel.0/@cost.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="b48919d9-ba23-4708-a9c2-d3754ddb8e0f"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Join" id="29fe8e2f-345b-4421-90a6-72ea9b9c4d19"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Fork" id="0261c435-acc3-4d0a-a0c5-71852929ec04"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="81590940-2861-4c98-871a-e7014f41ee21"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Initial" id="asdasdsa"/>
+    <controlFlow id="4038c4fc-8b90-46af-90f0-af3763f42477" from="//@process.0/@node.0" to="//@process.0/@node.1"/>
+  </process>
+  <propertyModel>
+    <property id="1727524a-173f-4870-ade5-b57d9207b3ce" intent="//@intent.0" relationshipLink="//@propertyModel/@relationship.0/@propertyLink.1"/>
+    <property id="393af1b0-d90a-43f8-a339-d28696e50660" relationshipLink="//@propertyModel/@relationship.0/@propertyLink.0"/>
+    <relationship id="db2c17f9-7c61-4e1c-a9b8-c7019d9b13bf">
+      <propertyLink id="040d52d3-9c59-452e-912a-4c6dcd32a800" property="//@propertyModel/@property.1"/>
+      <propertyLink id="fb8ecdd5-6ca9-4c36-b69f-1f8794527a91" property="//@propertyModel/@property.0"/>
+    </relationship>
+    <relationship xsi:type="be.uantwerpen.msdl.metamodels_2:Requirement" id="65ca7298-a7d5-4751-9bab-575e7085e9c5"/>
+  </propertyModel>
+  <costModel>
+    <cost xsi:type="be.uantwerpen.msdl.metamodels_3:RatioScale" id="739f4919-4c2b-41c1-9ab8-256336de8d3f" costItem="//@process.0/@node.5" value="10.0"/>
+  </costModel>
+  <intent id="82889644-1adc-468a-bc02-c97105ec1b49" activity="//@process.0/@node.0" subject="//@propertyModel/@property.0" type="READ"/>
+</be.uantwerpen.msdl.metamodels:ProcessModel>
