@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/be.uantwerpen.msdl.metamodels/src" modelPluginID="be.uantwerpen.msdl.metamodels"
+    modelName="Enactment" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="metamodels.genmodel#//processmodel" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>enactment.ecore</foreignModel>
+  <genPackages prefix="Enactment" basePackage="be.uantwerpen.msdl" disposableProviderFactory="true"
+      ecorePackage="enactment.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="enactment.ecore#//ActivityState">
+      <genEnumLiterals ecoreEnumLiteral="enactment.ecore#//ActivityState/READY"/>
+      <genEnumLiterals ecoreEnumLiteral="enactment.ecore#//ActivityState/DONE"/>
+    </genEnums>
+    <genClasses ecoreClass="enactment.ecore#//Enactment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference enactment.ecore#//Enactment/enactedProcessModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference enactment.ecore#//Enactment/token"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference enactment.ecore#//Enactment/tokenTable"/>
+    </genClasses>
+    <genClasses ecoreClass="enactment.ecore#//Token">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference enactment.ecore#//Token/currentNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute enactment.ecore#//Token/state"/>
+    </genClasses>
+    <genClasses ecoreClass="enactment.ecore#//SubTokenRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference enactment.ecore#//SubTokenRelation/token"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference enactment.ecore#//SubTokenRelation/subToken"/>
+    </genClasses>
+    <genClasses ecoreClass="enactment.ecore#//TokenTable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference enactment.ecore#//TokenTable/subTokenRelation"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
