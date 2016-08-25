@@ -1,11 +1,13 @@
 package be.uantwerpen.msdl.process.design.services
 
+import be.uantwerpen.msdl.processmodel.Intent
 import be.uantwerpen.msdl.processmodel.IntentType
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.Identifiable
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.Node
 import be.uantwerpen.msdl.processmodel.pm.Process
+import be.uantwerpen.msdl.processmodel.properties.Property
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import java.util.Set
@@ -24,6 +26,70 @@ class Services {
 		UUID.randomUUID.toString
 	}
 
+	public def getReadIntents(Activity activity) {
+		activity.intents.filter [Intent i |
+			i.type.equals(IntentType::READ)
+		].properties
+	}
+	
+	public def getModifyIntents(Activity activity) {
+		activity.intents.filter [Intent i |
+			i.type.equals(IntentType::MODIFY)
+		].properties
+	}
+	
+	public def getCheckIntents(Activity activity) {
+		activity.intents.filter [Intent i |
+			i.type.equals(IntentType::CHECK)
+		].properties
+	}
+	
+	public def getContractIntents(Activity activity) {
+		activity.intents.filter [Intent i |
+			i.type.equals(IntentType::CONTRACT)
+		].properties
+	}
+
+	def getProperties(Iterable<Intent> intents) {
+		val properties = Lists::newArrayList
+
+		intents.forEach [ i |
+			properties += i.subject
+		]
+		
+		properties
+	}
+
+	public def getIntents(Activity activity) {
+		(activity.eContainer.eContainer as ProcessModel).intent.filter [ i |
+			i.activity.equals(activity)
+		]
+	}
+
+//	public def getIntents(Activity activity) {
+//		val processModel = activity.eContainer.eContainer as ProcessModel
+//		val intents = processModel.intent;
+//		
+//		processModel.propertyModel.property.filter[Property p|
+//			intents.exists[i | 
+//				i.activity.equals(activity) && i.subject.equals(p)
+//			]
+//		].toList
+//		
+//		/* 
+//		
+//		val intents = processModel.intent.filter [ i |
+//			i.activity.equals(activity)
+//		]
+//		//.fold(Lists.newArrayList) [list, i|
+//		//	list+=i
+//		//]
+//		
+//		val properties = Lists::newArrayList
+//		
+//		intents.forEach[i | properties+=i.subject]
+//		*/
+//	}
 	/**
 	 * Collects data dependencies for a given activity.
 	 */
@@ -88,7 +154,7 @@ class Services {
 		val newNodes = Sets::newHashSet
 
 		node.controlOut.forEach [ controlFlow |
-			if(!subsequentNodes.contains(controlFlow.to)){
+			if (!subsequentNodes.contains(controlFlow.to)) {
 				newNodes.add(controlFlow.to)
 			}
 		]
@@ -104,7 +170,7 @@ class Services {
 		subsequentNodes
 	}
 
-	// FIXME: it's not clear yet what do we want to show here, deprecated until further development
+// FIXME: it's not clear yet what do we want to show here, deprecated until further development
 //	@Deprecated
 //	def getLinkedProperty(PropertyLink propertyLink) {
 //		val linkedElement = propertyLink.eContainer

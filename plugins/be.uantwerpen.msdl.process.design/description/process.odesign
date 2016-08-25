@@ -90,6 +90,29 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
+        <containerMappings name="CompoundActivityContainer" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="pm.CompoundActivity" dropDescriptions="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='DropCost']" childrenPresentation="List">
+          <subNodeMappings name="CostSubNodeForCompoundActivity" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='EditCostValue']" semanticCandidatesExpression="feature:cost" domainClass="cost.RatioScale">
+            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.value" iconPath="/be.uantwerpen.msdl.process.design/icons/dollar.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="ActivitySubNode" semanticCandidatesExpression="feature:activity" domainClass="pm.Activity">
+            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" iconPath="/be.uantwerpen.msdl.process.design/icons/compound2.png" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+          </style>
+        </containerMappings>
         <toolSections name="Process">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="createInitNode" label="Initial" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/init.png">
             <variable name="container"/>
@@ -173,6 +196,17 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CompoundActivity" label="Compound Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" iconPath="/be.uantwerpen.msdl.process.design/icons/compound2.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.process->first()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="pm.CompoundActivity" referenceName="node">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="createObject" label="Object" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@nodeMappings[name='ObjectNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/cube.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -212,7 +246,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCost" label="Cost" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer']/@subNodeMappings[name='CostSubNodeForAutomatedActivity'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']/@subNodeMappings[name='CostSubNodeForManualActivity']" iconPath="/be.uantwerpen.msdl.process.design/icons/dollar.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCost" label="Cost" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer']/@subNodeMappings[name='CostSubNodeForAutomatedActivity'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']/@subNodeMappings[name='CostSubNodeForManualActivity'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']/@subNodeMappings[name='CostSubNodeForCompoundActivity']" iconPath="/be.uantwerpen.msdl.process.design/icons/dollar.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -247,7 +281,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DropCost" mappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']/@subNodeMappings[name='CostSubNodeForManualActivity'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer']/@subNodeMappings[name='CostSubNodeForAutomatedActivity']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DropCost" mappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']/@subNodeMappings[name='CostSubNodeForManualActivity'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer']/@subNodeMappings[name='CostSubNodeForAutomatedActivity'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']/@subNodeMappings[name='CostSubNodeForCompoundActivity']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -679,6 +713,284 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="ActvityTypingTable" domainClass="processmodel.ProcessModel">
+      <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
+      <ownedColumnMappings name="TransformationColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Transformation" semanticCandidatesExpression="aql:self.ftg.transformation"/>
+      <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic">
+            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.ResourceConstraint" referenceName="resourceConstraint">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="resource" valueExpression="var:columnSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="transformation" valueExpression="var:lineSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:SetValue"/>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </directEdit>
+        <defaultForeground>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+        </defaultBackground>
+        <create name="CreateCell">
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="typedBy" valueExpression="var:columnSemantic"/>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </create>
+      </intersection>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="ObjectTypingTable" domainClass="processmodel.ProcessModel">
+      <ownedLineMappings name="ObjectLine" domainClass="pm.Object" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
+      <ownedColumnMappings name="FormalismColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Formalism" semanticCandidatesExpression="aql:self.ftg.formalism"/>
+      <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedLineMappings[name='ObjectLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic">
+            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.ResourceConstraint" referenceName="resourceConstraint">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="resource" valueExpression="var:columnSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="transformation" valueExpression="var:lineSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:SetValue"/>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </directEdit>
+        <defaultForeground>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+        </defaultBackground>
+        <create name="CreateCell">
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="typedBy" valueExpression="var:columnSemantic"/>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </create>
+      </intersection>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="IntentTable" domainClass="pm.Process">
+      <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.node" headerLabelExpression="aql:self.name"/>
+      <ownedColumnMappings name="PropertyColumn" headerLabelExpression="aql:self.name" domainClass="properties.Property" semanticCandidatesExpression="aql:self.eContainer().propertyModel.property"/>
+      <intersection name="ReadIntent" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="read" columnFinderExpression="service:getReadIntents">
+        <defaultForeground labelSize="10">
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+        </defaultBackground>
+        <create name="CreateIntent">
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('read')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::READ"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('modify')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::MODIFY"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('check')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::CHECK"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('contract')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::CONTRACT"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </create>
+      </intersection>
+      <intersection name="ModifyIntent" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="modify" columnFinderExpression="service:getModifyIntents">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().size()==0"/>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </directEdit>
+        <defaultForeground labelSize="10">
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+        </defaultBackground>
+        <create name="CreateIntent">
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('read')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::READ"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('modify')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::MODIFY"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('check')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::CHECK"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('contract')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::CONTRACT"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </create>
+      </intersection>
+      <intersection name="CheckIntent" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="check" columnFinderExpression="service:getCheckIntents">
+        <defaultForeground labelSize="10">
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+        </defaultBackground>
+        <create name="CreateIntent">
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('read')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::READ"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('modify')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::MODIFY"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('check')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::CHECK"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('contract')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::CONTRACT"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </create>
+      </intersection>
+      <intersection name="ContractIntent" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="contract" columnFinderExpression="service:getContractIntents">
+        <defaultForeground labelSize="10">
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+        </defaultBackground>
+        <create name="CreateIntent">
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('read')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::READ"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('modify')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::MODIFY"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('check')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::CHECK"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('contract')">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:processmodel::IntentType::CONTRACT"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              </subModelOperations>
+            </subModelOperations>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </create>
+      </intersection>
+    </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="ResourceConstraintTable" label="Constraint Table" domainClass="processmodel.ProcessModel">
       <ownedLineMappings name="TransformationLine" domainClass="ftg.Transformation" semanticCandidatesExpression="aql:self.ftg.transformation" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="ResourceConstraintColumn" headerLabelExpression="aql:self.name" domainClass="resources.Resource"/>
@@ -703,7 +1015,7 @@
         <defaultBackground>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
         </defaultBackground>
-        <create name="CreateCell">
+        <create name="CreateConstraint">
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
           <variables name="root" documentation="The semantic root element of the table."/>
