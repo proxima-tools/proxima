@@ -27,7 +27,11 @@ Export-Package: be.uantwerpen.msdl.processmodel,
  be.uantwerpen.msdl.processmodel.resources,
  be.uantwerpen.msdl.processmodel.resources.impl,
  be.uantwerpen.msdl.processmodel.resources.util,
- be.uantwerpen.msdl.processmodel.util
+ be.uantwerpen.msdl.processmodel.util,
+ be.uantwerpen.msdl.enactment,
+ be.uantwerpen.msdl.enactment.impl,
+ be.uantwerpen.msdl.enactment.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ be.uantwerpen.msdl.metamodels;visibility:=reexport
 Bundle-ActivationPolicy: lazy

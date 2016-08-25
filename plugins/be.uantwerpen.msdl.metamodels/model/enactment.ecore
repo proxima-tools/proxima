@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="enactment" nsURI="metamodels.enactment" nsPrefix="be.uantwerpen.msdl.metamodels">
-  <eClassifiers xsi:type="ecore:EClass" name="Runtime">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enactment" upperBound="-1"
-        eType="#//Enactment" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enactment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enactedProcessModel" lowerBound="1"
         eType="ecore:EClass processmodel.ecore#//ProcessModel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="token" upperBound="-1"
         eType="#//Token" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tokenTable" lowerBound="1"
+        eType="#//TokenTable" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Token"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ActivityState" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Ready" eSuperTypes="#//ActivityState"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Running" eSuperTypes="#//ActivityState"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Finished" eSuperTypes="#//ActivityState"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Token">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentNode" eType="ecore:EClass processmodel.ecore#//pm/Node"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" lowerBound="1" eType="#//ActivityState"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubTokenRelation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token" lowerBound="1" eType="#//Token"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subToken" upperBound="-1"
+        eType="#//Token"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TokenTable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subTokenRelation" upperBound="-1"
+        eType="#//SubTokenRelation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ActivityState">
+    <eLiterals name="READY"/>
+    <eLiterals name="DONE" value="1"/>
+  </eClassifiers>
 </ecore:EPackage>

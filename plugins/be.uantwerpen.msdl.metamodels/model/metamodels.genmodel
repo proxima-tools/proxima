@@ -65,6 +65,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Transformation/resourceConstraint"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="processmodel.ecore#//ftg/Type"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Pm" basePackage="be.uantwerpen.msdl.processmodel" disposableProviderFactory="true"
         ecorePackage="processmodel.ecore#//pm">
@@ -97,6 +98,10 @@
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ManualActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity"/>
+      <genClasses ecoreClass="processmodel.ecore#//pm/CompoundActivity">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/CompoundActivity/activity"/>
+      </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/Object">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Object/typedBy"/>
@@ -110,6 +115,7 @@
       <genClasses ecoreClass="processmodel.ecore#//pm/Join"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/Merge"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/Decision"/>
+      <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Typeable"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Properties" basePackage="be.uantwerpen.msdl.processmodel"
         disposableProviderFactory="true" ecorePackage="processmodel.ecore#//properties">
