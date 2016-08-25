@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="be.uantwerpen.msdl.icm.runtime.queries.RuntimeQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.runtime.queries.RuntimeQueries" id="be.uantwerpen.msdl.icm.runtime.queries.RuntimeQueries">
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.tokenInNode"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.tokenInActivity"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.executableActivity"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.executedActivity"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.tokenInFork"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.tokenInJoin"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.finishedProcess"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.enabledTransition"/>
+    </group>
+  </extension>
+</plugin>
