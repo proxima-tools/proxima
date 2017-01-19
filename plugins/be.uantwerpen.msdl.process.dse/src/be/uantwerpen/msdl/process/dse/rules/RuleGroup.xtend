@@ -32,7 +32,7 @@ abstract class RuleGroup {
 	protected val extension InconsistencyPatterns inconsistencyPatterns = InconsistencyPatterns::instance
 	protected val extension UnmanagedPatterns unmanagedPatterns = UnmanagedPatterns::instance
 	protected val extension GeneralPatterns generalPatterns = GeneralPatterns::instance
-	protected val extension ProcessFactory2 processFactory = new ProcessFactory2
+	protected val extension PropertiesFactory2 propertiesFactory = new PropertiesFactory2
 	protected val extension PmFactory2 pmFactory = new PmFactory2
 	protected val extension CostFactory2 costFactory = new CostFactory2
 

@@ -15,11 +15,11 @@ import be.uantwerpen.msdl.icm.queries.inconsistencies.util.Unmanaged2Processor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.util.Unmanaged3Processor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedProcessor
 import be.uantwerpen.msdl.processmodel.pm.Activity
-import be.uantwerpen.msdl.processmodel.IntentType
 import be.uantwerpen.msdl.processmodel.pm.Process
 import be.uantwerpen.msdl.processmodel.properties.Property
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
 import org.eclipse.viatra.dse.api.DSETransformationRule
+import be.uantwerpen.msdl.processmodel.properties.IntentType
 
 class ReadModify extends RuleGroup {
 

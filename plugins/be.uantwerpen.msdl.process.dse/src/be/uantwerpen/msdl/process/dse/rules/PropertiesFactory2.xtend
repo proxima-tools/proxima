@@ -11,21 +11,21 @@
 
 package be.uantwerpen.msdl.process.dse.rules
 
-import be.uantwerpen.msdl.processmodel.IntentType
-import be.uantwerpen.msdl.processmodel.ProcessModel
-import be.uantwerpen.msdl.processmodel.ProcessmodelFactory
-import be.uantwerpen.msdl.processmodel.impl.ProcessmodelFactoryImpl
 import be.uantwerpen.msdl.processmodel.pm.Activity
+import be.uantwerpen.msdl.processmodel.properties.IntentType
+import be.uantwerpen.msdl.processmodel.properties.PropertiesFactory
 import be.uantwerpen.msdl.processmodel.properties.Property
+import be.uantwerpen.msdl.processmodel.properties.impl.PropertiesFactoryImpl
 
 import static extension be.uantwerpen.msdl.process.dse.rules.FactoryHelper.*
+import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 
-class ProcessFactory2 extends ProcessmodelFactoryImpl {
+class PropertiesFactory2 extends PropertiesFactoryImpl {
 
-	val extension ProcessmodelFactory processFactory = ProcessmodelFactory::eINSTANCE
+	val extension PropertiesFactory propertiesFactory = PropertiesFactory::eINSTANCE
 
 	override createIntent() {
-		val intent = processFactory.createIntent
+		val intent = propertiesFactory.createIntent
 		intent.setId
 		intent
 	}
@@ -35,6 +35,6 @@ class ProcessFactory2 extends ProcessmodelFactoryImpl {
 		intent.activity = from
 		intent.subject = to
 		intent.type = intentType;
-		(from.eContainer.eContainer as ProcessModel).intent += intent
+		(from.eContainer as PropertyModel).intent += intent
 	}
 }

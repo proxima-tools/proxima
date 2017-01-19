@@ -12,44 +12,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="costModel" upperBound="-1"
         eType="#//cost/CostModel" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
-        eType="#//Intent" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceConstraint" upperBound="-1"
-        eType="#//ResourceConstraint" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" upperBound="-1"
-        eType="#//Allocation" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Intent" eSuperTypes="#//base/Identifiable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
-        eType="#//pm/Activity"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subject" lowerBound="1"
-        eType="#//properties/IntentSubject" eOpposite="#//properties/IntentSubject/intent"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//IntentType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResourceConstraint" eSuperTypes="#//base/Identifiable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
-        eType="#//resources/Resource" eOpposite="#//resources/Resource/allocationConstraint"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
-        eType="#//ftg/Transformation" eOpposite="#//ftg/Transformation/resourceConstraint"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="0"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Allocation" eSuperTypes="#//base/Identifiable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
-        eType="#//pm/Activity" eOpposite="#//pm/Activity/allocation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
-        eType="#//resources/Resource" eOpposite="#//resources/Resource/allocation"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="IntentType">
-    <eLiterals name="UNKNOWN" literal="UNKNOWN"/>
-    <eLiterals name="READ" value="1"/>
-    <eLiterals name="MODIFY" value="2"/>
-    <eLiterals name="CHECK" value="3"/>
-    <eLiterals name="LOCK" value="4"/>
-    <eLiterals name="RELEASE" value="5"/>
-    <eLiterals name="CONTRACT" value="6"/>
   </eClassifiers>
   <eSubpackages name="ftg" nsURI="metamodels.ftg" nsPrefix="be.uantwerpen.msdl.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="FormalismTransformationGraph">
@@ -73,8 +35,8 @@
           eType="#//ftg/Formalism" eOpposite="#//ftg/Formalism/outputOf"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
           eType="#//pm/Activity" eOpposite="#//pm/Activity/typedBy"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceConstraint" eType="#//ResourceConstraint"
-          eOpposite="#//ResourceConstraint/transformation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceConstraint" eType="#//resources/ResourceConstraint"
+          eOpposite="#//resources/ResourceConstraint/transformation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//base/NamedElement"/>
   </eSubpackages>
@@ -106,8 +68,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//pm/Node #//cost/CostItem #//pm/Typeable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/Transformation"
           eOpposite="#//ftg/Transformation/types"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" eType="#//Allocation"
-          eOpposite="#//Allocation/activity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" eType="#//resources/Allocation"
+          eOpposite="#//resources/Allocation/activity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="demand" eType="#//resources/Demand"
+          eOpposite="#//resources/Demand/activity"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ManualActivity" eSuperTypes="#//pm/Activity"/>
     <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//pm/Activity"/>
@@ -136,6 +100,8 @@
           eType="#//properties/Property" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationship" upperBound="-1"
           eType="#//properties/Relationship" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
+          eType="#//properties/Intent" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationshipLink" upperBound="-1"
@@ -166,19 +132,82 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IntentSubject" abstract="true" eSuperTypes="#//base/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
-          eType="#//Intent" eOpposite="#//Intent/subject"/>
+          eType="#//properties/Intent" eOpposite="#//properties/Intent/subject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Intent" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+          eType="#//pm/Activity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subject" lowerBound="1"
+          eType="#//properties/IntentSubject" eOpposite="#//properties/IntentSubject/intent"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//properties/IntentType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="IntentType">
+      <eLiterals name="UNKNOWN" literal="UNKNOWN"/>
+      <eLiterals name="READ" value="1"/>
+      <eLiterals name="MODIFY" value="2"/>
+      <eLiterals name="CHECK" value="3"/>
+      <eLiterals name="LOCK" value="4"/>
+      <eLiterals name="RELEASE" value="5"/>
+      <eLiterals name="CONTRACT" value="6"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="resources" nsURI="metamodels.resources" nsPrefix="be.uantwerpen.msdl.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="ResourceModel">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType" upperBound="-1"
+          eType="#//resources/ResourceType" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resource" upperBound="-1"
           eType="#//resources/Resource" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" upperBound="-1"
+          eType="#//resources/Allocation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="demand" upperBound="-1"
+          eType="#//resources/Demand" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceConstraint" upperBound="-1"
+          eType="#//resources/ResourceConstraint" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specialize" eType="#//resources/ResourceType"
+          eOpposite="#//resources/ResourceType/generalize"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="generalize" upperBound="-1"
+          eType="#//resources/ResourceType" eOpposite="#//resources/ResourceType/specialize"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+          eType="#//resources/Resource" eOpposite="#//resources/Resource/typedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocationConstraint"
+          upperBound="-1" eType="#//resources/ResourceConstraint" eOpposite="#//resources/ResourceConstraint/resourceType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//base/NamedElement #//cost/CostItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" lowerBound="1"
+          eType="#//resources/ResourceType" eOpposite="#//resources/ResourceType/types"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" upperBound="-1"
-          eType="#//Allocation" eOpposite="#//Allocation/resource"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="allocationConstraint"
-          upperBound="-1" eType="#//ResourceConstraint" eOpposite="#//ResourceConstraint/resource"/>
+          eType="#//resources/Allocation" eOpposite="#//resources/Allocation/resource"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="availability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="demand" upperBound="-1"
+          eType="#//resources/Demand" eOpposite="#//resources/Demand/resource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Allocation" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+          eType="#//pm/Activity" eOpposite="#//pm/Activity/allocation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+          eType="#//resources/Resource" eOpposite="#//resources/Resource/allocation"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Demand" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+          eType="#//resources/Resource" eOpposite="#//resources/Resource/demand"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+          eType="#//pm/Activity" eOpposite="#//pm/Activity/demand"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceConstraint" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
+          eType="#//ftg/Transformation" eOpposite="#//ftg/Transformation/resourceConstraint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType" lowerBound="1"
+          eType="#//resources/ResourceType" eOpposite="#//resources/ResourceType/allocationConstraint"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="1"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="cost" nsURI="metamodels.cost" nsPrefix="be.uantwerpen.msdl.metamodels">

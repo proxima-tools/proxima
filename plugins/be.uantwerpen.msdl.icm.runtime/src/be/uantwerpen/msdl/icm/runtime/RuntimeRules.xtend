@@ -9,7 +9,7 @@ import org.eclipse.viatra.transformation.runtime.emf.rules.eventdriven.EventDriv
 import org.eclipse.viatra.transformation.runtime.emf.transformation.eventdriven.EventDrivenTransformation
 import org.eclipse.xtend.lib.annotations.Accessors
 
-class Engine {
+class RuntimeRules {
 
 	val extension EventDrivenTransformationRuleFactory ruleFactory = new EventDrivenTransformationRuleFactory
 	val extension RuntimeQueries runtimeQueries = RuntimeQueries::instance

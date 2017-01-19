@@ -7,39 +7,12 @@
   <foreignModel>processmodel.ecore</foreignModel>
   <genPackages prefix="Processmodel" basePackage="be.uantwerpen.msdl" disposableProviderFactory="true"
       ecorePackage="processmodel.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="processmodel.ecore#//IntentType">
-      <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//IntentType/UNKNOWN"/>
-      <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//IntentType/READ"/>
-      <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//IntentType/MODIFY"/>
-      <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//IntentType/CHECK"/>
-      <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//IntentType/LOCK"/>
-      <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//IntentType/RELEASE"/>
-      <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//IntentType/CONTRACT"/>
-    </genEnums>
     <genClasses ecoreClass="processmodel.ecore#//ProcessModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/ftg"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/process"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/propertyModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/resourceModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/costModel"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/intent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/resourceConstraint"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/allocation"/>
-    </genClasses>
-    <genClasses ecoreClass="processmodel.ecore#//Intent">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference processmodel.ecore#//Intent/activity"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference processmodel.ecore#//Intent/subject"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//Intent/type"/>
-    </genClasses>
-    <genClasses ecoreClass="processmodel.ecore#//ResourceConstraint">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference processmodel.ecore#//ResourceConstraint/resource"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference processmodel.ecore#//ResourceConstraint/transformation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//ResourceConstraint/amount"/>
-    </genClasses>
-    <genClasses ecoreClass="processmodel.ecore#//Allocation">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference processmodel.ecore#//Allocation/activity"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference processmodel.ecore#//Allocation/resource"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//Allocation/amount"/>
     </genClasses>
     <nestedGenPackages prefix="Ftg" basePackage="be.uantwerpen.msdl.processmodel"
         disposableProviderFactory="true" ecorePackage="processmodel.ecore#//ftg">
@@ -95,6 +68,8 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/typedBy"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/allocation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/demand"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ManualActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity"/>
@@ -129,9 +104,19 @@
         <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/RelationshipDirection/PROPERTY"/>
         <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/RelationshipDirection/CONSTRAINT"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="processmodel.ecore#//properties/IntentType">
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/UNKNOWN"/>
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/READ"/>
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/MODIFY"/>
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/CHECK"/>
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/LOCK"/>
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/RELEASE"/>
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/CONTRACT"/>
+      </genEnums>
       <genClasses ecoreClass="processmodel.ecore#//properties/PropertyModel">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//properties/PropertyModel/property"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//properties/PropertyModel/relationship"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//properties/PropertyModel/intent"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/Property">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -152,17 +137,62 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//properties/IntentSubject/intent"/>
       </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//properties/Intent">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Intent/activity"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Intent/subject"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Intent/type"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Resources" basePackage="be.uantwerpen.msdl.processmodel"
         disposableProviderFactory="true" ecorePackage="processmodel.ecore#//resources">
       <genClasses ecoreClass="processmodel.ecore#//resources/ResourceModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceModel/resourceType"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceModel/resource"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceModel/allocation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceModel/demand"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceModel/resourceConstraint"/>
+      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//resources/ResourceType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceType/specialize"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceType/generalize"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceType/types"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceType/allocationConstraint"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//resources/Resource">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Resource/allocation"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Resource/typedBy"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Resource/allocationConstraint"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Resource/allocation"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//resources/Resource/availability"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Resource/demand"/>
+      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//resources/Allocation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Allocation/activity"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Allocation/resource"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//resources/Allocation/amount"/>
+      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//resources/Demand">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//resources/Demand/amount"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Demand/resource"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Demand/activity"/>
+      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//resources/ResourceConstraint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceConstraint/transformation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceConstraint/resourceType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//resources/ResourceConstraint/amount"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Cost" basePackage="be.uantwerpen.msdl.processmodel"

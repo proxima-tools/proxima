@@ -25,6 +25,10 @@ class Services {
 	public def getId(Identifiable identifiable) {
 		UUID.randomUUID.toString
 	}
+	
+	public def parseInt(String string){
+		Integer::parseInt(string)
+	}
 
 	public def getReadIntents(Activity activity) {
 		activity.intents.filter [Intent i |
