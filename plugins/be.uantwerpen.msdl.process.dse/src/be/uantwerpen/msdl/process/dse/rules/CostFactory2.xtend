@@ -19,14 +19,17 @@ import be.uantwerpen.msdl.processmodel.pm.Process
 class CostFactory2 extends CostFactoryImpl {
 
 	def createCost(Activity activity, double value) {
-		val cost = createRatioScale;
+		val cost = createCost
 		val processModel = (activity.eContainer as Process).eContainer as ProcessModel
 		if (processModel.costModel == null) {
-			processModel.costModel += createCostModel
+			processModel.costModel = createCostModel
 		}
-		processModel.costModel.get(0).cost += cost // XXX
+		val costModel = processModel.costModel
+		val costFactor = createCostFactor;
+		costModel.costFactor += costFactor
+		costFactor.cost += cost // XXX
 		cost.value = value
-		activity.cost = cost
+		activity.cost += cost
 		cost
 	}
 }

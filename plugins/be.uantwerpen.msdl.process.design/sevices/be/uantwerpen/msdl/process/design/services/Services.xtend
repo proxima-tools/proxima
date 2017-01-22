@@ -1,17 +1,17 @@
 package be.uantwerpen.msdl.process.design.services
 
-import be.uantwerpen.msdl.processmodel.Intent
-import be.uantwerpen.msdl.processmodel.IntentType
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.Identifiable
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.Node
 import be.uantwerpen.msdl.processmodel.pm.Process
-import be.uantwerpen.msdl.processmodel.properties.Property
+import be.uantwerpen.msdl.processmodel.properties.Intent
+import be.uantwerpen.msdl.processmodel.properties.IntentType
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import java.util.Set
 import java.util.UUID
+import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 
 /**
  * Services for the editor
@@ -31,25 +31,25 @@ class Services {
 	}
 
 	public def getReadIntents(Activity activity) {
-		activity.intents.filter [Intent i |
+		activity.intent.filter [Intent i |
 			i.type.equals(IntentType::READ)
 		].properties
 	}
 	
 	public def getModifyIntents(Activity activity) {
-		activity.intents.filter [Intent i |
+		activity.intent.filter [Intent i |
 			i.type.equals(IntentType::MODIFY)
 		].properties
 	}
 	
 	public def getCheckIntents(Activity activity) {
-		activity.intents.filter [Intent i |
+		activity.intent.filter [Intent i |
 			i.type.equals(IntentType::CHECK)
 		].properties
 	}
 	
 	public def getContractIntents(Activity activity) {
-		activity.intents.filter [Intent i |
+		activity.intent.filter [Intent i |
 			i.type.equals(IntentType::CONTRACT)
 		].properties
 	}
@@ -65,7 +65,7 @@ class Services {
 	}
 
 	public def getIntents(Activity activity) {
-		(activity.eContainer.eContainer as ProcessModel).intent.filter [ i |
+		(activity.eContainer as PropertyModel).intent.filter [ i |
 			i.activity.equals(activity)
 		]
 	}
@@ -112,36 +112,36 @@ class Services {
 	 * Collects property-based dependencies for a given activity.
 	 * TODO make this transitive among constraints as well
 	 */
-	public def getPropertyDependencies(Activity activity) {
-		var process = activity.eContainer as Process
-		var processModel = process.eContainer as ProcessModel
-
-		processModel.intent.filter [ intent |
-			intent.activity.equals(activity)
-		] // .forEach [ intent |
-//			println("input intent: " + intent)
-//			println(intent.subjectOfIntent)
-//			intent.subjectOfIntent.intent.filter [ i2 |
-//				!i2.equals(intent)
-//			].forEach[i3 |
-//				println(i3)
-//			]
+//	public def getPropertyDependencies(Activity activity) {
+//		var process = activity.eContainer as Process
+//		var processModel = process.eContainer as ProcessModel
+//
+//		processModel.intent.filter [ intent |
+//			intent.activity.equals(activity)
+//		] // .forEach [ intent |
+////			println("input intent: " + intent)
+////			println(intent.subjectOfIntent)
+////			intent.subjectOfIntent.intent.filter [ i2 |
+////				!i2.equals(intent)
+////			].forEach[i3 |
+////				println(i3)
+////			]
+////		]
+//		.fold(Lists::newArrayList) [ list, intent |
+////			println("input intent: " + intent)
+//			list.addAll(intent.subject.intent // TODO here, it should be made transitive over the P-map
+//			.filter [ intent2 |
+//				!intent2.equals(intent)
+//			].filter [ intent2 |
+//				dependencyImplications.contains(new Pair(intent.type, intent2.type)) &&
+//					followedBy(intent.activity, intent2.activity)
+//			].map [ x |
+//				x.activity
+//			])
+////			println("resulting list: " + list)
+//			list
 //		]
-		.fold(Lists::newArrayList) [ list, intent |
-//			println("input intent: " + intent)
-			list.addAll(intent.subject.intent // TODO here, it should be made transitive over the P-map
-			.filter [ intent2 |
-				!intent2.equals(intent)
-			].filter [ intent2 |
-				dependencyImplications.contains(new Pair(intent.type, intent2.type)) &&
-					followedBy(intent.activity, intent2.activity)
-			].map [ x |
-				x.activity
-			])
-//			println("resulting list: " + list)
-			list
-		]
-	}
+//	}
 
 	val dependencyImplications = #[new Pair(IntentType.READ, IntentType.MODIFY)]
 

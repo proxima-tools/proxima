@@ -15,7 +15,6 @@ import be.uantwerpen.msdl.icm.queries.simulator.util.CostInCircleQuerySpecificat
 import be.uantwerpen.msdl.icm.queries.simulator.util.CostQuerySpecification
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.cost.Cost
-import be.uantwerpen.msdl.processmodel.cost.RatioScale
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 
 class FixedIterationCostSimulator {
@@ -52,11 +51,7 @@ class FixedIterationCostSimulator {
 	}
 
 	private def sum(Iterable<Cost> costs, int times) {
-		costs.filter [ cost |
-			cost instanceof RatioScale
-		].map [ cost |
-			cost as RatioScale
-		].fold(0.0) [ sum, nextCost |
+		costs.fold(0.0) [ sum, nextCost |
 			sum + nextCost.value * times
 		]
 	}

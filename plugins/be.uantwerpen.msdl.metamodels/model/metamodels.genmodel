@@ -70,6 +70,8 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/allocation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/demand"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/intent"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ManualActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity"/>
@@ -163,6 +165,8 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceType/types"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceType/allocationConstraint"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceType/demand"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//resources/Resource">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -170,8 +174,6 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//resources/Resource/allocation"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//resources/Resource/availability"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Resource/demand"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//resources/Allocation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -183,7 +185,7 @@
       <genClasses ecoreClass="processmodel.ecore#//resources/Demand">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//resources/Demand/amount"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Demand/resource"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//resources/Demand/resourceType"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//resources/Demand/activity"/>
       </genClasses>
@@ -198,14 +200,15 @@
     <nestedGenPackages prefix="Cost" basePackage="be.uantwerpen.msdl.processmodel"
         disposableProviderFactory="true" ecorePackage="processmodel.ecore#//cost">
       <genClasses ecoreClass="processmodel.ecore#//cost/CostModel">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//cost/CostModel/cost"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//cost/CostModel/costFactor"/>
+      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//cost/CostFactor">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//cost/CostFactor/cost"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//cost/Cost">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//cost/Cost/costItem"/>
-      </genClasses>
-      <genClasses ecoreClass="processmodel.ecore#//cost/RatioScale">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//cost/RatioScale/value"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//cost/Cost/value"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//cost/CostItem">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

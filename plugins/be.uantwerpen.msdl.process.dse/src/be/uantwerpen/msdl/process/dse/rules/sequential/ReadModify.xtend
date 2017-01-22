@@ -81,7 +81,7 @@ class ReadModify extends RuleGroup {
 				activity2.controlOut.removeAll(decision.controlOut)
 
 				val checkActivity = process.createManualActivity("check" + property1.name)
-				checkActivity.createCost(checkCost)
+				checkActivity.createCost(checkCost)	//TODO this may be corrupted with the new cost hierarchy (CostFactor)
 
 				createIntent(checkActivity, property1, IntentType::CHECK)
 
