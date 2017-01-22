@@ -68,10 +68,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//pm/Node #//cost/CostItem #//pm/Typeable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/Transformation"
           eOpposite="#//ftg/Transformation/types"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" eType="#//resources/Allocation"
-          eOpposite="#//resources/Allocation/activity"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="demand" eType="#//resources/Demand"
-          eOpposite="#//resources/Demand/activity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" upperBound="-1"
+          eType="#//resources/Allocation" eOpposite="#//resources/Allocation/activity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="demand" upperBound="-1"
+          eType="#//resources/Demand" eOpposite="#//resources/Demand/activity"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
           eType="#//properties/Intent" eOpposite="#//properties/Intent/activity"/>
     </eClassifiers>

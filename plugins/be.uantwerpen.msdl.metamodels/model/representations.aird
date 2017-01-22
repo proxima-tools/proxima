@@ -3500,7 +3500,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_Cws0NN43EeaCiaoPiOMUXA" sourceNode="_66ZCAF1PEeaeuJbdLuxDgg" targetNode="_CwdjoN43EeaCiaoPiOMUXA" beginLabel="[1..1] activity" endLabel="[0..1] allocation">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_Cws0NN43EeaCiaoPiOMUXA" sourceNode="_66ZCAF1PEeaeuJbdLuxDgg" targetNode="_CwdjoN43EeaCiaoPiOMUXA" beginLabel="[1..1] activity" endLabel="[0..*] allocation">
         <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Activity/allocation"/>
         <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//resources/Allocation/activity"/>
         <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Activity/allocation"/>
@@ -3546,7 +3546,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_kO3I4N4-EeaCiaoPiOMUXA" sourceNode="_66ZCAF1PEeaeuJbdLuxDgg" targetNode="_LllGAN4-EeaCiaoPiOMUXA" beginLabel="[1..1] activity" endLabel="[0..1] demand">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_kO3I4N4-EeaCiaoPiOMUXA" sourceNode="_66ZCAF1PEeaeuJbdLuxDgg" targetNode="_LllGAN4-EeaCiaoPiOMUXA" beginLabel="[1..1] activity" endLabel="[0..*] demand">
         <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Activity/demand"/>
         <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//resources/Demand/activity"/>
         <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Activity/demand"/>
