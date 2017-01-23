@@ -72,6 +72,8 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/demand"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/intent"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/partOf"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ManualActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity"/>
@@ -199,11 +201,18 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Cost" basePackage="be.uantwerpen.msdl.processmodel"
         disposableProviderFactory="true" ecorePackage="processmodel.ecore#//cost">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="processmodel.ecore#//cost/CostType">
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//cost/CostType/CostPerTime"/>
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//cost/CostType/UnitCost"/>
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//cost/CostType/CostForPresence"/>
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//cost/CostType/Time"/>
+      </genEnums>
       <genClasses ecoreClass="processmodel.ecore#//cost/CostModel">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//cost/CostModel/costFactor"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//cost/CostFactor">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//cost/CostFactor/cost"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//cost/CostFactor/type"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//cost/Cost">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

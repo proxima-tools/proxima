@@ -50,6 +50,9 @@ class FixedIterationCostSimulator {
 		].sum(iterations - 1)
 	}
 
+	/**
+	 * FIXME this became invalid since the introduction of multi-dimensional costs (@since CostFactors)
+	 */
 	private def sum(Iterable<Cost> costs, int times) {
 		costs.fold(0.0) [ sum, nextCost |
 			sum + nextCost.value * times
