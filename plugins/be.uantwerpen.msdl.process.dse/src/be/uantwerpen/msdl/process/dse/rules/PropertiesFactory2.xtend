@@ -35,6 +35,6 @@ class PropertiesFactory2 extends PropertiesFactoryImpl {
 		intent.activity = from
 		intent.subject = to
 		intent.type = intentType;
-		(from.eContainer as PropertyModel).intent += intent
+		(to.eContainer as PropertyModel).intent += intent
 	}
 }

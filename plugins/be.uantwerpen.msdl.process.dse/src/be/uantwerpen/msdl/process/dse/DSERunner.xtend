@@ -46,6 +46,7 @@ import org.junit.Test
 class DSERunner {
 	private static final val LEVEL = Level::DEBUG
 	private static final val TEST_FILE_LOCATION = "file:///D:/workspaces/runtime-New_configuration-neon/pmtest2/pmtest2.processmodel"
+	//private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/ICM/examples/example2/example.processmodel"
 
 	private ResourceSet resourceSet
 	private Resource resource

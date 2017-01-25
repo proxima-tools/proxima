@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm" xmlns:be.uantwerpen.msdl.metamodels_2="metamodels.ftg">
+<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm">
   <ftg>
     <formalism id="29482d7c-56fc-411d-ae18-095827bd2d42" name="Formalism1" inputOf="//@ftg/@transformation.0" outputOf="//@ftg/@transformation.1" types="//@process.0/@node.4"/>
     <formalism id="f5fec98c-9821-4e5d-84bf-3dec3d7def71" name="Formalism2" inputOf="//@ftg/@transformation.1" outputOf="//@ftg/@transformation.0" types="//@process.0/@node.5"/>
@@ -8,8 +8,8 @@
   </ftg>
   <process id="88f5e765-a981-4484-84c1-9af8e6884c5e">
     <node xsi:type="be.uantwerpen.msdl.metamodels_1:Initial" id="f4522fbe-f707-4431-b8a7-dae5dc44321f" controlOut="//@process.0/@controlFlow.2"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="12f5bfa6-3321-46ba-8e12-139ec00bb1a7" dataFlowTo="//@process.0/@node.4" controlIn="//@process.0/@controlFlow.2" controlOut="//@process.0/@controlFlow.0" name="activity1" typedBy="//@ftg/@transformation.0"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" id="b6cd4a62-af68-475f-9b56-e2bd3fe4d72f" dataFlowFrom="//@process.0/@node.4" dataFlowTo="//@process.0/@node.5" controlIn="//@process.0/@controlFlow.0" controlOut="//@process.0/@controlFlow.1" name="activity2" typedBy="//@ftg/@transformation.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="12f5bfa6-3321-46ba-8e12-139ec00bb1a7" dataFlowTo="//@process.0/@node.4" controlIn="//@process.0/@controlFlow.2" controlOut="//@process.0/@controlFlow.0" name="activity1" typedBy="//@ftg/@transformation.0" intent="//@propertyModel/@intent.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" id="b6cd4a62-af68-475f-9b56-e2bd3fe4d72f" dataFlowFrom="//@process.0/@node.4" dataFlowTo="//@process.0/@node.5" controlIn="//@process.0/@controlFlow.0" controlOut="//@process.0/@controlFlow.1" name="activity2" typedBy="//@ftg/@transformation.1" intent="//@propertyModel/@intent.1"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels_1:FlowFinal" id="05154f44-eaae-43a8-93e6-0d2ab345d41f" controlIn="//@process.0/@controlFlow.1"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="1356a4df-41d0-4fbe-bcb6-11d7ac2982ab" dataFlowFrom="//@process.0/@node.1" dataFlowTo="//@process.0/@node.2" name="m1" typedBy="//@ftg/@formalism.0"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="8002faab-54dc-4225-947e-bc5beed91222" dataFlowFrom="//@process.0/@node.2" name="m2" typedBy="//@ftg/@formalism.1"/>
@@ -17,4 +17,15 @@
     <controlFlow id="3c1642a4-9799-45ce-b3d7-3d5639102b18" from="//@process.0/@node.2" to="//@process.0/@node.3"/>
     <controlFlow id="3ff98255-caee-46e3-bc87-01081ac1ae46" from="//@process.0/@node.0" to="//@process.0/@node.1"/>
   </process>
+  <propertyModel>
+    <property id="b35766da-cc28-46db-accd-01030eac7aa5" intent="//@propertyModel/@intent.0" name="p1" relationshipLink="//@propertyModel/@relationship.0/@propertyLink.1"/>
+    <property id="d192fd82-23d6-4e40-ac85-e3a37bf2b7f2" intent="//@propertyModel/@intent.1" name="p2" relationshipLink="//@propertyModel/@relationship.0/@propertyLink.0"/>
+    <relationship id="b7f5efca-261e-4cab-9233-dc40bb13af8f">
+      <propertyLink id="68905a7a-d2d8-4c8e-9a5f-050a95797001" direction="CONSTRAINT" property="//@propertyModel/@property.1"/>
+      <propertyLink id="3d8dd842-a00f-4ce1-9b6f-694d8397fe97" direction="PROPERTY" property="//@propertyModel/@property.0"/>
+    </relationship>
+    <intent id="8bbce327-a9e7-4e1f-a959-3d6c8c4c8bed" activity="//@process.0/@node.1" subject="//@propertyModel/@property.0" type="READ"/>
+    <intent id="fe598427-d5eb-4fb2-9c89-658e60d7e637" activity="//@process.0/@node.2" subject="//@propertyModel/@property.1" type="MODIFY"/>
+  </propertyModel>
+  <costModel/>
 </be.uantwerpen.msdl.metamodels:ProcessModel>
