@@ -11,11 +11,17 @@
 
 package be.uantwerpen.msdl.process.dse
 
-import be.uantwerpen.msdl.processmodel.ProcessModel
-import be.uantwerpen.msdl.processmodel.ProcessmodelPackage
 import be.uantwerpen.msdl.process.dse.objectives.hard.ValidityHardObjectives
 import be.uantwerpen.msdl.process.dse.objectives.soft.SoftObjectives
 import be.uantwerpen.msdl.process.dse.rules.RulesFactory
+import be.uantwerpen.msdl.processmodel.ProcessModel
+import be.uantwerpen.msdl.processmodel.ProcessmodelPackage
+import be.uantwerpen.msdl.processmodel.base.BasePackage
+import be.uantwerpen.msdl.processmodel.cost.CostPackage
+import be.uantwerpen.msdl.processmodel.ftg.FtgPackage
+import be.uantwerpen.msdl.processmodel.pm.PmPackage
+import be.uantwerpen.msdl.processmodel.properties.PropertiesPackage
+import be.uantwerpen.msdl.processmodel.resources.ResourcesPackage
 import com.google.common.base.Stopwatch
 import java.io.IOException
 import java.util.Collections
@@ -39,7 +45,7 @@ import org.junit.Test
 
 class DSERunner {
 	private static final val LEVEL = Level::DEBUG
-	private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/robot/be.uantwerpen.msdl.icm.robot/robot2.process"
+	private static final val TEST_FILE_LOCATION = "file:///D:/workspaces/runtime-New_configuration-neon/pmtest2/pmtest2.processmodel"
 
 	private ResourceSet resourceSet
 	private Resource resource
@@ -55,7 +61,7 @@ class DSERunner {
 		ProcessmodelPackage.eINSTANCE.eClass()
 
 		val extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.extensionToFactoryMap
-		extensionToFactoryMap.put("process", new XMIResourceFactoryImpl())
+		extensionToFactoryMap.put("processmodel", new XMIResourceFactoryImpl())
 		resourceSet = new ResourceSetImpl()
 		resource = resourceSet.getResource(URI.createURI(TEST_FILE_LOCATION), true)
 	}
@@ -78,6 +84,13 @@ class DSERunner {
 		// Set up DSE engine
 		val dse = new DesignSpaceExplorer()
 		dse.setInitialModel(processModel)
+		dse.addMetaModelPackage(ProcessmodelPackage.eINSTANCE)
+		dse.addMetaModelPackage(PmPackage.eINSTANCE)
+		dse.addMetaModelPackage(FtgPackage.eINSTANCE)
+		dse.addMetaModelPackage(PropertiesPackage.eINSTANCE)
+		dse.addMetaModelPackage(ResourcesPackage.eINSTANCE)
+		dse.addMetaModelPackage(CostPackage.eINSTANCE)
+		dse.addMetaModelPackage(BasePackage.eINSTANCE)
 
 		logger.debug(String.format("initial model set in %d ms", timeElapsed))
 		stopwatch.resetAndRestart

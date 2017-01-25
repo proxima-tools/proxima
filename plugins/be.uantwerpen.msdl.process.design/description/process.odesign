@@ -266,7 +266,7 @@
           </style>
         </edgeMappings>
       </additionalLayers>
-      <additionalLayers name="FormalismLayer" label="Formalisms" activeByDefault="true">
+      <additionalLayers name="FormalismLayer" label="Formalisms">
         <nodeMappings name="FormalismNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Formalism">
           <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
@@ -313,7 +313,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <toolSections name="Languages">
+        <toolSections name="Formalisms">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']/@nodeMappings[name='FormalismNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -572,6 +572,128 @@
           </conditionnalStyles>
         </edgeMappings>
       </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="FTG" domainClass="processmodel.ProcessModel" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="FormalismNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Formalism">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="TransformationNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Transformation">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="TransformedByEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:inputOf">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="«transformedBy»">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="TransformationToEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:output">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="«transformationTo»">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="TypeLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@nodeMappings[name='ObjectNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:typedBy">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="«typedBy»">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="RealizationLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:typedBy">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="«realizes»">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="Formalisms">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.ftg=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="ftg"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.ftg->first()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.Formalism" referenceName="formalism">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/transformation.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.ftg=null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="ftg"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.ftg->first()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.Transformation" referenceName="transformation">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="typedBy" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createRealizationRelationship" label="Realizes" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='RealizationLink']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="typedBy" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(ftg::Formalism)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="inputOf" valueExpression="var:target"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(ftg::Transformation)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="output" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ResourcesModel" label="Resource Model" domainClass="processmodel.ProcessModel">
       <defaultLayer name="Default">

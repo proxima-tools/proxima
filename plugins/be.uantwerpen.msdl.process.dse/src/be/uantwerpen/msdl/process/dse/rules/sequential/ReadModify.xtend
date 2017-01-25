@@ -20,6 +20,7 @@ import be.uantwerpen.msdl.processmodel.properties.Property
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
 import org.eclipse.viatra.dse.api.DSETransformationRule
 import be.uantwerpen.msdl.processmodel.properties.IntentType
+import be.uantwerpen.msdl.processmodel.cost.CostType
 
 class ReadModify extends RuleGroup {
 
@@ -81,7 +82,7 @@ class ReadModify extends RuleGroup {
 				activity2.controlOut.removeAll(decision.controlOut)
 
 				val checkActivity = process.createManualActivity("check" + property1.name)
-				checkActivity.createCost(checkCost)	//TODO this may be corrupted with the new cost hierarchy (CostFactor)
+				checkActivity.createCost(checkCost, CostType::COST_PER_TIME)	//TODO this may be corrupted with the new cost hierarchy (CostFactor)
 
 				createIntent(checkActivity, property1, IntentType::CHECK)
 
@@ -102,7 +103,7 @@ class ReadModify extends RuleGroup {
 				val process = activity1.eContainer as Process
 				
 				val contractActivity = process.createManualActivity("contract")
-				contractActivity.createCost(contractCost)
+				contractActivity.createCost(contractCost, CostType::COST_PER_TIME)
 				
 				createIntent(contractActivity, property1, IntentType::CONTRACT)
 				
