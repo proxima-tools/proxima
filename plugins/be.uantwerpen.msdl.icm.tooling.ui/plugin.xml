@@ -25,5 +25,35 @@
             project="false">
       </wizard>
    </extension>
+   
+   <extension
+        point="org.eclipse.ui.handlers">
+     <handler
+           class="be.uantwerpen.msdl.icm.tooling.ui.commands.DSEHandler"
+           commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand">
+     </handler>
+      
+  </extension>
+   
+  <extension
+        point="org.eclipse.ui.commands">
+        <command name="Execute DSE"
+              id="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand">
+        </command>
+  </extension>
+   
+   <extension point="org.eclipse.ui.menus">
+    <menuContribution
+          allPopups="false"
+          locationURI="toolbar:org.eclipse.sirius.diagram.ui.tabbar?after=additions">
+        <command
+              commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand"
+              icon="icons/hammer.png"
+              id="org.eclipse.sirius.diagram.tabbar.test.action.on.diagramelement"
+              label="Optimize process"
+              tooltip="Optimize process">
+        </command>
+    	</menuContribution>
+ 	</extension>
 
 </plugin>
