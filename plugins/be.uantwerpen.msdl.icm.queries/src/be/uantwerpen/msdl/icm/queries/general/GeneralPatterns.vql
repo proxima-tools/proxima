@@ -92,9 +92,20 @@ pattern nodeControlInput(node : Node, controlFlow: ControlFlow){
 	Node.controlIn(node, controlFlow);
 }
 
+pattern compoundActivity(node: Node){
+	CompoundActivity(node);
+}
+
 pattern nodeDirectlyReachableFromNode(toNode: Node, fromNode: Node){
+	neg find compoundActivity(toNode);
+	neg find compoundActivity(fromNode);
 	ControlFlow.from(controlFlow, fromNode);
 	ControlFlow.to(controlFlow, toNode);
+}or{
+	neg find compoundActivity(toNode);
+	neg find compoundActivity(fromNode);
+	Node.dataFlowFrom(fromNode, toNode);
+	Node.dataFlowTo(toNode, fromNode);
 }
 
 pattern nodeGloballyReachableFromNode(toNode: Node, fromNode: Node){

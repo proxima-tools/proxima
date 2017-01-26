@@ -43,11 +43,13 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
-class DSERunner {
+/**
+ * This will be the actual implementation of the DSE logic
+ */
+
+class DSERunner2 {
 	private static final val LEVEL = Level::DEBUG
-	//private static final val TEST_FILE_LOCATION = "file:///D:/workspaces/runtime-New_configuration-neon/pmtest2/pmtest2.processmodel"
-	//private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/ICM/examples/example2/example.processmodel"
-	private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/agv/be.uantwerpen.msdl.icm.cases.agv2/agv.processmodel"
+	private static final val FILE_LOCATION = ""	//TODO: access model
 
 	private ResourceSet resourceSet
 	private Resource resource
@@ -65,7 +67,7 @@ class DSERunner {
 		val extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.extensionToFactoryMap
 		extensionToFactoryMap.put("processmodel", new XMIResourceFactoryImpl())
 		resourceSet = new ResourceSetImpl()
-		resource = resourceSet.getResource(URI.createURI(TEST_FILE_LOCATION), true)
+		resource = resourceSet.getResource(URI.createURI(FILE_LOCATION), true)
 	}
 
 	@After
@@ -96,8 +98,6 @@ class DSERunner {
 
 		logger.debug(String.format("initial model set in %d ms", timeElapsed))
 		stopwatch.resetAndRestart
-		
-		// TODO: validate process at this point
 
 		// Trafo rules
 		RulesFactory.ruleGroups.forEach [ ruleGroup |
@@ -123,7 +123,7 @@ class DSERunner {
 		logger.debug("starting")
 		dse.solutionStore = new SolutionStore(1);
 		dse.setMaxNumberOfThreads(1);
-		dse.startExplorationWithTimeout(Strategies::creatHillClimbingStrategy, 60000l)
+		dse.startExploration(Strategies::creatHillClimbingStrategy)
 //		Logger.getLogger(typeof(DepthFirstStrategy)).setLevel(Level.DEBUG);
 		// Finish
 		logger.debug(String.format("exploration took %d ms", timeElapsed))

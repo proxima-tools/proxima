@@ -16,6 +16,7 @@
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.general.independentNodes2"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.general.nodeControlOutput"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.general.nodeControlInput"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.general.compoundActivity"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.general.nodeDirectlyReachableFromNode"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.general.parallelNodes"/>

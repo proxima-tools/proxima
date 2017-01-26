@@ -15,6 +15,7 @@ import "metamodels.pm"
 import pattern be.uantwerpen.msdl.icm.queries.general.nodeControlInput
 import pattern be.uantwerpen.msdl.icm.queries.general.nodeControlOutput
 import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode
+import pattern be.uantwerpen.msdl.icm.queries.general.compoundActivity
 
 ///**
 // * INIT->FINAL is guaranteed
@@ -27,6 +28,7 @@ import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromN
  * FINAL should be reachable from every node
  */
 pattern finalNotReachableFromNode(node : Node, finalNode: FlowFinal ){
+	neg find compoundActivity(node);
 	neg find nodeGloballyReachableFromNode(finalNode, node);
 	node != finalNode;
 }
@@ -34,6 +36,7 @@ pattern finalNotReachableFromNode(node : Node, finalNode: FlowFinal ){
  * INIT should reach every node
  */
 pattern initDoesNotReachNode(node : Node, initNode: Initial){
+	neg find compoundActivity(node);
 	neg find nodeGloballyReachableFromNode(node, initNode);
 	node != initNode;
 }
@@ -65,11 +68,11 @@ pattern finalNodeWithNoControlOut(finalNode : FlowFinal){
 	neg find nodeControlOutput(finalNode, _);
 }
 /**
- * FORK has exactly one input, at least one output
+ * FORK has exactly at least one input, at least one output
  */
 pattern forkNodeWithInvalidNumberOfIns(forkNode : Fork){
 	forkIns == count find nodeControlInput(forkNode, _);
-	check(forkIns!=1);
+	check(forkIns<1);
 }
 pattern forkNodeWithInvalidNumberOfOuts(forkNode : Fork){
 	forkOuts == count find nodeControlOutput(forkNode, _);
@@ -101,10 +104,12 @@ pattern decisionNodeWithInvalidNumberOfOuts(decisionNode : Decision){
  * ACTIVITIES have at least one input, at least one output
  */
 pattern activityWithInvalidNumberOfControlIn(activity : Activity){
+	neg find compoundActivity(node);
  	ins == count find nodeControlInput(activity, _);
 	check(ins<1);
 }
 pattern activityWithInvalidNumberOfControlOut(activity : Activity){
+	neg find compoundActivity(node);
 	outs == count find nodeControlOutput(activity, _);
 	check(outs<1);
 }
