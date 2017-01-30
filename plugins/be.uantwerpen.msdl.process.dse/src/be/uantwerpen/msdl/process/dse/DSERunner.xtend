@@ -42,11 +42,12 @@ import org.eclipse.viatra.query.runtime.exception.ViatraQueryException
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
+import be.uantwerpen.msdl.process.dse.objectives.hard.AllocationHardObjectives
 
 class DSERunner {
 	private static final val LEVEL = Level::DEBUG
 	//private static final val TEST_FILE_LOCATION = "file:///D:/workspaces/runtime-New_configuration-neon/pmtest2/pmtest2.processmodel"
-	//private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/ICM/examples/example2/example.processmodel"
+//	private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/ICM/examples/example2/example.processmodel"
 	private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/agv/be.uantwerpen.msdl.icm.cases.agv2/agv.processmodel"
 
 	private ResourceSet resourceSet
@@ -110,6 +111,7 @@ class DSERunner {
 		// Objectives
 		new SoftObjectives().addConstraints(dse)
 		new ValidityHardObjectives().addConstraints(dse)
+		new AllocationHardObjectives().addConstraints(dse)
 		logger.debug(String.format("%d objectives added in %d ms", dse.globalContext.objectives.size, timeElapsed))
 		stopwatch.resetAndRestart
 
