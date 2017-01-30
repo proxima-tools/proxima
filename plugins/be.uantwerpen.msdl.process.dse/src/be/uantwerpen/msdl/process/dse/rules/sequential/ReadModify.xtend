@@ -11,16 +11,17 @@
 
 package be.uantwerpen.msdl.process.dse.rules.sequential
 
-import be.uantwerpen.msdl.icm.queries.inconsistencies.util.Unmanaged2Processor
-import be.uantwerpen.msdl.icm.queries.inconsistencies.util.Unmanaged3Processor
-import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedProcessor
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedReadModify2Processor
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedReadModify3Processor
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedReadModifyProcessor
+import be.uantwerpen.msdl.process.dse.rules.RuleGroup
+import be.uantwerpen.msdl.processmodel.cost.CostType
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.Process
-import be.uantwerpen.msdl.processmodel.properties.Property
-import be.uantwerpen.msdl.process.dse.rules.RuleGroup
-import org.eclipse.viatra.dse.api.DSETransformationRule
 import be.uantwerpen.msdl.processmodel.properties.IntentType
-import be.uantwerpen.msdl.processmodel.cost.CostType
+import be.uantwerpen.msdl.processmodel.properties.Property
+import org.eclipse.viatra.dse.api.DSETransformationRule
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedModifyModifySequentialProcessor
 
 class ReadModify extends RuleGroup {
 
@@ -28,7 +29,8 @@ class ReadModify extends RuleGroup {
 		#[
 			readModifyReorder,
 			readModifyAugmentWithCheck,
-			readModifyAugmentWithContract
+			readModifyAugmentWithContract,
+			modifyModifyAugmentWithContract
 		]
 	}
 
@@ -36,8 +38,8 @@ class ReadModify extends RuleGroup {
 	 * Reordering
 	 */
 	val readModifyReorder = new DSETransformationRule(
-		unmanaged,
-		new UnmanagedProcessor() {
+		unmanagedReadModify,
+		new UnmanagedReadModifyProcessor() {
 			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
 				val tmp = createManualActivity("tmp");
 
@@ -66,49 +68,28 @@ class ReadModify extends RuleGroup {
 	 * Check property
 	 */
 	val readModifyAugmentWithCheck = new DSETransformationRule(
-		unmanaged2,
-		new Unmanaged2Processor() {
+		unmanagedReadModify2,
+		new UnmanagedReadModify2Processor() {
 			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
-
-				val process = activity1.eContainer as Process
-
-				val decision = process.createDecision(property1.name + "?")
-
-				// these are gonna be the OK nodes from the Decision node
-				activity2.controlOut.forEach [ cf |
-					cf.name = "OK"
-				]
-				decision.controlOut.addAll(activity2.controlOut)
-				activity2.controlOut.removeAll(decision.controlOut)
-
-				val checkActivity = process.createManualActivity("check" + property1.name)
-				checkActivity.createCost(checkCost, CostType::COST_PER_TIME)	//TODO this may be corrupted with the new cost hierarchy (CostFactor)
-
-				createIntent(checkActivity, property1, IntentType::CHECK)
-
-				// connecting Activity2 with the check activity and that with the Decision 
-				process.createControlFlow(activity2, checkActivity)
-				process.createControlFlow(checkActivity, decision)
-
-				val controlNO = process.createControlFlow(decision, activity1)
-				controlNO.name = "NO"
+				createDecision(activity2, property1, activity1)
 			}
 		}
 	)
 
 	val readModifyAugmentWithContract = new DSETransformationRule(
-		unmanaged3,
-		new Unmanaged3Processor() {
+		unmanagedReadModify3,
+		new UnmanagedReadModify3Processor() {
 			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
-				val process = activity1.eContainer as Process
-				
-				val contractActivity = process.createManualActivity("contract")
-				contractActivity.createCost(contractCost, CostType::COST_PER_TIME)
-				
-				createIntent(contractActivity, property1, IntentType::CONTRACT)
-				
-				contractActivity.controlIn.addAll(activity1.controlIn)
-				process.createControlFlow(contractActivity, activity1)
+				createContract(activity1, #[property1], activity1)
+			}
+		}
+	)
+	
+	val modifyModifyAugmentWithContract = new DSETransformationRule(
+		unmanagedModifyModifySequential,
+		new UnmanagedModifyModifySequentialProcessor() {
+			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
+				createContract(activity1, #[property1], activity1)
 			}
 		}
 	)

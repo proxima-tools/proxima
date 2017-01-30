@@ -11,13 +11,67 @@
 
 package be.uantwerpen.msdl.process.dse.rules.parallel
 
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedModifyModifyParallelProcessor
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
-import java.util.Collections
+import be.uantwerpen.msdl.processmodel.pm.Activity
+import be.uantwerpen.msdl.processmodel.pm.Fork
+import be.uantwerpen.msdl.processmodel.properties.Property
+import org.eclipse.viatra.dse.api.DSETransformationRule
 
 class ParallelModify extends RuleGroup {
 
 	override rules() {
-		Collections.EMPTY_LIST
+		#[
+//			makeSequential,
+			addContract
+		]
 	}
 
+//	// TODO unamanged4..5..6..
+//	val addChecks = new DSETransformationRule(
+//		unmanagedModifyModify,
+//		new UnmanagedModifyModifyProcessor() {
+//			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
+//				// createDecision(activity1, property2, )
+//				// TODO
+//			}
+//		}
+//	)
+	val addContract = new DSETransformationRule(
+		unmanagedModifyModifyParallel,
+		new UnmanagedModifyModifyParallelProcessor() {
+			override process(Activity activity1, Property property1, Activity activity2, Property property2, Fork fork) {
+				createContract(fork, #[property1, property2], activity1)
+			}
+		}
+	)
+
+//	val makeSequential = new DSETransformationRule(
+//		unmanagedModifyModify3,
+//		new UnmanagedModifyModify3Processor() {
+//			override process(Activity activity1, Property property1, Activity activity2, Property property2) {
+//				val process = activity1.eContainer as Process
+//
+//				val join = process.createJoin
+//				val ins1 = activity1.controlIn
+//				val ins2 = activity2.controlIn
+//				join.controlIn.addAll(ins1)
+//				activity1.controlIn.removeAll(ins1)
+//				join.controlIn.addAll(ins2)
+//				activity2.controlIn.removeAll(ins2)
+//				process.createControlFlow(join, activity1)
+//				
+//				val fork = process.createFork
+//				val outs1 = activity1.controlOut
+//				val outs2 = activity2.controlOut
+//				fork.controlOut.addAll(outs1)
+//				activity1.controlOut.removeAll(outs1)
+//				fork.controlOut.addAll(outs2)
+//				activity2.controlOut.removeAll(outs2)
+//				process.createControlFlow(activity2, fork)
+//				
+//				process.createControlFlow(activity1, activity2)
+//			}
+//		}
+//	)
 }

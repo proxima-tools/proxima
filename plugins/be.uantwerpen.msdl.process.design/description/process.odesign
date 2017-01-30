@@ -238,7 +238,7 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
           </style>
         </containerMappings>
-        <toolSections>
+        <toolSections name="CompoundActivities">
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteContainedActivity">
             <element name="element"/>
             <elementView name="elementView"/>

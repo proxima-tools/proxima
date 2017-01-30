@@ -61,7 +61,7 @@ class ValidityHardObjectives {
 		.withHardConstraint(activityWithInvalidNumberOfControlOut, ModelQueryType::NO_MATCH)
 		.withHardConstraint(controlFlowWithInvalidNumberOfControlFrom, ModelQueryType::NO_MATCH)
 		.withHardConstraint(controlFlowWithInvalidNumberOfControlTo, ModelQueryType::NO_MATCH)
-		.withHardConstraint(redundantControlFlows,ModelQueryType::NO_MATCH)
+//		.withHardConstraint(redundantControlFlows,ModelQueryType::NO_MATCH)
 		.withHardConstraint(finalNotReachableFromNode, ModelQueryType::NO_MATCH)
 		.withHardConstraint(initDoesNotReachNode, ModelQueryType::NO_MATCH).withLevel(0)
 }

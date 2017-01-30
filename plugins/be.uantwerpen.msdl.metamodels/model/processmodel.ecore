@@ -64,6 +64,9 @@
           eOpposite="#//pm/Node/controlIn"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="feedback" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//pm/Node #//cost/CostItem #//pm/Typeable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/Transformation"
@@ -92,8 +95,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="Final" abstract="true" eSuperTypes="#//pm/Control"/>
     <eClassifiers xsi:type="ecore:EClass" name="ActivityFinal" eSuperTypes="#//pm/Final"/>
     <eClassifiers xsi:type="ecore:EClass" name="FlowFinal" eSuperTypes="#//pm/Final"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Fork" eSuperTypes="#//pm/Control"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//pm/Control"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Fork" eSuperTypes="#//pm/Control">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="correspondingJoin" lowerBound="1"
+          eType="#//pm/Join" eOpposite="#//pm/Join/correspondingFork"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//pm/Control">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="correspondingFork" lowerBound="1"
+          eType="#//pm/Fork" eOpposite="#//pm/Fork/correspondingJoin"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Merge" eSuperTypes="#//pm/Control"/>
     <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//pm/Control #//base/NamedElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="Typeable" abstract="true" eSuperTypes="#//base/NamedElement"/>

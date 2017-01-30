@@ -17,6 +17,10 @@ import "metamodels.properties"
 import pattern be.uantwerpen.msdl.icm.queries.general.checkIntentOnProperty
 import be.uantwerpen.msdl.icm.queries.general.contractIntentOnProperty
 import be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode
+import be.uantwerpen.msdl.icm.queries.general.intent
+import be.uantwerpen.msdl.icm.queries.general.nodeReachableViaFeedback
+import be.uantwerpen.msdl.icm.queries.general.checkIntentOnSubject
+import be.uantwerpen.msdl.icm.queries.general.intentSubjectGloballyReachableFromProperty
 
 pattern checkProperty(activity: Activity, checkActivity: Activity, property: Property){
 	find checkIntentOnProperty(checkActivity, property);
@@ -28,7 +32,49 @@ pattern checkProperty(activity: Activity, checkActivity: Activity, property: Pro
 	find nodeGloballyReachableFromNode(checkActivity, activity);
 }
 
+pattern checkProperty2(checkActivity: Activity, decision: Decision, checkSubject: IntentSubject, activity1: Activity, activity2: Activity, property1: Property){
+	activity1 != activity2;
+	
+	find checkIntentOnSubject(checkActivity, checkSubject);
+	find intent(activity1, property1, _);
+	find intent(activity2, property2, _);
+	
+	find intentSubjectGloballyReachableFromProperty(checkSubject, property1);
+	find intentSubjectGloballyReachableFromProperty(checkSubject, property2);
+	
+	Decision(decision);
+	Activity.controlOut(checkActivity, cfToDecision);
+	Decision.controlIn(decision, cfToDecision);
+	
+	find nodeGloballyReachableFromNode(activity2, activity1);
+	find nodeGloballyReachableFromNode(checkActivity, activity2);
+	find nodeReachableViaFeedback(activity1, checkActivity);
+}
+
 pattern contract(contractActivity: Activity, activity: Activity, property: Property){
 	find contractIntentOnProperty(contractActivity, property);
 	find nodeGloballyReachableFromNode(activity, contractActivity);
+	find intent(activity, property, _);
+}
+
+pattern sharedContract(contractActivity: Activity, activity1: Activity, activity2: Activity, property1: Property, property2: Property){
+	property1 != property2;
+	activity1 != activity2;
+	find contractIntentOnProperty(contractActivity, property1);
+	find contractIntentOnProperty(contractActivity, property2);
+	find nodeGloballyReachableFromNode(activity1, contractActivity);
+	find nodeGloballyReachableFromNode(activity2, contractActivity);
+	
+	find intent(activity1, property1, _);
+	find intent(activity2, property2, _);
+}
+
+pattern sharedContract2(contractActivity: Activity, activity1: Activity, activity2: Activity, property1: Property, property2: Property){
+	find contract(contractActivity, activity1, property1);
+	find contract(contractActivity, activity2, property2);
+	property1 != property2;
+	activity1 != activity2;
+	
+	find intent(activity1, property1, _);
+	find intent(activity2, property2, _);
 }

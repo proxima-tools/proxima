@@ -100,4 +100,10 @@ class PmFactory2 extends PmFactoryImpl {
 		controlFlow.to = to
 		controlFlow
 	}
+
+	def createFeedback(Process process, Node from, Node to) {
+		val controlFlow = createControlFlow(process, from, to)
+		controlFlow.feedback = true;
+		controlFlow
+	}
 }

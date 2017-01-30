@@ -18,7 +18,7 @@ import "metamodels.processmodel"
 import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode
 import pattern be.uantwerpen.msdl.icm.queries.general.intent
 import be.uantwerpen.msdl.icm.queries.general.propertyGloballyReachableFromProperty
-import be.uantwerpen.msdl.icm.queries.general.parallelNodes
+import be.uantwerpen.msdl.icm.queries.general.parallelActivities2
 
 pattern sharedProperty(activity1: Activity, intent1: Intent, property1: Property, activity2: Activity, intent2: Intent, property2: Property){
 	activity1!=activity2;
@@ -32,9 +32,9 @@ pattern sequentialSharedProperty(activity1: Activity, intent1: Intent, property1
 	find nodeGloballyReachableFromNode(activity2, activity1);
 }
 
-pattern parallelSharedProperty(activity1: Activity, intent1: Intent, property1: Property, activity2: Activity, intent2: Intent, property2: Property){
+pattern parallelSharedProperty(activity1: Activity, intent1: Intent, property1: Property, activity2: Activity, intent2: Intent, property2: Property, fork: Fork){
 	find sharedProperty(activity1, intent1, property1, activity2, intent2, property2);
-	find parallelNodes(activity1, activity2);
+	find parallelActivities2(activity1, activity2, fork, _);
 }
 
 pattern readModifySharedProperty(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
@@ -43,8 +43,14 @@ pattern readModifySharedProperty(activity1: Activity, property1: Property, activ
 	Intent.type(intent2, IntentType::MODIFY);
 }
 
-pattern modifyModifySharedProperty(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
-	find parallelSharedProperty(activity1, intent1, property1, activity2, intent2, property2);
+pattern modifyModifySharedPropertySequential(activity1: Activity, property1: Property, activity2: Activity, property2: Property){
+	find sequentialSharedProperty(activity1, intent1, property1, activity2, intent2, property2);
+	Intent.type(intent1, IntentType::MODIFY);
+	Intent.type(intent2, IntentType::MODIFY);
+}
+
+pattern modifyModifySharedPropertyParallel(activity1: Activity, property1: Property, activity2: Activity, property2: Property, fork: Fork){
+	find parallelSharedProperty(activity1, intent1, property1, activity2, intent2, property2, fork);
 	Intent.type(intent1, IntentType::MODIFY);
 	Intent.type(intent2, IntentType::MODIFY);
 }

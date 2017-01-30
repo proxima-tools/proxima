@@ -13,13 +13,42 @@ package be.uantwerpen.msdl.icm.queries.simulator
 
 import "metamodels.pm"
 import "metamodels.cost"
-import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode
+import be.uantwerpen.msdl.icm.queries.general.nodeReachableViaFeedback
 
-pattern costInCircle(cost: Cost, activity: Activity){
+pattern costInCircle(cost: Cost, activity: Activity, decision: Decision){
 	Activity.cost(activity, cost);
-	find nodeGloballyReachableFromNode(activity, activity);
+	find nodeReachableViaFeedback(activity, decision);
 }
 
 pattern cost(cost: Cost){
 	Cost(cost);
+}
+
+pattern time(cost : Cost){
+	CostFactor.cost(costFactor, cost);
+	CostFactor.type(costFactor, ::Time);
+}
+
+pattern timeBasedCost(cost : Cost){
+	CostFactor.cost(costFactor, cost);
+	CostFactor.type(costFactor, ::CostPerTime);
+}
+
+pattern timeBasedCostWithTime(price : Cost, developmentTime : Cost){
+	find time(developmentTime);
+	find timeBasedCost(price );
+	Cost.costItem(developmentTime, costItem);
+	Cost.costItem(price, costItem);
+}
+
+pattern timeBasedCostInCircle(price : Cost, developmentTime : Cost, activity : Activity){
+	find timeBasedCostWithTime(price, developmentTime);
+	find costInCircle(price, activity, _);
+}
+
+
+
+pattern costForPresence(cost : Cost){
+	CostFactor.cost(costFactor, cost);
+	CostFactor.type(costFactor, ::CostForPresence);
 }

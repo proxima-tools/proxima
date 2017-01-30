@@ -4,7 +4,9 @@ Bundle-Name: ICM Generic Query Plugin
 Bundle-SymbolicName: be.uantwerpen.msdl.icm.queries;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Istvan David
-Export-Package: be.uantwerpen.msdl.icm.queries.general,
+Export-Package: be.uantwerpen.msdl.icm.queries.allocation,
+ be.uantwerpen.msdl.icm.queries.allocation.util,
+ be.uantwerpen.msdl.icm.queries.general,
  be.uantwerpen.msdl.icm.queries.general.util,
  be.uantwerpen.msdl.icm.queries.inconsistencies,
  be.uantwerpen.msdl.icm.queries.inconsistencies.util,
