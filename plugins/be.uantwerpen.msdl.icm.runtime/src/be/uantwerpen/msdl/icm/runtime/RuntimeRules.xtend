@@ -33,10 +33,4 @@ class RuntimeRules {
 	val enabledTransitionRule = createRule.name("enabled transition").precondition(enabledTransition).action [
 		token.currentNode = toNode
 	].build
-	
-	//TODO token strategy
-	
-	val executableActivityRule = createRule.name("executable activity").precondition(executableActivity).action [
-		//find runnable and execute
-	].build
 }
