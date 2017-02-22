@@ -6,24 +6,20 @@
         eType="ecore:EClass processmodel.ecore#//ProcessModel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="token" upperBound="-1"
         eType="#//Token" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tokenTable" lowerBound="1"
-        eType="#//TokenTable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Token">
     <eStructuralFeatures xsi:type="ecore:EReference" name="currentNode" eType="ecore:EClass processmodel.ecore#//pm/Node"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" lowerBound="1" eType="#//ActivityState"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SubTokenRelation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="token" lowerBound="1" eType="#//Token"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subToken" upperBound="-1"
-        eType="#//Token"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TokenTable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subTokenRelation" upperBound="-1"
-        eType="#//SubTokenRelation" containment="true"/>
+        eType="#//Token" eOpposite="#//Token/subTokenOf"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subTokenOf" eType="#//Token"
+        eOpposite="#//Token/subToken"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ActivityState">
     <eLiterals name="READY"/>
-    <eLiterals name="DONE" value="1"/>
+    <eLiterals name="RUNNING" value="1"/>
+    <eLiterals name="DONE" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

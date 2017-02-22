@@ -61,6 +61,14 @@
             class="be.uantwerpen.msdl.processmodel.base.BasePackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodels -->
+      <package
+            uri="metamodels.viewpoints"
+            class="be.uantwerpen.msdl.processmodel.viewpoints.ViewpointsPackage"
+            genModel="model/metamodels.genmodel"/>
+   </extension>
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated enactment -->
       <package
