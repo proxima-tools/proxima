@@ -8,7 +8,7 @@
  * Contributors:
  *    Istvan David - initial API and implementation
  *******************************************************************************/
-
+ 
 package be.uantwerpen.msdl.process.dse
 
 import be.uantwerpen.msdl.process.dse.objectives.hard.ValidityHardObjectives
@@ -23,65 +23,28 @@ import be.uantwerpen.msdl.processmodel.pm.PmPackage
 import be.uantwerpen.msdl.processmodel.properties.PropertiesPackage
 import be.uantwerpen.msdl.processmodel.resources.ResourcesPackage
 import com.google.common.base.Stopwatch
-import java.io.IOException
 import java.util.Collections
 import java.util.concurrent.TimeUnit
-import org.apache.log4j.Level
 import org.apache.log4j.Logger
-import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.emf.ecore.resource.ResourceSet
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
 import org.eclipse.viatra.dse.api.Strategies
 import org.eclipse.viatra.dse.solutionstore.SolutionStore
 import org.eclipse.viatra.dse.statecoding.simple.SimpleStateCoderFactory
-import org.eclipse.viatra.query.runtime.base.exception.ViatraBaseException
-import org.eclipse.viatra.query.runtime.exception.ViatraQueryException
-import org.junit.After
-import org.junit.Before
-import org.junit.Test
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.apache.log4j.Level
 
 /**
- * This will be the actual implementation of the DSE logic
+ * Common ancestor for various forms of executing DSE.
  */
+abstract class AbstractDSERunner {
+	@Accessors(PROTECTED_GETTER, PROTECTED_SETTER) ProcessModel processModel
+	@Accessors(PROTECTED_GETTER, PROTECTED_SETTER) Resource resource
+	@Accessors(PROTECTED_GETTER) Logger logger = Logger.getLogger("DSE Runner")
+	@Accessors(PROTECTED_GETTER) Stopwatch stopwatch
 
-class DSERunner2 {
-	private static final val LEVEL = Level::DEBUG
-	private static final val FILE_LOCATION = ""	//TODO: access model
-
-	private ResourceSet resourceSet
-	private Resource resource
-	private Logger logger
-	private Stopwatch stopwatch
-
-	@Before
-	def void setup() {
-		logger = Logger.getLogger("Process DSE")
-		logger.setLevel(LEVEL)
-
-		// init
-		ProcessmodelPackage.eINSTANCE.eClass()
-
-		val extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.extensionToFactoryMap
-		extensionToFactoryMap.put("processmodel", new XMIResourceFactoryImpl())
-		resourceSet = new ResourceSetImpl()
-		resource = resourceSet.getResource(URI.createURI(FILE_LOCATION), true)
-	}
-
-	@After
-	def void tearDown() {
-		resource = null
-		resourceSet = null
-		stopwatch = null
-	}
-
-	@Test
-	def void explore() throws ViatraQueryException, IOException, ViatraBaseException {
-		// Load persisted model
-		val processModel = resource.contents.head as ProcessModel
-
+	def void explore() {
+		logger.level = Level::DEBUG
 		logger.debug("setting up engine")
 		stopwatch = Stopwatch.createStarted()
 
@@ -151,12 +114,11 @@ class DSERunner2 {
 		logger.debug("end")
 	}
 
-	private def resetAndRestart(Stopwatch stopwatch) {
+	protected def resetAndRestart(Stopwatch stopwatch) {
 		stopwatch.reset.start
 	}
 
-	private def timeElapsed() {
+	protected def timeElapsed() {
 		stopwatch.elapsed(TimeUnit.MILLISECONDS)
 	}
-
 }
