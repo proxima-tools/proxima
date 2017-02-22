@@ -56,7 +56,10 @@ public class NewProjectWizard extends Wizard implements INewWizard {
 		if (projectHandle.exists()) {
 			return false;
 		}
-		URI projectURI = (!projectCreationPage.useDefaults()) ? projectCreationPage.getLocationURI() : null;
+		
+		URI projectURI = projectCreationPage.getLocationURI();
+		
+//		URI projectURI = (!projectCreationPage.useDefaults()) ? projectCreationPage.getLocationURI() : null;
 		final IProjectDescription description = workspace.newProjectDescription(projectHandle.getName());
 		description.setLocationURI(projectURI);
 
