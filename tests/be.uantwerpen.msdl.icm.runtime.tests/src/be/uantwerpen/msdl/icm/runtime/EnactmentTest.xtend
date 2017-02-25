@@ -5,7 +5,6 @@ import be.uantwerpen.msdl.enactment.EnactmentFactory
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.ProcessmodelPackage
 import be.uantwerpen.msdl.processmodel.base.NamedElement
-import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.Final
 import com.google.common.base.Stopwatch
 import java.io.BufferedReader
@@ -40,7 +39,8 @@ class EnactmentTest {
 	public static final String FINAL_COMMAND = "final"
 	public static final String EXIT_COMMAND = "exit"
 
-	private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/agv/be.uantwerpen.msdl.icm.cases.agv2/agv.processmodel"
+//	private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/agv/be.uantwerpen.msdl.icm.cases.agv2/agv.processmodel"
+	private static final val TEST_FILE_LOCATION = "..\\be.uantwerpen.msdl.icm.test.data\\processes\\test.processmodel"
 
 	@Before
 	def void setup() {
@@ -83,9 +83,9 @@ class EnactmentTest {
 
 		do {
 			logger.debug("Available activities: " + enactmentManager.availableActivities.fold("") [ result, activity |
-				switch activity{
-					NamedElement : result.concat("\n\t").concat((activity as NamedElement).name)
-					Final : result.concat("\n\t Final")
+				switch activity {
+					NamedElement: result.concat("\n\t").concat((activity as NamedElement).name)
+					Final: result.concat("\n\t Final")
 				}
 			])
 
@@ -136,7 +136,7 @@ class EnactmentTest {
 			}
 			enactmentManager.maintain
 		} while (true && !enactmentManager.processFinished);
-		
+
 		logger.debug("Process finished.")
 	}
 
