@@ -33,13 +33,22 @@ pattern activity(node: Node){
 	Activity(node);
 }
 
-pattern fireable(token: Token, controlFlow: ControlFlow, fromNode: Node, toNode: Node){
+pattern fireable(token: Token, controlFlow: ControlFlow, fromNode: Node, toNode: Node)
+{ //fire from a non-activity
 	find tokenInNode(token, fromNode);
 	ControlFlow.from(controlFlow, fromNode);
 	ControlFlow.to(controlFlow, toNode);
 	neg find activity(fromNode);
 	neg find splitTokenInJoin(token, fromNode);
-}or{
+}or{ //fire from a non-activity to a node where the direct sibling of the token is located
+	find tokenInNode(token, fromNode);
+	ControlFlow.from(controlFlow, fromNode);
+	ControlFlow.to(controlFlow, toNode);
+	neg find activity(fromNode);
+	find splitTokenInJoin(token, fromNode);
+	find splitTokenInJoin(token2, toNode);
+	find directSiblingTokens(token, token2);
+}or{ //fire from an activity
 	find tokenInNode(token, fromNode);
 	ControlFlow.from(controlFlow, fromNode);
 	ControlFlow.to(controlFlow, toNode);
@@ -84,11 +93,23 @@ pattern forkable(fork: Fork, token: Token){
 	find tokenInNode(token, fork);
 }
 
+pattern subTokenOf(subToken: Token, parent: Token){
+	Token.subTokenOf(subToken, parent);
+}
+
 pattern siblingTokens(token1: Token, token2: Token){
 	find activeToken(token1);
 	find activeToken(token2);
-	Token.subTokenOf(token1, parent);
-	Token.subTokenOf(token2, parent);
+	find subTokenOf+(token1, parent);
+	find subTokenOf+(token2, parent);
+	token1 != token2;
+}
+
+pattern directSiblingTokens(token1: Token, token2: Token){
+	find activeToken(token1);
+	find activeToken(token2);
+	find subTokenOf(token1, parent);
+	find subTokenOf(token2, parent);
 	token1 != token2;
 }
 

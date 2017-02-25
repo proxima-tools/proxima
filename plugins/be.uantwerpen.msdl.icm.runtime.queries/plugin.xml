@@ -12,7 +12,9 @@
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.splitTokenInJoin"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.joinable"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.forkable"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.subTokenOf"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.siblingTokens"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.directSiblingTokens"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.tokensInDifferentNodes"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.readyActivity"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.runnigActivity"/>
