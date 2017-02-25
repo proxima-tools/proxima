@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scripting Support
+Bundle-SymbolicName: be.uantwerpen.msdl.icm.scripting;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: be.uantwerpen.msdl.icm.scripting.internal.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: Istvan David
+Bundle-ClassPath: lib/jython-standalone-2.7.0.jar,
+ .
