@@ -13,8 +13,11 @@ import be.uantwerpen.msdl.processmodel.base.NamedElement
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.Initial
 import be.uantwerpen.msdl.processmodel.pm.Node
+import be.uantwerpen.msdl.processmodel.pm.Object
 import be.uantwerpen.msdl.processmodel.pm.Process
 import com.google.common.collect.Lists
+import org.apache.log4j.Level
+import org.apache.log4j.Logger
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
 
@@ -24,17 +27,18 @@ class EnactmentManager {
 	private Enactment enactment
 	private ViatraQueryEngine queryEngine
 	private SimulatorTransformations simulatorTransformations
+	private Logger logger = Logger.getLogger("Enactment Manager")
 
 	new(Process process, Enactment enactment) {
 		this.process = process
 		this.enactment = enactment
 		this.queryEngine = ViatraQueryEngine.on(new EMFScope(enactment));
 		this.simulatorTransformations = new SimulatorTransformations(queryEngine, enactment)
+		logger.level = Level::DEBUG
 	}
 
 	def initialize() {
-		println(
-			String.format("Compiling process model %s into enactment model %s", process.toString, enactment.toString))
+		logger.debug(String.format("Initializing enactment for processmodel %s", process.toString))
 
 		val token = EnactmentFactory.eINSTANCE.createToken
 		enactment.token.add(token)
@@ -78,7 +82,7 @@ class EnactmentManager {
 		if (match != null) {
 			prepareActivity(match.activity, match.token)
 		} else {
-			println("No available activity with the matching name.")
+			logger.debug("No available activity with matching name.")
 		}
 	}
 
@@ -95,13 +99,15 @@ class EnactmentManager {
 		if (match != null) {
 			runActivity(match.node)
 		} else {
-			println("No prepared activity with the matching name.")
+			logger.debug("No prepared activity with the matching name.")
 		}
 	}
 
 	def runActivity(Activity activity) {
 		val token = enactment.token.findFirst[t|t.currentNode.equals(activity)]
 		token.state = ActivityState::RUNNING
+
+		getTool(activity)
 	// TODO: find executable snippet
 	}
 
@@ -113,7 +119,7 @@ class EnactmentManager {
 		if (match != null) {
 			finishActivity(match.node)
 		} else {
-			println("No running activity with the matching name.")
+			logger.debug("No running activity with the matching name.")
 		}
 	}
 
@@ -136,7 +142,7 @@ class EnactmentManager {
 			runActivity(match.node)
 			finishActivity(match.node)
 		} else {
-			println("No available activity with the matching name.")
+			logger.debug("No available activity with matching name.")
 		}
 	}
 
@@ -158,7 +164,7 @@ class EnactmentManager {
 			runActivity(match.node)
 			finishActivity(match.node)
 		} else {
-			println("No available activity with the matching name.")
+			logger.debug("No available activity with matching name.")
 		}
 	}
 
@@ -166,7 +172,7 @@ class EnactmentManager {
 		val fireableFinalControlFlows = queryEngine.getMatcher(AvailableFinishQuerySpecification.instance).allMatches
 
 		if (fireableFinalControlFlows.empty) {
-			println("The process cannot be finished at this point.")
+			logger.debug("The process cannot be finished at this point.")
 		}
 
 		fireableFinalControlFlows.head.token.currentNode = fireableFinalControlFlows.head.final
@@ -190,6 +196,16 @@ class EnactmentManager {
 		}
 		val token = enactment.token.findFirst[t|t.currentNode.equals(node)]
 		token.state.equals(ActivityState::DONE)
+	}
+
+	def getTool(Activity activity) {
+		// find by artifact
+		val inputObjects = activity.dataFlowFrom.filter[dFrom|dFrom instanceof Object].map[o|o as Object]
+
+		inputObjects.forEach [ o |
+			logger.debug(String.format("Tool %s needed for executing Activity %s.", o.typedBy.name, activity.name))
+		]
+	// TODO add calls to a connection manager
 	}
 
 }
