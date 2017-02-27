@@ -194,27 +194,27 @@ pattern sequentialActivitiesDirect(activity1: Activity, activity2: Activity){
 
 
 
-pattern associatedProperties(property1: Property, link1: PropertyRelationshipLink, property2: Property, link2: PropertyRelationshipLink){
+pattern associatedProperties(property1: Property, link1: RelationshipLink, property2: Property, link2: RelationshipLink){
 //	property1 != property2;
-	Relationship.propertyLink(relationship, link1);
+	Relationship.relationshipLink(relationship, link1);
 	Property.relationshipLink(property1, link1);
 	
-	Relationship.propertyLink(relationship, link2);
+	Relationship.relationshipLink(relationship, link2);
 	Property.relationshipLink(property2, link2);
 }
 
 pattern propertyDirectlyReachableFromProperty(toProperty: Property, fromProperty: Property){
 	find associatedProperties(toProperty, toPropertyLink, fromProperty, fromPropertyLink);
-	PropertyRelationshipLink.direction(fromPropertyLink, RelationshipDirection::UNDIRECTED);
-	PropertyRelationshipLink.direction(toPropertyLink, RelationshipDirection::UNDIRECTED);
+	RelationshipLink.direction(fromPropertyLink, RelationshipDirection::UNDIRECTED);
+	RelationshipLink.direction(toPropertyLink, RelationshipDirection::UNDIRECTED);
 }or{
 	find associatedProperties(toProperty, toPropertyLink, fromProperty, fromPropertyLink);
-	PropertyRelationshipLink.direction(fromPropertyLink, RelationshipDirection::CONSTRAINT);
-	PropertyRelationshipLink.direction(toPropertyLink, RelationshipDirection::PROPERTY);
+	RelationshipLink.direction(fromPropertyLink, RelationshipDirection::CONSTRAINT);
+	RelationshipLink.direction(toPropertyLink, RelationshipDirection::PROPERTY);
 }or{
 	find associatedProperties(toProperty, toPropertyLink, fromProperty, fromPropertyLink);
-	PropertyRelationshipLink.direction(fromPropertyLink, RelationshipDirection::PROPERTY);
-	PropertyRelationshipLink.direction(toPropertyLink, RelationshipDirection::PROPERTY);
+	RelationshipLink.direction(fromPropertyLink, RelationshipDirection::PROPERTY);
+	RelationshipLink.direction(toPropertyLink, RelationshipDirection::PROPERTY);
 }or{
 	toProperty==fromProperty;
 }
@@ -225,8 +225,8 @@ pattern propertyGloballyReachableFromProperty(toProperty: Property, fromProperty
 }
 
 pattern intentSubjectGloballyReachableFromProperty(intentSubject: IntentSubject, property: Property){
-	Requirement.propertyLink(intentSubject, link);
-	PropertyRelationshipLink.property(link, property1);
+	Requirement.relationshipLink(intentSubject, link);
+	RelationshipLink.subject(link, property1);
 	find propertyDirectlyReachableFromProperty+(property1, property);
 }
 

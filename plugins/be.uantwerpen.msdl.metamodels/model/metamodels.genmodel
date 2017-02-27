@@ -89,7 +89,9 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/partOf"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ManualActivity"/>
-      <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity"/>
+      <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/AutomatedActivity/scriptFile"/>
+      </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/CompoundActivity">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/CompoundActivity/activity"/>
@@ -97,6 +99,8 @@
       <genClasses ecoreClass="processmodel.ecore#//pm/Object">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Object/typedBy"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Object/attribute"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Control"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/Initial"/>
@@ -135,27 +139,39 @@
         <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/LOCK"/>
         <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/RELEASE"/>
         <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/CONTRACT"/>
+        <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/IntentType/CREATE"/>
       </genEnums>
       <genClasses ecoreClass="processmodel.ecore#//properties/PropertyModel">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//properties/PropertyModel/property"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//properties/PropertyModel/relationship"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//properties/PropertyModel/intent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//properties/PropertyModel/attribute"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="processmodel.ecore#//properties/RelationshipSubject">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/RelationshipSubject/relationshipLink"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/Property">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Property/relationshipLink"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//properties/Property/concern"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Property/refinedInto"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Property/refines"/>
+      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//properties/Attribute">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Attribute/persistedIn"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/Relationship">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Relationship/precision"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Relationship/propertyLink"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Relationship/relationshipLink"/>
       </genClasses>
-      <genClasses ecoreClass="processmodel.ecore#//properties/PropertyRelationshipLink">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/PropertyRelationshipLink/direction"/>
+      <genClasses ecoreClass="processmodel.ecore#//properties/RelationshipLink">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/RelationshipLink/direction"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//properties/PropertyRelationshipLink/property"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/RelationshipLink/subject"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/Requirement"/>
       <genClasses image="false" ecoreClass="processmodel.ecore#//properties/IntentSubject">
@@ -169,6 +185,7 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//properties/Intent/subject"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Intent/type"/>
       </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//properties/Constraint"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Resources" basePackage="be.uantwerpen.msdl.processmodel"
         disposableProviderFactory="true" ecorePackage="processmodel.ecore#//resources">
