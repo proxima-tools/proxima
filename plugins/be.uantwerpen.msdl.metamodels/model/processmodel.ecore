@@ -21,6 +21,8 @@
           eType="#//ftg/Formalism" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" upperBound="-1"
           eType="#//ftg/Transformation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tool" upperBound="-1"
+          eType="#//ftg/Tool" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Formalism" eSuperTypes="#//base/Identifiable #//ftg/Type">
       <eStructuralFeatures xsi:type="ecore:EReference" name="inputOf" upperBound="-1"
@@ -32,7 +34,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"
           eType="#//viewpoints/Viewpoint" eOpposite="#//viewpoints/Viewpoint/formalism"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementedBy" upperBound="-1"
-          eType="#//viewpoints/Tool" eOpposite="#//viewpoints/Tool/implements"/>
+          eType="#//ftg/Tool" eOpposite="#//ftg/Tool/implements"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Transformation" eSuperTypes="#//base/Identifiable #//ftg/Type">
       <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
@@ -45,6 +47,12 @@
           eOpposite="#//resources/ResourceConstraint/transformation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//base/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Tool" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="implements" upperBound="-1"
+          eType="#//ftg/Formalism" eOpposite="#//ftg/Formalism/implementedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"
+          eType="#//viewpoints/Viewpoint" eOpposite="#//viewpoints/Viewpoint/tool"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="pm" nsURI="metamodels.pm" nsPrefix="be.uantwerpen.msdl.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//base/Identifiable #//base/NamedElement">
@@ -277,8 +285,6 @@
           eType="#//viewpoints/Stakeholder" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
           eType="#//viewpoints/Concern" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="tool" upperBound="-1"
-          eType="#//viewpoints/Tool" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="system" lowerBound="1"
           eType="#//viewpoints/System" containment="true"/>
     </eClassifiers>
@@ -289,6 +295,8 @@
           eType="#//viewpoints/Concern" eOpposite="#//viewpoints/Concern/viewpoint"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="formalism" upperBound="-1"
           eType="#//ftg/Formalism" eOpposite="#//ftg/Formalism/viewpoint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tool" upperBound="-1"
+          eType="#//ftg/Tool" eOpposite="#//ftg/Tool/viewpoint"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" eSuperTypes="#//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
@@ -303,10 +311,6 @@
           eType="#//properties/Property" eOpposite="#//properties/Property/concern"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"
           eType="#//viewpoints/Viewpoint" eOpposite="#//viewpoints/Viewpoint/concern"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Tool" eSuperTypes="#//base/NamedElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="implements" upperBound="-1"
-          eType="#//ftg/Formalism" eOpposite="#//ftg/Formalism/implementedBy"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Part" eSuperTypes="#//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"

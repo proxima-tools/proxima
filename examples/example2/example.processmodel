@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm" xmlns:be.uantwerpen.msdl.metamodels_2="metamodels.properties">
   <ftg>
-    <formalism id="29482d7c-56fc-411d-ae18-095827bd2d42" name="Formalism1" inputOf="//@ftg/@transformation.0" outputOf="//@ftg/@transformation.1"/>
-    <formalism id="f5fec98c-9821-4e5d-84bf-3dec3d7def71" name="Formalism2" inputOf="//@ftg/@transformation.1" outputOf="//@ftg/@transformation.0"/>
+    <formalism id="29482d7c-56fc-411d-ae18-095827bd2d42" name="Formalism1" inputOf="//@ftg/@transformation.0" outputOf="//@ftg/@transformation.1" implementedBy="//@ftg/@tool.0"/>
+    <formalism id="f5fec98c-9821-4e5d-84bf-3dec3d7def71" name="Formalism2" inputOf="//@ftg/@transformation.1" outputOf="//@ftg/@transformation.0" implementedBy="//@ftg/@tool.0"/>
     <transformation id="88328783-c8c2-4e69-b613-67120488bdb9" name="trafo1" input="//@ftg/@formalism.0" output="//@ftg/@formalism.1" types="//@process.0/@node.1"/>
     <transformation id="2bf7e5d4-0cdc-406e-8e37-be8d428b4c3f" name="trafo2" input="//@ftg/@formalism.1" output="//@ftg/@formalism.0" types="//@process.0/@node.2"/>
+    <tool name="Matlab" implements="//@ftg/@formalism.0 //@ftg/@formalism.1"/>
   </ftg>
   <process id="88f5e765-a981-4484-84c1-9af8e6884c5e">
     <node xsi:type="be.uantwerpen.msdl.metamodels_1:Initial" id="f4522fbe-f707-4431-b8a7-dae5dc44321f" controlOut="//@process.0/@controlFlow.6"/>
