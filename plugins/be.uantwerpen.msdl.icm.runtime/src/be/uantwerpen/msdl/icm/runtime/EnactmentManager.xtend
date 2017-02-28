@@ -9,8 +9,11 @@ import be.uantwerpen.msdl.icm.runtime.queries.util.AvailableFinishQuerySpecifica
 import be.uantwerpen.msdl.icm.runtime.queries.util.FinishedProcessQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.ReadyActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.RunnigActivityQuerySpecification
+import be.uantwerpen.msdl.icm.runtime.transformations.SimulatorTransformations2
+import be.uantwerpen.msdl.icm.scripting.JythonScriptManager
 import be.uantwerpen.msdl.processmodel.base.NamedElement
 import be.uantwerpen.msdl.processmodel.pm.Activity
+import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
 import be.uantwerpen.msdl.processmodel.pm.Initial
 import be.uantwerpen.msdl.processmodel.pm.Node
 import be.uantwerpen.msdl.processmodel.pm.Object
@@ -26,14 +29,16 @@ class EnactmentManager {
 	private Process process
 	private Enactment enactment
 	private ViatraQueryEngine queryEngine
-	private SimulatorTransformations simulatorTransformations
+//	private SimulatorTransformations simulatorTransformations
+	private SimulatorTransformations2 simulatorTransformations2
 	private Logger logger = Logger.getLogger("Enactment Manager")
 
 	new(Process process, Enactment enactment) {
 		this.process = process
 		this.enactment = enactment
 		this.queryEngine = ViatraQueryEngine.on(new EMFScope(enactment));
-		this.simulatorTransformations = new SimulatorTransformations(queryEngine, enactment)
+		this.simulatorTransformations2 = new SimulatorTransformations2(queryEngine, enactment)
+		simulatorTransformations2.registerRulesWithCustomPriorities
 		logger.level = Level::DEBUG
 	}
 
@@ -108,7 +113,17 @@ class EnactmentManager {
 		token.state = ActivityState::RUNNING
 
 		getTool(activity)
-	// TODO: find executable snippet
+
+		if (!(activity instanceof AutomatedActivity)) {
+			return
+		}
+		val scriptFile = (activity as AutomatedActivity).scriptFile
+		if (scriptFile == null) {
+			return
+		}
+
+		logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
+		new JythonScriptManager().execute(scriptFile)
 	}
 
 	def finishActivity(String activityName) {
@@ -182,10 +197,10 @@ class EnactmentManager {
 		queryEngine.getMatcher(FinishedProcessQuerySpecification.instance).countMatches > 0
 	}
 
-	def maintain() {
-		simulatorTransformations.maintain
-	}
-
+	// Use this method if maintenance is done in a batch-fashion
+	// def maintain() {
+	// simulatorTransformations.maintain
+	// }
 	def getActivities(Process process) {
 		process.node.filter[n|n instanceof Activity]
 	}

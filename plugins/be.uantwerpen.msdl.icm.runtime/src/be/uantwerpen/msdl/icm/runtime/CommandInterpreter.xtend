@@ -24,7 +24,7 @@ class CommandInterpreter {
 
 	def interpret() {
 		logger.level = Level::DEBUG
-		
+
 		val reader = new BufferedReader(new InputStreamReader(System.in))
 
 		do {
@@ -79,7 +79,7 @@ class CommandInterpreter {
 					logger.debug("Unknown command.");
 				}
 			}
-			enactmentManager.maintain
+		// enactmentManager.maintain  //Use this line if maintenance is done in a batch-fashion
 		} while (true && !enactmentManager.processFinished);
 	}
 

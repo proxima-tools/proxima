@@ -1,4 +1,4 @@
-package be.uantwerpen.msdl.icm.runtime
+package be.uantwerpen.msdl.icm.runtime.transformations
 
 import be.uantwerpen.msdl.enactment.ActivityState
 import be.uantwerpen.msdl.enactment.Enactment
@@ -33,14 +33,15 @@ class SimulatorTransformations {
 
 	def maintain() {
 		new BatchTransformationRuleGroup(
-			fireToControlRule,
 			forkableRule,
-			joinableRule
+			joinableRule,
+			fireToControlRule
 		).fireWhilePossible
 	}
 
 	val fireToControlRule = createRule.name("fire to control").precondition(fireableToControl).action [
 		token.currentNode = control
+		println("firetocontrol")
 	].build
 
 	val forkableRule = createRule.name("forkable").precondition(forkable).action [
@@ -57,6 +58,7 @@ class SimulatorTransformations {
 				newToken.state = ActivityState::READY
 			}
 		}
+		println("forkable")
 	].build
 
 	val joinableRule = createRule.name("joinable").precondition(joinable).action [
@@ -72,5 +74,6 @@ class SimulatorTransformations {
 		for (tokenMatch : tokenMatches) {
 			enactment.token.remove(tokenMatch.token)
 		}
+		println("joinable")
 	].build
 }
