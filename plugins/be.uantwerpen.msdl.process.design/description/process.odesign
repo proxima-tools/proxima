@@ -1005,7 +1005,7 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="IntentTable" domainClass="pm.Process">
       <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.node" headerLabelExpression="aql:self.name"/>
-      <ownedColumnMappings name="PropertyColumn" headerLabelExpression="aql:self.name" domainClass="properties.Property" semanticCandidatesExpression="aql:self.eContainer().propertyModel.property"/>
+      <ownedColumnMappings name="PropertyColumn" headerLabelExpression="aql:self.name" domainClass="properties.RelationshipSubject" semanticCandidatesExpression="aql:self.eContainer().propertyModel.eContents() -> filter(properties::RelationshipSubject)"/>
       <intersection name="ReadIntent" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="read" columnFinderExpression="service:getReadIntents">
         <defaultForeground labelSize="10">
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
