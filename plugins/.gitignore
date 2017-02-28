@@ -1,2 +1,7 @@
 /be.uantwerpen.msdl.metamodels.edit/
 /be.uantwerpen.msdl.metamodels.editor/
+plugin.xml_gen
+bin
+target
+MANIFEST.MF_gen
+cachedir
