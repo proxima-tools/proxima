@@ -415,7 +415,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createImplementationEdge" label="Implementation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createImplementationEdge" label="Implements" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -821,7 +821,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createImplementationEdge" label="Implementation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createImplementationEdge" label="Implements" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
