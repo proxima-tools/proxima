@@ -209,7 +209,7 @@ pattern propertyDirectlyReachableFromProperty(toProperty: Property, fromProperty
 	RelationshipLink.direction(toPropertyLink, RelationshipDirection::UNDIRECTED);
 }or{
 	find associatedProperties(toProperty, toPropertyLink, fromProperty, fromPropertyLink);
-	RelationshipLink.direction(fromPropertyLink, RelationshipDirection::CONSTRAINT);
+	RelationshipLink.direction(fromPropertyLink, RelationshipDirection::RELATIONSHIP);
 	RelationshipLink.direction(toPropertyLink, RelationshipDirection::PROPERTY);
 }or{
 	find associatedProperties(toProperty, toPropertyLink, fromProperty, fromPropertyLink);
@@ -225,7 +225,7 @@ pattern propertyGloballyReachableFromProperty(toProperty: Property, fromProperty
 }
 
 pattern intentSubjectGloballyReachableFromProperty(intentSubject: IntentSubject, property: Property){
-	Requirement.relationshipLink(intentSubject, link);
+	RelationshipSubject.relationshipLink(intentSubject, link);
 	RelationshipLink.subject(link, property1);
 	find propertyDirectlyReachableFromProperty+(property1, property);
 }
