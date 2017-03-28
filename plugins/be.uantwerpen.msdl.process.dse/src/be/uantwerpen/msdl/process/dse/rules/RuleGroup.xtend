@@ -121,7 +121,7 @@ abstract class RuleGroup {
 
 		val checkActivity = process.createManualActivity("check" + propertyToCheck.name)
 		checkActivity.createCost(checkCost, CostType::COST_PER_TIME) // TODO this may be corrupted with the new cost hierarchy (CostFactor)
-		createIntent(checkActivity, propertyToCheck, IntentType::CHECK)
+		createIntent(checkActivity, propertyToCheck, IntentType::CHECK_PROPERTY)
 
 		// connecting Activity2 with the check activity and that with the Decision 
 		process.createControlFlow(activity, checkActivity)

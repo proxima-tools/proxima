@@ -44,7 +44,7 @@ class Services {
 	
 	public def getCheckIntents(Activity activity) {
 		activity.intent.filter [Intent i |
-			i.type.equals(IntentType::CHECK)
+			i.type.equals(IntentType::CHECK_PROPERTY)
 		].properties
 	}
 	

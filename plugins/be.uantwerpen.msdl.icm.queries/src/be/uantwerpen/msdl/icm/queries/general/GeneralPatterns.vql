@@ -36,12 +36,12 @@ pattern modifyIntentOnProperty(activity: Activity, property: Property){
 
 pattern checkIntentOnProperty(activity: Activity, property: Property){
 	find intent(activity, property, intent);
-	Intent.type(intent, IntentType::CHECK);
+	Intent.type(intent, IntentType::CHECK_PROPERTY);
 }
 
 pattern checkIntentOnSubject(activity: Activity, intentSubject: IntentSubject){
 	find intent(activity, intentSubject, intent);
-	Intent.type(intent, IntentType::CHECK);
+	Intent.type(intent, IntentType::CHECK_PROPERTY);
 }
 
 pattern contractIntentOnProperty(activity: Activity, property: Property){
