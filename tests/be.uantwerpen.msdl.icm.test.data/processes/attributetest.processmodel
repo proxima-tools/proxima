@@ -9,10 +9,10 @@
   <process id="eff55d2a-686c-49ba-83be-8b1a61ad0cac">
     <node xsi:type="be.uantwerpen.msdl.metamodels_1:Initial" id="626ce993-6e5a-404a-b0c6-1cbbb093eb34" controlOut="//@process.0/@controlFlow.0"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels_1:FlowFinal" id="580617f9-5b50-4a9f-b64d-01fb10a5a3cf" controlIn="//@process.0/@controlFlow.4"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="3694bd4a-3259-4ee6-826c-091f2ab07e0f" controlIn="//@process.0/@controlFlow.0" controlOut="//@process.0/@controlFlow.1" name="a1" intent="//@propertyModel/@intent.0"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="a271392d-796d-4092-85df-978aa7b3a739" controlIn="//@process.0/@controlFlow.1" controlOut="//@process.0/@controlFlow.2" name="a2" intent="//@propertyModel/@intent.1"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="d3dc07f7-8d4e-4787-9d06-6368d4aac4f4" controlIn="//@process.0/@controlFlow.2" controlOut="//@process.0/@controlFlow.3" name="a3" intent="//@propertyModel/@intent.2"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="4fc32e34-e1f0-4b9c-81f0-1a2e6b05e5b1" controlIn="//@process.0/@controlFlow.3" controlOut="//@process.0/@controlFlow.4" name="a4"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="3694bd4a-3259-4ee6-826c-091f2ab07e0f" controlIn="//@process.0/@controlFlow.0" controlOut="//@process.0/@controlFlow.1" name="a1" intent="//@propertyModel/@intent.0" scriptFile="..\\be.uantwerpen.msdl.icm.test.data\\scripts\\A1.java"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="a271392d-796d-4092-85df-978aa7b3a739" controlIn="//@process.0/@controlFlow.1" controlOut="//@process.0/@controlFlow.2" name="a2" intent="//@propertyModel/@intent.1" scriptFile="..\\be.uantwerpen.msdl.icm.test.data\\scripts\\A2.java"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="d3dc07f7-8d4e-4787-9d06-6368d4aac4f4" controlIn="//@process.0/@controlFlow.2" controlOut="//@process.0/@controlFlow.3" name="a3" intent="//@propertyModel/@intent.2" scriptFile="..\\be.uantwerpen.msdl.icm.test.data\\scripts\\A3.java"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="4fc32e34-e1f0-4b9c-81f0-1a2e6b05e5b1" controlIn="//@process.0/@controlFlow.3" controlOut="//@process.0/@controlFlow.4" name="a4" intent="//@propertyModel/@intent.3" scriptFile="..\\be.uantwerpen.msdl.icm.test.data\\scripts\\A4.java"/>
     <controlFlow id="dc3dcc34-c80a-4a25-9bf2-319c14de5494" from="//@process.0/@node.0" to="//@process.0/@node.2"/>
     <controlFlow id="8b869382-7ddc-40e3-8277-f36d7855ad02" from="//@process.0/@node.2" to="//@process.0/@node.3"/>
     <controlFlow id="9ff50c00-3fa0-4a37-bea2-906f6dfbf5aa" from="//@process.0/@node.3" to="//@process.0/@node.4"/>
@@ -30,7 +30,8 @@
     <intent id="9953bd30-0424-47c3-8c7d-10357752117f" activity="//@process.0/@node.2" subject="//@propertyModel/@attribute.1" type="MODIFY"/>
     <intent id="93f07605-38e0-415d-af46-fa600d7c8e49" activity="//@process.0/@node.3" subject="//@propertyModel/@attribute.3" type="MODIFY"/>
     <intent id="c8d30d70-14a7-4a21-8921-87e2132e85dd" activity="//@process.0/@node.4" subject="//@propertyModel/@attribute.2" type="MODIFY"/>
-    <attribute id="94e7bc62-f3b0-4123-904d-8237dc01a880" name="totalMass" relationshipLink="//@propertyModel/@relationship.0/@relationshipLink.3" constraint="//@propertyModel/@constraint.0"/>
+    <intent id="30786bfd-5bb3-442d-9116-5d5ed24c4124" activity="//@process.0/@node.5" subject="//@propertyModel/@attribute.0" type="RESOLVE_CONSTRAINT"/>
+    <attribute id="94e7bc62-f3b0-4123-904d-8237dc01a880" intent="//@propertyModel/@intent.3" name="totalMass" relationshipLink="//@propertyModel/@relationship.0/@relationshipLink.3" constraint="//@propertyModel/@constraint.0"/>
     <attribute id="27681976-27aa-4776-ae0e-f8ff69d4b41e" intent="//@propertyModel/@intent.0" name="platformMass" relationshipLink="//@propertyModel/@relationship.0/@relationshipLink.0"/>
     <attribute id="7d954c69-d3d8-4807-b48d-91f99ac6ae1c" intent="//@propertyModel/@intent.2" name="motorMass" relationshipLink="//@propertyModel/@relationship.0/@relationshipLink.2"/>
     <attribute id="c960a200-8109-46c4-9363-4517dbe19354" intent="//@propertyModel/@intent.1" name="batteryMass" relationshipLink="//@propertyModel/@relationship.0/@relationshipLink.1"/>

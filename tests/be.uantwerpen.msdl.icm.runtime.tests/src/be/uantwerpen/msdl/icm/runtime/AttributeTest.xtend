@@ -1,6 +1,9 @@
 package be.uantwerpen.msdl.icm.runtime
 
 import com.google.common.base.Stopwatch
+import java.net.URL
+import java.net.URLClassLoader
+import javax.tools.ToolProvider
 import org.apache.log4j.Level
 import org.junit.Test
 
