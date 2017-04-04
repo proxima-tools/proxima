@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Exp4j
+Bundle-SymbolicName: net.objecthunter.exp4j
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.objecthunter.exp4j.internal.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: net.objecthunter.exp4j,
+ net.objecthunter.exp4j.function,
+ net.objecthunter.exp4j.internal,
+ net.objecthunter.exp4j.operator,
+ net.objecthunter.exp4j.shuntingyard,
+ net.objecthunter.exp4j.tokenizer
