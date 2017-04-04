@@ -10,7 +10,7 @@ import be.uantwerpen.msdl.icm.runtime.queries.util.FinishedProcessQuerySpecifica
 import be.uantwerpen.msdl.icm.runtime.queries.util.ReadyActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.RunnigActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.transformations.SimulatorTransformations2
-import be.uantwerpen.msdl.icm.scripting.JythonScriptManager
+import be.uantwerpen.msdl.icm.scripting.python.JythonScriptManager
 import be.uantwerpen.msdl.processmodel.base.NamedElement
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
@@ -23,6 +23,7 @@ import org.apache.log4j.Level
 import org.apache.log4j.Logger
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
+import be.uantwerpen.msdl.icm.scripting.ScriptExecutionManager
 
 class EnactmentManager {
 
@@ -123,7 +124,7 @@ class EnactmentManager {
 		}
 
 		logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
-		new JythonScriptManager().execute(scriptFile)
+		new ScriptExecutionManager().execute(scriptFile)
 	}
 
 	def finishActivity(String activityName) {
@@ -188,6 +189,7 @@ class EnactmentManager {
 
 		if (fireableFinalControlFlows.empty) {
 			logger.debug("The process cannot be finished at this point.")
+			return
 		}
 
 		fireableFinalControlFlows.head.token.currentNode = fireableFinalControlFlows.head.final

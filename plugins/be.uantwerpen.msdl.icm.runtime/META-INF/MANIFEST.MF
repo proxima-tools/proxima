@@ -17,3 +17,4 @@ Require-Bundle: com.google.guava,
  be.uantwerpen.msdl.icm.runtime.queries;bundle-version="0.0.1",
  be.uantwerpen.msdl.icm.scripting;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: be.uantwerpen.msdl.icm.runtime.api

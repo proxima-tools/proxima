@@ -4,14 +4,13 @@ import com.google.common.base.Stopwatch
 import org.apache.log4j.Level
 import org.junit.Test
 
-class EnactmentTest extends AbstractEnactmentTest {
-
-	private static final val TEST_FILE_LOCATION = "..\\be.uantwerpen.msdl.icm.test.data\\processes\\process1.processmodel"
+class AttributeTest extends AbstractEnactmentTest {
+	private static final val TEST_FILE_LOCATION = "..\\be.uantwerpen.msdl.icm.test.data\\processes\\attributetest.processmodel"
 
 	new() {
 		super(TEST_FILE_LOCATION)
 	}
-
+	
 	@Test
 	def void execute() {
 		logger.level = Level::DEBUG

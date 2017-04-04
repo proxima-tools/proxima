@@ -1,11 +1,12 @@
-package be.uantwerpen.msdl.icm.scripting
+package be.uantwerpen.msdl.icm.scripting.python
 
 import java.util.Properties
 import org.python.util.PythonInterpreter
+import be.uantwerpen.msdl.icm.scripting.IExecutor
 
-class JythonScriptManager {
+class JythonScriptManager implements IExecutor {
 
-	def execute(String script) {
+	override execute(String script) {
 
 		val props = new Properties();
 		props.put("python.home", "lib");
