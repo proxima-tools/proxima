@@ -35,6 +35,8 @@
           eType="#//viewpoints/Viewpoint" eOpposite="#//viewpoints/Viewpoint/formalism"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementedBy" upperBound="-1"
           eType="#//ftg/Tool" eOpposite="#//ftg/Tool/implements"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="capability" upperBound="-1"
+          eType="#//properties/Capability" eOpposite="#//properties/Capability/formalism"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Transformation" eSuperTypes="#//base/Identifiable #//ftg/Type">
       <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
@@ -142,14 +144,16 @@
         eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationshipLink" upperBound="-1"
           eType="#//properties/RelationshipLink" eOpposite="#//properties/RelationshipLink/subject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refinedInto" upperBound="-1"
+          eType="#//properties/RelationshipSubject" eOpposite="#//properties/RelationshipSubject/refines"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refines" eType="#//properties/RelationshipSubject"
+          eOpposite="#//properties/RelationshipSubject/refinedInto"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//properties/RelationshipSubject">
       <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
           eType="#//viewpoints/Concern" eOpposite="#//viewpoints/Concern/property"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="refinedInto" upperBound="-1"
-          eType="#//properties/Property" eOpposite="#//properties/Property/refines"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="refines" eType="#//properties/Property"
-          eOpposite="#//properties/Property/refinedInto"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//properties/Constraint"
+          eOpposite="#//properties/Constraint/property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//properties/RelationshipSubject">
       <eStructuralFeatures xsi:type="ecore:EReference" name="persistedIn" upperBound="-1"
@@ -196,23 +200,30 @@
       <eLiterals name="CREATE" value="1"/>
       <eLiterals name="READ" value="2"/>
       <eLiterals name="MODIFY" value="3"/>
-      <eLiterals name="CHECK" value="4"/>
+      <eLiterals name="CHECK_PROPERTY" value="4" literal="CHECK_PROPERTY"/>
       <eLiterals name="LOCK" value="5"/>
       <eLiterals name="RELEASE" value="6"/>
       <eLiterals name="CONTRACT" value="7"/>
       <eLiterals name="EVAL" value="8" literal="EVAL"/>
+      <eLiterals name="RESOLVE_CONSTRAINT" value="9" literal="RESOLVE_CONSTRAINT"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//properties/IntentSubject #//properties/Formulated">
       <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"
-          eType="#//properties/Attribute" eOpposite="#//properties/Attribute/constraint"/>
+          upperBound="-1" eType="#//properties/Attribute" eOpposite="#//properties/Attribute/constraint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//properties/Property"
+          eOpposite="#//properties/Property/constraint"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Formulated" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="#//properties/Formula"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//base/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Formulated" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="#//properties/Formula"
-          containment="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Capability" eSuperTypes="#//properties/Attribute">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formalism" eType="#//ftg/Formalism"
+          eOpposite="#//ftg/Formalism/capability"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="resources" nsURI="metamodels.resources" nsPrefix="be.uantwerpen.msdl.metamodels">
