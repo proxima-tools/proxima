@@ -18,12 +18,6 @@ class EnactmentTest extends AbstractEnactmentTest {
 		logger.debug("setting up engine")
 		stopwatch = Stopwatch.createStarted()
 
-		println(processModel.process.head.node.size)
-		processModel.name = "test"
-
-		// compile
-		enactmentManager.initialize
-
 		// execute
 		logger.debug("Ready")
 		new CommandInterpreter(enactmentManager).interpret

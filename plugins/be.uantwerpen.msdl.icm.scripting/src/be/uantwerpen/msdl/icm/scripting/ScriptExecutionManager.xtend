@@ -1,7 +1,8 @@
 package be.uantwerpen.msdl.icm.scripting
 
-import be.uantwerpen.msdl.icm.scripting.python.RuntimeScriptManager
 import be.uantwerpen.msdl.icm.scripting.java.JavaBasedScriptManager
+import be.uantwerpen.msdl.icm.scripting.python.RuntimeScriptManager
+import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript
 
 class ScriptExecutionManager {
 	
@@ -18,6 +19,10 @@ class ScriptExecutionManager {
 			case JAVA_EXTENSION: javaExecutor.execute(script)
 			default: throw new IllegalArgumentException("Unknown file extension.")
 		}
+	}
+	
+	def execute(JavaBasedScript script) {
+		
 	}
 
 }

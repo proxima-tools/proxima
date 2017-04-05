@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Full Example
+Bundle-SymbolicName: be.uantwerpen.msdl.icm.examples.full
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: be.uantwerpen.msdl.icm.examples.full.internal.Activator
+Bundle-Vendor: Istvan David
+Require-Bundle: org.eclipse.core.runtime,
+ be.uantwerpen.msdl.icm.runtime;bundle-version="0.1.0",
+ be.uantwerpen.msdl.metamodels;bundle-version="0.1.0",
+ be.uantwerpen.msdl.process.design;bundle-version="0.1.0",
+ be.uantwerpen.msdl.process.dse;bundle-version="0.1.0",
+ org.junit;bundle-version="4.12.0",
+ com.google.guava;bundle-version="15.0.0",
+ be.uantwerpen.msdl.icm.scripting;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

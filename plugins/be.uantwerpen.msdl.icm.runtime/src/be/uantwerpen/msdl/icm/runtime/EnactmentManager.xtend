@@ -10,7 +10,8 @@ import be.uantwerpen.msdl.icm.runtime.queries.util.FinishedProcessQuerySpecifica
 import be.uantwerpen.msdl.icm.runtime.queries.util.ReadyActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.RunnigActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.transformations.SimulatorTransformations2
-import be.uantwerpen.msdl.icm.scripting.python.JythonScriptManager
+import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript
+import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.NamedElement
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
@@ -19,31 +20,74 @@ import be.uantwerpen.msdl.processmodel.pm.Node
 import be.uantwerpen.msdl.processmodel.pm.Object
 import be.uantwerpen.msdl.processmodel.pm.Process
 import com.google.common.collect.Lists
+import com.google.common.collect.Maps
+import java.io.File
+import java.util.List
+import java.util.Map
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
+import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
-import be.uantwerpen.msdl.icm.scripting.ScriptExecutionManager
 
 class EnactmentManager {
 
+	private ProcessModel processModel
 	private Process process
 	private Enactment enactment
+	private Map<Activity, JavaBasedScript> activityScripts = Maps::newHashMap
+
 	private ViatraQueryEngine queryEngine
 //	private SimulatorTransformations simulatorTransformations
 	private SimulatorTransformations2 simulatorTransformations2
 	private Logger logger = Logger.getLogger("Enactment Manager")
 
-	new(Process process, Enactment enactment) {
-		this.process = process
-		this.enactment = enactment
+	new(File processModelFile, List<Class<? extends JavaBasedScript>> scripts) {
+		val extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.extensionToFactoryMap
+		extensionToFactoryMap.put("processmodel", new XMIResourceFactoryImpl())
+		val resourceSet = new ResourceSetImpl()
+		val resource = resourceSet.getResource(URI.createURI(processModelFile.path), true)
+
+		setUpProcessModel(resource.contents.head as ProcessModel, scripts)
+	}
+
+	new(ProcessModel processModel, List<Class<? extends JavaBasedScript>> scripts) {
+		setUpProcessModel(processModel, scripts)
+	}
+
+	def private setUpProcessModel(ProcessModel processModel, List<Class<? extends JavaBasedScript>> scripts) {
+		this.processModel = processModel
+		this.process = processModel.process.head
+
+		this.enactment = EnactmentFactory.eINSTANCE.createEnactment
+		this.enactment.enactedProcessModel = processModel
+
 		this.queryEngine = ViatraQueryEngine.on(new EMFScope(enactment));
 		this.simulatorTransformations2 = new SimulatorTransformations2(queryEngine, enactment)
 		simulatorTransformations2.registerRulesWithCustomPriorities
 		logger.level = Level::DEBUG
+
+		initialize
+
+		if (scripts.empty) {
+			return
+		}
+
+		for (activity : process.activities) {
+			val script = scripts.findFirst [ s |
+				s.simpleName.equalsIgnoreCase((activity as NamedElement).name)
+			]
+			if (script != null) {
+				val runnable = script.newInstance() as JavaBasedScript
+				activityScripts.put(activity, runnable)
+			}
+		}
 	}
 
-	def initialize() {
+	def private initialize() {
 		logger.debug(String.format("Initializing enactment for processmodel %s", process.toString))
 
 		val token = EnactmentFactory.eINSTANCE.createToken
@@ -118,13 +162,19 @@ class EnactmentManager {
 		if (!(activity instanceof AutomatedActivity)) {
 			return
 		}
-		val scriptFile = (activity as AutomatedActivity).scriptFile
-		if (scriptFile == null) {
+
+//		val scriptFile = (activity as AutomatedActivity).scriptFile
+//		if (scriptFile == null) {
+//			return
+//		}
+//
+//		logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
+		val script = activityScripts.get(activity)
+		if (script == null) {
 			return
 		}
-
-		logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
-		new ScriptExecutionManager().execute(scriptFile)
+//		new ScriptExecutionManager().execute(scriptFile)
+		script.run
 	}
 
 	def finishActivity(String activityName) {
@@ -204,7 +254,7 @@ class EnactmentManager {
 	// simulatorTransformations.maintain
 	// }
 	def getActivities(Process process) {
-		process.node.filter[n|n instanceof Activity]
+		process.node.filter[n|n instanceof Activity].map[n|n as Activity]
 	}
 
 	def isDoneActivity(Node node) {
