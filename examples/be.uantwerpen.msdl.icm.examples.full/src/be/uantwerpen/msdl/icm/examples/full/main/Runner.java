@@ -13,7 +13,7 @@ import be.uantwerpen.msdl.icm.examples.full.main.scripts.A3;
 import be.uantwerpen.msdl.icm.examples.full.main.scripts.A4;
 import be.uantwerpen.msdl.icm.runtime.CommandInterpreter;
 import be.uantwerpen.msdl.icm.runtime.EnactmentManager;
-import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript;
+import be.uantwerpen.msdl.icm.scripting.scripts.IScript;
 
 public class Runner {
 
@@ -23,8 +23,10 @@ public class Runner {
 		new CommandInterpreter(enactmentManager).interpret();
 	}
 	
-	private List<Class<? extends JavaBasedScript>> getScripts(){
-		List<Class<? extends JavaBasedScript>> scripts = Lists.newArrayList();
+	
+	//TODO this will be replaced by a smart factory via some generative method
+	private List<Class<? extends IScript>> getScripts(){
+		List<Class<? extends IScript>> scripts = Lists.newArrayList();
 		
 		scripts.add(A1.class);
 		scripts.add(A2.class);

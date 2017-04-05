@@ -17,6 +17,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: Istvan David
 Bundle-ClassPath: .
 Export-Package: be.uantwerpen.msdl.icm.scripting,
+ be.uantwerpen.msdl.icm.scripting.java,
+ be.uantwerpen.msdl.icm.scripting.manager,
  be.uantwerpen.msdl.icm.scripting.python,
  be.uantwerpen.msdl.icm.scripting.scripts
 

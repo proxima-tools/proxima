@@ -10,7 +10,8 @@ import be.uantwerpen.msdl.icm.runtime.queries.util.FinishedProcessQuerySpecifica
 import be.uantwerpen.msdl.icm.runtime.queries.util.ReadyActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.RunnigActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.transformations.SimulatorTransformations2
-import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript
+import be.uantwerpen.msdl.icm.scripting.manager.ScriptExecutionManager
+import be.uantwerpen.msdl.icm.scripting.scripts.IScript
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.NamedElement
 import be.uantwerpen.msdl.processmodel.pm.Activity
@@ -38,14 +39,15 @@ class EnactmentManager {
 	private ProcessModel processModel
 	private Process process
 	private Enactment enactment
-	private Map<Activity, JavaBasedScript> activityScripts = Maps::newHashMap
+	private Map<Activity, IScript> activityScripts = Maps::newHashMap
+	private ScriptExecutionManager scriptExecutionManager
 
 	private ViatraQueryEngine queryEngine
 //	private SimulatorTransformations simulatorTransformations
 	private SimulatorTransformations2 simulatorTransformations2
 	private Logger logger = Logger.getLogger("Enactment Manager")
 
-	new(File processModelFile, List<Class<? extends JavaBasedScript>> scripts) {
+	new(File processModelFile, List<Class<? extends IScript>> scripts) {
 		val extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.extensionToFactoryMap
 		extensionToFactoryMap.put("processmodel", new XMIResourceFactoryImpl())
 		val resourceSet = new ResourceSetImpl()
@@ -54,11 +56,11 @@ class EnactmentManager {
 		setUpProcessModel(resource.contents.head as ProcessModel, scripts)
 	}
 
-	new(ProcessModel processModel, List<Class<? extends JavaBasedScript>> scripts) {
+	new(ProcessModel processModel, List<Class<? extends IScript>> scripts) {
 		setUpProcessModel(processModel, scripts)
 	}
 
-	def private setUpProcessModel(ProcessModel processModel, List<Class<? extends JavaBasedScript>> scripts) {
+	def private setUpProcessModel(ProcessModel processModel, List<Class<? extends IScript>> scripts) {
 		this.processModel = processModel
 		this.process = processModel.process.head
 
@@ -76,12 +78,14 @@ class EnactmentManager {
 			return
 		}
 
+		scriptExecutionManager = new ScriptExecutionManager
+
 		for (activity : process.activities) {
 			val script = scripts.findFirst [ s |
 				s.simpleName.equalsIgnoreCase((activity as NamedElement).name)
 			]
 			if (script != null) {
-				val runnable = script.newInstance() as JavaBasedScript
+				val runnable = script.newInstance() as IScript
 				activityScripts.put(activity, runnable)
 			}
 		}
@@ -163,18 +167,11 @@ class EnactmentManager {
 			return
 		}
 
-//		val scriptFile = (activity as AutomatedActivity).scriptFile
-//		if (scriptFile == null) {
-//			return
-//		}
-//
-//		logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
 		val script = activityScripts.get(activity)
 		if (script == null) {
 			return
 		}
-//		new ScriptExecutionManager().execute(scriptFile)
-		script.run
+		scriptExecutionManager.execute(script)
 	}
 
 	def finishActivity(String activityName) {
