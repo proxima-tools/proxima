@@ -21,7 +21,7 @@
   </process>
   <propertyModel>
     <relationship id="f7c2a090-21e1-46f4-aeaf-0779528d0b28" name="" precision="L3">
-      <formula id="a8c2a090-21e1-46f4-aeaf-0779528d0b99" definition="totalMass = platformMass + motorMass + batteryMass"/>
+      <formula id="a8c2a090-21e1-46f4-aeaf-0779528d0b99" definition="platformMass + motorMass + batteryMass - totalMass = 0"/>
       <relationshipLink id="5f094f7c-ace5-401b-836e-34abaf06a6ea" subject="//@propertyModel/@attribute.1"/>
       <relationshipLink id="f6cb5c07-4e8b-4c4a-81e7-34b55c16e9e9" subject="//@propertyModel/@attribute.3"/>
       <relationshipLink id="20e734c7-2327-43cc-b2b4-361bf40b4e47" subject="//@propertyModel/@attribute.2"/>

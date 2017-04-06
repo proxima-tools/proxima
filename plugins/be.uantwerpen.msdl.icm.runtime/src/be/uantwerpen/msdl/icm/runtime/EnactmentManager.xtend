@@ -10,6 +10,7 @@ import be.uantwerpen.msdl.icm.runtime.queries.util.FinishedProcessQuerySpecifica
 import be.uantwerpen.msdl.icm.runtime.queries.util.ReadyActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.RunnigActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.transformations.SimulatorTransformations2
+import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager
 import be.uantwerpen.msdl.icm.scripting.manager.ScriptExecutionManager
 import be.uantwerpen.msdl.icm.scripting.scripts.IScript
 import be.uantwerpen.msdl.processmodel.ProcessModel
@@ -38,12 +39,18 @@ class EnactmentManager {
 
 	private ProcessModel processModel
 	private Process process
+
+	// Enactment core
 	private Enactment enactment
+
+	// Scripting support
 	private Map<Activity, IScript> activityScripts = Maps::newHashMap
 	private ScriptExecutionManager scriptExecutionManager
 
+	// Variable support
+	private VariableManager variableManager
+
 	private ViatraQueryEngine queryEngine
-//	private SimulatorTransformations simulatorTransformations
 	private SimulatorTransformations2 simulatorTransformations2
 	private Logger logger = Logger.getLogger("Enactment Manager")
 
@@ -74,21 +81,26 @@ class EnactmentManager {
 
 		initialize
 
-		if (scripts.empty) {
-			return
-		}
+		// Scripting
+		if (!scripts.empty) {
+			scriptExecutionManager = new ScriptExecutionManager
 
-		scriptExecutionManager = new ScriptExecutionManager
-
-		for (activity : process.activities) {
-			val script = scripts.findFirst [ s |
-				s.simpleName.equalsIgnoreCase((activity as NamedElement).name)
-			]
-			if (script != null) {
-				val runnable = script.newInstance() as IScript
-				activityScripts.put(activity, runnable)
+			for (activity : process.activities) {
+				val script = scripts.findFirst [ s |
+					s.simpleName.equalsIgnoreCase((activity as NamedElement).name)
+				]
+				if (script != null) {
+					val runnable = script.newInstance() as IScript
+					activityScripts.put(activity, runnable)
+				}
 			}
 		}
+
+		// Variables
+		val propertyModel = processModel.propertyModel
+		val relationships = propertyModel.relationship.toList
+		
+		variableManager = new VariableManager(relationships)
 	}
 
 	def private initialize() {

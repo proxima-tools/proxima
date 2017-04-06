@@ -1,13 +1,15 @@
 package be.uantwerpen.msdl.icm.runtime.variablemanager.tests
 
 import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager
-import be.uantwerpen.msdl.icm.runtime.variablemanager.model.Relationship
+import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.ExpressionMapper
+import be.uantwerpen.msdl.icm.runtime.variablemanager.model.Relationship2
+import be.uantwerpen.msdl.icm.runtime.variablemanager.operators.Operators
 import net.objecthunter.exp4j.Expression
 import net.objecthunter.exp4j.ExpressionBuilder
 import org.junit.After
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import be.uantwerpen.msdl.icm.runtime.variablemanager.operators.Operators
 
 class VariableTests {
 
@@ -17,7 +19,7 @@ class VariableTests {
 	private var Expression platform
 	private var Expression motor
 	private var Expression battery
-	private var Relationship relationship
+	private var Relationship2 relationship
 
 	@Before
 	def void setUp() {
@@ -26,7 +28,7 @@ class VariableTests {
 		motor = new ExpressionBuilder("total - (platform + battery)").variables("total", "platform", "battery").build
 		battery = new ExpressionBuilder("total - (platform + motor)").variables("total", "platform", "motor").build
 
-		relationship = new Relationship(total, platform, motor, battery)
+		relationship = new Relationship2(total, platform, motor, battery)
 		variableManager.addRelationship(relationship)
 	}
 
@@ -50,7 +52,7 @@ class VariableTests {
 
 		System.out.println(result.getVariableName() + " = " + result.getValue());
 	}
-	
+
 	@Test
 	def void operatorTest() {
 		println("operator tests")
@@ -59,5 +61,15 @@ class VariableTests {
 		val result = exp.evaluate
 
 		System.out.println(result)
+	}
+
+	@Test
+	def void mappingTest() {
+		val mapper = new ExpressionMapper
+		val vars = mapper.extractExpression("a + b - c = 0")
+
+		Assert.assertEquals("a", vars.variableNames.get(0))
+		Assert.assertEquals("b", vars.variableNames.get(1))
+		Assert.assertEquals("c", vars.variableNames.get(2))
 	}
 }
