@@ -1,19 +1,22 @@
 package be.uantwerpen.msdl.icm.runtime.variablemanager
 
+import be.uantwerpen.msdl.icm.runtime.inconsistencymanager.InconsistencyManager
+import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.ExpressionMapper
 import be.uantwerpen.msdl.icm.runtime.variablemanager.model.Relationship2
 import be.uantwerpen.msdl.icm.runtime.variablemanager.model.Result
 import be.uantwerpen.msdl.processmodel.properties.Relationship
 import com.google.common.collect.Lists
+import com.google.common.collect.Maps
 import com.google.common.collect.Sets
 import java.util.List
+import java.util.Map
 import java.util.Set
 import net.objecthunter.exp4j.Expression
 import org.eclipse.xtend.lib.annotations.Accessors
-import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.ExpressionMapper
 
 class VariableManager {
 
-	@Accessors(PUBLIC_GETTER) List<Relationship2> relationships = Lists::newArrayList
+	@Accessors(PUBLIC_GETTER) Map<Relationship, Relationship2> relationships = Maps::newHashMap
 
 	new() {
 	}
@@ -22,18 +25,27 @@ class VariableManager {
 		this.relationships = new ExpressionMapper().map(relationships)
 	}
 
-	def addRelationship(Relationship2 relationship) {
-		relationships += relationship
-	}
-
 	def setVariable(String variableName, double value) {
-		relationships.forEach [ r |
+		relationships.values.forEach [ r |
 			r.expressions.forEach [ e |
 				e.variableNames.forEach [ v |
 					if (v.equals(variableName)) {
 						e.setVariable(variableName, value)
 					}
 				]
+			]
+		]
+		checkExpressions()
+	}
+
+	def checkExpressions() {
+		relationships.entrySet.forEach [ entry |
+			entry.value.expressions.forEach [ e |
+				if (e.validate.errors == null || e.validate.errors.empty) {
+					if (e.evaluate != 0.0) {
+						InconsistencyManager.reportError(entry.key, entry.value)
+					}
+				}
 			]
 		]
 	}

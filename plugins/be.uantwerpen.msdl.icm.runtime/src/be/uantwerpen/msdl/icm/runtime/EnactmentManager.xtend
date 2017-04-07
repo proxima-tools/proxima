@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
+import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
 
 class EnactmentManager {
 
@@ -178,12 +179,21 @@ class EnactmentManager {
 		if (!(activity instanceof AutomatedActivity)) {
 			return
 		}
-
+		
+		//Execution by name
 		val script = activityScripts.get(activity)
-		if (script == null) {
+		if (script != null) {
+			scriptExecutionManager.execute(script)
 			return
 		}
-		scriptExecutionManager.execute(script)
+		
+		//Execution by script file
+		val scriptFile = (activity as AutomatedActivity).scriptFile
+		if (scriptFile == null) {
+			return
+		}
+		logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
+		new ScriptExecutionManager().execute(new PythonScript(scriptFile))
 	}
 
 	def finishActivity(String activityName) {

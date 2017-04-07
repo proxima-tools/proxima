@@ -3,21 +3,22 @@ package be.uantwerpen.msdl.icm.runtime.variablemanager.expressions
 import be.uantwerpen.msdl.icm.runtime.variablemanager.model.Relationship2
 import be.uantwerpen.msdl.processmodel.properties.Relationship
 import com.google.common.base.Preconditions
-import com.google.common.collect.Lists
+import com.google.common.collect.Maps
 import com.google.common.collect.Sets
 import java.util.List
+import java.util.Map
 import java.util.Set
 import java.util.regex.Pattern
 import net.objecthunter.exp4j.ExpressionBuilder
 
 class ExpressionMapper {
 
-	def List<Relationship2> map(List<Relationship> relationships) {
-		var List<Relationship2> translatedRelationships = Lists::newArrayList
+	def Map<Relationship, Relationship2> map(List<Relationship> relationships) {
+		var Map<Relationship, Relationship2> translatedRelationships = Maps::newHashMap
 
 		for (relationship : relationships) {
 			val expression = extractExpression(relationship.formula.definition)
-			translatedRelationships += new Relationship2(expression)
+			translatedRelationships.put(relationship, new Relationship2(expression))
 		}
 
 		translatedRelationships
