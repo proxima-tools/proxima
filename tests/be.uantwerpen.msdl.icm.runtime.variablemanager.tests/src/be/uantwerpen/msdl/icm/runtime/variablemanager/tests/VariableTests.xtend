@@ -4,6 +4,7 @@ import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager
 import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.ExpressionMapper
 import be.uantwerpen.msdl.icm.runtime.variablemanager.model.Relationship2
 import be.uantwerpen.msdl.icm.runtime.variablemanager.operators.Operators
+import be.uantwerpen.msdl.processmodel.properties.PropertiesFactory
 import net.objecthunter.exp4j.Expression
 import net.objecthunter.exp4j.ExpressionBuilder
 import org.junit.After
@@ -13,7 +14,7 @@ import org.junit.Test
 
 class VariableTests {
 
-	extension VariableManager variableManager = new VariableManager
+	extension VariableManager variableManager = VariableManager.instance
 
 	private var Expression total
 	private var Expression platform
@@ -29,7 +30,7 @@ class VariableTests {
 		battery = new ExpressionBuilder("total - (platform + motor)").variables("total", "platform", "motor").build
 
 		relationship = new Relationship2(total, platform, motor, battery)
-		variableManager.addRelationship(relationship)
+		variableManager.addRelationship(PropertiesFactory.eINSTANCE.createRelationship, relationship)
 	}
 
 	@After

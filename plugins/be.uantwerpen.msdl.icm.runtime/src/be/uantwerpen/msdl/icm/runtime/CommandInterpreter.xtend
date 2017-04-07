@@ -1,5 +1,6 @@
 package be.uantwerpen.msdl.icm.runtime
 
+import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager
 import be.uantwerpen.msdl.processmodel.base.NamedElement
 import be.uantwerpen.msdl.processmodel.pm.Final
 import java.io.BufferedReader
@@ -8,12 +9,14 @@ import org.apache.log4j.Level
 import org.apache.log4j.Logger
 
 class CommandInterpreter {
+	public static final String ATONCE_COMMAND = "atonce"
 	public static final String PREP_COMMAND = "prepare"
 	public static final String RUN_COMMAND = "run"
 	public static final String FINISH_COMMAND = "finish"
 	public static final String STEP_COMMAND = "step"
 	public static final String FINAL_COMMAND = "final"
 	public static final String EXIT_COMMAND = "exit"
+	public static final String VARDUMP_COMMAND = "vardump"
 
 	private Logger logger = Logger.getLogger("Interpreter")
 	private EnactmentManager enactmentManager
@@ -43,6 +46,10 @@ class CommandInterpreter {
 			val input = reader.readLine()
 
 			switch input {
+				case input.toLowerCase.startsWith(ATONCE_COMMAND): {
+					logger.debug(String.format("Running process at once."))
+					enactmentManager.runAtOnce
+				}
 				case input.toLowerCase.startsWith(PREP_COMMAND): {
 					val activity = input.split(" ", 2).toList.get(1)
 					logger.debug(String.format("Preparing activity %s.", activity))
@@ -70,6 +77,12 @@ class CommandInterpreter {
 				case input.toLowerCase.equals(FINAL_COMMAND): {
 					logger.debug(String.format("Preparing, executing and finishing process."))
 					enactmentManager.finalStep
+				}
+				case input.toLowerCase.equals(VARDUMP_COMMAND): {
+					logger.debug(String.format("Dumping bound variables."))
+					VariableManager.instance.boundVariables.entrySet.forEach [ entry |
+						println(entry.key + "=" + entry.value)
+					]
 				}
 				case input.toLowerCase.equals(EXIT_COMMAND): {
 					logger.debug("Exiting.")

@@ -13,6 +13,7 @@ import be.uantwerpen.msdl.icm.runtime.transformations.SimulatorTransformations2
 import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager
 import be.uantwerpen.msdl.icm.scripting.manager.ScriptExecutionManager
 import be.uantwerpen.msdl.icm.scripting.scripts.IScript
+import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.NamedElement
 import be.uantwerpen.msdl.processmodel.pm.Activity
@@ -34,7 +35,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
-import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
+import be.uantwerpen.msdl.processmodel.pm.Final
 
 class EnactmentManager {
 
@@ -82,6 +83,13 @@ class EnactmentManager {
 
 		initialize
 
+		// Variables
+		val propertyModel = processModel.propertyModel
+		val relationships = propertyModel.relationship.toList
+
+		variableManager = VariableManager::instance
+		variableManager.addRelationships(relationships)
+
 		// Scripting
 		if (!scripts.empty) {
 			scriptExecutionManager = new ScriptExecutionManager
@@ -96,12 +104,6 @@ class EnactmentManager {
 				}
 			}
 		}
-
-		// Variables
-		val propertyModel = processModel.propertyModel
-		val relationships = propertyModel.relationship.toList
-		
-		variableManager = new VariableManager(relationships)
 	}
 
 	def private initialize() {
@@ -179,21 +181,19 @@ class EnactmentManager {
 		if (!(activity instanceof AutomatedActivity)) {
 			return
 		}
-		
-		//Execution by name
+
+		// Execution by name
 		val script = activityScripts.get(activity)
 		if (script != null) {
 			scriptExecutionManager.execute(script)
-			return
+		} else {
+			// Execution by script file
+			val scriptFile = (activity as AutomatedActivity).scriptFile
+			if (scriptFile != null) {
+				logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
+				new ScriptExecutionManager().execute(new PythonScript(scriptFile))
+			}
 		}
-		
-		//Execution by script file
-		val scriptFile = (activity as AutomatedActivity).scriptFile
-		if (scriptFile == null) {
-			return
-		}
-		logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
-		new ScriptExecutionManager().execute(new PythonScript(scriptFile))
 	}
 
 	def finishActivity(String activityName) {
@@ -292,6 +292,18 @@ class EnactmentManager {
 			logger.debug(String.format("Tool %s needed for executing Activity %s.", o.typedBy.name, activity.name))
 		]
 	// TODO add calls to a connection manager
+	}
+
+	def runAtOnce() {
+		val a = availableActivities.size
+
+		while (availableActivities.size > 0) {
+			if (availableActivities.head instanceof Activity) {
+				(availableActivities.head as Activity).name.stepActivity
+			}else{
+				finalStep
+			}
+		}
 	}
 
 }

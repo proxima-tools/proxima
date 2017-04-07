@@ -15,26 +15,38 @@ import net.objecthunter.exp4j.Expression
 import org.eclipse.xtend.lib.annotations.Accessors
 
 class VariableManager {
+	private static VariableManager instance
 
 	@Accessors(PUBLIC_GETTER) Map<Relationship, Relationship2> relationships = Maps::newHashMap
 
-	new() {
+	def public static getInstance() {
+		if (instance == null) {
+			instance = new VariableManager
+		}
+		instance
 	}
 
-	new(List<Relationship> relationships) {
+	private new() {
+	}
+
+	def addRelationships(List<Relationship> relationships) {
 		this.relationships = new ExpressionMapper().map(relationships)
 	}
 
+	def addRelationship(Relationship relationship, Relationship2 relationship2) {
+		this.relationships.put(relationship, relationship2)
+	}
+
 	def setVariable(String variableName, double value) {
-		relationships.values.forEach [ r |
-			r.expressions.forEach [ e |
-				e.variableNames.forEach [ v |
-					if (v.equals(variableName)) {
-						e.setVariable(variableName, value)
+		for (relationship : relationships.values) {
+			for (expression : relationship.expressions) {
+				for (varName : expression.variableNames) {
+					if (varName.equals(variableName)) {
+						expression.setVariable(variableName, value)
 					}
-				]
-			]
-		]
+				}
+			}
+		}
 		checkExpressions()
 	}
 
@@ -90,4 +102,14 @@ class VariableManager {
 		variables
 	}
 
+	def getBoundVariables() {
+		var vars = Maps::newHashMap
+		for (entry : relationships.entrySet) {
+			for (expression : entry.value.expressions) {
+				vars.putAll(expression.userVariables)
+			}
+		}
+
+		vars
+	}
 }
