@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Istvan David
+ * Copyright (c) 2016-2017 Istvan David
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,17 +11,14 @@
 
 package be.uantwerpen.msdl.process.dse.rules.sequential
 
+import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedModifyModifySequentialProcessor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedReadModify2Processor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedReadModify3Processor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedReadModifyProcessor
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
-import be.uantwerpen.msdl.processmodel.cost.CostType
 import be.uantwerpen.msdl.processmodel.pm.Activity
-import be.uantwerpen.msdl.processmodel.pm.Process
-import be.uantwerpen.msdl.processmodel.properties.IntentType
 import be.uantwerpen.msdl.processmodel.properties.Property
 import org.eclipse.viatra.dse.api.DSETransformationRule
-import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedModifyModifySequentialProcessor
 
 class ReadModify extends RuleGroup {
 
@@ -84,7 +81,7 @@ class ReadModify extends RuleGroup {
 			}
 		}
 	)
-	
+
 	val modifyModifyAugmentWithContract = new DSETransformationRule(
 		unmanagedModifyModifySequential,
 		new UnmanagedModifyModifySequentialProcessor() {

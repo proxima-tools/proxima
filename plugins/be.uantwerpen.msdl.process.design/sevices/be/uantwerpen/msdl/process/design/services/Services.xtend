@@ -1,17 +1,27 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Istvan David
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Istvan David - initial API and implementation
+ *******************************************************************************/
+
 package be.uantwerpen.msdl.process.design.services
 
-import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.Identifiable
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.Node
 import be.uantwerpen.msdl.processmodel.pm.Process
 import be.uantwerpen.msdl.processmodel.properties.Intent
 import be.uantwerpen.msdl.processmodel.properties.IntentType
+import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import java.util.Set
 import java.util.UUID
-import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 
 /**
  * Services for the editor
@@ -25,31 +35,31 @@ class Services {
 	public def getId(Identifiable identifiable) {
 		UUID.randomUUID.toString
 	}
-	
-	public def parseInt(String string){
+
+	public def parseInt(String string) {
 		Integer::parseInt(string)
 	}
 
 	public def getReadIntents(Activity activity) {
-		activity.intent.filter [Intent i |
+		activity.intent.filter [ Intent i |
 			i.type.equals(IntentType::READ)
 		].properties
 	}
-	
+
 	public def getModifyIntents(Activity activity) {
-		activity.intent.filter [Intent i |
+		activity.intent.filter [ Intent i |
 			i.type.equals(IntentType::MODIFY)
 		].properties
 	}
-	
+
 	public def getCheckIntents(Activity activity) {
-		activity.intent.filter [Intent i |
+		activity.intent.filter [ Intent i |
 			i.type.equals(IntentType::CHECK_PROPERTY)
 		].properties
 	}
-	
+
 	public def getContractIntents(Activity activity) {
-		activity.intent.filter [Intent i |
+		activity.intent.filter [ Intent i |
 			i.type.equals(IntentType::CONTRACT)
 		].properties
 	}
@@ -60,7 +70,7 @@ class Services {
 		intents.forEach [ i |
 			properties += i.subject
 		]
-		
+
 		properties
 	}
 
@@ -142,7 +152,6 @@ class Services {
 //			list
 //		]
 //	}
-
 	val dependencyImplications = #[new Pair(IntentType.READ, IntentType.MODIFY)]
 
 	def boolean followedBy(Node node1, Node node2) {

@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Istvan David
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *    Istvan David - initial API and implementation
+ *******************************************************************************/
+
 package be.uantwerpen.msdl.process.design.internal;
 
 import java.util.HashSet;
@@ -18,7 +29,7 @@ public class Activator extends AbstractUIPlugin {
     // The shared instance
     private static Activator plugin;
 
-    private static Set<Viewpoint> viewpoints; 
+    private static Set<Viewpoint> viewpoints;
 
     /**
      * The constructor
@@ -32,10 +43,11 @@ public class Activator extends AbstractUIPlugin {
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
      */
     public void start(BundleContext context) throws Exception {
-      super.start(context);
-	  plugin = this;
-	  viewpoints = new HashSet<Viewpoint>();
-	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/process.odesign")); 
+        super.start(context);
+        plugin = this;
+        viewpoints = new HashSet<Viewpoint>();
+        viewpoints
+                .addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/process.odesign"));
     }
 
     /*
@@ -44,15 +56,15 @@ public class Activator extends AbstractUIPlugin {
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
      */
     public void stop(BundleContext context) throws Exception {
-	plugin = null;
-	if (viewpoints != null) {
-	    for (final Viewpoint viewpoint: viewpoints) {
-		ViewpointRegistry.getInstance().disposeFromPlugin(viewpoint);
-	    }
-	    viewpoints.clear();
-	    viewpoints = null; 
-	}
-	super.stop(context);
+        plugin = null;
+        if (viewpoints != null) {
+            for (final Viewpoint viewpoint : viewpoints) {
+                ViewpointRegistry.getInstance().disposeFromPlugin(viewpoint);
+            }
+            viewpoints.clear();
+            viewpoints = null;
+        }
+        super.stop(context);
     }
 
     /**
@@ -61,6 +73,6 @@ public class Activator extends AbstractUIPlugin {
      * @return the shared instance
      */
     public static Activator getDefault() {
-	return plugin;
+        return plugin;
     }
 }

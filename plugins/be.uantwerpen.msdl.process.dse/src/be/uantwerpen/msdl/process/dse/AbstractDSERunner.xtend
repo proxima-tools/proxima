@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Istvan David
+ * Copyright (c) 2016-2017 Istvan David
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *    Istvan David - initial API and implementation
  *******************************************************************************/
- 
+
 package be.uantwerpen.msdl.process.dse
 
 import be.uantwerpen.msdl.process.dse.objectives.hard.ValidityHardObjectives
@@ -25,6 +25,7 @@ import be.uantwerpen.msdl.processmodel.resources.ResourcesPackage
 import com.google.common.base.Stopwatch
 import java.util.Collections
 import java.util.concurrent.TimeUnit
+import org.apache.log4j.Level
 import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
@@ -32,7 +33,6 @@ import org.eclipse.viatra.dse.api.Strategies
 import org.eclipse.viatra.dse.solutionstore.SolutionStore
 import org.eclipse.viatra.dse.statecoding.simple.SimpleStateCoderFactory
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.apache.log4j.Level
 
 /**
  * Common ancestor for various forms of executing DSE.

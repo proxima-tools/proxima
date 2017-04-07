@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Istvan David
+ * Copyright (c) 2016-2017 Istvan David
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,10 +15,10 @@ import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.properties.IntentType
 import be.uantwerpen.msdl.processmodel.properties.PropertiesFactory
 import be.uantwerpen.msdl.processmodel.properties.Property
+import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import be.uantwerpen.msdl.processmodel.properties.impl.PropertiesFactoryImpl
 
 import static extension be.uantwerpen.msdl.process.dse.rules.FactoryHelper.*
-import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 
 class PropertiesFactory2 extends PropertiesFactoryImpl {
 

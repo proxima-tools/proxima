@@ -1,10 +1,10 @@
 /*******************************************************************************
- * Copyright (c) 2016 Istvan David
+ * Copyright (c) 2016-2017 Istvan David
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *    Istvan David - initial API and implementation
  *******************************************************************************/
@@ -35,57 +35,57 @@ import be.uantwerpen.msdl.processmodel.ProcessModel;
  */
 public class DSEHandler extends org.eclipse.core.commands.AbstractHandler {
 
-	private static final String SIRIUS_DIAGRAM_EDITOR_ID = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID";
+    private static final String SIRIUS_DIAGRAM_EDITOR_ID = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID";
 
-	private Logger logger = Logger.getLogger("DSE Handler");
+    private Logger logger = Logger.getLogger("DSE Handler");
 
-	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		logger.setLevel(Level.DEBUG);
-		logger.debug("Execute DSE!");
+    @Override
+    public Object execute(ExecutionEvent event) throws ExecutionException {
+        logger.setLevel(Level.DEBUG);
+        logger.debug("Execute DSE!");
 
-		IEditorReference[] editorReferences = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-				.getEditorReferences();
+        IEditorReference[] editorReferences = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+                .getEditorReferences();
 
-		IEditorReference editor = null;
+        IEditorReference editor = null;
 
-		for (IEditorReference iEditorReference : editorReferences) {
-			EditorReference editRef = (EditorReference) iEditorReference;
-			if (editRef.getDescriptor().getId().equalsIgnoreCase(SIRIUS_DIAGRAM_EDITOR_ID)) {
-				editor = editRef;
-				break;
-			}
-		}
+        for (IEditorReference iEditorReference : editorReferences) {
+            EditorReference editRef = (EditorReference) iEditorReference;
+            if (editRef.getDescriptor().getId().equalsIgnoreCase(SIRIUS_DIAGRAM_EDITOR_ID)) {
+                editor = editRef;
+                break;
+            }
+        }
 
-		EObject input = null;
+        EObject input = null;
 
-		try {
-			IEditorInput editorInput = editor.getEditorInput();
-			if (editorInput instanceof SessionEditorInput) {
-				input = ((SessionEditorInput) editorInput).getInput();
-			}
-		} catch (PartInitException e) {
-			e.printStackTrace();
-		}
+        try {
+            IEditorInput editorInput = editor.getEditorInput();
+            if (editorInput instanceof SessionEditorInput) {
+                input = ((SessionEditorInput) editorInput).getInput();
+            }
+        } catch (PartInitException e) {
+            e.printStackTrace();
+        }
 
-		EObject model = null;
+        EObject model = null;
 
-		if (input instanceof Diagram) {
-			EObject element = ((Diagram) input).getElement();
-			if (element instanceof DSemanticDiagramSpec) {
-				model = ((DSemanticDiagramSpec) element).getTarget();
-			}
-		}
+        if (input instanceof Diagram) {
+            EObject element = ((Diagram) input).getElement();
+            if (element instanceof DSemanticDiagramSpec) {
+                model = ((DSemanticDiagramSpec) element).getTarget();
+            }
+        }
 
-		Assert.isTrue(model instanceof ProcessModel, "Fatal error: model not instance of ProcessModel.");
+        Assert.isTrue(model instanceof ProcessModel, "Fatal error: model not instance of ProcessModel.");
 
-		DSERunner dseRunner = new DSERunner((ProcessModel) model);
-		logger.debug("TEST MOCK: DSE EXECUTING");
-//		dseRunner.explore();
+        DSERunner dseRunner = new DSERunner((ProcessModel) model);
+        logger.debug("TEST MOCK: DSE EXECUTING");
+        // dseRunner.explore();
 
-		//TODO refresh diagram once execution successfully finished
-		
-		return null;
-	}
+        // TODO refresh diagram once execution successfully finished
+
+        return null;
+    }
 
 }

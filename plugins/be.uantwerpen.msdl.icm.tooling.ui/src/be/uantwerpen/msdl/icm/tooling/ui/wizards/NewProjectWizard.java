@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Istvan David
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *    Istvan David - initial API and implementation
+ *******************************************************************************/
+
 package be.uantwerpen.msdl.icm.tooling.ui.wizards;
 
 import java.lang.reflect.InvocationTargetException;
@@ -25,70 +36,70 @@ import com.google.common.collect.ImmutableList;
 
 public class NewProjectWizard extends Wizard implements INewWizard {
 
-	private WizardNewProjectCreationPage projectCreationPage;
-	private IProject project;
-	private IWorkbench workbench;
-	private IWorkspace workspace;
+    private WizardNewProjectCreationPage projectCreationPage;
+    private IProject project;
+    private IWorkbench workbench;
+    private IWorkspace workspace;
 
-	@Inject
-	private Logger logger;
+    @Inject
+    private Logger logger;
 
-	@Override
-	public void addPages() {
-		projectCreationPage = new WizardNewProjectCreationPage("NewICMProject");
-		projectCreationPage.setTitle("New ICM Project");
-		projectCreationPage.setDescription("Create a new ICM project.");
-		addPage(projectCreationPage);
-	}
+    @Override
+    public void addPages() {
+        projectCreationPage = new WizardNewProjectCreationPage("NewICMProject");
+        projectCreationPage.setTitle("New ICM Project");
+        projectCreationPage.setDescription("Create a new ICM project.");
+        addPage(projectCreationPage);
+    }
 
-	@Override
-	public void init(IWorkbench workbench, IStructuredSelection selection) {
-		this.workbench = workbench;
-		workspace = ResourcesPlugin.getWorkspace();
-	}
+    @Override
+    public void init(IWorkbench workbench, IStructuredSelection selection) {
+        this.workbench = workbench;
+        workspace = ResourcesPlugin.getWorkspace();
+    }
 
-	@Override
-	public boolean performFinish() {
-		if (project != null) {
-			return true;
-		}
-		final IProject projectHandle = projectCreationPage.getProjectHandle();
-		if (projectHandle.exists()) {
-			return false;
-		}
-		
-		URI projectURI = projectCreationPage.getLocationURI();
-		
-//		URI projectURI = (!projectCreationPage.useDefaults()) ? projectCreationPage.getLocationURI() : null;
-		final IProjectDescription description = workspace.newProjectDescription(projectHandle.getName());
-		description.setLocationURI(projectURI);
+    @Override
+    public boolean performFinish() {
+        if (project != null) {
+            return true;
+        }
+        final IProject projectHandle = projectCreationPage.getProjectHandle();
+        if (projectHandle.exists()) {
+            return false;
+        }
 
-		WorkspaceModifyOperation op = new CreateProjectOperation(projectHandle, description,
-				ImmutableList.<String> of());
+        URI projectURI = projectCreationPage.getLocationURI();
 
-		try {
-			getContainer().run(true, true, op);
-		} catch (InterruptedException e) {
-			return false;
-		} catch (InvocationTargetException e) {
-			// Removing project if it is partially created
-			if (projectHandle.exists()) {
-				try {
-					projectHandle.delete(true, new NullProgressMonitor());
-				} catch (CoreException e1) {
-					logger.error("Cannot remove partially created ICM project.", e1);
-				}
-			}
-			Throwable realException = e.getTargetException();
-			logger.error("Cannot create ICM project: " + realException.getMessage(), realException);
-			MessageDialog.openError(getShell(), "Error", realException.getMessage());
-			return false;
-		}
+        // URI projectURI = (!projectCreationPage.useDefaults()) ? projectCreationPage.getLocationURI() : null;
+        final IProjectDescription description = workspace.newProjectDescription(projectHandle.getName());
+        description.setLocationURI(projectURI);
 
-		project = projectHandle;
+        WorkspaceModifyOperation op = new CreateProjectOperation(projectHandle, description,
+                ImmutableList.<String> of());
 
-		BasicNewProjectResourceWizard.selectAndReveal(project, workbench.getActiveWorkbenchWindow());
+        try {
+            getContainer().run(true, true, op);
+        } catch (InterruptedException e) {
+            return false;
+        } catch (InvocationTargetException e) {
+            // Removing project if it is partially created
+            if (projectHandle.exists()) {
+                try {
+                    projectHandle.delete(true, new NullProgressMonitor());
+                } catch (CoreException e1) {
+                    logger.error("Cannot remove partially created ICM project.", e1);
+                }
+            }
+            Throwable realException = e.getTargetException();
+            logger.error("Cannot create ICM project: " + realException.getMessage(), realException);
+            MessageDialog.openError(getShell(), "Error", realException.getMessage());
+            return false;
+        }
 
-		return true;
-	}
+        project = projectHandle;
+
+        BasicNewProjectResourceWizard.selectAndReveal(project, workbench.getActiveWorkbenchWindow());
+
+        return true;
+    }
 }

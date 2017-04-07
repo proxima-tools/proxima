@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Istvan David
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Istvan David - initial API and implementation
+ *******************************************************************************/
+
 package be.uantwerpen.msdl.icm.runtime
 
 import be.uantwerpen.msdl.enactment.ActivityState
@@ -35,7 +46,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
-import be.uantwerpen.msdl.processmodel.pm.Final
 
 class EnactmentManager {
 
@@ -300,7 +310,7 @@ class EnactmentManager {
 		while (availableActivities.size > 0) {
 			if (availableActivities.head instanceof Activity) {
 				(availableActivities.head as Activity).name.stepActivity
-			}else{
+			} else {
 				finalStep
 			}
 		}

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Istvan David
+ * Copyright (c) 2016-2017 Istvan David
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,6 +13,7 @@ package be.uantwerpen.msdl.process.dse.rules
 
 import be.uantwerpen.msdl.icm.queries.general.GeneralPatterns
 import be.uantwerpen.msdl.icm.queries.general.util.ParallelActivitiesProcessor
+import be.uantwerpen.msdl.icm.queries.general.util.SequentialActivitiesDirectProcessor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns
 import be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns
 import be.uantwerpen.msdl.processmodel.cost.CostType
@@ -26,8 +27,6 @@ import org.eclipse.viatra.dse.api.DSETransformationRule
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
 import org.eclipse.viatra.query.runtime.api.impl.BaseMatcher
 import org.eclipse.viatra.query.runtime.api.impl.BasePatternMatch
-import be.uantwerpen.msdl.process.dse.rules.sequential.ReadModify
-import be.uantwerpen.msdl.icm.queries.general.util.SequentialActivitiesDirectProcessor
 
 abstract class RuleGroup {
 
@@ -53,8 +52,7 @@ abstract class RuleGroup {
 	abstract protected def List<DSETransformationRule<? extends BasePatternMatch, ? extends BaseMatcher<? extends BasePatternMatch>>> rules()
 
 	def generalRules() {
-		#[ 
-//			 sequenceNodes,
+		#[//			 sequenceNodes,
 //			parallelizeNodes
 		]
 	}
@@ -73,7 +71,7 @@ abstract class RuleGroup {
 
 				process.controlFlow.remove(activity1.controlOut.head)
 				process.controlFlow.remove(activity2.controlIn.head)
-				
+
 				process.createControlFlow(activity1, activity2)
 			}
 		}
@@ -106,7 +104,7 @@ abstract class RuleGroup {
 			}
 		}
 	)
-	
+
 	def createDecision(Activity activity, Property propertyToCheck, Node loopTarget) {
 		val process = activity.eContainer as Process
 
@@ -142,7 +140,7 @@ abstract class RuleGroup {
 		]
 		contractActivity.controlIn.addAll(node.controlIn)
 		process.createControlFlow(contractActivity, node)
-		
+
 		val i = 1
 	}
 }

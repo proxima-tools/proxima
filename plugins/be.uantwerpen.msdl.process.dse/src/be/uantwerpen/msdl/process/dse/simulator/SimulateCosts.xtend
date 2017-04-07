@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Istvan David
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Istvan David - initial API and implementation
+ *******************************************************************************/
+
 package be.uantwerpen.msdl.process.dse.simulator
 
 import be.uantwerpen.msdl.processmodel.ProcessModel
@@ -17,7 +28,8 @@ import org.junit.Before
 import org.junit.Test
 
 class SimulateCosts {
-	private static final val LEVEL = Level::DEBUG
+	private static final val LEVEL = Level::
+		DEBUG
 	private ProcessModel modelRoot
 	private ViatraQueryEngine queryEngine
 	private ResourceSet resourceSet
@@ -25,7 +37,7 @@ class SimulateCosts {
 	private Logger logger
 	private Stopwatch stopwatch
 	private static final val TEST_FILE_LOCATION = "file:///D:/GitHub/msdl/agv/be.uantwerpen.msdl.icm.cases.agv2/agv.processmodel"
-	
+
 	@Before
 	def void setup() {
 		logger = Logger.getLogger("Process DSE")
@@ -38,7 +50,7 @@ class SimulateCosts {
 		extensionToFactoryMap.put("processmodel", new XMIResourceFactoryImpl())
 		resourceSet = new ResourceSetImpl()
 		resource = resourceSet.getResource(URI.createURI(TEST_FILE_LOCATION), true)
-		
+
 		queryEngine = ViatraQueryEngine.on(new EMFScope(resource));
 		modelRoot = resource.contents.head as ProcessModel
 	}
@@ -49,11 +61,11 @@ class SimulateCosts {
 		resourceSet = null
 		stopwatch = null
 	}
-	
+
 	@Test
-	def void simulate(){
+	def void simulate() {
 		var cost = 0.0
-		
+
 		val simulator = new FixedIterationCostSimulator(modelRoot, queryEngine)
 		if (simulator.canSimulate()) {
 			cost = simulator.simulate()

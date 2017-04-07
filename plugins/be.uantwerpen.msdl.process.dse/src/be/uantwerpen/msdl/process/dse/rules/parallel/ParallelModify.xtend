@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Istvan David
+ * Copyright (c) 2016-2017 Istvan David
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -40,7 +40,8 @@ class ParallelModify extends RuleGroup {
 	val addContract = new DSETransformationRule(
 		unmanagedModifyModifyParallel,
 		new UnmanagedModifyModifyParallelProcessor() {
-			override process(Activity activity1, Property property1, Activity activity2, Property property2, Fork fork) {
+			override process(Activity activity1, Property property1, Activity activity2, Property property2,
+				Fork fork) {
 				createContract(fork, #[property1, property2], activity1)
 			}
 		}

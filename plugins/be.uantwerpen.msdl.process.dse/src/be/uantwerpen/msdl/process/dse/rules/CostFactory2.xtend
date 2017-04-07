@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Istvan David
+ * Copyright (c) 2016-2017 Istvan David
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,8 +30,10 @@ class CostFactory2 extends CostFactoryImpl {
 
 		val appropriateCostFactors = costModel.costFactor.filter[it.type.equals(costType)]
 
-		val costFactor = if(!appropriateCostFactors.isEmpty) appropriateCostFactors.head else costModel.
-				createCostFactor(costType)
+		val costFactor = if (!appropriateCostFactors.isEmpty)
+				appropriateCostFactors.head
+			else
+				costModel.createCostFactor(costType)
 
 		costFactor.cost += cost
 		cost.value = value
