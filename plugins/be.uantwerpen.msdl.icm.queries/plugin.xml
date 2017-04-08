@@ -70,15 +70,6 @@
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.costForPresence"/>
     </group>
   </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns">
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.checkProperty"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.checkProperty2"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.contract"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sharedContract"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sharedContract2"/>
-    </group>
-  </extension>
   <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
     <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns">
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedReadModify"/>
@@ -86,6 +77,15 @@
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedModifyModifySequential"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedReadModify2"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedReadModify3"/>
+    </group>
+  </extension>
+  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns">
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.checkProperty"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.checkProperty2"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.contract"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sharedContract"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sharedContract2"/>
     </group>
   </extension>
   <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
