@@ -14,13 +14,12 @@
  * limitations under the License.
  * 
  * Contributions
- *      Istvan David - Updated for ICM
+ *      Istvan David - Default variable improvements.
  */
 package net.objecthunter.exp4j;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -43,19 +42,15 @@ import net.objecthunter.exp4j.tokenizer.VariableToken;
 public class Expression {
 
     private final Token[] tokens;
-
-    private final Map<String, Double> variables;
-
-    private final Set<String> userFunctionNames;
-
-    private static Map<String, Double> createDefaultVariables() {
-        final Map<String, Double> vars = new HashMap<String, Double>(4);
-        vars.put("pi", Math.PI);
-        vars.put("π", Math.PI);
-        vars.put("φ", 1.61803398874d);
-        vars.put("e", Math.E);
-        return vars;
-    }
+    private final Map<String, Double> variables = new HashMap<String, Double>();
+    private final Set<String> userFunctionNames = new HashSet<String>();
+    private final Map<String, Double> DEFAULT_VARIABLES = new HashMap<String, Double>() {
+        {
+            put("pi", Math.PI);
+            put("phi", 1.61803398874d);
+            put("e", Math.E);
+        }
+    };
 
     /**
      * Creates a new expression that is a copy of the existing one.
@@ -65,21 +60,19 @@ public class Expression {
      */
     public Expression(final Expression existing) {
         this.tokens = Arrays.copyOf(existing.tokens, existing.tokens.length);
-        this.variables = new HashMap<String, Double>();
         this.variables.putAll(existing.variables);
-        this.userFunctionNames = new HashSet<String>(existing.userFunctionNames);
+        this.userFunctionNames.addAll(existing.userFunctionNames);
     }
 
     Expression(final Token[] tokens) {
         this.tokens = tokens;
-        this.variables = createDefaultVariables();
-        this.userFunctionNames = Collections.<String> emptySet();
+        this.variables.putAll(DEFAULT_VARIABLES);
     }
 
     Expression(final Token[] tokens, Set<String> userFunctionNames) {
         this.tokens = tokens;
-        this.variables = createDefaultVariables();
-        this.userFunctionNames = userFunctionNames;
+        this.variables.putAll(DEFAULT_VARIABLES);
+        this.userFunctionNames.addAll(userFunctionNames);
     }
 
     public Expression setVariable(final String name, final double value) {
@@ -245,10 +238,8 @@ public class Expression {
     public Map<String, Double> getUserVariables() {
         Map<String, Double> userVariables = new HashMap<String, Double>();
 
-        List<String> defaultVariables = Arrays.asList("pi", "π", "φ", "e");
-
         for (Entry<String, Double> entry : getVariables().entrySet()) {
-            if (defaultVariables.contains(entry.getKey())) {
+            if (DEFAULT_VARIABLES.containsKey(entry.getKey())) {
                 continue;
             }
             userVariables.put(entry.getKey(), entry.getValue());
