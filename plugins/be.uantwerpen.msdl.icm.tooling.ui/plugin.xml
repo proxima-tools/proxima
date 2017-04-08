@@ -32,27 +32,31 @@
            class="be.uantwerpen.msdl.icm.tooling.ui.commands.DSEHandler"
            commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand">
      </handler>
+     <handler
+           class="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerationHandler"
+           commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateCommand">
+     </handler>
+     <handler
+           class="be.uantwerpen.msdl.icm.tooling.ui.commands.ExecutionHandler"
+           commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.ExecuteCommand">
+     </handler>
   </extension>
    
   <extension
         point="org.eclipse.ui.commands">
-        <command name="Execute DSE"
-              id="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand"
-              categoryId="be.uantwerpen.msdl.icm.tooling.ui.icm.category">
+        <command name="Run DSE"
+              id="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand">
         </command>
-        <category
-            description="Commands related to ICM"
-            id="be.uantwerpen.msdl.icm.tooling.ui.icm.category"
-            name="ICM">
-      </category>
-        <command
-              categoryId="be.uantwerpen.msdl.icm.tooling.ui.icm.category"
-              id="be.uantwerpen.msdl.icm.tooling.ui.commands.OtherCommand"
-              name="Some other command">
+        <command name="Generate artifacts"
+              id="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateCommand">
+        </command>
+        <command name="Execute process"
+              id="be.uantwerpen.msdl.icm.tooling.ui.commands.ExecuteCommand">
         </command>
   </extension>
    
 	<extension point="org.eclipse.ui.menus">
+		<!--
 		<menuContribution
 			allPopups="false"
 				locationURI="toolbar:org.eclipse.sirius.diagram.ui.tabbar?after=additions">
@@ -64,26 +68,45 @@
               	tooltip="Optimize process">
         	</command>
    		</menuContribution>
+   		-->
     	<menuContribution
         	locationURI="popup:org.eclipse.ui.popup.any?after=additions">
-        	<command
-               commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand"
-               icon="icons/hammer.png"
-               id="org.eclipse.sirius.diagram.tabbar.test.action.on.diagramelement2"
-               label="Optimize process"
-               style="pulldown"
-               tooltip="Optimize process">
-        	</command>
-         <command
-               commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.OtherCommand"
-               id="org.eclipse.sirius.diagram.tabbar.test.action.on.diagramelement3"
-               label="Other command"
-               style="push">
-         </command>
-      		<menu
-            	id="org.eclipse.sirius.diagram.ui.popup.icm"
-            	label="ICM">
-      		</menu>
+        <separator
+              name="be.uantwerpen.msdl.icm.tooling.ui.icm.separator.top"
+              visible="true">
+        </separator>
+        <menu
+              id="org.eclipse.sirius.diagram.ui.popup.icm"
+              label="ICM">
+           <command
+                 commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand"
+                 icon="icons/hammer.png"
+                 id="be.uantwerpen.msdl.icm.tooling.ui.menus.dse"
+                 label="Optimize process"
+                 style="push"
+                 tooltip="Optimize process">
+           </command>
+           <command
+                 commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateCommand"
+                 icon="icons/generate.png"
+                 id="be.uantwerpen.msdl.icm.tooling.ui.menus.generate"
+                 label="Generate artifacts"
+                 style="push"
+                 tooltip="Generate artifacts">
+           </command>
+           <command
+                 commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.ExecuteCommand"
+                 icon="icons/execute.gif"
+                 id="be.uantwerpen.msdl.icm.tooling.ui.menus.execute"
+                 label="Execute process"
+                 style="push"
+                 tooltip="Execute process">
+           </command>
+        </menu>
+        <separator
+              name="be.uantwerpen.msdl.icm.tooling.ui.icm.separator.bottom"
+              visible="true">
+        </separator>
     	</menuContribution>
 	</extension>
 
