@@ -57,6 +57,9 @@ public class DSEHandler extends org.eclipse.core.commands.AbstractHandler {
             }
         }
 
+        // TODO editor will be null if no sirius diagram editor is open - we need to test if there's an editor open and
+        // if it's the right type + we also have to use this test in the menu's activization logic in the plugin.xml
+
         EObject input = null;
 
         try {

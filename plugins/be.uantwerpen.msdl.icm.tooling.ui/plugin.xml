@@ -55,6 +55,7 @@
         </command>
   </extension>
    
+
 	<extension point="org.eclipse.ui.menus">
 		<!--
 		<menuContribution
@@ -69,7 +70,9 @@
         	</command>
    		</menuContribution>
    		-->
-    	<menuContribution
+
+        
+        <menuContribution
         	locationURI="popup:org.eclipse.ui.popup.any?after=additions">
         <separator
               name="be.uantwerpen.msdl.icm.tooling.ui.icm.separator.top"
@@ -78,6 +81,24 @@
         <menu
               id="org.eclipse.sirius.diagram.ui.popup.icm"
               label="ICM">
+           <visibleWhen
+                 checkEnabled="false">
+              <and>
+                 <with
+                       variable="activeEditorId">
+                    <equals
+                          value="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID">
+                    </equals>
+                 </with>
+                 <with
+                       variable="activeEditor">
+                    <test
+                          forcePluginActivation="true"
+                          property="be.uantwerpen.msdl.icm.tooling.ui.isConcernedEditor">
+                    </test>
+                 </with>
+              </and>
+           </visibleWhen>
            <command
                  commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand"
                  icon="icons/hammer.png"
@@ -109,5 +130,22 @@
         </separator>
     	</menuContribution>
 	</extension>
+ <extension
+       point="org.eclipse.core.expressions.propertyTesters">
+    <propertyTester
+          class="be.uantwerpen.msdl.icm.tooling.ui.DiagramTester"
+          id="be.uantwerpen.msdl.icm.tooling.ui.diagramTester"
+          namespace="be.uantwerpen.msdl.icm.tooling.ui"
+          properties="isConcernedEditor"
+          type="org.eclipse.ui.IEditorPart">
+    </propertyTester>
+    <propertyTester
+          class="be.uantwerpen.msdl.icm.tooling.ui.DiagramTester"
+          id="be.uantwerpen.msdl.icm.tooling.ui.selectionTester"
+          namespace="be.uantwerpen.msdl.icm.tooling.ui"
+          properties="shouldActivateIcmMenu"
+          type="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+    </propertyTester>
+ </extension>
 
 </plugin>
