@@ -18,11 +18,12 @@ import org.eclipse.core.commands.ExecutionException;
  * @author Istvan David
  *
  */
-public class ExecutionHandler extends org.eclipse.core.commands.AbstractHandler {
+public class ExecutionHandler extends Handler {
 
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
-        System.out.println("MOCK execution running");
+        logger.debug("MOCK execution running");
+        System.out.println(getModel().getProcess().get(0).getNode().size());
         return null;
     }
 

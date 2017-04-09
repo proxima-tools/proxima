@@ -18,11 +18,12 @@ import org.eclipse.core.commands.ExecutionException;
  * @author Istvan David
  *
  */
-public class GenerationHandler extends org.eclipse.core.commands.AbstractHandler {
+public class GenerationHandler extends Handler {
 
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
-        System.out.println("MOCK generation running");
+        logger.debug("MOCK generation running");
+        System.out.println(getModel().getProcess().get(0).getNode().size());
         return null;
     }
 
