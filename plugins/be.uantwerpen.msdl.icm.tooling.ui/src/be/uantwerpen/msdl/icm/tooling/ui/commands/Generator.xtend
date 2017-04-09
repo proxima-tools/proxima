@@ -4,27 +4,36 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *    Istvan David - initial API and implementation
  *******************************************************************************/
 
-package be.uantwerpen.msdl.icm.tooling.ui.commands;
+package be.uantwerpen.msdl.icm.tooling.ui.commands
 
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
+import be.uantwerpen.msdl.processmodel.ProcessModel
+import java.io.File
+import java.io.FileWriter
 
-/**
- * @author Istvan David
- *
- */
-public class GenerationHandler extends Handler {
+class Generator {
 
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-        logger.debug("MOCK generation running");
-        System.out.println(getModel().getProcess().get(0).getNode().size());
-        return null;
-    }
+	private FileWriter writer
+
+	def doGenerate(ProcessModel processModel) {
+
+		println("generating file")
+
+		writer = new FileWriter(new File("C:\\", "processmodel.java"))
+
+		writer.append('''
+			package processmodel;
+			
+			public class ProcessModel2{
+				
+			}
+		''')
+
+		writer.close()
+	}
 
 }
