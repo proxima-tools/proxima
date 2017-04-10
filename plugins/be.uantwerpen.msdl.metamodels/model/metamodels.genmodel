@@ -22,13 +22,21 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ftg/FormalismTransformationGraph/transformation"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ftg/FormalismTransformationGraph/tool"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="processmodel.ecore#//ftg/Type"/>
+      <genClasses ecoreClass="processmodel.ecore#//ftg/ObjectType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//ftg/ObjectType/types"/>
+      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//ftg/ActivityType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//ftg/ActivityType/types"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ftg/ActivityType/definition"/>
+      </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//ftg/Formalism">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Formalism/inputOf"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Formalism/outputOf"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Formalism/types"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Formalism/viewpoint"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -42,16 +50,17 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Transformation/output"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Transformation/types"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Transformation/resourceConstraint"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="processmodel.ecore#//ftg/Type"/>
       <genClasses ecoreClass="processmodel.ecore#//ftg/Tool">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Tool/implements"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Tool/viewpoint"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="processmodel.ecore#//ftg/ActivityDefinition"/>
+      <genClasses ecoreClass="processmodel.ecore#//ftg/ScriptBasedActivityDefinition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//ftg/ScriptBasedActivityDefinition/scriptFile"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Pm" basePackage="be.uantwerpen.msdl.processmodel" disposableProviderFactory="true"
@@ -89,6 +98,11 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/intent"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/partOf"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/executionParameters"/>
+      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//pm/ActivityExecutionParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/ActivityExecutionParameter/key"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/ActivityExecutionParameter/value"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ManualActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity">
