@@ -1,5 +1,6 @@
 # A tool for managing inconsistencies in engineering processes
 
+<!---
 Our prototype tool aims to enhance engineering processes by managing potential inconsistencies emering in collaborative modeling settings. The tool is built on top of the Eclipse platform and is available as a set of Eclipse plugins. (See the installation guide.)
 
 The features of the framework include:
@@ -13,9 +14,10 @@ The features of the framework include:
 
 ### Versioning and roadmap
 The first public release is planned for Summer of 2016.
+-->
 
 ### Installation guide
-1. Download the [Eclipse Neon Modeling](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/neonr) package.
-2. Install [Sirius](https://eclipse.org/sirius/download.html).
-3. Install [VIATRA](https://eclipse.org/viatra/downloads.php).
+1. Download the [Eclipse Neon 4.3 Modeling](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/neon3) package.
+2. Install [Sirius 4.1.1](http://download.eclipse.org/sirius/updates/releases/4.1.1/neon).
+3. Install [VIATRA 1.5.0](http://download.eclipse.org/viatra/updates/release).
 4. Import the plugins from this repository's ```plugins``` folder.
