@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="process" version="11.0.0.201601261200">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="process" version="11.1.1.201610211630">
   <ownedViewpoints name="ProcessViewpoint" label="Process Modeling" modelFileExtension="processmodel">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ProcessModel" label="Process Model" domainClass="processmodel.ProcessModel">
       <defaultLayer name="Default">
@@ -508,7 +508,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:if (self.name.size()=0) then (self.precision.toString()) else (self.name.concat(' : ').concat(self.precision.toString())) endif" iconPath="/be.uantwerpen.msdl.process.design/icons/constraint.png" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:if (self.name.size()=0) then (self.precision.toString()) else (self.name.concat(' : ').concat(self.precision.toString())) endif" iconPath="/be.uantwerpen.msdl.process.design/icons/rel.png" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
@@ -1354,4 +1354,21 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="be.uantwerpen.msdl.process.design.services.Services"/>
   </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="ActivityProperties">
+    <pages identifier="Default" labelExpression="Activity Properties" domainClass="pm.AutomatedActivity" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0"/>
+    <groups identifier="Default" labelExpression="Execution" semanticCandidateExpression="aql:self.typedBy.definition">
+      <controls xsi:type="properties:TextDescription" labelExpression="Action" valueExpression="aql:self.scriptFile">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.typedBy">
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.ScriptBasedActivityDefinition" referenceName="definition"/>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.definition">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="scriptFile" valueExpression="var:newValue"/>
+            </subModelOperations>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
+    </groups>
+  </extensions>
 </description:Group>
