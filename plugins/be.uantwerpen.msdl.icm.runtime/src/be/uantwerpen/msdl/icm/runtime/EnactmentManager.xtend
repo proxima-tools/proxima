@@ -27,6 +27,7 @@ import be.uantwerpen.msdl.icm.scripting.scripts.IScript
 import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.NamedElement
+import be.uantwerpen.msdl.processmodel.ftg.ScriptBasedActivityDefinition
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
 import be.uantwerpen.msdl.processmodel.pm.Initial
@@ -198,10 +199,13 @@ class EnactmentManager {
 			scriptExecutionManager.execute(script)
 		} else {
 			// Execution by script file
-			val scriptFile = (activity as AutomatedActivity).scriptFile
-			if (scriptFile != null) {
-				logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
-				new ScriptExecutionManager().execute(new PythonScript(scriptFile))
+			if ((activity as AutomatedActivity).typedBy.definition instanceof ScriptBasedActivityDefinition) {
+				val scriptFile = ((activity as AutomatedActivity).typedBy.definition as ScriptBasedActivityDefinition).
+					scriptFile
+				if (scriptFile != null) {
+					logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
+					new ScriptExecutionManager().execute(new PythonScript(scriptFile))
+				}
 			}
 		}
 	}

@@ -105,9 +105,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/ActivityExecutionParameter/value"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ManualActivity"/>
-      <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/AutomatedActivity/scriptFile"/>
-      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/CompoundActivity">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/CompoundActivity/activity"/>
