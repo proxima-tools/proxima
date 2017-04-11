@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="be.uantwerpen.msdl.icm.queries.allocation.Allocation" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.allocation.Allocation" id="be.uantwerpen.msdl.icm.queries.allocation.Allocation">
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.allocatedActivity"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.unAllocatedActivity"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.demand"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.resourceInstance"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.unsatisfiedDemand"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.satisfiedDemand"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.satisfiableDemand"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.unsatisfiableDemand"/>
+    </group>
+  </extension>
   <extension id="be.uantwerpen.msdl.icm.queries.general.GeneralPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
     <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.general.GeneralPatterns" id="be.uantwerpen.msdl.icm.queries.general.GeneralPatterns">
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.general.controlFlow"/>
@@ -36,6 +48,46 @@
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.general.intentSubjectGloballyReachableFromProperty"/>
     </group>
   </extension>
+  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns">
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.checkProperty"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.checkProperty2"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.contract"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sharedContract"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sharedContract2"/>
+    </group>
+  </extension>
+  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns">
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sharedProperty"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sequentialSharedProperty"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.parallelSharedProperty"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.readModifySharedProperty"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.modifyModifySharedPropertySequential"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.modifyModifySharedPropertyParallel"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.forkOutControl"/>
+    </group>
+  </extension>
+  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns">
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedReadModify"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedModifyModifyParallel"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedModifyModifySequential"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedReadModify2"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedReadModify3"/>
+    </group>
+  </extension>
+  <extension id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries">
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.costInCircle"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.cost"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.time"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.timeBasedCost"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.timeBasedCostWithTime"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.timeBasedCostInCircle"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.costForPresence"/>
+    </group>
+  </extension>
   <extension id="be.uantwerpen.msdl.icm.queries.validation.Validation" point="org.eclipse.viatra.query.runtime.queryspecification">
     <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.validation.Validation" id="be.uantwerpen.msdl.icm.queries.validation.Validation">
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.validation.finalNotReachableFromNode"/>
@@ -57,58 +109,6 @@
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.validation.controlFlowWithInvalidNumberOfControlFrom"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.validation.controlFlowWithInvalidNumberOfControlTo"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.queries.validation.redundantControlFlows"/>
-    </group>
-  </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries" id="be.uantwerpen.msdl.icm.queries.simulator.SimulatorQueries">
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.costInCircle"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.cost"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.time"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.timeBasedCost"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.timeBasedCostWithTime"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.timeBasedCostInCircle"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.simulator.costForPresence"/>
-    </group>
-  </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns">
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedReadModify"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedModifyModifyParallel"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedModifyModifySequential"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedReadModify2"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.unmanagedReadModify3"/>
-    </group>
-  </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyManagementPatterns">
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.checkProperty"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.checkProperty2"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.contract"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sharedContract"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sharedContract2"/>
-    </group>
-  </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns" id="be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns">
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sharedProperty"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.sequentialSharedProperty"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.parallelSharedProperty"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.readModifySharedProperty"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.modifyModifySharedPropertySequential"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.modifyModifySharedPropertyParallel"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.inconsistencies.forkOutControl"/>
-    </group>
-  </extension>
-  <extension id="be.uantwerpen.msdl.icm.queries.allocation.Allocation" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:be.uantwerpen.msdl.icm.queries.allocation.Allocation" id="be.uantwerpen.msdl.icm.queries.allocation.Allocation">
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.allocatedActivity"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.unAllocatedActivity"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.demand"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.resourceInstance"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.unsatisfiedDemand"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.satisfiedDemand"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.satisfiableDemand"/>
-      <query-specification fqn="be.uantwerpen.msdl.icm.queries.allocation.unsatisfiableDemand"/>
     </group>
   </extension>
 </plugin>
