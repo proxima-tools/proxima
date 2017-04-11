@@ -2,4 +2,11 @@
   <extension point="org.eclipse.sirius.componentization">
     <component class="be.uantwerpen.msdl.process.design.internal.Activator" id="be.uantwerpen.msdl.process.design" name="process"/>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="be.uantwerpen.msdl.process.design.GeneratorProperties"
+           id="be.uantwerpen.msdl.process.design.generatorProperties">
+     </javaActions>
+  </extension>
 </plugin>

@@ -154,8 +154,6 @@
           eType="#//properties/Intent" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
           eType="#//properties/Attribute" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
-          eType="#//properties/Constraint" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RelationshipSubject" abstract="true"
         eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
@@ -169,20 +167,18 @@
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//properties/RelationshipSubject">
       <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
           eType="#//viewpoints/Concern" eOpposite="#//viewpoints/Concern/property"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//properties/Constraint"
-          eOpposite="#//properties/Constraint/property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//properties/RelationshipSubject">
       <eStructuralFeatures xsi:type="ecore:EReference" name="persistedIn" upperBound="-1"
           eType="#//pm/Object" eOpposite="#//pm/Object/attribute"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
-          eType="#//properties/Constraint" eOpposite="#//properties/Constraint/attribute"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//properties/IntentSubject #//base/NamedElement #//properties/Formulated">
+    <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" lowerBound="1"
           eType="#//properties/Precision"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationshipLink" upperBound="-1"
           eType="#//properties/RelationshipLink" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="#//properties/Formula"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RelationshipLink" eSuperTypes="#//base/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" lowerBound="1"
@@ -223,16 +219,6 @@
       <eLiterals name="CONTRACT" value="7"/>
       <eLiterals name="EVAL" value="8" literal="EVAL"/>
       <eLiterals name="RESOLVE_CONSTRAINT" value="9" literal="RESOLVE_CONSTRAINT"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//properties/IntentSubject #//properties/Formulated">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"
-          upperBound="-1" eType="#//properties/Attribute" eOpposite="#//properties/Attribute/constraint"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//properties/Property"
-          eOpposite="#//properties/Property/constraint"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Formulated" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="#//properties/Formula"
-          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//base/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" lowerBound="1"

@@ -1371,4 +1371,16 @@
       </controls>
     </groups>
   </extensions>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="CodeGenProperties">
+    <pages identifier="Default" labelExpression="Code generation" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.1/@groups.0"/>
+    <groups identifier="Default" labelExpression="General" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties:TextDescription" labelExpression="Default package">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="GeneratorPropertiesCall" action="//@extensions.1/@groups.0/@controls.0/@initialOperation/@firstModelOperations/@subModelOperations.0">
+            <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="GeneratorPropertiesAction" id="be.uantwerpen.msdl.process.design.GeneratorProperties"/>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
+    </groups>
+  </extensions>
 </description:Group>
