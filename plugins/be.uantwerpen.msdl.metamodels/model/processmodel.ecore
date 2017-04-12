@@ -169,8 +169,8 @@
           eType="#//viewpoints/Concern" eOpposite="#//viewpoints/Concern/property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//properties/RelationshipSubject">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="persistedIn" upperBound="-1"
-          eType="#//pm/Object" eOpposite="#//pm/Object/attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="persistedIn" eType="#//pm/Object"
+          eOpposite="#//pm/Object/attribute"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" lowerBound="1"
