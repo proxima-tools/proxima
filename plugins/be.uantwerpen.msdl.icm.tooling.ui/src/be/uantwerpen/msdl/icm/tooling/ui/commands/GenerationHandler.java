@@ -14,6 +14,8 @@ package be.uantwerpen.msdl.icm.tooling.ui.commands;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
+import be.uantwerpen.msdl.icm.generator.Generator;
+
 /**
  * @author Istvan David
  *
