@@ -1272,4 +1272,27 @@
       </controls>
     </groups>
   </extensions>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="CodeGenProperties">
+    <pages identifier="Default" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.1/@groups.0"/>
+    <groups identifier="Default" labelExpression="Group" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties:TextDescription" labelExpression="Location" valueExpression="service:getCodeGenLocation()">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenLocation" action="//@extensions.1/@groups.0/@controls.0/@initialOperation/@firstModelOperations/@subModelOperations.0">
+            <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveCodeGenLocationAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenLocationAction">
+              <parameters name="location" value="var:newValue"/>
+            </subModelOperations>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
+      <controls xsi:type="properties:TextDescription" labelExpression="Root package" valueExpression="service:getCodeGenRootPackage()">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenRootPackage" action="//@extensions.1/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0">
+            <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveCodeGenRootPackageAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenRootPackageAction">
+              <parameters name="rootPackage" value="var:newValue"/>
+            </subModelOperations>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
+    </groups>
+  </extensions>
 </description:Group>

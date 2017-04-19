@@ -14,6 +14,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewpointsmodel" eType="#//viewpoints/ViewpointsModel"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="codeGenProperties" lowerBound="1">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
   <eSubpackages name="ftg" nsURI="metamodels.ftg" nsPrefix="be.uantwerpen.msdl.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="FormalismTransformationGraph">
@@ -171,6 +177,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//properties/RelationshipSubject">
       <eStructuralFeatures xsi:type="ecore:EReference" name="persistedIn" eType="#//pm/Object"
           eOpposite="#//pm/Object/attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="featuredIn" upperBound="-1"
+          eType="#//properties/Formula" eOpposite="#//properties/Formula/features"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" lowerBound="1"
@@ -223,6 +231,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//base/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+          eType="#//properties/Attribute" eOpposite="#//properties/Attribute/featuredIn"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Capability" eSuperTypes="#//properties/Attribute">
       <eStructuralFeatures xsi:type="ecore:EReference" name="formalism" eType="#//ftg/Formalism"

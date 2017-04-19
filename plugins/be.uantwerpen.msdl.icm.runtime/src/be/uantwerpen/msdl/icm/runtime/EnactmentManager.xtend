@@ -47,6 +47,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class EnactmentManager {
 
@@ -61,7 +62,7 @@ class EnactmentManager {
 	private ScriptExecutionManager scriptExecutionManager
 
 	// Variable support
-	private VariableManager variableManager
+	@Accessors(PUBLIC_GETTER) VariableManager variableManager
 
 	private ViatraQueryEngine queryEngine
 	private SimulatorTransformations2 simulatorTransformations2
@@ -96,10 +97,8 @@ class EnactmentManager {
 
 		// Variables
 		val propertyModel = processModel.propertyModel
-		val relationships = propertyModel.relationship.toList
-
-		variableManager = VariableManager::instance
-		variableManager.addRelationships(relationships)
+		variableManager = VariableManager.instance
+		variableManager.setup(propertyModel)
 
 		// Scripting
 		if (!scripts.empty) {
@@ -110,7 +109,7 @@ class EnactmentManager {
 					s.simpleName.equalsIgnoreCase((activity as NamedElement).name)
 				]
 				if (script != null) {
-					val runnable = script.newInstance() as IScript
+					val runnable = script.newInstance as IScript
 					activityScripts.put(activity, runnable)
 				}
 			}
@@ -309,8 +308,6 @@ class EnactmentManager {
 	}
 
 	def runAtOnce() {
-		val a = availableActivities.size
-
 		while (availableActivities.size > 0) {
 			if (availableActivities.head instanceof Activity) {
 				(availableActivities.head as Activity).name.stepActivity

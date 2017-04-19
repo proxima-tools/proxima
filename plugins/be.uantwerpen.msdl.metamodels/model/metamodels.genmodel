@@ -180,6 +180,8 @@
       <genClasses ecoreClass="processmodel.ecore#//properties/Attribute">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//properties/Attribute/persistedIn"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Attribute/featuredIn"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/Relationship">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Relationship/precision"/>
@@ -205,6 +207,8 @@
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/Formula">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Formula/definition"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Formula/features"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/Capability">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

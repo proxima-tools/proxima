@@ -9,16 +9,19 @@
  *    Istvan David - initial API and implementation
  *******************************************************************************/
 
-package be.uantwerpen.msdl.icm.runtime.variablemanager.model
+package be.uantwerpen.msdl.icm.runtime.variablemanager.expressions;
 
-import org.eclipse.xtend.lib.annotations.Accessors
+public enum Relation {
 
-class Result {
-	@Accessors(PUBLIC_GETTER) String variableName
-	@Accessors(PUBLIC_GETTER) double value
+	LE("<="), LT("<"), GE(">="), GT(">"), EQ("=");
 
-	new(String variableName, double value) {
-		this.variableName = variableName;
-		this.value = value;
+	private final String symbol;
+
+	Relation(String symbol) {
+		this.symbol = symbol;
+	}
+
+	public String getSymbol() {
+		return symbol;
 	}
 }

@@ -11,7 +11,6 @@
 
 package be.uantwerpen.msdl.icm.runtime
 
-import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager
 import be.uantwerpen.msdl.processmodel.base.NamedElement
 import be.uantwerpen.msdl.processmodel.pm.Final
 import java.io.BufferedReader
@@ -91,8 +90,8 @@ class CommandInterpreter {
 				}
 				case input.toLowerCase.equals(VARDUMP_COMMAND): {
 					logger.debug(String.format("Dumping bound variables."))
-					VariableManager.instance.boundVariables.entrySet.forEach [ entry |
-						println(entry.key + "=" + entry.value)
+					enactmentManager.variableManager.variableStore.boundVariables.forEach [ variable |
+						println(variable.name + "=" + variable.value)
 					]
 				}
 				case input.toLowerCase.equals(EXIT_COMMAND): {

@@ -1,3 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin>
+                                         <extension
+                                               point="org.eclipse.sirius.externalJavaAction">
+                                            <javaActions
+                                                  actionClass="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenLocationAction"
+                                                  id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.codeGenLocationAction">
+                                            </javaActions>
+                                            <javaActions
+                                                  actionClass="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenRootPackageAction"
+                                                  id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.codeGenRootPackageAction">
+                                            </javaActions>
+                                         </extension>
  
 </plugin>

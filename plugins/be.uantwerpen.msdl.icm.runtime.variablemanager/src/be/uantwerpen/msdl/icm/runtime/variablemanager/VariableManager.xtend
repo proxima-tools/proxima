@@ -11,116 +11,150 @@
 
 package be.uantwerpen.msdl.icm.runtime.variablemanager
 
-import be.uantwerpen.msdl.icm.runtime.inconsistencymanager.InconsistencyManager
-import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.ExpressionMapper
-import be.uantwerpen.msdl.icm.runtime.variablemanager.model.Relationship2
-import be.uantwerpen.msdl.icm.runtime.variablemanager.model.Result
+import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.Relation
+import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.ResultType
+import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.SplitEquation
+import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.Variable
+import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import be.uantwerpen.msdl.processmodel.properties.Relationship
+import com.google.common.base.Preconditions
 import com.google.common.collect.Lists
-import com.google.common.collect.Maps
 import com.google.common.collect.Sets
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.File
+import java.io.FileWriter
+import java.io.InputStreamReader
 import java.util.List
-import java.util.Map
 import java.util.Set
-import net.objecthunter.exp4j.Expression
+import java.util.regex.Pattern
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.apache.log4j.Logger
+import org.apache.log4j.Level
 
 class VariableManager {
-	private static VariableManager instance
+	
+	private Logger logger = Logger.getLogger(this.class)
+	
+	val VARIABLE_PATTERN = "[a-zA-Z]+[a-zA-Z0-9]*"
+	val INCONSISTENCY_ERROR_MSG = "AttributeError: 'EmptySet' object has no attribute 'evalf'"
+	val INCONCLUSIVE_ERROR_MSG = "inequality has more than one symbol of interest"
+	val INCONSISTENCY_MSG = "false"
 
-	@Accessors(PUBLIC_GETTER) Map<Relationship, Relationship2> relationships = Maps::newHashMap
+	static VariableManager instance
+	@Accessors(PUBLIC_GETTER) VariableStore variableStore
 
-	def public static getInstance() {
+	public static def getInstance() {
 		if (instance == null) {
-			instance = new VariableManager
+			instance = new VariableManager		
 		}
+
 		instance
 	}
 
-	private new() {
-	}
+	public def setup(PropertyModel propertyModel) {
+		this.variableStore = new VariableStore(propertyModel)
 
-	def addRelationships(List<Relationship> relationships) {
-		this.relationships = new ExpressionMapper().map(relationships)
-	}
-
-	def addRelationship(Relationship relationship, Relationship2 relationship2) {
-		this.relationships.put(relationship, relationship2)
-	}
-
-	def setVariable(String variableName, double value) {
-		for (relationship : relationships.values) {
-			for (expression : relationship.expressions) {
-				for (varName : expression.variableNames) {
-					if (varName.equals(variableName)) {
-						expression.setVariable(variableName, value)
-					}
-				}
-			}
-		}
-		checkExpressions()
-	}
-
-	def checkExpressions() {
-		relationships.entrySet.forEach [ entry |
-			entry.value.expressions.forEach [ e |
-				if (e.validate.errors == null || e.validate.errors.empty) {
-					if (e.evaluate != 0.0) {
-						InconsistencyManager.reportError(entry.key, entry.value)
-					}
-				}
-			]
+		propertyModel.relationship.forEach [ relationship |
+			val splitEquation = relationship.formula.definition.trasformEquation
+			extractVariablesAndEquations(splitEquation, relationship)
 		]
+		
+		this.logger.level = Level::DEBUG
 	}
 
-	def evaluate(Relationship2 relationship) throws Exception {
-		var Expression assignedExpression = null
+	private def SplitEquation trasformEquation(String equation) {
+		Preconditions::checkNotNull(this.variableStore)
 
-		for (expression : relationship.expressions) {
-			if (expression.validate.errors == null || expression.validate.errors.empty) {
-				if (assignedExpression == null) {
-					assignedExpression = expression
-				} else {
-					throw new Exception("Causality hasn't been assigned yet.")
-				}
+		val sanitizedEquation = equation.replace(' ', '')
+
+		if (sanitizedEquation.contains('<=')) { // Le
+			val split = sanitizedEquation.split('<=')
+			return new SplitEquation(split.head, Relation::LE, split.last)
+		} else if (sanitizedEquation.contains('<') && !sanitizedEquation.contains('=')) { // Lt
+			val split = sanitizedEquation.split('<')
+			return new SplitEquation(split.head, Relation::LT, split.last)
+		} else if (sanitizedEquation.contains('>=')) { // Ge
+			val split = sanitizedEquation.split('>=')
+			return new SplitEquation(split.head, Relation::GE, split.last)
+		} else if (sanitizedEquation.contains('>') && !sanitizedEquation.contains('=')) { // Gt
+			val split = sanitizedEquation.split('>')
+			return new SplitEquation(split.head, Relation::GT, split.last)
+		} else if (sanitizedEquation.contains('=') && !sanitizedEquation.contains('<') &&
+			!sanitizedEquation.contains('>')) { // Eq
+			val split = sanitizedEquation.split('=')
+			return new SplitEquation(split.head, Relation::EQ, split.last)
+		}
+	}
+
+	def extractVariablesAndEquations(SplitEquation splitEquation, Relationship relationship) {
+		Preconditions::checkNotNull(this.variableStore)
+
+		// Variables
+		var Set<Variable> variables = Sets::newHashSet
+		val matches = Pattern.compile(VARIABLE_PATTERN).matcher(splitEquation.toString)
+		while (matches.find) {
+			variables.add(new Variable(matches.group, null))
+		}
+		variableStore.addVariables(variables)
+
+		// Equations
+		variableStore.addEquation(splitEquation, relationship)
+
+		// Connection
+		variableStore.associateEquationsWithVariables(splitEquation, variables)
+	}
+
+	def setVariable(String variableName, Double value) {
+		Preconditions::checkNotNull(this.variableStore)
+
+		variableStore.setVariable(variableName, value)
+		evaluateExpressions();
+	}
+
+	def evaluateExpressions() {
+		Preconditions::checkNotNull(this.variableStore)
+
+		val file = File.createTempFile("evaluateExpressions", ".py")
+		file.deleteOnExit()
+		val bufferedWriter = new BufferedWriter(new FileWriter(file))
+		val scriptText = ScriptTemplates.generateSymPyScript(variableStore).toString
+		bufferedWriter.write(scriptText)
+		bufferedWriter.close();
+
+		logger.debug(file.getAbsolutePath())
+		logger.debug(scriptText)
+
+		val runtime = Runtime.getRuntime();
+
+		val process = runtime.exec("python " + file.getAbsolutePath());
+
+		val bufferedReader = new BufferedReader(new InputStreamReader(process.inputStream));
+		val errorReader = new BufferedReader(new InputStreamReader(process.errorStream));
+		val result = evaluate(bufferedReader, errorReader)
+
+		logger.debug(result);
+	}
+
+	private def ResultType evaluate(BufferedReader standardReader, BufferedReader errorReader) {
+		val stdLine = standardReader.readLine();
+		if (stdLine != null) {
+			if (stdLine.equalsIgnoreCase(INCONSISTENCY_MSG)) {
+				return ResultType.INCONSISTENT;
+			} else {
+				return ResultType.OK;
+			}
+		} else if (errorReader.readLine() != null) {
+			val List<String> lines = Lists::newArrayList(errorReader.lines().toArray)
+			if (lines.findFirst[line|line.contains(INCONCLUSIVE_ERROR_MSG)] != null) {
+				return ResultType.INCONCLUSIVE;
+			} else if (lines.findFirst[line|line.contains(INCONSISTENCY_ERROR_MSG)] != null) {
+				return ResultType.INCONSISTENT;
+			} else {
+				return ResultType.INCONCLUSIVE;
 			}
 		}
 
-		if (assignedExpression == null || assignedExpression.unboundVariables(relationship).size > 1) {
-			throw new Exception("Causality hasn't been assigned yet.")
-		}
-
-		return new Result(assignedExpression.unboundVariables(relationship).head, assignedExpression.evaluate)
-	}
-
-	def unboundVariables(Expression expression, Relationship2 relationship) {
-		var List<String> unboundVariables = Lists::newArrayList
-
-		for (variableName : relationship.variableNames) {
-			if (!expression.variables.containsKey(variableName)) {
-				unboundVariables.add(variableName);
-			}
-		}
-
-		return unboundVariables;
-	}
-
-	def getVariableNames(Relationship2 relationship) {
-		var Set<String> variables = Sets::newHashSet
-		for (expression : relationship.expressions) {
-			variables.addAll(expression.variableNames)
-		}
-		variables
-	}
-
-	def getBoundVariables() {
-		var vars = Maps::newHashMap
-		for (entry : relationships.entrySet) {
-			for (expression : entry.value.expressions) {
-				vars.putAll(expression.userVariables)
-			}
-		}
-
-		vars
+		throw new IllegalArgumentException();
 	}
 }
