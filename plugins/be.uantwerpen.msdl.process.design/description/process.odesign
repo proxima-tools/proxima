@@ -1257,10 +1257,33 @@
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" identifier="ActivityProperties">
     <pages identifier="Default" labelExpression="Activity Properties" domainClass="pm.AutomatedActivity" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0"/>
-    <groups identifier="Default" labelExpression="Execution" semanticCandidateExpression="aql:self.typedBy.definition">
-      <controls xsi:type="properties:TextDescription" labelExpression="Action" valueExpression="aql:self.scriptFile">
+    <groups identifier="Default" labelExpression="Execution" domainClass="pm.AutomatedActivity">
+      <controls xsi:type="properties:RadioDescription" labelExpression="Select type" isEnabledExpression="aql:false" candidatesExpression="aql:Sequence{'Java-based', 'Python'}" candidateDisplayExpression="var:candidate" numberOfColumns="2"/>
+      <controls xsi:type="properties:TextDescription" labelExpression="Python script location" helpExpression="If set, a Python-based script is expected. Otherwise a Java-based action is expected. (Called by name.)" isEnabledExpression="aql:false" valueExpression="aql:if(self.typedBy.definition.oclIsKindOf(ftg::ScriptBasedActivityDefinition)) then self.typedBy.definition.oclAsType(ftg::ScriptBasedActivityDefinition).scriptFile else '' endif">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.typedBy">
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.ScriptBasedActivityDefinition" referenceName="definition"/>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.definition">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="scriptFile" valueExpression="var:newValue"/>
+            </subModelOperations>
+          </firstModelOperations>
+        </initialOperation>
+        <style>
+          <labelForegroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
+          <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
+        </style>
+      </controls>
+      <controls xsi:type="properties:TextAreaDescription" labelExpression="Execution parameters" helpExpression="Expected format: a comma-separated list of key-value pairs. Formally: [key1:value1], [key2:value2]..."/>
+    </groups>
+  </extensions>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="TransformationProperties">
+    <pages identifier="Default" labelExpression="Transformation Properties" domainClass="ftg.Transformation" semanticCandidateExpression="var:self" groups="//@extensions.1/@groups.0"/>
+    <groups identifier="Default" labelExpression="Execution" domainClass="ftg.Transformation" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties:TextDescription" labelExpression="Python script location" helpExpression="If set, a Python-based script is expected. Otherwise a Java-based action is expected. (Called by name.)" valueExpression="aql:if(self.definition.oclIsKindOf(ftg::ScriptBasedActivityDefinition)) then self.definition.oclAsType(ftg::ScriptBasedActivityDefinition).scriptFile else '' endif">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
             <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
               <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.ScriptBasedActivityDefinition" referenceName="definition"/>
             </subModelOperations>
@@ -1273,11 +1296,11 @@
     </groups>
   </extensions>
   <extensions xsi:type="properties:ViewExtensionDescription" identifier="CodeGenProperties">
-    <pages identifier="Default" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.1/@groups.0"/>
+    <pages identifier="Default" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@groups.0"/>
     <groups identifier="Default" labelExpression="Group" semanticCandidateExpression="var:self">
       <controls xsi:type="properties:TextDescription" labelExpression="Location" valueExpression="service:getCodeGenLocation()">
         <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenLocation" action="//@extensions.1/@groups.0/@controls.0/@initialOperation/@firstModelOperations/@subModelOperations.0">
+          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenLocation" action="//@extensions.2/@groups.0/@controls.0/@initialOperation/@firstModelOperations/@subModelOperations.0">
             <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveCodeGenLocationAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenLocationAction">
               <parameters name="location" value="var:newValue"/>
             </subModelOperations>
@@ -1286,7 +1309,7 @@
       </controls>
       <controls xsi:type="properties:TextDescription" labelExpression="Root package" valueExpression="service:getCodeGenRootPackage()">
         <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenRootPackage" action="//@extensions.1/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0">
+          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenRootPackage" action="//@extensions.2/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0">
             <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveCodeGenRootPackageAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenRootPackageAction">
               <parameters name="rootPackage" value="var:newValue"/>
             </subModelOperations>
