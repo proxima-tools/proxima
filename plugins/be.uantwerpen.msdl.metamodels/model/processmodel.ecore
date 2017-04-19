@@ -67,6 +67,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ScriptBasedActivityDefinition" eSuperTypes="#//ftg/ActivityDefinition">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JavaBasedActivityDefinition" eSuperTypes="#//ftg/ActivityDefinition"/>
   </eSubpackages>
   <eSubpackages name="pm" nsURI="metamodels.pm" nsPrefix="be.uantwerpen.msdl.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//base/Identifiable #//base/NamedElement">
@@ -116,9 +117,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ManualActivity" eSuperTypes="#//pm/Activity"/>
-    <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//pm/Activity">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//pm/Activity"/>
     <eClassifiers xsi:type="ecore:EClass" name="CompoundActivity" eSuperTypes="#//pm/Activity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="activity" upperBound="-1"
           eType="#//pm/Activity" eOpposite="#//pm/Activity/partOf"/>
