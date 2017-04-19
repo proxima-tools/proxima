@@ -18,14 +18,14 @@ import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript;
 
 public class A4 extends JavaBasedScript {
 
-    @Override
-    public void run() {
-        logger.setLevel(Level.DEBUG);
+	@Override
+	public void run() {
+		logger.setLevel(Level.DEBUG);
 
-        logger.debug("Executing " + this.getClass().getSimpleName());
+		logger.debug("Executing " + this.getClass().getSimpleName());
 
-        logger.debug(String.format("Setting variable %s to value %d", "totalMass", 160));
+		logger.debug(String.format("Setting variable %s to value %d", "totalMass", 160));
 
-        VariableManager.getInstance().setVariable("totalMass", 161);
-    }
+		VariableManager.getInstance().setVariable("totalMass", 161.0);
+	}
 }

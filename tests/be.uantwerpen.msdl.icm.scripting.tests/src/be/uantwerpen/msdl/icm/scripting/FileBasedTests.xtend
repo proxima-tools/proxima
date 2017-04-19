@@ -12,10 +12,10 @@
 package be.uantwerpen.msdl.icm.scripting
 
 import be.uantwerpen.msdl.icm.scripting.python.RuntimeScriptExecutor
-import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
+import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
 
 class FileBasedTests {
 
