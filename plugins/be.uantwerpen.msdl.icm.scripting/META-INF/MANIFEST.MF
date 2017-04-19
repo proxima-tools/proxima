@@ -11,7 +11,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtend.lib.macro,
  org.apache.log4j;bundle-version="1.2.15",
  org.junit,
- jython;bundle-version="1.0.0",
  be.uantwerpen.msdl.metamodels;bundle-version="0.1.0",
  be.uantwerpen.msdl.icm.runtime.variablemanager;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
