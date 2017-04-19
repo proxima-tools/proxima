@@ -4,10 +4,11 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
-import be.uantwerpen.msdl.icm.runtime.codegen.CodeGenConfig;
+import be.uantwerpen.msdl.processmodel.ProcessModel;
 
 public class CodeGenLocationAction implements IExternalJavaAction {
 	Logger logger = Logger.getLogger(this.getClass());
@@ -18,8 +19,8 @@ public class CodeGenLocationAction implements IExternalJavaAction {
 
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
-		String location = (String) parameters.get("location");
-		CodeGenConfig.instance().setLocation(location);
+		EMap<String, String> codeGenProperties = ((ProcessModel) selections.iterator().next()).getCodeGenProperties();
+		codeGenProperties.put("location", parameters.get("location").toString());
 	}
 
 	@Override

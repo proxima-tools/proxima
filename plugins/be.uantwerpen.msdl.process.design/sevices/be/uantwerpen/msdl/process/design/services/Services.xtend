@@ -11,7 +11,6 @@
 
 package be.uantwerpen.msdl.process.design.services
 
-import be.uantwerpen.msdl.icm.runtime.codegen.CodeGenConfig
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.Identifiable
 import be.uantwerpen.msdl.processmodel.pm.Activity
@@ -205,10 +204,10 @@ class Services {
 //		linkedProperties
 //	}
 	def getCodeGenLocation(ProcessModel processModel) {
-		CodeGenConfig.instance.location
+		processModel.codeGenProperties.get("location")
 	}
 
 	def getCodeGenRootPackage(ProcessModel processModel) {
-		CodeGenConfig.instance.rootPackage
+		processModel.codeGenProperties.get("rootPackage")
 	}
 }

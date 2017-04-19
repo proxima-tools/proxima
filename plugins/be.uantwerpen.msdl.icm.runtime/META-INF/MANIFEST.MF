@@ -21,5 +21,4 @@ Require-Bundle: com.google.guava,
  org.eclipse.sirius;bundle-version="4.1.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: be.uantwerpen.msdl.icm.runtime,
- be.uantwerpen.msdl.icm.runtime.codegen,
  be.uantwerpen.msdl.icm.runtime.sirius.externalactions
