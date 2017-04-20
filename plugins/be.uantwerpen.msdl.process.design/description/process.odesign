@@ -1275,7 +1275,15 @@
           <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
         </style>
       </controls>
-      <controls xsi:type="properties:TextAreaDescription" labelExpression="Execution parameters" helpExpression="Expected format: a comma-separated list of key-value pairs. Formally: [key1:value1], [key2:value2]..."/>
+      <controls xsi:type="properties:TextAreaDescription" labelExpression="Execution parameters" helpExpression="Expected format: a comma-separated list of semicolon-separated key-value pairs. Formally: key1:value1, key2:value2..." valueExpression="service:getExecutionParameters()">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveExecutionParameters" action="//@extensions.0/@groups.0/@controls.2/@initialOperation/@firstModelOperations/@subModelOperations.0">
+            <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveExecutionParametersAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.executionParameterAction">
+              <parameters name="parameters" value="var:newValue"/>
+            </subModelOperations>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
     </groups>
   </extensions>
   <extensions xsi:type="properties:ViewExtensionDescription" identifier="TransformationProperties">

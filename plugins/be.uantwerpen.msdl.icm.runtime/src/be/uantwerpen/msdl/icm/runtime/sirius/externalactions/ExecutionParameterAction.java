@@ -17,14 +17,30 @@ import java.util.Map;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 
-import be.uantwerpen.msdl.processmodel.ProcessModel;
+import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity;
 
-public class CodeGenLocationAction extends IcmExternalJavaAction {
+public class ExecutionParameterAction extends IcmExternalJavaAction {
 
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
-		EMap<String, String> codeGenProperties = ((ProcessModel) selections.iterator().next()).getCodeGenProperties();
-		codeGenProperties.put(CODEGEN_LOCATION_PARAM_NAME, parameters.get(CODEGEN_LOCATION_PARAM_NAME).toString());
+		EMap<String, String> executionParameters = ((AutomatedActivity) selections.iterator().next())
+				.getExecutionParameters();
+
+		executionParameters.clear();
+
+		String actualParameters = parameters.get(EXECUTION_PARAMETERS_PARAM_NAME).toString();
+		if(actualParameters.isEmpty()){
+			return;
+		}
+		
+		for (String parameterEntry : actualParameters.toString().replace(" ", "")
+				.split(",")) {
+			String[] splitParameterEntry = parameterEntry.replace(" ", "").split(":");
+			String key = splitParameterEntry[0];
+			String value = splitParameterEntry[1];
+			logger.debug(key + ": " + value);
+			executionParameters.put(key, value);
+		}
 	}
 
 	@Override

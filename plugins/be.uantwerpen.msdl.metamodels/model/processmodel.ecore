@@ -109,12 +109,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//pm/CompoundActivity"
           eOpposite="#//pm/CompoundActivity/activity"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="executionParameters"
-          upperBound="-1" eType="#//pm/ActivityExecutionParameter" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ActivityExecutionParameter" eSuperTypes="#//base/Identifiable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          upperBound="-1" eType="#//base/StringToStringMap" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ManualActivity" eSuperTypes="#//pm/Activity"/>
     <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//pm/Activity"/>

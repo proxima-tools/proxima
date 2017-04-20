@@ -23,6 +23,8 @@ import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import java.util.Set
 import java.util.UUID
+import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
+import com.google.common.base.Joiner
 
 /**
  * Services for the editor
@@ -209,5 +211,9 @@ class Services {
 
 	def getCodeGenRootPackage(ProcessModel processModel) {
 		processModel.codeGenProperties.get("rootPackage")
+	}
+
+	def getExecutionParameters(AutomatedActivity automatedActivity) {
+		Joiner.on(", ").withKeyValueSeparator(":").join(automatedActivity.executionParameters)
 	}
 }

@@ -102,10 +102,6 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/partOf"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/executionParameters"/>
       </genClasses>
-      <genClasses ecoreClass="processmodel.ecore#//pm/ActivityExecutionParameter">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/ActivityExecutionParameter/key"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/ActivityExecutionParameter/value"/>
-      </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ManualActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/CompoundActivity">
