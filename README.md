@@ -21,3 +21,6 @@ The first public release is planned for Summer of 2016.
 2. Install [Sirius 4.1.1](http://download.eclipse.org/sirius/updates/releases/4.1.1/neon).
 3. Install [VIATRA 1.5.0](http://download.eclipse.org/viatra/updates/release).
 4. Import the plugins from this repository's ```plugins``` folder.
+
+### External dependencies
+1. Install [Python3](https://www.python.org/download/releases/3.0/) and [SymPy](http://www.sympy.org) for  for symbolic inconsistency checking.
