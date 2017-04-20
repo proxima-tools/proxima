@@ -150,6 +150,8 @@
           eType="#//properties/Intent" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
           eType="#//properties/Attribute" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="capability" upperBound="-1"
+          eType="#//properties/Capability" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RelationshipSubject" abstract="true"
         eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
@@ -169,6 +171,8 @@
           eOpposite="#//pm/Object/attribute"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="featuredIn" upperBound="-1"
           eType="#//properties/Formula" eOpposite="#//properties/Formula/features"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//properties/Capability"
+          eOpposite="#//properties/Capability/types"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" lowerBound="1"
@@ -224,9 +228,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
           eType="#//properties/Attribute" eOpposite="#//properties/Attribute/featuredIn"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Capability" eSuperTypes="#//properties/Attribute">
+    <eClassifiers xsi:type="ecore:EClass" name="Capability" eSuperTypes="#//properties/RelationshipSubject">
       <eStructuralFeatures xsi:type="ecore:EReference" name="formalism" eType="#//ftg/Formalism"
           eOpposite="#//ftg/Formalism/capability"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+          eType="#//properties/Attribute" eOpposite="#//properties/Attribute/typedBy"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="resources" nsURI="metamodels.resources" nsPrefix="be.uantwerpen.msdl.metamodels">
