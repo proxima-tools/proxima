@@ -12,6 +12,7 @@
 package be.uantwerpen.msdl.icm.generator
 
 import be.uantwerpen.msdl.processmodel.ProcessModel
+import com.google.common.base.Joiner
 import com.google.common.collect.Sets
 import java.io.File
 import java.io.FileWriter
@@ -26,10 +27,16 @@ class Generator {
 
 		println("generating file")
 
-		writer = new FileWriter(new File("C:\\", "EnactmentConfiguration.java"))
+		val location = processModel.codeGenProperties.get("location").replace("\\", "\\\\")
+		val rootPackage = processModel.codeGenProperties.get("rootPackage")
+		val fullPath = Joiner.on("\\\\").join(location, rootPackage.replace(".", "\\\\"))
+
+		val file = new File(fullPath, "EnactmentConfiguration.java")
+		file.parentFile.mkdirs
+		writer = new FileWriter(file)
 
 		writer.append('''
-			package processmodel;
+			package «rootPackage»;
 			
 			public class EnactmentConfiguration{
 				«FOR v : processModel.extractVariables»
