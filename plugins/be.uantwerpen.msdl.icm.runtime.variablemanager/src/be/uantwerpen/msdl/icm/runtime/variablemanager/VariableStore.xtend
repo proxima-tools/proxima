@@ -65,8 +65,12 @@ class VariableStore {
 		variable.value = value
 	}
 
-	def addEquation(SplitEquation equation, Relationship relationship) {
+	def addEquation(SplitEquation equation) {
 		equations.add(equation)
+	}
+
+	def addEquation(SplitEquation equation, Relationship relationship) {
+		addEquation(equation)
 		equationRelationshipCorrespondance.put(equation, relationship)
 	}
 

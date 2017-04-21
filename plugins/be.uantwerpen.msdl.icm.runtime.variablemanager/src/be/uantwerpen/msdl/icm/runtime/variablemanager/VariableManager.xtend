@@ -15,8 +15,11 @@ import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.Relation
 import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.ResultType
 import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.SplitEquation
 import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.Variable
+import be.uantwerpen.msdl.processmodel.properties.Attribute
+import be.uantwerpen.msdl.processmodel.properties.Capability
 import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import be.uantwerpen.msdl.processmodel.properties.Relationship
+import be.uantwerpen.msdl.processmodel.properties.RelationshipDirection
 import com.google.common.base.Preconditions
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
@@ -28,14 +31,14 @@ import java.io.InputStreamReader
 import java.util.List
 import java.util.Set
 import java.util.regex.Pattern
-import org.eclipse.xtend.lib.annotations.Accessors
-import org.apache.log4j.Logger
 import org.apache.log4j.Level
+import org.apache.log4j.Logger
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class VariableManager {
-	
+
 	private Logger logger = Logger.getLogger(this.class)
-	
+
 	val VARIABLE_PATTERN = "[a-zA-Z]+[a-zA-Z0-9]*"
 	val INCONSISTENCY_ERROR_MSG = "AttributeError: 'EmptySet' object has no attribute 'evalf'"
 	val INCONCLUSIVE_ERROR_MSG = "inequality has more than one symbol of interest"
@@ -46,7 +49,7 @@ class VariableManager {
 
 	public static def getInstance() {
 		if (instance == null) {
-			instance = new VariableManager		
+			instance = new VariableManager
 		}
 
 		instance
@@ -55,11 +58,20 @@ class VariableManager {
 	public def setup(PropertyModel propertyModel) {
 		this.variableStore = new VariableStore(propertyModel)
 
-		propertyModel.relationship.forEach [ relationship |
+		// Relationships and constraints over attributes
+		propertyModel.relationship.filter [ relationship |
+			relationship.attributeConstraint
+		].forEach [ relationship |
 			val splitEquation = relationship.formula.definition.trasformEquation
 			extractVariablesAndEquations(splitEquation, relationship)
 		]
-		
+
+		// Constraints over capabilities
+		for (relationship : propertyModel.relationship.filter[relationship|relationship.capabilityConstraint]) {
+			val splitEquation = relationship.formula.definition.trasformEquation
+			extractEquationsForCapabilities(splitEquation, relationship)
+		}
+
 		this.logger.level = Level::DEBUG
 	}
 
@@ -103,6 +115,56 @@ class VariableManager {
 
 		// Connection
 		variableStore.associateEquationsWithVariables(splitEquation, variables)
+	}
+
+	def extractEquationsForCapabilities(SplitEquation splitEquation, Relationship relationship) {
+		Preconditions::checkNotNull(this.variableStore)
+
+		// Variables
+		var Set<Variable> capabilityVariables = Sets::newHashSet
+		val matches = Pattern.compile(VARIABLE_PATTERN).matcher(splitEquation.toString)
+		while (matches.find) {
+			capabilityVariables.add(new Variable(matches.group, null))
+		}
+
+		var List<SplitEquation> equations = Lists::newArrayList(splitEquation)
+
+		for (cVar : capabilityVariables) {
+			val capability = relationship.relationshipLink.findFirst[link|link.subject.name.equals(cVar.name)].
+				subject as Capability
+			val typedAttributes = capability.types
+
+			var newEquations = Lists::newArrayList
+			var oldEquations = Sets::newHashSet
+
+			for (oldEquation : equations) {
+				for (aVar : typedAttributes) {
+					val lhs = oldEquation.lhs.replace(cVar.name, aVar.name)
+					val rhs = oldEquation.rhs.replace(cVar.name, aVar.name)
+					val newEquation = new SplitEquation(lhs, splitEquation.relation, rhs)
+					newEquations.add(newEquation)
+				}
+				oldEquations.add(oldEquation)
+			}
+
+			equations.addAll(newEquations)
+			equations.removeAll(oldEquations)
+		}
+
+		// Equations
+		for (eq : equations) {
+			variableStore.addEquation(eq)
+		}
+
+		// Connection
+		for (eq : equations) {
+			var Set<Variable> variables = Sets::newHashSet
+			val m = Pattern.compile(VARIABLE_PATTERN).matcher(eq.toString)
+			while (m.find) {
+				variables.add(new Variable(m.group, null))
+			}
+			variableStore.associateEquationsWithVariables(eq, variables)
+		}
 	}
 
 	def setVariable(String variableName, Double value) {
@@ -156,5 +218,37 @@ class VariableManager {
 		}
 
 		throw new IllegalArgumentException();
+	}
+
+	// FIXME duplicate from the Validation service
+	private def isConstraint(Relationship relationship) {
+		if (relationship.relationshipLink.size > 1) {
+			return false
+		} else if (!relationship.relationshipLink.head.direction.equals(RelationshipDirection::UNDIRECTED)) {
+			return false
+		}
+
+		return true
+	}
+
+	// FIXME duplicate from the Validation service
+	private def isCapabilityConstraint(Relationship relationship) {
+		if (!isConstraint(relationship)) {
+			return false
+		}
+		val subject = relationship.relationshipLink.head.subject
+		if (!(subject instanceof Capability)) {
+			return false
+		}
+		return true
+	}
+
+	// FIXME duplicate from the Validation service
+	private def isAttributeConstraint(Relationship relationship) {
+		val subject = relationship.relationshipLink.head.subject
+		if (!(subject instanceof Attribute)) {
+			return false
+		}
+		return true
 	}
 }
