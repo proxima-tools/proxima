@@ -28,22 +28,22 @@ import be.uantwerpen.msdl.icm.scripting.scripts.IScript;
 
 public class Runner {
 
-    @Test
-    public void run() {
-        EnactmentManager enactmentManager = new EnactmentManager(new File("processes\\attributetest.processmodel"),
-                getScripts());
-        new CommandInterpreter(enactmentManager).interpret();
-    }
+	@Test
+	public void run() {
+		EnactmentManager enactmentManager = new EnactmentManager(new File("processes\\attributetest.processmodel"),
+				getScripts());
+		new CommandInterpreter(enactmentManager).interpret();
+	}
 
-    // TODO this will be replaced by a smart factory via some generative method
-    private List<Class<? extends IScript>> getScripts() {
-        List<Class<? extends IScript>> scripts = Lists.newArrayList();
+	// TODO this will be replaced by a smart factory via some generative method
+	private List<Class<? extends IScript>> getScripts() {
+		List<Class<? extends IScript>> scripts = Lists.newArrayList();
 
-        scripts.add(A1.class);
-        scripts.add(A2.class);
-        scripts.add(A3.class);
-        scripts.add(A4.class);
+		scripts.add(A1.class);
+		scripts.add(A2.class);
+		scripts.add(A3.class);
+		scripts.add(A4.class);
 
-        return scripts;
-    }
+		return scripts;
+	}
 }

@@ -301,6 +301,9 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.Transformation" referenceName="transformation">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
                   </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.JavaBasedActivityDefinition" referenceName="definition"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -743,6 +746,9 @@
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.ftg->first()">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.Transformation" referenceName="transformation">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.JavaBasedActivityDefinition" referenceName="definition"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>

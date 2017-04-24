@@ -27,6 +27,7 @@ import be.uantwerpen.msdl.icm.scripting.scripts.IScript
 import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.NamedElement
+import be.uantwerpen.msdl.processmodel.ftg.JavaBasedActivityDefinition
 import be.uantwerpen.msdl.processmodel.ftg.ScriptBasedActivityDefinition
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
@@ -192,19 +193,22 @@ class EnactmentManager {
 			return
 		}
 
-		// Execution by name
-		val script = activityScripts.get(activity)
-		if (script != null) {
-			scriptExecutionManager.execute(script)
-		} else {
+		if (activity.typedBy == null) {
+			return
+		}
+
+		if (activity.typedBy.definition instanceof JavaBasedActivityDefinition) {
+			// execute by name
+			val script = activityScripts.get(activity)
+			if (script != null) {
+				scriptExecutionManager.execute(script)
+			}
+		} else if (activity.typedBy.definition instanceof ScriptBasedActivityDefinition) {
 			// Execution by script file
-			if ((activity as AutomatedActivity).typedBy.definition instanceof ScriptBasedActivityDefinition) {
-				val scriptFile = ((activity as AutomatedActivity).typedBy.definition as ScriptBasedActivityDefinition).
-					scriptFile
-				if (scriptFile != null) {
-					logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
-					new ScriptExecutionManager().execute(new PythonScript(scriptFile))
-				}
+			val scriptFile = (activity.typedBy.definition as ScriptBasedActivityDefinition).scriptFile
+			if (scriptFile != null) {
+				logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
+				new ScriptExecutionManager().execute(new PythonScript(scriptFile))
 			}
 		}
 	}
