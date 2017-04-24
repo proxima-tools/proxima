@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="process" version="11.1.1.201610211630">
   <ownedViewpoints name="ProcessViewpoint" label="Process Modeling" modelFileExtension="processmodel">
-    <validationSet name="Relationships vs Constraints">
+    <validationSet name="Validation">
       <ownedRules xsi:type="validation:SemanticValidationRule" name="MalformedConstraint" level="ERROR" message="Invalid Constraint!" targetClass="properties.Relationship">
         <audits auditExpression="service:validConstraint()"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Untyped activity" level="WARNING" message="The activity has no type." targetClass="pm.Activity">
+        <audits auditExpression="aql:self.typedBy!=null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Untyped object" level="WARNING" message="The object has no type." targetClass="pm.Object">
+        <audits auditExpression="aql:self.typedBy!=null"/>
       </ownedRules>
     </validationSet>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ProcessModel" label="Process Model" domainClass="processmodel.ProcessModel">
