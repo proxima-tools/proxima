@@ -222,7 +222,9 @@ class VariableManager {
 
 	// FIXME duplicate from the Validation service
 	private def isConstraint(Relationship relationship) {
-		if (relationship.relationshipLink.size > 1) {
+		if (relationship.relationshipLink.empty) {
+			return false;
+		} else if (relationship.relationshipLink.size > 1) {
 			return false
 		} else if (!relationship.relationshipLink.head.direction.equals(RelationshipDirection::UNDIRECTED)) {
 			return false
