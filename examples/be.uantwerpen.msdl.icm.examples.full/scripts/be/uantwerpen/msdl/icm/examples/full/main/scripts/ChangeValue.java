@@ -9,18 +9,18 @@ import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager;
 import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript;
 
 public class ChangeValue extends JavaBasedScript {
-	@Override
-	public void run() {
+
+	public ChangeValue() {
 		logger.setLevel(Level.DEBUG);
 		logger.debug("Executing " + this.getClass().getSimpleName());
+	}
 
+	@Override
+	public void run() {
 		// TODO Auto-generated definition
 	}
 
 	public void runWithParameters(Map<Object, Object> parameters) {
-		logger.setLevel(Level.DEBUG);
-		logger.debug("Executing " + this.getClass().getSimpleName());
-
 		for (Entry<Object, Object> entry : parameters.entrySet()) {
 			VariableManager.getInstance().setVariable(entry.getKey().toString(),
 					Double.parseDouble(entry.getValue().toString()));
