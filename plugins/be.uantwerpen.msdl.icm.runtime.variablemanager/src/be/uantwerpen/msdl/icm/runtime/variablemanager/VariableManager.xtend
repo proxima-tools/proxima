@@ -98,7 +98,8 @@ class VariableManager {
 			return new SplitEquation(split.head, Relation::EQ, split.last)
 		}
 	}
-
+	
+	// XXX overlaps with extractEquationsForCapabilities
 	def extractVariablesAndEquations(SplitEquation splitEquation, Relationship relationship) {
 		Preconditions::checkNotNull(this.variableStore)
 
@@ -116,7 +117,8 @@ class VariableManager {
 		// Connection
 		variableStore.associateEquationsWithVariables(splitEquation, variables)
 	}
-
+	
+	// XXX XXX overlaps with extractVariablesAndEquations
 	def extractEquationsForCapabilities(SplitEquation splitEquation, Relationship relationship) {
 		Preconditions::checkNotNull(this.variableStore)
 

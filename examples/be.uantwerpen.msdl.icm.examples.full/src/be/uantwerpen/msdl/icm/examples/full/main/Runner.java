@@ -35,7 +35,7 @@ public class Runner {
 		new CommandInterpreter(enactmentManager).interpret();
 	}
 
-	// TODO this will be replaced by a smart factory via some generative method
+	// TODO this could be replaced by a smart factory via some generative method
 	private List<Class<? extends IScript>> getScripts() {
 		List<Class<? extends IScript>> scripts = Lists.newArrayList();
 

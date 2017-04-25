@@ -69,10 +69,8 @@ public class NewProjectWizard2 extends BasicNewProjectResourceWizard {
             createFile(projectHandle, "process/representations.aird");  //TODO fixme
 
         } catch (CoreException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

@@ -18,7 +18,6 @@ public class NewProcessModelWizard extends BasicNewResourceWizard implements INe
 
 	@Override
 	public boolean performFinish() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
