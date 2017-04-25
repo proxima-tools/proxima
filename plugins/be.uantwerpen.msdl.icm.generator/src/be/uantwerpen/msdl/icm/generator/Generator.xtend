@@ -71,17 +71,19 @@ class Generator {
 		val file = new File(path, transformation.name.toFirstUpper + ".java")
 		file.parentFile.mkdirs
 		val writer = new FileWriter(file)
+		
+		val className = transformation.name.toFirstUpper
 
 		writer.append('''
 			package «rootPackage».scripts;
 			
 			import org.apache.log4j.Level;
-			import java.util.List;
+			import java.util.Map;
 			
 			import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager;
 			import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript;
 			
-			public class «transformation.name.toFirstUpper» extends JavaBasedScript{
+			public class «className» extends JavaBasedScript{
 				@Override
 				public void run() {
 					logger.setLevel(Level.DEBUG);
@@ -90,7 +92,7 @@ class Generator {
 					//TODO Auto-generated definition
 				}
 				
-				public void runWithParameters(List<Object> parameters) {
+				public void runWithParameters(Map<Object, Object> parameters) {
 					logger.setLevel(Level.DEBUG);
 					logger.debug("Executing " + this.getClass().getSimpleName());
 					
@@ -115,39 +117,43 @@ class Generator {
 		val file = new File(path, activity.name.toFirstUpper + ".java")
 		file.parentFile.mkdirs
 		val writer = new FileWriter(file)
+		
+		val className = activity.name.toFirstUpper
+		val typeClassName = activity.typedBy.name.toFirstUpper
+		val typeInstanceName = activity.typedBy.name.toFirstLower
 
 		writer.
 			append('''
 				package «rootPackage».scripts;
 				
 				import org.apache.log4j.Level;
-				«IF !activity.executionParameters.empty»
-					import com.google.common.collect.Lists;
-				«ENDIF»
+				import java.util.Map;
+				import com.google.common.collect.Maps;
 				
 				import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager;
 				import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript;
 				
-				public class «activity.name.toFirstUpper» extends JavaBasedScript{
+				public class «className» extends JavaBasedScript{
 					
-					«IF !activity.executionParameters.empty»
-						«FOR parameter : activity.executionParameters»
-							private Object «parameter.key» = "«parameter.value»";
-						«ENDFOR»
-					«ENDIF»
+					private Map<Object, Object> parameters = Maps.newHashMap();
+					
+					//Constructor
+					public «className»() {
+						«IF !activity.executionParameters.empty»
+							«FOR parameter : activity.executionParameters»
+								parameters.put("«parameter.key»", "«parameter.value»");
+							«ENDFOR»
+						«ENDIF»
+					}
 					
 					@Override
 					public void run() {
 						logger.setLevel(Level.DEBUG);
 						logger.debug("Executing " + this.getClass().getSimpleName());
 						
-						«activity.typedBy.name.toFirstUpper» «activity.typedBy.name.toFirstLower» = new «activity.typedBy.name.toFirstUpper»();
+						«typeClassName» «typeInstanceName» = new «typeClassName»();
 						
-						«IF !activity.executionParameters.empty»
-							«activity.typedBy.name».runWithParameters(Lists.newArrayList(«FOR parameter : activity.executionParameters SEPARATOR ", "»«parameter.key»«ENDFOR»));
-						«ELSE»
-							«activity.typedBy.name».run();
-						«ENDIF»
+						«typeInstanceName».runWithParameters(parameters);
 					}
 				}
 			''')

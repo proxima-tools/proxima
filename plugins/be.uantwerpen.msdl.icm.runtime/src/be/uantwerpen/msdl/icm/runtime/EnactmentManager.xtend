@@ -182,7 +182,7 @@ class EnactmentManager {
 			logger.debug("No prepared activity with the matching name.")
 		}
 	}
-
+	
 	def runActivity(Activity activity) {
 		val token = enactment.token.findFirst[t|t.currentNode.equals(activity)]
 		token.state = ActivityState::RUNNING

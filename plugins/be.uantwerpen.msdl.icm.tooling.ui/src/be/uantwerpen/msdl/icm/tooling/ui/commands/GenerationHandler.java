@@ -22,14 +22,13 @@ import be.uantwerpen.msdl.icm.generator.Generator;
  */
 public class GenerationHandler extends Handler {
 
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-        logger.debug("MOCK generation running");
-        
-        new Generator().doGenerate(getModel());
-        
-        System.out.println(getModel().getProcess().get(0).getNode().size());
-        return null;
-    }
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		logger.debug("Invoking generator");
+
+		new Generator().doGenerate(getModel());
+
+		return null;
+	}
 
 }
