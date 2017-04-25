@@ -164,26 +164,4 @@ class Generator {
 	private def appendToPath(String path, String suffix) {
 		Joiner.on("\\\\").join(path, suffix.replace(".", "\\\\"))
 	}
-
-	def extractVariables(ProcessModel processModel) {
-		var Set<String> variables = Sets::newHashSet
-		for (relationship : processModel.propertyModel.relationship) {
-			variables += relationship.formula.definition.extractVariables
-		}
-		variables
-	}
-
-	// FIXME this is almost a duplicate of be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.ExpressionMapper.xtend#extractExpression
-	def extractVariables(String formulaDefinition) {
-		val lhs = formulaDefinition.split('=').head
-		val rhs = formulaDefinition.split('=').last
-
-		var Set<String> variables = Sets::newHashSet
-		val matches = Pattern.compile("[a-zA-Z_]+[a-zA-Z0-9_]*").matcher(lhs + " " + rhs)
-		while (matches.find) {
-			variables += matches.group
-		}
-		variables
-	}
-
 }

@@ -55,6 +55,9 @@ class VariableManager {
 		instance
 	}
 
+	private new() {
+	}
+
 	public def setup(PropertyModel propertyModel) {
 		this.variableStore = new VariableStore(propertyModel)
 
@@ -98,17 +101,12 @@ class VariableManager {
 			return new SplitEquation(split.head, Relation::EQ, split.last)
 		}
 	}
-	
-	// XXX overlaps with extractEquationsForCapabilities
+
 	def extractVariablesAndEquations(SplitEquation splitEquation, Relationship relationship) {
 		Preconditions::checkNotNull(this.variableStore)
 
 		// Variables
-		var Set<Variable> variables = Sets::newHashSet
-		val matches = Pattern.compile(VARIABLE_PATTERN).matcher(splitEquation.toString)
-		while (matches.find) {
-			variables.add(new Variable(matches.group, null))
-		}
+		var variables = splitEquation.variables
 		variableStore.addVariables(variables)
 
 		// Equations
@@ -117,17 +115,12 @@ class VariableManager {
 		// Connection
 		variableStore.associateEquationsWithVariables(splitEquation, variables)
 	}
-	
-	// XXX XXX overlaps with extractVariablesAndEquations
+
 	def extractEquationsForCapabilities(SplitEquation splitEquation, Relationship relationship) {
 		Preconditions::checkNotNull(this.variableStore)
 
 		// Variables
-		var Set<Variable> capabilityVariables = Sets::newHashSet
-		val matches = Pattern.compile(VARIABLE_PATTERN).matcher(splitEquation.toString)
-		while (matches.find) {
-			capabilityVariables.add(new Variable(matches.group, null))
-		}
+		var capabilityVariables = splitEquation.variables
 
 		var List<SplitEquation> equations = Lists::newArrayList(splitEquation)
 
@@ -160,13 +153,18 @@ class VariableManager {
 
 		// Connection
 		for (eq : equations) {
-			var Set<Variable> variables = Sets::newHashSet
-			val m = Pattern.compile(VARIABLE_PATTERN).matcher(eq.toString)
-			while (m.find) {
-				variables.add(new Variable(m.group, null))
-			}
+			var Set<Variable> variables = eq.variables
 			variableStore.associateEquationsWithVariables(eq, variables)
 		}
+	}
+
+	private def getVariables(SplitEquation splitEquation) {
+		var Set<Variable> variables = Sets::newHashSet
+		val matches = Pattern.compile(VARIABLE_PATTERN).matcher(splitEquation.toString)
+		while (matches.find) {
+			variables.add(new Variable(matches.group, null))
+		}
+		variables
 	}
 
 	def setVariable(String variableName, Double value) {
