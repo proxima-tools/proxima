@@ -11,15 +11,14 @@
 
 package be.uantwerpen.msdl.icm.runtime.variablemanager
 
+import be.uantwerpen.msdl.icm.commons.bl.Relationships
 import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.Relation
 import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.ResultType
 import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.SplitEquation
 import be.uantwerpen.msdl.icm.runtime.variablemanager.expressions.Variable
-import be.uantwerpen.msdl.processmodel.properties.Attribute
 import be.uantwerpen.msdl.processmodel.properties.Capability
 import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import be.uantwerpen.msdl.processmodel.properties.Relationship
-import be.uantwerpen.msdl.processmodel.properties.RelationshipDirection
 import com.google.common.base.Preconditions
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
@@ -43,6 +42,8 @@ class VariableManager {
 	val INCONSISTENCY_ERROR_MSG = "AttributeError: 'EmptySet' object has no attribute 'evalf'"
 	val INCONCLUSIVE_ERROR_MSG = "inequality has more than one symbol of interest"
 	val INCONSISTENCY_MSG = "false"
+	
+	private extension val Relationships = new Relationships
 
 	static VariableManager instance
 	@Accessors(PUBLIC_GETTER) VariableStore variableStore
@@ -218,39 +219,5 @@ class VariableManager {
 		}
 
 		throw new IllegalArgumentException();
-	}
-
-	// FIXME duplicate from the Validation service
-	private def isConstraint(Relationship relationship) {
-		if (relationship.relationshipLink.empty) {
-			return false;
-		} else if (relationship.relationshipLink.size > 1) {
-			return false
-		} else if (!relationship.relationshipLink.head.direction.equals(RelationshipDirection::UNDIRECTED)) {
-			return false
-		}
-
-		return true
-	}
-
-	// FIXME duplicate from the Validation service
-	private def isCapabilityConstraint(Relationship relationship) {
-		if (!isConstraint(relationship)) {
-			return false
-		}
-		val subject = relationship.relationshipLink.head.subject
-		if (!(subject instanceof Capability)) {
-			return false
-		}
-		return true
-	}
-
-	// FIXME duplicate from the Validation service
-	private def isAttributeConstraint(Relationship relationship) {
-		val subject = relationship.relationshipLink.head.subject
-		if (!(subject instanceof Attribute)) {
-			return false
-		}
-		return true
 	}
 }
