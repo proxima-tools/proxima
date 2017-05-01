@@ -14,17 +14,17 @@ package be.uantwerpen.msdl.process.design.services
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.Identifiable
 import be.uantwerpen.msdl.processmodel.pm.Activity
+import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
 import be.uantwerpen.msdl.processmodel.pm.Node
 import be.uantwerpen.msdl.processmodel.pm.Process
 import be.uantwerpen.msdl.processmodel.properties.Intent
 import be.uantwerpen.msdl.processmodel.properties.IntentType
 import be.uantwerpen.msdl.processmodel.properties.PropertyModel
+import com.google.common.base.Joiner
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import java.util.Set
 import java.util.UUID
-import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
-import com.google.common.base.Joiner
 
 /**
  * Services for the editor
@@ -33,6 +33,12 @@ import com.google.common.base.Joiner
  */
 class Services {
 	new() {
+	}
+
+	public def calculatePerformance(ProcessModel processModel) {
+		processModel.process.head
+		
+		0.0
 	}
 
 	public def getId(Identifiable identifiable) {
@@ -156,7 +162,6 @@ class Services {
 //		]
 //	}
 //	val dependencyImplications = #[new Pair(IntentType.READ, IntentType.MODIFY)]
-
 	def boolean followedBy(Node node1, Node node2) {
 //		println("testing followedby relationship")
 		node1.collectSubsequentNodes.contains(node2)

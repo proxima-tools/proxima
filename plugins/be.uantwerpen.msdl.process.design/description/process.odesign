@@ -1284,9 +1284,16 @@
         <variables name="root" documentation="The semantic root element of the table."/>
         <variables name="element" documentation="The semantic currently edited element."/>
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
-        <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:self.costModel">
-          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cost.CostFactor" referenceName="costFactor">
-            <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+        <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+          <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.costModel==null">
+            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cost.CostModel" referenceName="costModel">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+            </subModelOperations>
+          </subModelOperations>
+          <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.costModel">
+            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="cost.CostFactor" referenceName="costFactor">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+            </subModelOperations>
           </subModelOperations>
         </firstModelOperation>
       </ownedCreateLine>
@@ -1413,9 +1420,10 @@
       </controls>
     </groups>
   </extensions>
-  <extensions xsi:type="properties:ViewExtensionDescription" identifier="CodeGenProperties">
-    <pages identifier="Default" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@groups.0"/>
-    <groups identifier="Default" labelExpression="Group" semanticCandidateExpression="var:self">
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="ProcessModelProperties">
+    <pages identifier="CodeGenProperties" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@groups.0"/>
+    <pages labelExpression="Performance overview" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@groups.1"/>
+    <groups identifier="CodeGen" labelExpression="Group" semanticCandidateExpression="var:self">
       <controls xsi:type="properties:TextDescription" labelExpression="Location" helpExpression="The absolute path to the directory where the artefacts will be generated. The path must be separated by backslashes. (E.g.: c:\scripts\script.py.) The directory will be created if it does not exists." valueExpression="service:getCodeGenLocation()">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenLocation" action="//@extensions.2/@groups.0/@controls.0/@initialOperation/@firstModelOperations/@subModelOperations.0">
@@ -1434,6 +1442,9 @@
           </firstModelOperations>
         </initialOperation>
       </controls>
+    </groups>
+    <groups identifier="Performance" labelExpression="Group" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties:LabelDescription" labelExpression="Performance" valueExpression="service:calculatePerformance()"/>
     </groups>
   </extensions>
 </description:Group>

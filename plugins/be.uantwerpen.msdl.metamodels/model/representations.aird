@@ -86,6 +86,10 @@
         <children xmi:type="notation:Node" xmi:id="_pqss0FojEea6VL_6AJL-SA" type="2003" element="_pqf4gFojEea6VL_6AJL-SA">
           <children xmi:type="notation:Node" xmi:id="_pqtT4FojEea6VL_6AJL-SA" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_pqt68FojEea6VL_6AJL-SA" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_yUoC0CsjEeeQjKred69-6w" type="3010" element="_yUJhsCsjEeeQjKred69-6w">
+              <styles xmi:type="notation:FontStyle" xmi:id="_yUoC0SsjEeeQjKred69-6w" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_yUoC0isjEeeQjKred69-6w"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_pqt68VojEea6VL_6AJL-SA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_pqt68lojEea6VL_6AJL-SA"/>
           </children>
@@ -148,6 +152,10 @@
             <children xmi:type="notation:Node" xmi:id="_W8xpww78EeelwMiw1Ru7Rw" type="3010" element="_W8ZPQg78EeelwMiw1Ru7Rw">
               <styles xmi:type="notation:FontStyle" xmi:id="_W8xpxA78EeelwMiw1Ru7Rw" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_W8xpxQ78EeelwMiw1Ru7Rw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_yUoC0ysjEeeQjKred69-6w" type="3010" element="_yUVu8CsjEeeQjKred69-6w">
+              <styles xmi:type="notation:FontStyle" xmi:id="_yUoC1CsjEeeQjKred69-6w" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_yUoC1SsjEeeQjKred69-6w"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_tNaloVojEea6VL_6AJL-SA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_tNalolojEea6VL_6AJL-SA"/>
@@ -395,6 +403,14 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_yUJhsCsjEeeQjKred69-6w" name=" codeGenProperties : StringToStringMap" tooltipText="">
+        <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/codeGenProperties"/>
+        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/codeGenProperties"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_yUJhsSsjEeeQjKred69-6w" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_rMKfkFojEea6VL_6AJL-SA" name="FormalismTransformationGraph" tooltipText="" incomingEdges="_rMVesFojEea6VL_6AJL-SA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="processmodel.ecore#//ftg/FormalismTransformationGraph"/>
@@ -532,6 +548,14 @@
         <target xmi:type="ecore:EReference" href="processmodel.ecore#//properties/PropertyModel/attribute"/>
         <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//properties/PropertyModel/attribute"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_W8ZPQw78EeelwMiw1Ru7Rw" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_yUVu8CsjEeeQjKred69-6w" name=" capability : Capability" tooltipText="">
+        <target xmi:type="ecore:EReference" href="processmodel.ecore#//properties/PropertyModel/capability"/>
+        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//properties/PropertyModel/capability"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_yUVu8SsjEeeQjKred69-6w" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
@@ -5080,6 +5104,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_Xwg_geF4EeaduPnFrYaoVQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Xwg_guF4EeaduPnFrYaoVQ"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_PhsE0CsiEeeQjKred69-6w" type="3010" element="_PhZw8CsiEeeQjKred69-6w">
+              <styles xmi:type="notation:FontStyle" xmi:id="_PhsE0SsiEeeQjKred69-6w" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_PhsE0isiEeeQjKred69-6w"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_QERMgl1VEeaeuJbdLuxDgg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_QERMg11VEeaeuJbdLuxDgg"/>
           </children>
@@ -5347,7 +5375,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_QEKe0V1VEeaeuJbdLuxDgg" name=" typedBy : Transformation" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_QEKe0V1VEeaeuJbdLuxDgg" name=" typedBy : ActivityType" tooltipText="">
         <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Activity/typedBy"/>
         <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Activity/typedBy"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_QEKe0l1VEeaeuJbdLuxDgg" labelAlignment="LEFT" color="114,159,207">
@@ -5383,6 +5411,14 @@
         <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Activity/partOf"/>
         <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Activity/partOf"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Xv6ikeF4EeaduPnFrYaoVQ" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_PhZw8CsiEeeQjKred69-6w" name=" executionParameters : StringToStringMap" tooltipText="">
+        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Activity/executionParameters"/>
+        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Activity/executionParameters"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PhZw8SsiEeeQjKred69-6w" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
