@@ -24,3 +24,5 @@ The first public release is planned for Summer of 2016.
 
 ### External dependencies
 1. Install [Python3](https://www.python.org/download/releases/3.0/) and [SymPy](http://www.sympy.org) for  for symbolic inconsistency checking.
+
+2. Install [Matlab/Simulink] and set up your environment for the Java API as described [here](https://nl.mathworks.com/help/matlab/matlab_external/setup-environment.html). 
