@@ -12,9 +12,9 @@
 package be.uantwerpen.msdl.icm.commons.bl
 
 import be.uantwerpen.msdl.processmodel.properties.Attribute
+import be.uantwerpen.msdl.processmodel.properties.Capability
 import be.uantwerpen.msdl.processmodel.properties.Relationship
 import be.uantwerpen.msdl.processmodel.properties.RelationshipDirection
-import org.osgi.resource.Capability
 
 class Relationships {
 	def isConstraint(Relationship relationship) {
