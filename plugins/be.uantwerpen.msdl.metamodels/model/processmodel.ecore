@@ -152,6 +152,8 @@
           eType="#//properties/Attribute" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="capability" upperBound="-1"
           eType="#//properties/Capability" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contract" upperBound="-1"
+          eType="#//properties/Contract" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RelationshipSubject" abstract="true"
         eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
@@ -233,6 +235,24 @@
           eOpposite="#//ftg/Formalism/capability"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
           eType="#//properties/Attribute" eOpposite="#//properties/Attribute/typedBy"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Contract" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contractConstraints"
+          upperBound="-1" eType="#//properties/ContractConstraint" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="satisfaction" eType="#//properties/PropertySatisfaction"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContractConstraint" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"
+          eType="#//properties/Attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+          eType="#//properties/Relationship"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PropertySatisfaction" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
+          eType="#//properties/Property"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="satisfactionRelationship"
+          lowerBound="1" eType="#//properties/Relationship"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="resources" nsURI="metamodels.resources" nsPrefix="be.uantwerpen.msdl.metamodels">
