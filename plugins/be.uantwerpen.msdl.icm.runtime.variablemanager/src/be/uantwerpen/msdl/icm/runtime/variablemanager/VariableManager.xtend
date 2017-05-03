@@ -38,7 +38,7 @@ class VariableManager {
 
 	private Logger logger = Logger.getLogger(this.class)
 
-	val VARIABLE_PATTERN = "[a-zA-Z]+[a-zA-Z0-9]*"
+	val VARIABLE_PATTERN = "[_a-zA-Z]+[_a-zA-Z0-9]*"
 	val INCONSISTENCY_ERROR_MSG = "AttributeError: 'EmptySet' object has no attribute 'evalf'"
 	val INCONCLUSIVE_ERROR_MSG = "inequality has more than one symbol of interest"
 	val INCONSISTENCY_MSG = "false"

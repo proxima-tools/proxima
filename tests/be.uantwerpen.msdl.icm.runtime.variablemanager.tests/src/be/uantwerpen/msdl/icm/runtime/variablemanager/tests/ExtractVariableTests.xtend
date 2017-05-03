@@ -34,7 +34,7 @@ class ExtractVariableTests {
 	def void attributeTest() {
 		variableStore.variables.clear
 
-		val testVariables = #["a", "b", "c"]
+		val testVariables = #["__a_", "b", "c"]
 
 		val splitEquation = new SplitEquation(String::format("%s + %s", testVariables.get(0), testVariables.get(1)),
 			Relation::LT, String::format("%s", testVariables.get(2)))
