@@ -13,6 +13,8 @@ package be.uantwerpen.msdl.process.design.services
 
 import be.uantwerpen.msdl.icm.commons.bl.Relationships
 import be.uantwerpen.msdl.processmodel.properties.Relationship
+import be.uantwerpen.msdl.processmodel.properties.RelationshipLink
+import be.uantwerpen.msdl.processmodel.properties.RelationshipDirection
 
 class Validation {
 
@@ -26,6 +28,10 @@ class Validation {
 			return relationship.capabilityConstraint || relationship.attributeConstraint
 		}
 		return true
+	}
+	
+	public def noDirectedRelationshipLinks(RelationshipLink relationshipLink){
+		return relationshipLink.direction.equals(RelationshipDirection::UNDIRECTED)
 	}
 
 }

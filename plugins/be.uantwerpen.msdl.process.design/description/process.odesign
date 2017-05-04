@@ -11,6 +11,9 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Untyped object" level="WARNING" message="The object has no type." targetClass="pm.Object">
         <audits auditExpression="aql:self.typedBy!=null"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoDirectedRelationshipLinks" level="ERROR" message="Directed relationship links are currently not supported. Please use an undirected relationship link." targetClass="properties.RelationshipLink">
+        <audits auditExpression="service:noDirectedRelationshipLinks()"/>
+      </ownedRules>
     </validationSet>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ProcessModel" label="Process Model" domainClass="processmodel.ProcessModel">
       <defaultLayer name="Default">
@@ -542,51 +545,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createDirectedRelationshipLink" label="Rel. link (Directed)" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/arrow-red.png">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(properties::Relationship)">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="properties.RelationshipLink" referenceName="relationshipLink">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:target"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="direction" valueExpression="aql:properties::RelationshipDirection::PROPERTY"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(properties::Property)">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="properties.RelationshipLink" referenceName="relationshipLink">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:source"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="direction" valueExpression="aql:properties::RelationshipDirection::RELATIONSHIP"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(properties::Attribute)">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="properties.RelationshipLink" referenceName="relationshipLink">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:source"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="direction" valueExpression="aql:properties::RelationshipDirection::RELATIONSHIP"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(properties::Capability)">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="properties.RelationshipLink" referenceName="relationshipLink">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="subject" valueExpression="var:source"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="direction" valueExpression="aql:properties::RelationshipDirection::RELATIONSHIP"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createUndirectedRelationshipLink" label="Rel. link (Undirected)" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/edge-red2.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createUndirectedRelationshipLink" label="Relationship link" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']" iconPath="/be.uantwerpen.msdl.process.design/icons/edge-red2.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
