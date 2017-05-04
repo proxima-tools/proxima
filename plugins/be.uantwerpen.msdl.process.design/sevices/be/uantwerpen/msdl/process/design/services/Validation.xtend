@@ -13,8 +13,8 @@ package be.uantwerpen.msdl.process.design.services
 
 import be.uantwerpen.msdl.icm.commons.bl.Relationships
 import be.uantwerpen.msdl.processmodel.properties.Relationship
-import be.uantwerpen.msdl.processmodel.properties.RelationshipLink
 import be.uantwerpen.msdl.processmodel.properties.RelationshipDirection
+import be.uantwerpen.msdl.processmodel.properties.RelationshipLink
 
 class Validation {
 
@@ -23,14 +23,37 @@ class Validation {
 	new() {
 	}
 
+	public def validRelationship(Relationship relationship) {
+		if (relationship.isConstraint) {
+			return true // checked in a separate rule
+		} else if (relationship.isPropertyDefinitionRelationship) {
+			return true // checked in a separate rule
+		}
+
+		// TODO add validation logic if required
+		return true
+	}
+
 	public def validConstraint(Relationship relationship) {
 		if (relationship.constraint) {
 			return relationship.capabilityConstraint || relationship.attributeConstraint
 		}
+
+		// else don't care
 		return true
 	}
-	
-	public def noDirectedRelationshipLinks(RelationshipLink relationshipLink){
+
+	public def validPropertyDefinitionRelationship(Relationship relationship) {
+		if (relationship.isPropertyDefinitionRelationship) {
+			// TODO add validation logic if required
+			return true
+		}
+
+		// else don't care
+		return true
+	}
+
+	public def noDirectedRelationshipLinks(RelationshipLink relationshipLink) {
 		return relationshipLink.direction.equals(RelationshipDirection::UNDIRECTED)
 	}
 

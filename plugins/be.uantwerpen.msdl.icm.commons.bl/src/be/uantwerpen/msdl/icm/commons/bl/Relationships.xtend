@@ -13,10 +13,38 @@ package be.uantwerpen.msdl.icm.commons.bl
 
 import be.uantwerpen.msdl.processmodel.properties.Attribute
 import be.uantwerpen.msdl.processmodel.properties.Capability
+import be.uantwerpen.msdl.processmodel.properties.Property
 import be.uantwerpen.msdl.processmodel.properties.Relationship
 import be.uantwerpen.msdl.processmodel.properties.RelationshipDirection
+import be.uantwerpen.msdl.processmodel.properties.RelationshipSubject
+import java.util.HashMap
 
 class Relationships {
+
+	def isSimpleRelationship(Relationship relationship) {
+		if(relationship.isConstraint || relationship.isPropertyDefinitionRelationship) return false
+		
+		var typeMap = new HashMap<Class<? extends RelationshipSubject>, Integer>
+
+		for (subject : relationship.relationshipLink.map[r|r.subject]) {
+			if (typeMap.containsKey(subject.class)) {
+				var count = typeMap.get(subject.class)
+				count++
+			} else {
+				typeMap.put(subject.class, 1)
+			}
+		}
+		
+		return typeMap.entrySet.size == 1
+	}
+
+	def isPropertyDefinitionRelationship(Relationship relationship) {
+		if(!(relationship.relationshipLink.size == 2)) return false
+		val hasProperty = relationship.relationshipLink.map[rl|rl.subject].exists[s|s instanceof Property]
+		val hasAttribute = relationship.relationshipLink.map[rl|rl.subject].exists[s|s instanceof Attribute]
+		return hasProperty && hasAttribute
+	}
+
 	def isConstraint(Relationship relationship) {
 		if (relationship.relationshipLink.empty) {
 			return false;
