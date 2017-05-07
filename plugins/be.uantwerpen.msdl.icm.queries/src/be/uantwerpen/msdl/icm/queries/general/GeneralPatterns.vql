@@ -197,10 +197,10 @@ pattern sequentialActivitiesDirect(activity1: Activity, activity2: Activity){
 pattern associatedProperties(property1: Property, link1: RelationshipLink, property2: Property, link2: RelationshipLink){
 //	property1 != property2;
 	Relationship.relationshipLink(relationship, link1);
-	Property.relationshipLink(property1, link1);
+	Property.subjectOf(property1, link1);
 	
 	Relationship.relationshipLink(relationship, link2);
-	Property.relationshipLink(property2, link2);
+	Property.subjectOf(property2, link2);
 }
 
 pattern propertyDirectlyReachableFromProperty(toProperty: Property, fromProperty: Property){
@@ -225,7 +225,7 @@ pattern propertyGloballyReachableFromProperty(toProperty: Property, fromProperty
 }
 
 pattern intentSubjectGloballyReachableFromProperty(intentSubject: IntentSubject, property: Property){
-	RelationshipSubject.relationshipLink(intentSubject, link);
+	RelationshipSubject.subjectOf(intentSubject, link);
 	RelationshipLink.subject(link, property1);
 	find propertyDirectlyReachableFromProperty+(property1, property);
 }

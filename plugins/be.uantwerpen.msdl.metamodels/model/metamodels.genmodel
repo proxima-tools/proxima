@@ -165,7 +165,7 @@
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//properties/RelationshipSubject">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//properties/RelationshipSubject/relationshipLink"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/RelationshipSubject/subjectOf"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//properties/RelationshipSubject/refinedInto"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
