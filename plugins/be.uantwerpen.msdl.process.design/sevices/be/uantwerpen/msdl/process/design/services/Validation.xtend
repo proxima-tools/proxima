@@ -12,6 +12,7 @@
 package be.uantwerpen.msdl.process.design.services
 
 import be.uantwerpen.msdl.icm.commons.bl.Relationships
+import be.uantwerpen.msdl.processmodel.properties.Precision
 import be.uantwerpen.msdl.processmodel.properties.Relationship
 import be.uantwerpen.msdl.processmodel.properties.RelationshipDirection
 import be.uantwerpen.msdl.processmodel.properties.RelationshipLink
@@ -21,6 +22,13 @@ class Validation {
 	private extension val Relationships = new Relationships
 
 	new() {
+	}
+
+	public def formulaOnlyInL3Relationship(Relationship relationship) {
+		if (relationship.formula != null) {
+			return relationship.precision.equals(Precision::L3)
+		}
+		return true
 	}
 
 	public def validRelationship(Relationship relationship) {

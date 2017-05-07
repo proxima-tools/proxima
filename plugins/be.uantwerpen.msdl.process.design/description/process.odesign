@@ -20,6 +20,9 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="InvalidSimpleRelationship" level="ERROR" message="Invalid relationship." targetClass="properties.Relationship">
         <audits auditExpression="service:validRelationship()"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="FormulaInNonL3Relationship" level="ERROR" message="Formulas are supported for L3 relationships only." targetClass="properties.Relationship">
+        <audits auditExpression="service:formulaOnlyInL3Relationship()"/>
+      </ownedRules>
     </validationSet>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ProcessModel" label="Process Model" domainClass="processmodel.ProcessModel">
       <defaultLayer name="Default">
