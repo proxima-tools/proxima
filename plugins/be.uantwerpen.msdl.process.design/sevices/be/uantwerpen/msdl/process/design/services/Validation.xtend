@@ -13,9 +13,12 @@ package be.uantwerpen.msdl.process.design.services
 
 import be.uantwerpen.msdl.icm.commons.bl.Relationships
 import be.uantwerpen.msdl.processmodel.properties.Precision
+import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import be.uantwerpen.msdl.processmodel.properties.Relationship
 import be.uantwerpen.msdl.processmodel.properties.RelationshipDirection
 import be.uantwerpen.msdl.processmodel.properties.RelationshipLink
+import be.uantwerpen.msdl.processmodel.properties.RelationshipSubject
+import com.google.common.collect.Lists
 
 class Validation {
 
@@ -29,6 +32,18 @@ class Validation {
 			return relationship.precision.equals(Precision::L3)
 		}
 		return true
+	}
+
+	public def uniqueAttributeNames(RelationshipSubject relationshipSubject) {
+		val propetyModel = relationshipSubject.eContainer as PropertyModel
+		val subjects = Lists::newArrayList
+		#[propetyModel.attribute, propetyModel.capability, propetyModel.relationship, propetyModel.property].forEach [subject |
+			subjects.addAll(subject)
+		]
+
+		return !subjects.filter[subject|!subject.name.empty].exists [ subject |
+			subject.name.equalsIgnoreCase(relationshipSubject.name) && subject != relationshipSubject
+		]
 	}
 
 	public def validRelationship(Relationship relationship) {

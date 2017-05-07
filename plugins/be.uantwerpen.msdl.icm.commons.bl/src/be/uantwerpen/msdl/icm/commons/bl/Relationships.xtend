@@ -22,8 +22,9 @@ import java.util.HashMap
 class Relationships {
 
 	def isSimpleRelationship(Relationship relationship) {
-		if(relationship.isConstraint || relationship.isPropertyDefinitionRelationship) return false
-		
+		if(relationship.isConstraint || relationship.isPropertyDefinitionRelationship ||
+			relationship.isHigherOrderRelationship) return false
+
 		var typeMap = new HashMap<Class<? extends RelationshipSubject>, Integer>
 
 		for (subject : relationship.relationshipLink.map[r|r.subject]) {
@@ -34,7 +35,7 @@ class Relationships {
 				typeMap.put(subject.class, 1)
 			}
 		}
-		
+
 		return typeMap.entrySet.size == 1
 	}
 
@@ -45,10 +46,16 @@ class Relationships {
 		return hasProperty && hasAttribute
 	}
 
+	def isHigherOrderRelationship(Relationship relationship) {
+		return relationship.relationshipLink.exists [ link |
+			link.subject instanceof Relationship
+		]
+	}
+
 	def isConstraint(Relationship relationship) {
 		if (relationship.relationshipLink.empty) {
 			return false;
-		} else if (relationship.relationshipLink.size > 1) {
+		} else if (relationship.relationshipLink.size > 1) { // FIXME: this sort of relationshiplink counting may be buggy all over the code because of the containment reference is added to the source
 			return false
 		} else if (!relationship.relationshipLink.head.direction.equals(RelationshipDirection::UNDIRECTED)) {
 			return false

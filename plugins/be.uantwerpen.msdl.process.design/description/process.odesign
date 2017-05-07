@@ -23,6 +23,9 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="FormulaInNonL3Relationship" level="ERROR" message="Formulas are supported for L3 relationships only." targetClass="properties.Relationship">
         <audits auditExpression="service:formulaOnlyInL3Relationship()"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="DuplicateAttributeName" level="ERROR" message="Duplicate name." targetClass="properties.RelationshipSubject">
+        <audits auditExpression="service:uniqueAttributeNames()"/>
+      </ownedRules>
     </validationSet>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ProcessModel" label="Process Model" domainClass="processmodel.ProcessModel">
       <defaultLayer name="Default">
