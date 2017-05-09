@@ -73,7 +73,12 @@ class EnactmentManager {
 		val extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.extensionToFactoryMap
 		extensionToFactoryMap.put("processmodel", new XMIResourceFactoryImpl())
 		val resourceSet = new ResourceSetImpl()
-		val resource = resourceSet.getResource(URI.createURI(processModelFile.path), true)
+		val resource = if (processModelFile.path.toLowerCase.startsWith('c') ||
+				processModelFile.path.toLowerCase.startsWith('d')) {
+				resourceSet.getResource(URI.createFileURI(processModelFile.path), true)
+			} else {
+				resourceSet.getResource(URI.createURI(processModelFile.path), true)
+			}
 
 		setUpProcessModel(resource.contents.head as ProcessModel, scripts)
 	}
@@ -182,7 +187,7 @@ class EnactmentManager {
 			logger.debug("No prepared activity with the matching name.")
 		}
 	}
-	
+
 	def runActivity(Activity activity) {
 		val token = enactment.token.findFirst[t|t.currentNode.equals(activity)]
 		token.state = ActivityState::RUNNING
