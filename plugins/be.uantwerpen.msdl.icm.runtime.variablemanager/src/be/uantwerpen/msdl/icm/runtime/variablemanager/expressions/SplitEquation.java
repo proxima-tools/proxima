@@ -12,14 +12,24 @@
 package be.uantwerpen.msdl.icm.runtime.variablemanager.expressions;
 
 public class SplitEquation {
+	private String name = "";
 	private String lhs;
 	private Relation relation;
 	private String rhs;
+
+	public SplitEquation(String name, String lhs, Relation relation, String rhs) {
+		this(lhs, relation, rhs);
+		this.name = name;
+	}
 
 	public SplitEquation(String lhs, Relation relation, String rhs) {
 		this.lhs = lhs;
 		this.relation = relation;
 		this.rhs = rhs;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public String getLhs() {
@@ -34,8 +44,21 @@ public class SplitEquation {
 		return rhs;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
 		return lhs + " " + relation.getSymbol() + " " + rhs;
+	}
+
+	public String prettyPrint() {
+		StringBuilder stringBuilder = new StringBuilder();
+		if (!name.isEmpty()) {
+			stringBuilder.append(name + ": ");
+		}
+		stringBuilder.append(this.toString());
+		return stringBuilder.toString();
 	}
 }

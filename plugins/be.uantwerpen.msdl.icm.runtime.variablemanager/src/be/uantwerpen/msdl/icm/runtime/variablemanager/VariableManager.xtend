@@ -42,7 +42,7 @@ class VariableManager {
 	val INCONSISTENCY_ERROR_MSG = "AttributeError: 'EmptySet' object has no attribute 'evalf'"
 	val INCONCLUSIVE_ERROR_MSG = "inequality has more than one symbol of interest"
 	val INCONSISTENCY_MSG = "false"
-	
+
 	private extension val Relationships = new Relationships
 
 	static VariableManager instance
@@ -63,44 +63,60 @@ class VariableManager {
 		this.variableStore = new VariableStore(propertyModel)
 
 		// Relationships and constraints over attributes
-		propertyModel.relationship.filter [ relationship |
-			relationship.attributeConstraint
-		].forEach [ relationship |
-			val splitEquation = relationship.formula.definition.trasformEquation
+		for (relationship : propertyModel.relationship.filter [ relationship |
+			relationship.attributeConstraint || relationship.simpleRelationship
+		]) {
+			val splitEquation = relationship.trasformEquation
 			extractVariablesAndEquations(splitEquation, relationship)
-		]
+		}
 
 		// Constraints over capabilities
 		for (relationship : propertyModel.relationship.filter[relationship|relationship.capabilityConstraint]) {
-			val splitEquation = relationship.formula.definition.trasformEquation
+			val splitEquation = relationship.trasformEquation
 			extractEquationsForCapabilities(splitEquation, relationship)
 		}
 
+//TODO
+//		// Higher-order relationships
+//		for (relationship : propertyModel.relationship.filter[relationship|relationship.higherOrderRelationship]) {
+//		}
 		this.logger.level = Level::DEBUG
 	}
 
-	private def SplitEquation trasformEquation(String equation) {
+	private def SplitEquation trasformEquation(Relationship relationship) {
 		Preconditions::checkNotNull(this.variableStore)
+		Preconditions::checkNotNull(relationship.formula)
+		Preconditions::checkNotNull(relationship.formula.definition)
+
+		val equation = relationship.formula.definition
 
 		val sanitizedEquation = equation.replace(' ', '')
 
+		var SplitEquation splitEquation
+
 		if (sanitizedEquation.contains('<=')) { // Le
 			val split = sanitizedEquation.split('<=')
-			return new SplitEquation(split.head, Relation::LE, split.last)
+			splitEquation = new SplitEquation(split.head, Relation::LE, split.last)
 		} else if (sanitizedEquation.contains('<') && !sanitizedEquation.contains('=')) { // Lt
 			val split = sanitizedEquation.split('<')
-			return new SplitEquation(split.head, Relation::LT, split.last)
+			splitEquation = new SplitEquation(split.head, Relation::LT, split.last)
 		} else if (sanitizedEquation.contains('>=')) { // Ge
 			val split = sanitizedEquation.split('>=')
-			return new SplitEquation(split.head, Relation::GE, split.last)
+			splitEquation = new SplitEquation(split.head, Relation::GE, split.last)
 		} else if (sanitizedEquation.contains('>') && !sanitizedEquation.contains('=')) { // Gt
 			val split = sanitizedEquation.split('>')
-			return new SplitEquation(split.head, Relation::GT, split.last)
+			splitEquation = new SplitEquation(split.head, Relation::GT, split.last)
 		} else if (sanitizedEquation.contains('=') && !sanitizedEquation.contains('<') &&
 			!sanitizedEquation.contains('>')) { // Eq
 			val split = sanitizedEquation.split('=')
-			return new SplitEquation(split.head, Relation::EQ, split.last)
+			splitEquation = new SplitEquation(split.head, Relation::EQ, split.last)
 		}
+
+		if (!relationship.name.empty) {
+			splitEquation.name = relationship.name
+		}
+
+		return splitEquation
 	}
 
 	def extractVariablesAndEquations(SplitEquation splitEquation, Relationship relationship) {

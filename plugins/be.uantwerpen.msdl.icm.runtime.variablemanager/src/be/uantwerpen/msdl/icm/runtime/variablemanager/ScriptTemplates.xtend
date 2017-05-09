@@ -26,14 +26,14 @@ class ScriptTemplates {
 		
 		#Equations
 		«FOR equation : variableStore.equations»
-			eq«variableStore.equations.indexOf(equation)» = «equation.toSymPyString»
+			«equation.getEquationName(variableStore)» = «equation.toSymPyString»
 		«ENDFOR»
 		
 		#Substitutions
 		«getEquations(variableStore)»
 		
 		#Solve
-		print(solve([«FOR equation : variableStore.equations SEPARATOR ', '»eq«variableStore.equations.indexOf(equation)»«ENDFOR»]))
+		print(solve([«FOR equation : variableStore.equations SEPARATOR ', '»«equation.getEquationName(variableStore)»«ENDFOR»]))
 	'''
 
 	private static def toSymPyString(SplitEquation splitEquation) {
@@ -51,13 +51,20 @@ class ScriptTemplates {
 
 		for (entry : variableStore.variablesInEquations.filter[variable, equations|variable.bound].entrySet) {
 			for (eq : entry.value) {
-				val index = variableStore.equations.indexOf(eq)
 				substitutions +=
-					'''eq«index» = eq«index».subs([(«entry.key.name», «variableStore.variables.findFirst[variable | variable.name.equals(entry.key.name)].value»)])
+					'''«eq.getEquationName(variableStore)» = «eq.getEquationName(variableStore)».subs([(«entry.key.name», «variableStore.variables.findFirst[variable | variable.name.equals(entry.key.name)].value»)])
 					'''
 			}
 		}
 
 		substitutions
+	}
+
+	private static def getEquationName(SplitEquation equation, VariableStore variableStore) {
+		if (equation.name.empty) {
+			"eq"+variableStore.equations.indexOf(equation)
+		} else {
+			equation.name
+		}
 	}
 }
