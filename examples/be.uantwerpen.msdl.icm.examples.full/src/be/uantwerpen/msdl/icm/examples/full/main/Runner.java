@@ -28,10 +28,13 @@ import be.uantwerpen.msdl.icm.scripting.scripts.IScript;
 
 public class Runner {
 
+	private static final String TEST_FILE_LOCATION =
+			// "D:\\workspaces\\runtime-New_configuration-neon3-runtime1\\test\\process1.processmodel";
+			"processes\\attributetest.processmodel";
+
 	@Test
 	public void run() {
-		EnactmentManager enactmentManager = new EnactmentManager(new File("processes\\attributetest.processmodel"),
-				getScripts());
+		EnactmentManager enactmentManager = new EnactmentManager(new File(TEST_FILE_LOCATION), getScripts());
 		new CommandInterpreter(enactmentManager).interpret();
 	}
 
