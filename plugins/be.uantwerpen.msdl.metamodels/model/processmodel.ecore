@@ -64,10 +64,12 @@
           eType="#//viewpoints/Viewpoint" eOpposite="#//viewpoints/Viewpoint/tool"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ActivityDefinition" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ScriptBasedActivityDefinition" eSuperTypes="#//ftg/ActivityDefinition">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Script" abstract="true" eSuperTypes="#//ftg/ActivityDefinition">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JavaBasedActivityDefinition" eSuperTypes="#//ftg/ActivityDefinition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PythonScript" eSuperTypes="#//ftg/Script"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MatlabScript" eSuperTypes="#//ftg/Script"/>
   </eSubpackages>
   <eSubpackages name="pm" nsURI="metamodels.pm" nsPrefix="be.uantwerpen.msdl.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//base/Identifiable #//base/NamedElement">

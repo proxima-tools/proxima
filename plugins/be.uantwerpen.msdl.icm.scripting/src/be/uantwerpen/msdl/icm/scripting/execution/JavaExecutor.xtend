@@ -9,9 +9,9 @@
  *    Istvan David - initial API and implementation
  *******************************************************************************/
 
-package be.uantwerpen.msdl.icm.scripting.java
+package be.uantwerpen.msdl.icm.scripting.execution
 
-class JavaBasedScriptExecutor {
+class JavaExecutor {
 
 	def execute(Runnable runnable) {
 		runnable.run

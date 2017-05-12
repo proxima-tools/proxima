@@ -24,11 +24,12 @@ import be.uantwerpen.msdl.icm.runtime.transformations.SimulatorTransformations2
 import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager
 import be.uantwerpen.msdl.icm.scripting.manager.ScriptExecutionManager
 import be.uantwerpen.msdl.icm.scripting.scripts.IScript
+import be.uantwerpen.msdl.icm.scripting.scripts.MatlabScript
 import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.NamedElement
 import be.uantwerpen.msdl.processmodel.ftg.JavaBasedActivityDefinition
-import be.uantwerpen.msdl.processmodel.ftg.ScriptBasedActivityDefinition
+import be.uantwerpen.msdl.processmodel.ftg.Script
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
 import be.uantwerpen.msdl.processmodel.pm.Initial
@@ -208,12 +209,18 @@ class EnactmentManager {
 			if (script != null) {
 				scriptExecutionManager.execute(script)
 			}
-		} else if (activity.typedBy.definition instanceof ScriptBasedActivityDefinition) {
+		} else if (activity.typedBy.definition instanceof Script) {
 			// Execution by script file
-			val scriptFile = (activity.typedBy.definition as ScriptBasedActivityDefinition).scriptFile
-			if (scriptFile != null) {
-				logger.debug(String.format("Script file %s located. Executing script.", scriptFile))
-				new ScriptExecutionManager().execute(new PythonScript(scriptFile))
+			val location = (activity.typedBy.definition as Script).location
+			if (location != null) {
+				logger.debug(String.format("Script file %s located. Executing script.", location))
+				switch(activity.typedBy.definition){
+					be.uantwerpen.msdl.processmodel.ftg.PythonScript: new ScriptExecutionManager().execute(new PythonScript(location))
+					be.uantwerpen.msdl.processmodel.ftg.MatlabScript: new ScriptExecutionManager().execute(new MatlabScript(location))
+					default: throw new IllegalArgumentException()
+				}
+				
+				
 			}
 		}
 	}

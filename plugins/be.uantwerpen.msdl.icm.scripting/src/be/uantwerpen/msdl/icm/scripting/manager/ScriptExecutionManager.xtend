@@ -11,24 +11,29 @@
 
 package be.uantwerpen.msdl.icm.scripting.manager
 
-import be.uantwerpen.msdl.icm.scripting.java.JavaBasedScriptExecutor
-import be.uantwerpen.msdl.icm.scripting.python.RuntimeScriptExecutor
+import be.uantwerpen.msdl.icm.scripting.execution.JavaExecutor
+import be.uantwerpen.msdl.icm.scripting.execution.MatlabExecutor
+import be.uantwerpen.msdl.icm.scripting.execution.PythonExecutor
 import be.uantwerpen.msdl.icm.scripting.scripts.IScript
 import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript
+import be.uantwerpen.msdl.icm.scripting.scripts.MatlabScript
 import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
 
 class ScriptExecutionManager {
 
 	val public static String PYTHON_EXTENSION = "py"
 	val public static String JAVA_EXTENSION = "java"
+	val public static String MATLAB_EXTENSION = "m"
 
-	val pythonExecutor = new RuntimeScriptExecutor
-	val javaExecutor = new JavaBasedScriptExecutor
+	val pythonExecutor = new PythonExecutor
+	val javaExecutor = new JavaExecutor
+	val matlabExecutor = new MatlabExecutor
 
 	def execute(IScript script) {
 		switch (script) {
 			JavaBasedScript: javaExecutor.execute(script)
 			PythonScript: pythonExecutor.execute(script)
+			MatlabScript: matlabExecutor.execute(script)
 		}
 	}
 }

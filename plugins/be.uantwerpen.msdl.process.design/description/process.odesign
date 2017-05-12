@@ -1319,22 +1319,7 @@
   <extensions xsi:type="properties:ViewExtensionDescription" identifier="ActivityProperties">
     <pages identifier="Default" labelExpression="Activity Properties" domainClass="pm.AutomatedActivity" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0"/>
     <groups identifier="Default" labelExpression="Execution" domainClass="pm.AutomatedActivity">
-      <controls xsi:type="properties:TextDescription" labelExpression="Python script location" isEnabledExpression="aql:false" valueExpression="aql:if(self.typedBy.definition.oclIsKindOf(ftg::ScriptBasedActivityDefinition)) then self.typedBy.definition.oclAsType(ftg::ScriptBasedActivityDefinition).scriptFile else '' endif">
-        <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.typedBy">
-            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
-              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.ScriptBasedActivityDefinition" referenceName="definition"/>
-            </subModelOperations>
-            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.definition">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="scriptFile" valueExpression="var:newValue"/>
-            </subModelOperations>
-          </firstModelOperations>
-        </initialOperation>
-        <style>
-          <labelForegroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
-          <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
-        </style>
-      </controls>
+      <controls xsi:type="properties:LabelDescription" labelExpression="Script location" valueExpression="aql:if(self.typedBy.definition.oclIsKindOf(ftg::Script)) then self.typedBy.definition.oclAsType(ftg::Script).location else '-' endif"/>
       <controls xsi:type="properties:TextAreaDescription" labelExpression="Execution parameters" helpExpression="Expected format: a comma-separated list of semicolon-separated key-value pairs. Formally: key1:value1, key2:value2..." valueExpression="service:getExecutionParameters()">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveExecutionParameters" action="//@extensions.0/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0">
@@ -1349,7 +1334,7 @@
   <extensions xsi:type="properties:ViewExtensionDescription" identifier="TransformationProperties">
     <pages identifier="Default" labelExpression="Transformation Properties" domainClass="ftg.Transformation" semanticCandidateExpression="var:self" groups="//@extensions.1/@groups.0"/>
     <groups identifier="Default" labelExpression="Execution" domainClass="ftg.Transformation" semanticCandidateExpression="var:self">
-      <controls xsi:type="properties:RadioDescription" labelExpression="Select type" helpExpression="Java-based scripts must use the name of the activity they implement. The script files must be added to the enactment project or to its classpath. Python scripts are executed by the absoltue path." isEnabledExpression="aql:true" valueExpression="aql:if(self.definition.oclIsKindOf(ftg::JavaBasedActivityDefinition)) 'java' else 'python' endif" candidatesExpression="aql:Sequence{'java', 'python'}" candidateDisplayExpression="aql:if(candidate=='java') then 'Java' else 'Python' endif" numberOfColumns="2">
+      <controls xsi:type="properties:RadioDescription" labelExpression="Select type" helpExpression="Java-based scripts must use the name of the activity they implement. The script files must be added to the enactment project or to its classpath. Python and Matlab scripts are executed by the absoltue path." isEnabledExpression="aql:true" valueExpression="aql:if(self.definition.oclIsKindOf(ftg::JavaBasedActivityDefinition)) then 'java' else if(self.definition.oclIsKindOf(ftg::PythonScript)) then 'python' else 'matlab' endif endif" candidatesExpression="aql:Sequence{'java', 'python', 'matlab'}" candidateDisplayExpression="aql:if(candidate=='java') then 'Java' else if(candidate=='python') then 'Python' else 'Matlab' endif endif" numberOfColumns="3">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
             <subModelOperations xsi:type="tool_1:Unset" featureName="definition"/>
@@ -1360,29 +1345,31 @@
             </subModelOperations>
             <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue=='python'">
               <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.ScriptBasedActivityDefinition" referenceName="definition"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.PythonScript" referenceName="definition"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue=='matlab'">
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.MatlabScript" referenceName="definition"/>
               </subModelOperations>
             </subModelOperations>
           </firstModelOperations>
         </initialOperation>
       </controls>
-      <controls xsi:type="properties:TextDescription" labelExpression="Python script location" helpExpression="The absolute path to the related script, separated by backslashes. (E.g.: c:\scripts\script.py.)" isEnabledExpression="aql:self.definition.oclIsKindOf(ftg::ScriptBasedActivityDefinition)" valueExpression="aql:if(self.definition.oclIsKindOf(ftg::ScriptBasedActivityDefinition)) then self.definition.oclAsType(ftg::ScriptBasedActivityDefinition).scriptFile else '' endif">
+      <controls xsi:type="properties:TextDescription" labelExpression="Script location" helpExpression="The absolute path to the related script, separated by backslashes. (E.g.: c:\scripts\script.py, or c:\scripts\script.m.)" isEnabledExpression="aql:self.definition.oclIsKindOf(ftg::Script)" valueExpression="aql:if(self.definition.oclIsKindOf(ftg::Script)) then self.definition.oclAsType(ftg::Script).location else '' endif">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
             <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue==''">
               <subModelOperations xsi:type="tool_1:Unset" featureName="definition"/>
             </subModelOperations>
             <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue!=''">
-              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.ScriptBasedActivityDefinition" referenceName="definition"/>
-              </subModelOperations>
               <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.definition">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="scriptFile" valueExpression="var:newValue"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="location" valueExpression="var:newValue"/>
               </subModelOperations>
             </subModelOperations>
           </firstModelOperations>
         </initialOperation>
-        <conditionalStyles preconditionExpression="aql:not self.definition.oclIsKindOf(ftg::ScriptBasedActivityDefinition)">
+        <conditionalStyles preconditionExpression="aql:not self.definition.oclIsKindOf(ftg::Script)">
           <style>
             <labelForegroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>

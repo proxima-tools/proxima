@@ -60,10 +60,12 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Tool/viewpoint"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//ftg/ActivityDefinition"/>
-      <genClasses ecoreClass="processmodel.ecore#//ftg/ScriptBasedActivityDefinition">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//ftg/ScriptBasedActivityDefinition/scriptFile"/>
+      <genClasses ecoreClass="processmodel.ecore#//ftg/Script">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//ftg/Script/location"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//ftg/JavaBasedActivityDefinition"/>
+      <genClasses ecoreClass="processmodel.ecore#//ftg/PythonScript"/>
+      <genClasses ecoreClass="processmodel.ecore#//ftg/MatlabScript"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Pm" basePackage="be.uantwerpen.msdl.processmodel" disposableProviderFactory="true"
         ecorePackage="processmodel.ecore#//pm">

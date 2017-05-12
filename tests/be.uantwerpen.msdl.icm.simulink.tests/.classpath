@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Program Files/MATLAB/R2016b/extern/engines/java/jar/engine.jar"/>
+	<classpathentry kind="lib" path="libs/matlabcontrol-4.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

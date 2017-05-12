@@ -9,13 +9,13 @@
  *    Istvan David - initial API and implementation
  *******************************************************************************/
 
-package be.uantwerpen.msdl.icm.scripting.python
+package be.uantwerpen.msdl.icm.scripting.execution
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
 
-class RuntimeScriptExecutor {
+class PythonExecutor {
 
 	def execute(PythonScript script) {
 		val p = Runtime.getRuntime().exec("python " + script.getScriptLocation);
