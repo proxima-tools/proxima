@@ -14,19 +14,17 @@ package be.uantwerpen.msdl.icm.tooling.ui.commands;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
-import be.uantwerpen.msdl.icm.generator.Generator;
-
 /**
  * @author Istvan David
  *
  */
-public class GenerationHandler extends Handler {
+public class MatlabGenerationHandler extends Handler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		logger.debug("Invoking generator");
+		logger.debug("Invoking Matlab generator");
 
-		new Generator().doGenerate(getModel());
+		// TODO
 
 		return null;
 	}

@@ -35,8 +35,12 @@
            commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand">
      </handler>
      <handler
-           class="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerationHandler"
-           commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateCommand">
+           class="be.uantwerpen.msdl.icm.tooling.ui.commands.MatlabGenerationHandler"
+           commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateMatlabCommand">
+     </handler>
+     <handler
+           class="be.uantwerpen.msdl.icm.tooling.ui.commands.JavaGenerationHandler"
+           commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateJavaCommand">
      </handler>
      <handler
            class="be.uantwerpen.msdl.icm.tooling.ui.commands.ExecutionHandler"
@@ -49,8 +53,11 @@
         <command name="Run DSE"
               id="be.uantwerpen.msdl.icm.tooling.ui.commands.DSECommand">
         </command>
-        <command name="Generate artifacts"
-              id="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateCommand">
+        <command name="Generate Matlab code"
+              id="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateMatlabCommand">
+        </command>
+        <command name="Generate Java artifacts"
+              id="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateJavaCommand">
         </command>
         <command name="Execute process"
               id="be.uantwerpen.msdl.icm.tooling.ui.commands.ExecuteCommand">
@@ -110,12 +117,20 @@
                  tooltip="Optimize process">
            </command>
            <command
-                 commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateCommand"
-                 icon="icons/generate.png"
-                 id="be.uantwerpen.msdl.icm.tooling.ui.menus.generate"
-                 label="Generate artifacts"
+                 commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateMatlabCommand"
+                 icon="icons/generatematlab.png"
+                 id="be.uantwerpen.msdl.icm.tooling.ui.menus.generate.matlab"
+                 label="Generate Matlab code"
                  style="push"
-                 tooltip="Generate artifacts">
+                 tooltip="Generate Matlab code">
+           </command>
+           <command
+                 commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.GenerateJavaCommand"
+                 icon="icons/generatejava.png"
+                 id="be.uantwerpen.msdl.icm.tooling.ui.menus.generate.java"
+                 label="Generate Java artifacts"
+                 style="push"
+                 tooltip="Generate Java artifacts">
            </command>
            <command
                  commandId="be.uantwerpen.msdl.icm.tooling.ui.commands.ExecuteCommand"
