@@ -26,6 +26,9 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="DuplicateAttributeName" level="ERROR" message="Duplicate name." targetClass="properties.RelationshipSubject">
         <audits auditExpression="service:uniqueAttributeNames()"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="InconsistentScriptExtension" level="ERROR" message="Inconsistent script extension. The extension of the script file does not correspond to its type. (Use .py for Python and .m for Matlab scripts.)" targetClass="ftg.Transformation">
+        <audits auditExpression="service:consistentScriptExtension()"/>
+      </ownedRules>
     </validationSet>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ProcessModel" label="Process Model" domainClass="processmodel.ProcessModel">
       <defaultLayer name="Default">
@@ -1376,6 +1379,11 @@
           </style>
         </conditionalStyles>
       </controls>
+      <validationSet>
+        <propertyValidationRules name="InconsistentScriptExtension" label="Inconsistent Script Extension" level="ERROR" message="Inconsistent script extension. The extension of the script file does not correspond to its type. (Use .py for Python and .m for Matlab scripts.)" targets="//@extensions.1/@groups.0/@controls.1">
+          <audits auditExpression="service:consistentScriptExtension()"/>
+        </propertyValidationRules>
+      </validationSet>
     </groups>
   </extensions>
   <extensions xsi:type="properties:ViewExtensionDescription" identifier="ProcessModelProperties">
