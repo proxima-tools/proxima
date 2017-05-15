@@ -14,6 +14,8 @@ package be.uantwerpen.msdl.icm.tooling.ui.commands;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
+import be.uantwerpen.msdl.icm.generator.MatlabGenerator;
+
 /**
  * @author Istvan David
  *
@@ -24,7 +26,7 @@ public class MatlabGenerationHandler extends Handler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		logger.debug("Invoking Matlab generator");
 
-		// TODO
+		new MatlabGenerator().doGenerate(getModel());
 
 		return null;
 	}
