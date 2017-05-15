@@ -18,6 +18,8 @@ import be.uantwerpen.msdl.icm.scripting.scripts.IScript
 import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript
 import be.uantwerpen.msdl.icm.scripting.scripts.MatlabScript
 import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
+import matlabcontrol.MatlabProxy
+import org.eclipse.emf.common.util.EMap
 
 class ScriptExecutionManager {
 
@@ -29,11 +31,17 @@ class ScriptExecutionManager {
 	val javaExecutor = new JavaExecutor
 	val matlabExecutor = new MatlabExecutor
 
-	def execute(IScript script) {
+	private MatlabProxy matlabProxy;
+
+	new(MatlabProxy matlabProxy) {
+		this.matlabProxy = matlabProxy;
+	}
+
+	def execute(IScript script, EMap<String, String> parameters) {
 		switch (script) {
 			JavaBasedScript: javaExecutor.execute(script)
 			PythonScript: pythonExecutor.execute(script)
-			MatlabScript: matlabExecutor.execute(script)
+			MatlabScript: matlabExecutor.execute(script, matlabProxy, parameters)
 		}
 	}
 }

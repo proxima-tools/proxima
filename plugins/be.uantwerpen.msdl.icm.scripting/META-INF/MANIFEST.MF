@@ -12,7 +12,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.apache.log4j;bundle-version="1.2.15",
  org.junit,
  be.uantwerpen.msdl.metamodels;bundle-version="0.1.0",
- be.uantwerpen.msdl.icm.runtime.variablemanager;bundle-version="0.1.0"
+ be.uantwerpen.msdl.icm.runtime.variablemanager;bundle-version="0.1.0",
+ matlabcontrol;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: Istvan David
 Bundle-ClassPath: .

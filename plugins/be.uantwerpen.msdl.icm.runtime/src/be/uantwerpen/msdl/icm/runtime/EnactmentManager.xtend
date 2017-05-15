@@ -41,6 +41,7 @@ import com.google.common.collect.Maps
 import java.io.File
 import java.util.List
 import java.util.Map
+import matlabcontrol.MatlabProxyFactory
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
 import org.eclipse.emf.common.util.URI
@@ -62,6 +63,9 @@ class EnactmentManager {
 	// Scripting support
 	private Map<Activity, IScript> activityScripts = Maps::newHashMap
 	private ScriptExecutionManager scriptExecutionManager
+
+	// MATLAB support
+	val matlabProxy = new MatlabProxyFactory().proxy
 
 	// Variable support
 	@Accessors(PUBLIC_GETTER) VariableManager variableManager
@@ -109,7 +113,7 @@ class EnactmentManager {
 
 		// Scripting
 		if (!scripts.empty) {
-			scriptExecutionManager = new ScriptExecutionManager
+			scriptExecutionManager = new ScriptExecutionManager(matlabProxy)
 
 			for (activity : process.activities) {
 				val script = scripts.findFirst [ s |
@@ -203,24 +207,28 @@ class EnactmentManager {
 			return
 		}
 
+		// Parameters
+		val parameters = activity.executionParameters
+
 		if (activity.typedBy.definition instanceof JavaBasedActivityDefinition) {
 			// execute by name
 			val script = activityScripts.get(activity)
 			if (script != null) {
-				scriptExecutionManager.execute(script)
+				scriptExecutionManager.execute(script, parameters)
 			}
 		} else if (activity.typedBy.definition instanceof Script) {
 			// Execution by script file
 			val location = (activity.typedBy.definition as Script).location
 			if (location != null) {
 				logger.debug(String.format("Script file %s located. Executing script.", location))
-				switch(activity.typedBy.definition){
-					be.uantwerpen.msdl.processmodel.ftg.PythonScript: new ScriptExecutionManager().execute(new PythonScript(location))
-					be.uantwerpen.msdl.processmodel.ftg.MatlabScript: new ScriptExecutionManager().execute(new MatlabScript(location))
-					default: throw new IllegalArgumentException()
+				switch (activity.typedBy.definition) {
+					be.uantwerpen.msdl.processmodel.ftg.PythonScript:
+						scriptExecutionManager.execute(new PythonScript(location), parameters)
+					be.uantwerpen.msdl.processmodel.ftg.MatlabScript:
+						scriptExecutionManager.execute(new MatlabScript(location), parameters)
+					default:
+						throw new IllegalArgumentException()
 				}
-				
-				
 			}
 		}
 	}
@@ -289,6 +297,8 @@ class EnactmentManager {
 			logger.debug("The process cannot be finished at this point.")
 			return
 		}
+
+		matlabProxy.exit
 
 		fireableFinalControlFlows.head.token.currentNode = fireableFinalControlFlows.head.final
 	}

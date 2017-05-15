@@ -12,10 +12,28 @@
 package be.uantwerpen.msdl.icm.scripting.execution
 
 import be.uantwerpen.msdl.icm.scripting.scripts.MatlabScript
+import java.io.BufferedReader
+import java.io.File
+import java.io.FileReader
+import matlabcontrol.MatlabProxy
+import org.eclipse.emf.common.util.EMap
 
-class MatlabExecutor {
+class MatlabExecutor extends ParameterizedExecutor {
 
-	def execute(MatlabScript script) {
-		// TODO
+	def execute(MatlabScript script, MatlabProxy matlabProxy, EMap<String, String> parameters) {
+		val file = new File(script.scriptLocation)
+
+		try {
+			val bufferedReader = new BufferedReader(new FileReader(file))
+			var String line = ""
+			
+			while ((line = bufferedReader.readLine()) != null) {
+				line = line.resolveParameters(parameters)
+				
+				matlabProxy.eval(line)
+			}
+		} catch (Exception e) {
+			e.printStackTrace
+		}
 	}
 }
