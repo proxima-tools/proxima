@@ -298,7 +298,7 @@ class EnactmentManager {
 			return
 		}
 
-		matlabProxy.exit
+		cleanUp()
 
 		fireableFinalControlFlows.head.token.currentNode = fireableFinalControlFlows.head.final
 	}
@@ -341,6 +341,14 @@ class EnactmentManager {
 				finalStep
 			}
 		}
+	}
+	
+	def exit() {
+		cleanUp()
+	}
+	
+	private def cleanUp(){
+		matlabProxy.exit
 	}
 
 }

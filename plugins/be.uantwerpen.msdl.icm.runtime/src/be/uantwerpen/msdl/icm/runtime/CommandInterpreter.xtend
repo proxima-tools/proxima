@@ -96,6 +96,7 @@ class CommandInterpreter {
 				}
 				case input.toLowerCase.equals(EXIT_COMMAND): {
 					logger.debug("Exiting.")
+					enactmentManager.exit()
 					return
 				}
 				default: {
