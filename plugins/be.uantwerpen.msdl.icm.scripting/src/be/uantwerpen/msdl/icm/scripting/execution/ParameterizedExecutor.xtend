@@ -11,6 +11,8 @@
 
 package be.uantwerpen.msdl.icm.scripting.execution
 
+import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager
+import java.util.regex.Pattern
 import org.eclipse.emf.common.util.EMap
 
 class ParameterizedExecutor {
@@ -19,6 +21,8 @@ class ParameterizedExecutor {
 	val BYNUMBER_VALUE_PATTERN = "\\%\\{args\\[i\\].value\\}\\%"
 	val BYNAME_NAME_PATTERN = "\\%\\{args\\['n'\\].name\\}\\%"
 	val BYNAME_VALUE_PATTERN = "\\%\\{args\\['n'\\].value\\}\\%"
+
+	val ASSIGNMENT_PATTERN = "varname\\s*=\\s*[0-9]*"
 
 	def resolveParameters(String command, EMap<String, String> parameters) {
 		var String newCommand = ""
@@ -35,5 +39,21 @@ class ParameterizedExecutor {
 		}
 
 		newCommand
+	}
+
+	def extractAssignments(String line) {
+		val variableManager = VariableManager.instance
+
+		for (variable : variableManager.variableStore.variables) {
+			val pattern = ASSIGNMENT_PATTERN.replace('varname', variable.name)
+			val matches = Pattern.compile(pattern).matcher(line)
+			while (matches.find) {
+				val split = matches.group.split("=").toList
+				val varname = split.head
+				val value = new Double(split.last)
+
+				variableManager.setVariable(varname, value)
+			}
+		}
 	}
 }
