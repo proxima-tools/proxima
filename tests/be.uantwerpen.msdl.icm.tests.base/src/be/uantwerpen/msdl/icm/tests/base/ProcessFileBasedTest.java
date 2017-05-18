@@ -17,12 +17,20 @@ public abstract class ProcessFileBasedTest {
 	private File processModelFile;
 
 	public ProcessFileBasedTest() {
-		processModelFile = new File("processes\\attributetest.processmodel");
+		processModelFile = new File(
+				"D:\\workspaces\\runtime-New_configuration-neon3-runtime1\\be.uantwerpen.msdl.icm.cases.agv3\\agv.processmodel");
 
 		Map<String, Object> extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
 		extensionToFactoryMap.put("processmodel", new XMIResourceFactoryImpl());
 		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource resource = resourceSet.getResource(URI.createURI(processModelFile.getPath()), true);
+		Resource resource;
+
+		if (processModelFile.getPath().toLowerCase().startsWith("c")
+				|| processModelFile.getPath().toLowerCase().startsWith("d")) {
+			resource = resourceSet.getResource(URI.createFileURI(processModelFile.getPath()), true);
+		} else {
+			resource = resourceSet.getResource(URI.createURI(processModelFile.getPath()), true);
+		}
 
 		processModel = (ProcessModel) resource.getContents().get(0);
 	}
