@@ -95,7 +95,7 @@ public class NewProjectWizard2 extends BasicNewProjectResourceWizard {
                     Templates.getProcessModelTemplate().toString().getBytes(StandardCharsets.UTF_8));
         } else if (fileName.contains("aird")) {
             inputStream = new ByteArrayInputStream(
-                    Templates.getProcessModelTemplate().toString().getBytes(StandardCharsets.UTF_8));
+                    Templates.getRepresentationsTemplate().toString().getBytes(StandardCharsets.UTF_8));
         }
 
         IFile file = projectHandle.getFile(fileName);
