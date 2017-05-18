@@ -1,0 +1,7 @@
+# --*-conf-*---
+# Local Words for sbspell and sbcheck -check typos
+# This file is automatically maintained by sbspell.
+
+ LocalWords:  jobject Env env jclass jlong jmethod jobject Env env jclass jlong
+ LocalWords:  jmethod jobject Env env jclass jlong jmethod jobject Env env
+ LocalWords:  jclass jlong jmethod jobject Env env jclass jlong jmethod

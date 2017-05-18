@@ -1,0 +1,9 @@
+# --*-conf-*---
+# Local Words for sbspell and sbcheck -check typos
+# This file is automatically maintained by sbspell.
+
+ LocalWords:  ol editability writability ol editability writability ol ol ol ol
+ LocalWords:  editability writability editability writability editability ol ol
+ LocalWords:  writability editability writability editability writability ol ol
+ LocalWords:  editability writability editability writability editability ol
+ LocalWords:  writability editability writability

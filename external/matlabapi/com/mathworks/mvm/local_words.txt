@@ -1,0 +1,5 @@
+# --*-conf-*---
+# Local Words for sbspell and sbcheck -check typos
+# This file is automatically maintained by sbspell.
+
+ LocalWords:  nativejmi
