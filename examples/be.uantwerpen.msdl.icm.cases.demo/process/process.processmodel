@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm">
+  <process id="d577dba6-dc57-46e0-9506-dc6e46b7d1a8">
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Initial" id="05315fad-7f15-4b68-af0a-2a91ca6edc9f"/>
+  </process>
+</be.uantwerpen.msdl.metamodels:ProcessModel>

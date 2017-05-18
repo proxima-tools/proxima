@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="metamodels.pm metamodels.processmodel#//pm http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_82f62c3b5ff54d1a857ec" selectedViews="_0c9a9a86838343ebb74d7" version="11.1.0.201608251200">
+    <semanticResources>process.processmodel</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_0c9a9a86838343ebb74d7">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_mmZ-cDwJEeeeY9Hn6jJJFA" name="new Process Model" representation="_mmalgDwJEeeeY9Hn6jJJFA">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']"/>
+        <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="process.processmodel#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_mmalgDwJEeeeY9Hn6jJJFA" name="new Process Model">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_mme28DwJEeeeY9Hn6jJJFA" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_mme28TwJEeeeY9Hn6jJJFA"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_mnkcEDwJEeeeY9Hn6jJJFA" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_mnkcETwJEeeeY9Hn6jJJFA" type="Sirius" element="_mmalgDwJEeeeY9Hn6jJJFA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_n0eUEDwJEeeeY9Hn6jJJFA" type="2001" element="_nyIxwDwJEeeeY9Hn6jJJFA">
+          <children xmi:type="notation:Node" xmi:id="_n0ilgDwJEeeeY9Hn6jJJFA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_n0ilgTwJEeeeY9Hn6jJJFA" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_n0p6QDwJEeeeY9Hn6jJJFA" type="3002" element="_n0KLADwJEeeeY9Hn6jJJFA">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_n0p6QTwJEeeeY9Hn6jJJFA" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n0p6QjwJEeeeY9Hn6jJJFA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_n0eUETwJEeeeY9Hn6jJJFA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n0eUEjwJEeeeY9Hn6jJJFA" x="540" y="72" width="20" height="20"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_mnkcEjwJEeeeY9Hn6jJJFA"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_nyIxwDwJEeeeY9Hn6jJJFA" width="2" height="2">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Initial" href="process.processmodel#//@process.0/@node.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Initial" href="process.processmodel#//@process.0/@node.0"/>
+      <ownedStyle xmi:type="diagram:Dot" xmi:id="_n0KLADwJEeeeY9Hn6jJJFA" showIcon="false" backgroundColor="0,0,0">
+        <description xmi:type="style:DotDescription" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_mme28jwJEeeeY9Hn6jJJFA"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']"/>
+    <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="process.processmodel#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
