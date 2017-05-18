@@ -41,7 +41,7 @@ import com.google.common.collect.Maps
 import java.io.File
 import java.util.List
 import java.util.Map
-import matlabcontrol.MatlabProxyFactory
+import matlabcontrol.MatlabProxy
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
 import org.eclipse.emf.common.util.URI
@@ -51,6 +51,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
 import org.eclipse.xtend.lib.annotations.Accessors
+import matlabcontrol.MatlabProxyFactory
 
 class EnactmentManager {
 
@@ -65,7 +66,9 @@ class EnactmentManager {
 	private ScriptExecutionManager scriptExecutionManager
 
 	// MATLAB support
-	val matlabProxy = new MatlabProxyFactory().proxy
+	// FIXME this command boots up Matlab even though it's not necessarily required. A proxy pattern would
+	// solve this temporarily, but maybe a full re-structure would be the best.
+	val MatlabProxy matlabProxy = null //new MatlabProxyFactory().proxy //null
 
 	// Variable support
 	@Accessors(PUBLIC_GETTER) VariableManager variableManager
@@ -342,12 +345,12 @@ class EnactmentManager {
 			}
 		}
 	}
-	
+
 	def exit() {
 		cleanUp()
 	}
-	
-	private def cleanUp(){
+
+	private def cleanUp() {
 		matlabProxy.exit
 	}
 
