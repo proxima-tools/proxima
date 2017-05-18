@@ -1,7 +1,20 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Istvan David
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Istvan David - initial API and implementation
+ *******************************************************************************/
+
 package be.uantwerpen.msdl.icm.generator
 
 import be.uantwerpen.msdl.processmodel.ProcessModel
-import be.uantwerpen.msdl.processmodel.pm.Activity
+import be.uantwerpen.msdl.processmodel.ftg.MatlabScript
+import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
+import be.uantwerpen.msdl.processmodel.pm.Final
 import be.uantwerpen.msdl.processmodel.pm.Initial
 import be.uantwerpen.msdl.processmodel.pm.Node
 import java.nio.charset.StandardCharsets
@@ -9,9 +22,6 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
-import be.uantwerpen.msdl.processmodel.pm.Final
-import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
-import be.uantwerpen.msdl.processmodel.ftg.MatlabScript
 
 class MatlabGenerator {
 
