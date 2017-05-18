@@ -37,7 +37,7 @@ import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 
 import be.uantwerpen.msdl.icm.tooling.core.nature.ProcessModelerProjectNature;
 
-public class NewProjectWizard2 extends BasicNewProjectResourceWizard {
+public class NewProjectWizard extends BasicNewProjectResourceWizard {
 
     @Override
     public boolean performFinish() {

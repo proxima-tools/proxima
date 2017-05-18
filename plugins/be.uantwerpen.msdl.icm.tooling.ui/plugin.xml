@@ -9,22 +9,13 @@
       </category>
       <wizard
             category="be.uantwerpen.msdl.icm.tooling.ui.category"
-            class="be.uantwerpen.msdl.icm.tooling.ui.wizards.NewProjectWizard2"
+            class="be.uantwerpen.msdl.icm.tooling.ui.wizards.NewProjectWizard"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
             hasPages="true"
             id="be.uantwerpen.msdl.icm.tooling.ui.newproject"
             name="New ICM Project"
             preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling,org.eclipse.pde.ui.PDEPerspective,org.eclipse.jdt.ui.JavaPerspective"
             project="true">
-      </wizard>
-      <wizard
-            category="be.uantwerpen.msdl.icm.tooling.ui.category"
-            class="be.uantwerpen.msdl.icm.tooling.ui.wizards.NewProcessModelWizard"
-            finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
-            id="be.uantwerpen.msdl.icm.tooling.ui.newprocess"
-            name="New Process Model File"
-            preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling,org.eclipse.pde.ui.PDEPerspective,org.eclipse.jdt.ui.JavaPerspective"
-            project="false">
       </wizard>
    </extension>
    
