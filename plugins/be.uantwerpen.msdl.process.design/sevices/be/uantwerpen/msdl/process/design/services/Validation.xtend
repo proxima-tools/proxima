@@ -14,6 +14,7 @@ package be.uantwerpen.msdl.process.design.services
 import be.uantwerpen.msdl.icm.commons.bl.Relationships
 import be.uantwerpen.msdl.processmodel.ftg.MatlabScript
 import be.uantwerpen.msdl.processmodel.ftg.PythonScript
+import be.uantwerpen.msdl.processmodel.ftg.Script
 import be.uantwerpen.msdl.processmodel.ftg.Transformation
 import be.uantwerpen.msdl.processmodel.properties.Precision
 import be.uantwerpen.msdl.processmodel.properties.PropertyModel
@@ -22,7 +23,6 @@ import be.uantwerpen.msdl.processmodel.properties.RelationshipDirection
 import be.uantwerpen.msdl.processmodel.properties.RelationshipLink
 import be.uantwerpen.msdl.processmodel.properties.RelationshipSubject
 import com.google.common.collect.Lists
-import be.uantwerpen.msdl.processmodel.ftg.Script
 
 class Validation {
 
@@ -32,11 +32,11 @@ class Validation {
 	}
 
 	public def consistentScriptExtension(Transformation transformation) {
-		if(transformation.definition==null) return true
+		if(transformation.definition == null) return true
 		if(!(transformation.definition instanceof Script)) return true
-		
+
 		val script = transformation.definition as Script
-		
+
 		switch script {
 			PythonScript: return script.location.endsWith('.py')
 			MatlabScript: return script.location.endsWith('.m')
@@ -51,13 +51,13 @@ class Validation {
 	}
 
 	public def uniqueAttributeNames(RelationshipSubject relationshipSubject) {
-		val propetyModel = relationshipSubject.eContainer as PropertyModel
+		val propertyModel = relationshipSubject.eContainer as PropertyModel
 		val subjects = Lists::newArrayList
-		#[propetyModel.attribute, propetyModel.capability, propetyModel.relationship, propetyModel.property].forEach [ subject |
+		#[propertyModel.attribute, propertyModel.capability, propertyModel.relationship, propertyModel.property].forEach [ subject |
 			subjects.addAll(subject)
 		]
 
-		return !subjects.filter[subject|!subject.name.empty].exists [ subject |
+		return !subjects.filter[subject|(subject.name != null && !subject.name.empty)].exists [ subject |
 			subject.name.equalsIgnoreCase(relationshipSubject.name) && subject != relationshipSubject
 		]
 	}
