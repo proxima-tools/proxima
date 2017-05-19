@@ -15,11 +15,8 @@ import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.ftg.Transformation
 import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
 import com.google.common.base.Joiner
-import com.google.common.collect.Sets
 import java.io.File
 import java.io.FileWriter
-import java.util.Set
-import java.util.regex.Pattern
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
 
@@ -34,7 +31,15 @@ class Generator {
 
 		logger.debug("generating artifacts")
 
-		location = processModel.codeGenProperties.get("location").replace("\\", "\\\\")
+		val l = processModel.codeGenProperties.get("location")
+
+		location = if (l != null) {
+			l.replace("\\", "\\\\")
+		} else {
+			val srcgenFolder = processModel.eResource.URI.trimSegments(2).appendSegment("src-gen")
+			srcgenFolder.toString.substring(srcgenFolder.toString.indexOf(':')).substring(2).replace("/", "\\\\") // XXX
+		}
+
 		rootPackage = processModel.codeGenProperties.get("rootPackage")
 		fullPath = location.appendToPath(rootPackage)
 
@@ -71,7 +76,7 @@ class Generator {
 		val file = new File(path, transformation.name.toFirstUpper + ".java")
 		file.parentFile.mkdirs
 		val writer = new FileWriter(file)
-		
+
 		val className = transformation.name.toFirstUpper
 
 		writer.append('''
@@ -117,46 +122,45 @@ class Generator {
 		val file = new File(path, activity.name.toFirstUpper + ".java")
 		file.parentFile.mkdirs
 		val writer = new FileWriter(file)
-		
+
 		val className = activity.name.toFirstUpper
 		val typeClassName = activity.typedBy.name.toFirstUpper
 		val typeInstanceName = activity.typedBy.name.toFirstLower
 
-		writer.
-			append('''
-				package «rootPackage».scripts;
+		writer.append('''
+			package «rootPackage».scripts;
+			
+			import org.apache.log4j.Level;
+			import java.util.Map;
+			import com.google.common.collect.Maps;
+			
+			import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager;
+			import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript;
+			
+			public class «className» extends JavaBasedScript{
 				
-				import org.apache.log4j.Level;
-				import java.util.Map;
-				import com.google.common.collect.Maps;
+				private Map<Object, Object> parameters = Maps.newHashMap();
 				
-				import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager;
-				import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript;
-				
-				public class «className» extends JavaBasedScript{
-					
-					private Map<Object, Object> parameters = Maps.newHashMap();
-					
-					//Constructor
-					public «className»() {
-						«IF !activity.executionParameters.empty»
-							«FOR parameter : activity.executionParameters»
-								parameters.put("«parameter.key»", "«parameter.value»");
-							«ENDFOR»
-						«ENDIF»
-					}
-					
-					@Override
-					public void run() {
-						logger.setLevel(Level.DEBUG);
-						logger.debug("Executing " + this.getClass().getSimpleName());
-						
-						«typeClassName» «typeInstanceName» = new «typeClassName»();
-						
-						«typeInstanceName».runWithParameters(parameters);
-					}
+				//Constructor
+				public «className»() {
+					«IF !activity.executionParameters.empty»
+						«FOR parameter : activity.executionParameters»
+							parameters.put("«parameter.key»", "«parameter.value»");
+						«ENDFOR»
+					«ENDIF»
 				}
-			''')
+				
+				@Override
+				public void run() {
+					logger.setLevel(Level.DEBUG);
+					logger.debug("Executing " + this.getClass().getSimpleName());
+					
+					«typeClassName» «typeInstanceName» = new «typeClassName»();
+					
+					«typeInstanceName».runWithParameters(parameters);
+				}
+			}
+		''')
 
 		writer.close()
 	}
