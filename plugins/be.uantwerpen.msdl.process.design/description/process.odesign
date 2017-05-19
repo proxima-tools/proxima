@@ -348,7 +348,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/capability.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/capability2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -406,7 +406,7 @@
       </additionalLayers>
       <additionalLayers name="PropertyLayer" label="Properties" activeByDefault="true">
         <nodeMappings name="PropertyNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Property">
-          <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
+          <style xsi:type="style:EllipseNodeDescription" iconPath="/be.uantwerpen.msdl.process.design/icons/property2.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
@@ -414,7 +414,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="AttributeNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Attribute">
-          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:if(self.persistedIn==null) then self.name else self.persistedIn.name+'.'+self.name endif" labelPosition="node" resizeKind="NSEW" width="10" height="3">
+          <style xsi:type="style:SquareDescription" labelExpression="aql:if(self.persistedIn==null) then self.name else self.persistedIn.name+'.'+self.name endif" iconPath="/be.uantwerpen.msdl.process.design/icons/attribute2.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -485,7 +485,7 @@
           </style>
         </containerMappings>
         <toolSections name="Properties">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createProperty" label="Property" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/p-red.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createProperty" label="Property" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/property2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -501,7 +501,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createAttribute" label="Attribute" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/attribute.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createAttribute" label="Attribute" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/attribute2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -652,7 +652,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="CapabilityNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Capability">
-          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:self.name" labelPosition="node" resizeKind="NSEW" width="10" height="3">
+          <style xsi:type="style:SquareDescription" labelExpression="aql:self.name" iconPath="/be.uantwerpen.msdl.process.design/icons/capability2.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -750,7 +750,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/capability.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/capability2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
