@@ -12,11 +12,13 @@
 package be.uantwerpen.msdl.icm.generator
 
 import be.uantwerpen.msdl.processmodel.ProcessModel
+import be.uantwerpen.msdl.processmodel.ftg.JavaBasedActivityDefinition
 import be.uantwerpen.msdl.processmodel.ftg.Transformation
 import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
 import com.google.common.base.Joiner
 import java.io.File
 import java.io.FileWriter
+import org.apache.log4j.Level
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
 
@@ -28,7 +30,7 @@ class Generator {
 	@Accessors(NONE) var String fullPath
 
 	def doGenerate(ProcessModel processModel) {
-
+		logger.level = Level::DEBUG
 		logger.debug("generating artifacts")
 
 		val l = processModel.codeGenProperties.get("location")
@@ -54,17 +56,20 @@ class Generator {
 			return
 		}
 
-		ftg.transformation.forEach [ t |
-			t.generateScript
-		]
+		ftg.transformation.filter[transformation|transformation.definition instanceof JavaBasedActivityDefinition].
+			forEach [ t |
+				t.generateScript
+			]
 
 		val pm = processModel.process
 		if (pm == null) {
 			return
 		}
 
-		pm.head.node.filter[node|node instanceof AutomatedActivity].forEach [ a |
-			(a as AutomatedActivity).generateScript
+		pm.head.node.filter[node|node instanceof AutomatedActivity].map[node|node as AutomatedActivity].filter [ activity |
+			activity.typedBy != null && activity.typedBy.definition instanceof JavaBasedActivityDefinition
+		].forEach [ activity |
+			activity.generateScript
 		]
 	}
 

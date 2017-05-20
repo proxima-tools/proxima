@@ -18,7 +18,7 @@ public abstract class ProcessFileBasedTest {
 
 	public ProcessFileBasedTest() {
 		processModelFile = new File(
-				"D:\\workspaces\\runtime-New_configuration-neon3-runtime1\\be.uantwerpen.msdl.icm.cases.agv3\\agv.processmodel");
+				"D:\\GitHub\\msdl\\ICM\\examples\\be.uantwerpen.msdl.icm.cases.demo\\process\\process.processmodel");
 
 		Map<String, Object> extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
 		extensionToFactoryMap.put("processmodel", new XMIResourceFactoryImpl());
