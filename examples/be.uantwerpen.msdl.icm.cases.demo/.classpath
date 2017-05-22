@@ -20,5 +20,6 @@
 	<classpathentry kind="lib" path="C:/Java/jre8/lib/ext/zipfs.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="src-gen"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
