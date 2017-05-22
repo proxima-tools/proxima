@@ -25,14 +25,14 @@ class ParameterizedExecutor {
 	val ASSIGNMENT_PATTERN = "varname\\s*=\\s*[0-9]*"
 
 	def resolveParameters(String command, EMap<String, String> parameters) {
-		var String newCommand = ""
+		var String newCommand = command
 
 		for (parameter : parameters) {
 			val key = parameter.key
 			val value = parameter.value
 			val index = parameters.indexOfKey(key)
 
-			newCommand = command.replaceAll(BYNUMBER_NAME_PATTERN.replace('i', index.toString), key)
+			newCommand = newCommand.replaceAll(BYNUMBER_NAME_PATTERN.replace('i', index.toString), key)
 			newCommand = newCommand.replaceAll(BYNUMBER_VALUE_PATTERN.replace('i', index.toString), value)
 			newCommand = newCommand.replaceAll(BYNAME_NAME_PATTERN.replaceFirst('n', key), key)
 			newCommand = newCommand.replaceAll(BYNAME_VALUE_PATTERN.replaceFirst('n', key), value)

@@ -11,16 +11,55 @@
 
 package be.uantwerpen.msdl.icm.scripting.execution
 
+import be.uantwerpen.msdl.icm.scripting.connection.MatlabConnectionManager
 import be.uantwerpen.msdl.icm.scripting.scripts.MatlabScript
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
+import java.nio.charset.StandardCharsets
+import java.nio.file.Files
+import java.nio.file.Paths
 import matlabcontrol.MatlabProxy
 import org.eclipse.emf.common.util.EMap
+import org.eclipse.xtend.lib.annotations.Accessors
+
+enum ExecutionMode {
+	NORMAL,
+	HEADLESS
+}
 
 class MatlabExecutor extends ParameterizedExecutor {
+	@Accessors(NONE) val DEFAULT_MODE = ExecutionMode::HEADLESS
+
+	def execute(MatlabScript script, MatlabProxy matlabProxy, EMap<String, String> parameters,
+		ExecutionMode executionMode) {
+		switch (executionMode) {
+			case NORMAL: executeWithGui(script, matlabProxy, parameters)
+			case HEADLESS: executeHeadless(script, matlabProxy, parameters)
+		}
+	}
 
 	def execute(MatlabScript script, MatlabProxy matlabProxy, EMap<String, String> parameters) {
+		execute(script, matlabProxy, parameters, DEFAULT_MODE)
+	}
+
+	private def executeHeadless(MatlabScript script, MatlabProxy matlabProxy, EMap<String, String> parameters) {
+		val path = Paths.get(script.scriptLocation)
+		val charset = StandardCharsets.UTF_8
+		val rawContent = new String(Files.readAllBytes(path), charset)
+
+		// resolve parameters in the next line of the script
+		val content = rawContent.resolveParameters(parameters)
+
+		// execute command
+		val matlabEngine = MatlabConnectionManager::matlabEngine
+		matlabEngine.eval(content)
+
+	// update variable store
+//			line.extractAssignments FIXME
+	}
+
+	private def executeWithGui(MatlabScript script, MatlabProxy matlabProxy, EMap<String, String> parameters) {
 		val file = new File(script.scriptLocation)
 
 		try {
@@ -28,13 +67,13 @@ class MatlabExecutor extends ParameterizedExecutor {
 			var String line = ""
 
 			while ((line = bufferedReader.readLine()) != null) {
-				//resolve parameters in the next line of the script
+				// resolve parameters in the next line of the script
 				line = line.resolveParameters(parameters)
-				
-				//execute command
+
+				// execute command
 				matlabProxy.eval(line)
-				
-				//update variable store
+
+				// update variable store
 				line.extractAssignments
 			}
 		} catch (Exception e) {
