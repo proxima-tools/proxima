@@ -20,6 +20,7 @@ import be.uantwerpen.msdl.processmodel.properties.Capability
 import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import be.uantwerpen.msdl.processmodel.properties.Relationship
 import com.google.common.base.Preconditions
+import com.google.common.base.Strings
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
 import java.io.BufferedReader
@@ -112,7 +113,7 @@ class VariableManager {
 			splitEquation = new SplitEquation(split.head, Relation::EQ, split.last)
 		}
 
-		if (!relationship.name.empty) {
+		if (!Strings.isNullOrEmpty(relationship.name)) {
 			splitEquation.name = relationship.name
 		}
 
