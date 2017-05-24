@@ -20,15 +20,15 @@ import be.uantwerpen.msdl.icm.runtime.queries.util.AvailableFinishQuerySpecifica
 import be.uantwerpen.msdl.icm.runtime.queries.util.FinishedProcessQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.ReadyActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.RunnigActivityQuerySpecification
+import be.uantwerpen.msdl.icm.runtime.scripting.manager.ScriptExecutionManager
+import be.uantwerpen.msdl.icm.runtime.scripting.scripts.IScript
 import be.uantwerpen.msdl.icm.runtime.transformations.SimulatorTransformations2
 import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager
-import be.uantwerpen.msdl.icm.scripting.manager.ScriptExecutionManager
-import be.uantwerpen.msdl.icm.scripting.scripts.IScript
-import be.uantwerpen.msdl.icm.scripting.scripts.MatlabScript
-import be.uantwerpen.msdl.icm.scripting.scripts.PythonScript
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.NamedElement
 import be.uantwerpen.msdl.processmodel.ftg.JavaBasedActivityDefinition
+import be.uantwerpen.msdl.processmodel.ftg.MatlabScript
+import be.uantwerpen.msdl.processmodel.ftg.PythonScript
 import be.uantwerpen.msdl.processmodel.ftg.Script
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
@@ -51,7 +51,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
 import org.eclipse.xtend.lib.annotations.Accessors
-import matlabcontrol.MatlabProxyFactory
 
 class EnactmentManager {
 
@@ -68,8 +67,7 @@ class EnactmentManager {
 	// MATLAB support
 	// FIXME this command boots up Matlab even though it's not necessarily required. A proxy pattern would
 	// solve this temporarily, but maybe a full re-structure would be the best.
-	val MatlabProxy matlabProxy = null //new MatlabProxyFactory().proxy //null
-
+	val MatlabProxy matlabProxy = null // new MatlabProxyFactory().proxy //null
 	// Variable support
 	@Accessors(PUBLIC_GETTER) VariableManager variableManager
 
@@ -225,10 +223,12 @@ class EnactmentManager {
 			if (location != null) {
 				logger.debug(String.format("Script file %s located. Executing script.", location))
 				switch (activity.typedBy.definition) {
-					be.uantwerpen.msdl.processmodel.ftg.PythonScript:
-						scriptExecutionManager.execute(new PythonScript(location), parameters)
-					be.uantwerpen.msdl.processmodel.ftg.MatlabScript:
-						scriptExecutionManager.execute(new MatlabScript(location), parameters)
+					PythonScript:
+						scriptExecutionManager.execute(
+							new be.uantwerpen.msdl.icm.runtime.scripting.scripts.PythonScript(location), parameters)
+					MatlabScript:
+						scriptExecutionManager.execute(
+							new be.uantwerpen.msdl.icm.runtime.scripting.scripts.MatlabScript(location), parameters)
 					default:
 						throw new IllegalArgumentException()
 				}

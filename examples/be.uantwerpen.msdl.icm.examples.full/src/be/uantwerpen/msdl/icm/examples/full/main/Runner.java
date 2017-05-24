@@ -24,7 +24,7 @@ import be.uantwerpen.msdl.icm.examples.full.main.scripts.A3;
 import be.uantwerpen.msdl.icm.examples.full.main.scripts.A4;
 import be.uantwerpen.msdl.icm.runtime.CommandInterpreter;
 import be.uantwerpen.msdl.icm.runtime.EnactmentManager;
-import be.uantwerpen.msdl.icm.scripting.scripts.IScript;
+import be.uantwerpen.msdl.icm.runtime.scripting.scripts.IScript;
 
 public class Runner {
 

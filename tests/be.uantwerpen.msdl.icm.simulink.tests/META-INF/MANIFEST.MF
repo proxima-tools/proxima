@@ -6,6 +6,12 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: be.uantwerpen.msdl.icm.simulink.internal.tests.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.junit;bundle-version="4.12.0",
- matlabcontrol;bundle-version="1.0.0"
+ matlabcontrol;bundle-version="1.0.0",
+ matlabapi;bundle-version="1.0.0",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+

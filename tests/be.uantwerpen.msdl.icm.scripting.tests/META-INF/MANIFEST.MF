@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Scripting Tests
-Bundle-SymbolicName: be.uantwerpen.msdl.icm.scripting.tests
-Bundle-Version: 0.1.0.qualifier
-Fragment-Host: be.uantwerpen.msdl.icm.scripting;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.eclipse.xtend;bundle-version="2.2.0"

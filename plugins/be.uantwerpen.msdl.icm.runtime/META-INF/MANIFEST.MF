@@ -15,11 +15,19 @@ Require-Bundle: com.google.guava,
  be.uantwerpen.msdl.metamodels;bundle-version="0.1.0",
  org.eclipse.viatra.query.runtime;bundle-version="1.3.0",
  be.uantwerpen.msdl.icm.runtime.queries;bundle-version="0.0.1",
- be.uantwerpen.msdl.icm.scripting;bundle-version="0.1.0",
- be.uantwerpen.msdl.icm.runtime.variablemanager;bundle-version="0.1.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.12.0",
  org.eclipse.sirius;bundle-version="4.1.1",
- matlabcontrol;bundle-version="1.0.0"
+ matlabcontrol;bundle-version="1.0.0",
+ be.uantwerpen.msdl.icm.commons.bl;bundle-version="0.1.0",
+ matlabapi;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: be.uantwerpen.msdl.icm.runtime,
- be.uantwerpen.msdl.icm.runtime.sirius.externalactions
+ be.uantwerpen.msdl.icm.runtime.scripting.connection,
+ be.uantwerpen.msdl.icm.runtime.scripting.execution,
+ be.uantwerpen.msdl.icm.runtime.scripting.manager,
+ be.uantwerpen.msdl.icm.runtime.scripting.scripts,
+ be.uantwerpen.msdl.icm.runtime.sirius.externalactions,
+ be.uantwerpen.msdl.icm.runtime.transformations,
+ be.uantwerpen.msdl.icm.runtime.variablemanager,
+ be.uantwerpen.msdl.icm.runtime.variablemanager.expressions,
+ be.uantwerpen.msdl.icm.runtime.variablemanager.trace

@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Variable Manager Tests
-Bundle-SymbolicName: be.uantwerpen.msdl.icm.runtime.variablemanager.tests
-Bundle-Version: 0.1.0.qualifier
-Fragment-Host: be.uantwerpen.msdl.icm.runtime.variablemanager;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.junit;bundle-version="4.12.0"

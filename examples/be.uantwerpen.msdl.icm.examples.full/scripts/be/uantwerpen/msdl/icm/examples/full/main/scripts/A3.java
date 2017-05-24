@@ -4,8 +4,8 @@ import org.apache.log4j.Level;
 import java.util.Map;
 import com.google.common.collect.Maps;
 
+import be.uantwerpen.msdl.icm.runtime.scripting.scripts.JavaBasedScript;
 import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager;
-import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript;
 
 public class A3 extends JavaBasedScript{
 	

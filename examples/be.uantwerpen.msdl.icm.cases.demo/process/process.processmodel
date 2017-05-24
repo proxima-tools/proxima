@@ -4,6 +4,7 @@
     <formalism id="864045f1-b6f3-439a-9f6e-37e91abaab93" name="Matlab" types="//@process.0/@node.3" inputOf="//@ftg/@transformation.1" outputOf="//@ftg/@transformation.1 //@ftg/@transformation.4" capability="//@propertyModel/@capability.0"/>
     <formalism id="767ad8a8-3bf8-4a6a-96ae-a072e1873a0e" name="AMESim" types="//@process.0/@node.9" inputOf="//@ftg/@transformation.2" outputOf="//@ftg/@transformation.2" capability="//@propertyModel/@capability.1"/>
     <formalism id="a7928480-6682-4d80-beee-f43ba1392d4e" name="csv" types="//@process.0/@node.12" inputOf="//@ftg/@transformation.4"/>
+    <formalism id="d3c1b981-1852-4bfe-98ef-137a6f56ffd7" name="Matlab struct" types="//@process.0/@node.13"/>
     <transformation id="c6e22050-e02a-4e4b-bc13-3ed7aab8944d" name="setInitialConditionsSpec" types="//@process.0/@node.5">
       <definition xsi:type="be.uantwerpen.msdl.metamodels_1:JavaBasedActivityDefinition"/>
     </transformation>
@@ -26,7 +27,7 @@
       <executionParameters key="componentType" value="battery"/>
     </node>
     <node xsi:type="be.uantwerpen.msdl.metamodels_2:FlowFinal" id="deafc3e6-928d-46ce-b164-edcf4b4b4f23" controlIn="//@process.0/@controlFlow.3"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_2:Object" id="2d761354-6b08-4719-b3bd-c7a05eec81c3" dataFlowFrom="//@process.0/@node.4 //@process.0/@node.1 //@process.0/@node.10 //@process.0/@node.11" dataFlowTo="//@process.0/@node.4 //@process.0/@node.1" name="MechanicalModel" typedBy="//@ftg/@formalism.0" attribute="//@propertyModel/@attribute.0 //@propertyModel/@attribute.3"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_2:Object" id="ab9ddc2c-2b1a-4015-b2ac-23202b2ef4c9" dataFlowFrom="//@process.0/@node.4 //@process.0/@node.1 //@process.0/@node.11" dataFlowTo="//@process.0/@node.4 //@process.0/@node.1" name="MechanicalModel" typedBy="//@ftg/@formalism.0" attribute="//@propertyModel/@attribute.0 //@propertyModel/@attribute.3"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels_2:AutomatedActivity" id="d25f48c5-571d-43f0-a705-a071067964ab" dataFlowFrom="//@process.0/@node.3" dataFlowTo="//@process.0/@node.3" controlIn="//@process.0/@controlFlow.5" controlOut="//@process.0/@controlFlow.0" name="SelectMotor" typedBy="//@ftg/@transformation.1" intent="//@propertyModel/@intent.2 //@propertyModel/@intent.3">
       <executionParameters key="componentType" value="motor"/>
     </node>
@@ -39,9 +40,12 @@
     <node xsi:type="be.uantwerpen.msdl.metamodels_2:Decision" id="3e6a96d9-8a96-492a-840f-89d757a49349" controlIn="//@process.0/@controlFlow.2" controlOut="//@process.0/@controlFlow.3 //@process.0/@controlFlow.6"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels_2:Decision" id="63a370b7-97cf-4ecc-88d4-39feb5affb2d" controlIn="//@process.0/@controlFlow.4 //@process.0/@controlFlow.6" controlOut="//@process.0/@controlFlow.5"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels_2:Object" id="9560c54c-39f0-4a08-86df-a6f9903face4" dataFlowTo="//@process.0/@node.6" name="ElectricalModel" typedBy="//@ftg/@formalism.1"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_2:AutomatedActivity" id="64a1efe4-9b6f-4fd4-9610-b9936eaf1708" dataFlowTo="//@process.0/@node.3" controlIn="//@process.0/@controlFlow.7" controlOut="//@process.0/@controlFlow.8" name="SetUpMotorDB" typedBy="//@ftg/@transformation.3"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_2:AutomatedActivity" id="6c817eed-32c6-430a-a313-ad2e218fe566" dataFlowTo="//@process.0/@node.13" controlIn="//@process.0/@controlFlow.7" controlOut="//@process.0/@controlFlow.8" name="SetUpMotorDB" typedBy="//@ftg/@transformation.3">
+      <executionParameters key="outMotorDB" value="sctruct"/>
+    </node>
     <node xsi:type="be.uantwerpen.msdl.metamodels_2:AutomatedActivity" id="d7784b50-83f1-43bc-95b7-c0332ac96153" dataFlowFrom="//@process.0/@node.12" dataFlowTo="//@process.0/@node.3" controlIn="//@process.0/@controlFlow.8" controlOut="//@process.0/@controlFlow.9" name="SetUpBatteryDB" typedBy="//@ftg/@transformation.4"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels_2:Object" id="7dc8d7a4-f28d-4d4b-971c-59ce6b666084" dataFlowTo="//@process.0/@node.11" name="KokamLargeBatteries" typedBy="//@ftg/@formalism.2"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_2:Object" id="ce34127b-3e2c-41c9-a686-2c521b6335da" dataFlowFrom="//@process.0/@node.10" name="MotorDB" typedBy="//@ftg/@formalism.3"/>
     <controlFlow id="0707ebbc-6a9e-4c9a-92d2-f34f5d47d5ae" from="//@process.0/@node.4" to="//@process.0/@node.1"/>
     <controlFlow id="93b530a7-2c36-476e-b8be-7db1f17270ba" from="//@process.0/@node.1" to="//@process.0/@node.6"/>
     <controlFlow id="6ce01d7d-121f-47c5-8838-ecb27b011be0" from="//@process.0/@node.6" to="//@process.0/@node.7"/>

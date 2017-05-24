@@ -21,7 +21,7 @@ import be.uantwerpen.msdl.icm.cases.demo.scripts.SetInitialConditions;
 import be.uantwerpen.msdl.icm.cases.demo.scripts.SimulateElectricalModel;
 import be.uantwerpen.msdl.icm.runtime.CommandInterpreter;
 import be.uantwerpen.msdl.icm.runtime.EnactmentManager;
-import be.uantwerpen.msdl.icm.scripting.scripts.IScript;
+import be.uantwerpen.msdl.icm.runtime.scripting.scripts.IScript;
 
 public class Runner {
 
