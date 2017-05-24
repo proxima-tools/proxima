@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: Istvan David
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: be.uantwerpen.msdl.processmodel,
  be.uantwerpen.msdl.processmodel.base,
  be.uantwerpen.msdl.processmodel.base.impl,

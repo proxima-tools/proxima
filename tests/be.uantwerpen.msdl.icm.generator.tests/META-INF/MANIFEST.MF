@@ -2,8 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Generator Tests
 Bundle-SymbolicName: be.uantwerpen.msdl.icm.generator.tests
-Bundle-Version: 1.0.0.qualifier
-Fragment-Host: be.uantwerpen.msdl.icm.generator;bundle-version="1.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Version: 0.1.0.qualifier
+Fragment-Host: be.uantwerpen.msdl.icm.generator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.junit;bundle-version="4.12.0",
- be.uantwerpen.msdl.icm.tests.base;bundle-version="0.1.0"
+ be.uantwerpen.msdl.icm.tests.base
+Bundle-Vendor: Istvan David
