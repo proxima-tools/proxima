@@ -20,9 +20,12 @@ The first public release is planned for Summer of 2016.
 1. Download the [Eclipse Neon 4.3 Modeling](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/neon3) package.
 2. Install [Sirius 4.1.1](http://download.eclipse.org/sirius/updates/releases/4.1.1/neon).
 3. Install [VIATRA 1.5.0](http://download.eclipse.org/viatra/updates/release).
-4. Import the plugins from this repository's ```plugins``` and ```external``` folders.
 
 ### External dependencies
 1. Install [Python3](https://www.python.org/download/releases/3.0/) and [SymPy](http://www.sympy.org) for  for symbolic inconsistency checking.
 
 2. Install Matlab/Simulink (2016b preferred) and set up your environment for the Java API as described [here](https://nl.mathworks.com/help/matlab/matlab_external/setup-environment.html). (Typically, you'll only have to add ```matlabroot/bin/<arch>``` to your system environment variable, where ```<arch>``` is your computer architecture. For example, win64 for 64–bit Windows machines, maci64 on Macintosh, or glnxa64 on Linux.)
+
+### Setting up the environment
+1. Import the plugins from this repository's ```plugins``` and ```external``` folders.
+2. Generate domain model code from the ```processmodel.genmodel``` and ```enactment.genmodel``` generator models in the  ```be.uantwerpen.msdl.metamodels``` plugin.
