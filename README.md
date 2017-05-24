@@ -28,4 +28,8 @@ The first public release is planned for Summer of 2016.
 
 ### Setting up the environment
 1. Import the plugins from this repository's ```plugins``` and ```external``` folders.
-2. Generate domain model code from the ```processmodel.genmodel``` and ```enactment.genmodel``` generator models in the  ```be.uantwerpen.msdl.metamodels``` plugin.
+2. Generate domain model code.
+
+   Automated way: run the ```GenerateMetamodels.mwe2``` generator file in the ```models``` folder of the ```be.uantwerpen.msdl.metamodels``` plugin.
+
+   Manual way: use the ```processmodel.genmodel``` and ```enactment.genmodel``` generator models.
