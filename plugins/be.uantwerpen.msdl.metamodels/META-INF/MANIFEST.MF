@@ -35,5 +35,11 @@ Export-Package: be.uantwerpen.msdl.processmodel,
  be.uantwerpen.msdl.enactment.impl,
  be.uantwerpen.msdl.enactment.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.mwe2.lib;bundle-version="2.9.0",
+ org.eclipse.emf.mwe2.launch;bundle-version="2.9.0",
+ org.eclipse.emf.codegen.ecore;bundle-version="2.12.0",
+ org.apache.log4j;bundle-version="1.2.15",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.10.0",
+ org.apache.commons.logging;bundle-version="1.1.1"
 Bundle-ActivationPolicy: lazy
