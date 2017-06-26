@@ -70,6 +70,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="JavaBasedActivityDefinition" eSuperTypes="#//ftg/ActivityDefinition"/>
     <eClassifiers xsi:type="ecore:EClass" name="PythonScript" eSuperTypes="#//ftg/Script"/>
     <eClassifiers xsi:type="ecore:EClass" name="MatlabScript" eSuperTypes="#//ftg/Script"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IntentSpecification" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
+          eType="#//ftg/Transformation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="capability" lowerBound="1"
+          eType="#//properties/Capability"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//properties/IntentType"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="pm" nsURI="metamodels.pm" nsPrefix="be.uantwerpen.msdl.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//base/Identifiable #//base/NamedElement">
@@ -213,6 +221,8 @@
           eType="#//properties/IntentSubject" eOpposite="#//properties/IntentSubject/intent"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#//properties/IntentType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="intentSpecification"
+          eType="#//ftg/IntentSpecification"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="IntentType">
       <eLiterals name="UNKNOWN" literal="UNKNOWN"/>
