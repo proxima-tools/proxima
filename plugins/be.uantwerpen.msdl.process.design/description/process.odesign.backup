@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="process" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="process" version="11.1.1.201610211630">
   <ownedViewpoints name="ProcessViewpoint" label="Process Modeling" modelFileExtension="processmodel">
     <validationSet name="Validation">
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Untyped activity" level="WARNING" message="The activity has no type." targetClass="pm.Activity">
@@ -910,8 +910,6 @@
       <ownedColumnMappings name="TransformationColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Transformation" semanticCandidatesExpression="aql:self.ftg.transformation"/>
       <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
         <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The semantic currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
@@ -947,8 +945,6 @@
       <ownedColumnMappings name="FormalismColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Formalism" semanticCandidatesExpression="aql:self.ftg.formalism"/>
       <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedLineMappings[name='ObjectLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
         <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The semantic currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
@@ -984,8 +980,6 @@
       <ownedColumnMappings name="CapabilityColumn" headerLabelExpression="aql:self.name" domainClass="properties.Capability" semanticCandidatesExpression="aql:self.propertyModel.capability"/>
       <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AttributeTypingTable']/@ownedLineMappings[name='AttributeLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AttributeTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
         <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The semantic currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
@@ -1021,8 +1015,6 @@
       <ownedColumnMappings name="SubjectColumn" headerLabelExpression="aql:self.name" domainClass="properties.RelationshipSubject" semanticCandidatesExpression="aql:self.propertyModel.attribute -> union(self.propertyModel.capability) -> union(self.propertyModel.property)"/>
       <intersection name="Constrains" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ConstraintsTable']/@ownedLineMappings[name='ConstraintsLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ConstraintsTable']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="aql:self.subject" lineFinderExpression="aql:self.eContainer()" domainClass="properties.RelationshipLink">
         <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The semantic currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
@@ -1106,8 +1098,6 @@
       </intersection>
       <intersection name="ModifyIntent" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="modify" columnFinderExpression="service:getModifyIntents">
         <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The semantic currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
@@ -1266,8 +1256,6 @@
       <ownedColumnMappings name="ResourceTypeColumn" headerLabelExpression="aql:self.name" domainClass="resources.ResourceType"/>
       <intersection name="Demand" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceDemandTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceDemandTable']/@ownedColumnMappings.0" labelExpression="aql:(self.demand -> select(d | d.resourceType == columnSemantic)).amount->at(1)" columnFinderExpression="aql:self.demand.resourceType">
         <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The semantic currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
@@ -1401,27 +1389,24 @@
     <ownedJavaExtensions qualifiedClassName="be.uantwerpen.msdl.process.design.services.Services"/>
     <ownedJavaExtensions qualifiedClassName="be.uantwerpen.msdl.process.design.services.Validation"/>
   </ownedViewpoints>
-  <extensions xsi:type="properties:ViewExtensionDescription" name="ActivityProperties">
-    <categories name="Default Category">
-      <pages name="Default Page" labelExpression="Activity Properties" domainClass="pm.AutomatedActivity" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <groups name="Default Group" labelExpression="Execution" domainClass="pm.AutomatedActivity" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:LabelDescription" labelExpression="Script location" valueExpression="aql:if(self.typedBy.definition.oclIsKindOf(ftg::Script)) then self.typedBy.definition.oclAsType(ftg::Script).location else '-' endif"/>
-        <controls xsi:type="properties:TextAreaDescription" labelExpression="Execution parameters" helpExpression="Expected format: a comma-separated list of semicolon-separated key-value pairs. Formally: key1:value1, key2:value2..." valueExpression="service:getExecutionParameters()">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveExecutionParameters" action="//@extensions.0/@categories.0/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0">
-              <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveExecutionParametersAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.executionParameterAction">
-                <parameters name="parameters" value="var:newValue"/>
-              </subModelOperations>
-            </firstModelOperations>
-          </initialOperation>
-        </controls>
-      </groups>
-    </categories>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="ActivityProperties">
+    <pages identifier="Default" labelExpression="Activity Properties" domainClass="pm.AutomatedActivity" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0"/>
+    <groups identifier="Default" labelExpression="Execution" domainClass="pm.AutomatedActivity">
+      <controls xsi:type="properties:LabelDescription" labelExpression="Script location" valueExpression="aql:if(self.typedBy.definition.oclIsKindOf(ftg::Script)) then self.typedBy.definition.oclAsType(ftg::Script).location else '-' endif"/>
+      <controls xsi:type="properties:TextAreaDescription" labelExpression="Execution parameters" helpExpression="Expected format: a comma-separated list of semicolon-separated key-value pairs. Formally: key1:value1, key2:value2..." valueExpression="service:getExecutionParameters()">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveExecutionParameters" action="//@extensions.0/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0">
+            <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveExecutionParametersAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.executionParameterAction">
+              <parameters name="parameters" value="var:newValue"/>
+            </subModelOperations>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
+    </groups>
   </extensions>
-  <extensions xsi:type="properties:ViewExtensionDescription" name="TransformationProperties">
-    <categories name="Default Category">
-      <pages name="Default" labelExpression="Transformation Properties" domainClass="ftg.Transformation" semanticCandidateExpression="var:self" groups="//@extensions.1/@categories.0/@groups.0"/>
-    <groups name="Default" labelExpression="Execution" domainClass="ftg.Transformation" semanticCandidateExpression="var:self">
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="TransformationProperties">
+    <pages identifier="Default" labelExpression="Transformation Properties" domainClass="ftg.Transformation" semanticCandidateExpression="var:self" groups="//@extensions.1/@groups.0"/>
+    <groups identifier="Default" labelExpression="Execution" domainClass="ftg.Transformation" semanticCandidateExpression="var:self">
       <controls xsi:type="properties:RadioDescription" labelExpression="Select type" helpExpression="Java-based scripts must use the name of the activity they implement. The script files must be added to the enactment project or to its classpath. Python and Matlab scripts are executed by the absoltue path." isEnabledExpression="aql:true" valueExpression="aql:if(self.definition.oclIsKindOf(ftg::JavaBasedActivityDefinition)) then 'java' else if(self.definition.oclIsKindOf(ftg::PythonScript)) then 'python' else 'matlab' endif endif" candidatesExpression="aql:Sequence{'java', 'python', 'matlab'}" candidateDisplayExpression="aql:if(candidate=='java') then 'Java' else if(candidate=='python') then 'Python' else 'Matlab' endif endif" numberOfColumns="3">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
@@ -1465,21 +1450,19 @@
         </conditionalStyles>
       </controls>
       <validationSet>
-        <propertyValidationRules name="InconsistentScriptExtension" label="Inconsistent Script Extension" level="ERROR" message="Inconsistent script extension. The extension of the script file does not correspond to its type. (Use .py for Python and .m for Matlab scripts.)" targets="//@extensions.1/@categories.0/@groups.0/@controls.1">
+        <propertyValidationRules name="InconsistentScriptExtension" label="Inconsistent Script Extension" level="ERROR" message="Inconsistent script extension. The extension of the script file does not correspond to its type. (Use .py for Python and .m for Matlab scripts.)" targets="//@extensions.1/@groups.0/@controls.1">
           <audits auditExpression="service:consistentScriptExtension()"/>
         </propertyValidationRules>
       </validationSet>
     </groups>
-    </categories>
   </extensions>
-  <extensions xsi:type="properties:ViewExtensionDescription" name="ProcessModelProperties">
-    <categories name="Default Category">
-    <pages name="CodeGenProperties" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.0"/>
-    <pages labelExpression="Performance overview" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.1"/>
-    <groups name="CodeGen" labelExpression="Group" semanticCandidateExpression="var:self">
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="ProcessModelProperties">
+    <pages identifier="CodeGenProperties" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@groups.0"/>
+    <pages labelExpression="Performance overview" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@groups.1"/>
+    <groups identifier="CodeGen" labelExpression="Group" semanticCandidateExpression="var:self">
       <controls xsi:type="properties:TextDescription" labelExpression="Location" helpExpression="The absolute path to the directory where the artefacts will be generated. The path must be separated by backslashes. (E.g.: c:\scripts\script.py.) The directory will be created if it does not exists." valueExpression="service:getCodeGenLocation()">
         <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenLocation" action="//@extensions.2/@categories.0/@groups.0/@controls.0/@initialOperation/@firstModelOperations/@subModelOperations.0">
+          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenLocation" action="//@extensions.2/@groups.0/@controls.0/@initialOperation/@firstModelOperations/@subModelOperations.0">
             <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveCodeGenLocationAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenLocationAction">
               <parameters name="location" value="var:newValue"/>
             </subModelOperations>
@@ -1488,7 +1471,7 @@
       </controls>
       <controls xsi:type="properties:TextDescription" labelExpression="Root package" helpExpression="The root package of the generated artefacts." valueExpression="service:getCodeGenRootPackage()">
         <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenRootPackage" action="//@extensions.2/@categories.0/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0">
+          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenRootPackage" action="//@extensions.2/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0">
             <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveCodeGenRootPackageAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenRootPackageAction">
               <parameters name="rootPackage" value="var:newValue"/>
             </subModelOperations>
@@ -1496,9 +1479,8 @@
         </initialOperation>
       </controls>
     </groups>
-    <groups name="Performance" labelExpression="Group" semanticCandidateExpression="var:self">
+    <groups identifier="Performance" labelExpression="Group" semanticCandidateExpression="var:self">
       <controls xsi:type="properties:LabelDescription" labelExpression="Performance" valueExpression="service:calculatePerformance()"/>
     </groups>
-    </categories>
   </extensions>
 </description:Group>
