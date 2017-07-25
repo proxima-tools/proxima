@@ -1,6 +1,6 @@
-# PROxIMA: PROcess engineering with Inconsistency MAnagement
+<img src="https://github.com/david-istvan/icm/blob/master/branding/logo.png" width="160">
 
-[[https://github.com/david-istvan/icm/blob/master/branding/logo.png]]
+# *PRO*cess engineering with *I*nconsistency *MA*nagement
 
 <!---
 Our prototype tool aims to enhance engineering processes by managing potential inconsistencies emering in collaborative modeling settings. The tool is built on top of the Eclipse platform and is available as a set of Eclipse plugins. (See the installation guide.)
