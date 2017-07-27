@@ -89,7 +89,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="AutomatedActivityContainer" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="pm.AutomatedActivity" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/be.uantwerpen.msdl.process.design/icons/automatic.png" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/be.uantwerpen.msdl.process.design/icons/automatic.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
@@ -98,7 +98,7 @@
           </style>
         </containerMappings>
         <containerMappings name="ManualActivityContainer" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="pm.ManualActivity" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" iconPath="/be.uantwerpen.msdl.process.design/icons/manual.png" widthComputationExpression="13" heightComputationExpression="3" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" iconPath="/be.uantwerpen.msdl.process.design/icons/manual.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="3" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -1421,84 +1421,84 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="TransformationProperties">
     <categories name="Default Category">
       <pages name="Default" labelExpression="Transformation Properties" domainClass="ftg.Transformation" semanticCandidateExpression="var:self" groups="//@extensions.1/@categories.0/@groups.0"/>
-    <groups name="Default" labelExpression="Execution" domainClass="ftg.Transformation" semanticCandidateExpression="var:self">
-      <controls xsi:type="properties:RadioDescription" labelExpression="Select type" helpExpression="Java-based scripts must use the name of the activity they implement. The script files must be added to the enactment project or to its classpath. Python and Matlab scripts are executed by the absoltue path." isEnabledExpression="aql:true" valueExpression="aql:if(self.definition.oclIsKindOf(ftg::JavaBasedActivityDefinition)) then 'java' else if(self.definition.oclIsKindOf(ftg::PythonScript)) then 'python' else 'matlab' endif endif" candidatesExpression="aql:Sequence{'java', 'python', 'matlab'}" candidateDisplayExpression="aql:if(candidate=='java') then 'Java' else if(candidate=='python') then 'Python' else 'Matlab' endif endif" numberOfColumns="3">
-        <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
-            <subModelOperations xsi:type="tool_1:Unset" featureName="definition"/>
-            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue=='java'">
-              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.JavaBasedActivityDefinition" referenceName="definition"/>
-              </subModelOperations>
-            </subModelOperations>
-            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue=='python'">
-              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.PythonScript" referenceName="definition"/>
-              </subModelOperations>
-            </subModelOperations>
-            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue=='matlab'">
-              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.MatlabScript" referenceName="definition"/>
-              </subModelOperations>
-            </subModelOperations>
-          </firstModelOperations>
-        </initialOperation>
-      </controls>
-      <controls xsi:type="properties:TextDescription" labelExpression="Script location" helpExpression="The absolute path to the related script, separated by backslashes. (E.g.: c:\scripts\script.py, or c:\scripts\script.m.)" isEnabledExpression="aql:self.definition.oclIsKindOf(ftg::Script)" valueExpression="aql:if(self.definition.oclIsKindOf(ftg::Script)) then self.definition.oclAsType(ftg::Script).location else '' endif">
-        <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
-            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue==''">
+      <groups name="Default" labelExpression="Execution" domainClass="ftg.Transformation" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:RadioDescription" labelExpression="Select type" helpExpression="Java-based scripts must use the name of the activity they implement. The script files must be added to the enactment project or to its classpath. Python and Matlab scripts are executed by the absoltue path." isEnabledExpression="aql:true" valueExpression="aql:if(self.definition.oclIsKindOf(ftg::JavaBasedActivityDefinition)) then 'java' else if(self.definition.oclIsKindOf(ftg::PythonScript)) then 'python' else 'matlab' endif endif" candidatesExpression="aql:Sequence{'java', 'python', 'matlab'}" candidateDisplayExpression="aql:if(candidate=='java') then 'Java' else if(candidate=='python') then 'Python' else 'Matlab' endif endif" numberOfColumns="3">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
               <subModelOperations xsi:type="tool_1:Unset" featureName="definition"/>
-            </subModelOperations>
-            <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue!=''">
-              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.definition">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="location" valueExpression="var:newValue"/>
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue=='java'">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.JavaBasedActivityDefinition" referenceName="definition"/>
+                </subModelOperations>
               </subModelOperations>
-            </subModelOperations>
-          </firstModelOperations>
-        </initialOperation>
-        <conditionalStyles preconditionExpression="aql:not self.definition.oclIsKindOf(ftg::Script)">
-          <style>
-            <labelForegroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </conditionalStyles>
-      </controls>
-      <validationSet>
-        <propertyValidationRules name="InconsistentScriptExtension" label="Inconsistent Script Extension" level="ERROR" message="Inconsistent script extension. The extension of the script file does not correspond to its type. (Use .py for Python and .m for Matlab scripts.)" targets="//@extensions.1/@categories.0/@groups.0/@controls.1">
-          <audits auditExpression="service:consistentScriptExtension()"/>
-        </propertyValidationRules>
-      </validationSet>
-    </groups>
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue=='python'">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.PythonScript" referenceName="definition"/>
+                </subModelOperations>
+              </subModelOperations>
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue=='matlab'">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.definition==null">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="ftg.MatlabScript" referenceName="definition"/>
+                </subModelOperations>
+              </subModelOperations>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" labelExpression="Script location" helpExpression="The absolute path to the related script, separated by backslashes. (E.g.: c:\scripts\script.py, or c:\scripts\script.m.)" isEnabledExpression="aql:self.definition.oclIsKindOf(ftg::Script)" valueExpression="aql:if(self.definition.oclIsKindOf(ftg::Script)) then self.definition.oclAsType(ftg::Script).location else '' endif">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue==''">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="definition"/>
+              </subModelOperations>
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:newValue!=''">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.definition">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="location" valueExpression="var:newValue"/>
+                </subModelOperations>
+              </subModelOperations>
+            </firstModelOperations>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:not self.definition.oclIsKindOf(ftg::Script)">
+            <style>
+              <labelForegroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="InconsistentScriptExtension" label="Inconsistent Script Extension" level="ERROR" message="Inconsistent script extension. The extension of the script file does not correspond to its type. (Use .py for Python and .m for Matlab scripts.)" targets="//@extensions.1/@categories.0/@groups.0/@controls.1">
+            <audits auditExpression="service:consistentScriptExtension()"/>
+          </propertyValidationRules>
+        </validationSet>
+      </groups>
     </categories>
   </extensions>
   <extensions xsi:type="properties:ViewExtensionDescription" name="ProcessModelProperties">
     <categories name="Default Category">
-    <pages name="CodeGenProperties" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.0"/>
-    <pages labelExpression="Performance overview" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.1"/>
-    <groups name="CodeGen" labelExpression="Group" semanticCandidateExpression="var:self">
-      <controls xsi:type="properties:TextDescription" labelExpression="Location" helpExpression="The absolute path to the directory where the artefacts will be generated. The path must be separated by backslashes. (E.g.: c:\scripts\script.py.) The directory will be created if it does not exists." valueExpression="service:getCodeGenLocation()">
-        <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenLocation" action="//@extensions.2/@categories.0/@groups.0/@controls.0/@initialOperation/@firstModelOperations/@subModelOperations.0">
-            <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveCodeGenLocationAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenLocationAction">
-              <parameters name="location" value="var:newValue"/>
-            </subModelOperations>
-          </firstModelOperations>
-        </initialOperation>
-      </controls>
-      <controls xsi:type="properties:TextDescription" labelExpression="Root package" helpExpression="The root package of the generated artefacts." valueExpression="service:getCodeGenRootPackage()">
-        <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenRootPackage" action="//@extensions.2/@categories.0/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0">
-            <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveCodeGenRootPackageAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenRootPackageAction">
-              <parameters name="rootPackage" value="var:newValue"/>
-            </subModelOperations>
-          </firstModelOperations>
-        </initialOperation>
-      </controls>
-    </groups>
-    <groups name="Performance" labelExpression="Group" semanticCandidateExpression="var:self">
-      <controls xsi:type="properties:LabelDescription" labelExpression="Performance" valueExpression="service:calculatePerformance()"/>
-    </groups>
+      <pages name="CodeGenProperties" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.0"/>
+      <pages labelExpression="Performance overview" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.1"/>
+      <groups name="CodeGen" labelExpression="Group" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" labelExpression="Location" helpExpression="The absolute path to the directory where the artefacts will be generated. The path must be separated by backslashes. (E.g.: c:\scripts\script.py.) The directory will be created if it does not exists." valueExpression="service:getCodeGenLocation()">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenLocation" action="//@extensions.2/@categories.0/@groups.0/@controls.0/@initialOperation/@firstModelOperations/@subModelOperations.0">
+              <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveCodeGenLocationAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenLocationAction">
+                <parameters name="location" value="var:newValue"/>
+              </subModelOperations>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" labelExpression="Root package" helpExpression="The root package of the generated artefacts." valueExpression="service:getCodeGenRootPackage()">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="SaveCodeGenRootPackage" action="//@extensions.2/@categories.0/@groups.0/@controls.1/@initialOperation/@firstModelOperations/@subModelOperations.0">
+              <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SaveCodeGenRootPackageAction" id="be.uantwerpen.msdl.icm.runtime.sirius.externalactions.CodeGenRootPackageAction">
+                <parameters name="rootPackage" value="var:newValue"/>
+              </subModelOperations>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Performance" labelExpression="Group" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:LabelDescription" labelExpression="Performance" valueExpression="service:calculatePerformance()"/>
+      </groups>
     </categories>
   </extensions>
 </description:Group>
