@@ -35,3 +35,6 @@ The first public release is planned for Summer of 2016.
    Automated way: run the ```GenerateMetamodels.mwe2``` generator file in the ```models``` folder of the ```be.uantwerpen.msdl.metamodels``` plugin.
 
    Manual way: use the ```processmodel.genmodel``` and ```enactment.genmodel``` generator models.
+   
+### Pointers for using the tool
+ - [Sharing MATLAB sessions](https://nl.mathworks.com/help/matlab/ref/matlab.engine.shareengine.html)
