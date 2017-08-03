@@ -4,16 +4,15 @@ import org.apache.log4j.Level;
 import java.util.Map;
 import com.google.common.collect.Maps;
 
-import be.uantwerpen.msdl.icm.runtime.scripting.scripts.JavaBasedScript;
 import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager;
+import be.uantwerpen.msdl.icm.runtime.scripting.scripts.JavaBasedScript;
 
-public class A4 extends JavaBasedScript{
+public class AssignTotalMass extends JavaBasedScript{
 	
 	private Map<Object, Object> parameters = Maps.newHashMap();
 	
 	//Constructor
-	public A4() {
-		parameters.put("totalMass", "161.0");
+	public AssignTotalMass() {
 	}
 	
 	@Override

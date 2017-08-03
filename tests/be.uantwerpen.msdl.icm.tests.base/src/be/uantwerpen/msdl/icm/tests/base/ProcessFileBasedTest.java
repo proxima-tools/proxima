@@ -18,7 +18,7 @@ public abstract class ProcessFileBasedTest {
 
 	public ProcessFileBasedTest() {
 		processModelFile = new File(
-				"D:\\GitHub\\msdl\\ICM\\examples\\be.uantwerpen.msdl.icm.cases.demo\\process\\process.processmodel");
+				"D:\\GitHub\\msdl\\ICM\\examples\\be.uantwerpen.msdl.icm.examples.full\\processes\\attributetest.processmodel");
 
 		Map<String, Object> extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
 		extensionToFactoryMap.put("processmodel", new XMIResourceFactoryImpl());

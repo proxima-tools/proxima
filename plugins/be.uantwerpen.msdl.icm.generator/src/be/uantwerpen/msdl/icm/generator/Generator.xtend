@@ -35,7 +35,7 @@ class Generator {
 
 		val l = processModel.codeGenProperties.get("location")
 
-		location = if (l != null) {
+		location = if (l !== null) {
 			l.replace("\\", "\\\\")
 		} else {
 			val srcgenFolder = processModel.eResource.URI.trimSegments(2).appendSegment("src-gen")
@@ -52,7 +52,7 @@ class Generator {
 		logger.debug("generating scripts")
 
 		val ftg = processModel.ftg
-		if (ftg == null) {
+		if (ftg === null) {
 			return
 		}
 
@@ -62,12 +62,12 @@ class Generator {
 			]
 
 		val pm = processModel.process
-		if (pm == null) {
+		if (pm === null) {
 			return
 		}
 
 		pm.head.node.filter[node|node instanceof AutomatedActivity].map[node|node as AutomatedActivity].filter [ activity |
-			activity.typedBy != null && activity.typedBy.definition instanceof JavaBasedActivityDefinition
+			activity.typedBy !== null && activity.typedBy.definition instanceof JavaBasedActivityDefinition
 		].forEach [ activity |
 			activity.generateScript
 		]
@@ -91,7 +91,7 @@ class Generator {
 			import java.util.Map;
 			
 			import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager;
-			import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript;
+			import be.uantwerpen.msdl.icm.runtime.scripting.scripts.JavaBasedScript;
 			
 			public class «className» extends JavaBasedScript{
 				
@@ -140,7 +140,7 @@ class Generator {
 			import com.google.common.collect.Maps;
 			
 			import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager;
-			import be.uantwerpen.msdl.icm.scripting.scripts.JavaBasedScript;
+			import be.uantwerpen.msdl.icm.runtime.scripting.scripts.JavaBasedScript;
 			
 			public class «className» extends JavaBasedScript{
 				

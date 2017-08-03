@@ -29,6 +29,7 @@ import java.io.File
 import java.io.FileWriter
 import java.io.InputStreamReader
 import java.util.List
+import java.util.Map
 import java.util.Set
 import java.util.regex.Pattern
 import org.apache.log4j.Level
@@ -43,6 +44,7 @@ class VariableManager {
 	val INCONSISTENCY_ERROR_MSG = "AttributeError: 'EmptySet' object has no attribute 'evalf'"
 	val INCONCLUSIVE_ERROR_MSG = "inequality has more than one symbol of interest"
 	val INCONSISTENCY_MSG = "false"
+	val FINAL_SOLUTION = "final solution"
 
 	private extension val Relationships = new Relationships
 
@@ -50,7 +52,7 @@ class VariableManager {
 	@Accessors(PUBLIC_GETTER) VariableStore variableStore
 
 	public static def getInstance() {
-		if (instance == null) {
+		if (instance === null) {
 			instance = new VariableManager
 		}
 
@@ -185,11 +187,20 @@ class VariableManager {
 		variables
 	}
 
+	def setVariables(Map<String, Double> values) {
+		Preconditions::checkNotNull(this.variableStore)
+
+		values.forEach [ name, value |
+			variableStore.setVariable(name, value)
+		]
+		evaluateExpressions2();
+	}
+
 	def setVariable(String variableName, Double value) {
 		Preconditions::checkNotNull(this.variableStore)
 
 		variableStore.setVariable(variableName, value)
-		evaluateExpressions();
+		evaluateExpressions2();
 	}
 
 	def evaluateExpressions() {
@@ -216,6 +227,30 @@ class VariableManager {
 		logger.debug(result);
 	}
 
+	def evaluateExpressions2() {
+		Preconditions::checkNotNull(this.variableStore)
+
+		val file = File.createTempFile("evaluateExpressions2", ".py")
+		file.deleteOnExit()
+		val bufferedWriter = new BufferedWriter(new FileWriter(file))
+		val scriptText = ScriptTemplates2.generateSymPyScript(variableStore).toString
+		bufferedWriter.write(scriptText)
+		bufferedWriter.close();
+
+		logger.debug(file.getAbsolutePath())
+		logger.debug(scriptText)
+
+		val runtime = Runtime.getRuntime();
+
+		val process = runtime.exec("python " + file.getAbsolutePath());
+
+		val bufferedReader = new BufferedReader(new InputStreamReader(process.inputStream));
+		val errorReader = new BufferedReader(new InputStreamReader(process.errorStream));
+		val result = evaluate2(bufferedReader, errorReader)
+
+		logger.debug(result);
+	}
+
 	private def ResultType evaluate(BufferedReader standardReader, BufferedReader errorReader) {
 		val stdLine = standardReader.readLine();
 		if (stdLine != null) {
@@ -236,5 +271,33 @@ class VariableManager {
 		}
 
 		throw new IllegalArgumentException();
+	}
+
+	private def ResultType evaluate2(BufferedReader standardReader, BufferedReader errorReader) {
+		if (standardReader.readLine() != null) {
+			val List<String> lines = Lists::newArrayList(standardReader.lines().toArray)
+
+			for (line : lines) {
+				if (line.contains(FINAL_SOLUTION)) {
+					val splits = line.split(':')
+					Preconditions::checkArgument(splits.size == 2)
+					val message = splits.last
+					if (message.equalsIgnoreCase('False')) {
+						return ResultType.INCONSISTENT
+					}
+				}
+			}
+		} else if (errorReader.readLine() != null) {
+			val List<String> lines = Lists::newArrayList(errorReader.lines().toArray)
+			if (lines.findFirst[line|line.contains(INCONCLUSIVE_ERROR_MSG)] != null) {
+				return ResultType.INCONCLUSIVE;
+			} else if (lines.findFirst[line|line.contains(INCONSISTENCY_ERROR_MSG)] != null) {
+				return ResultType.INCONSISTENT;
+			} else {
+				return ResultType.INCONCLUSIVE;
+			}
+		}
+
+		return ResultType.INCONCLUSIVE;
 	}
 }

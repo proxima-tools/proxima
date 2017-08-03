@@ -4,16 +4,15 @@ import org.apache.log4j.Level;
 import java.util.Map;
 import com.google.common.collect.Maps;
 
-import be.uantwerpen.msdl.icm.runtime.scripting.scripts.JavaBasedScript;
 import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager;
+import be.uantwerpen.msdl.icm.runtime.scripting.scripts.JavaBasedScript;
 
-public class A2 extends JavaBasedScript{
+public class SelectMotor extends JavaBasedScript{
 	
 	private Map<Object, Object> parameters = Maps.newHashMap();
 	
 	//Constructor
-	public A2() {
-		parameters.put("batteryMass", "10");
+	public SelectMotor() {
 	}
 	
 	@Override

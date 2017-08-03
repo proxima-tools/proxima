@@ -5,6 +5,7 @@
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.tokenInNode"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.tokenInActivity"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.activity"/>
+      <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.attributeModificationActivity"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.fireable"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.availableActivity"/>
       <query-specification fqn="be.uantwerpen.msdl.icm.runtime.queries.availableFinish"/>

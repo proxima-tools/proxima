@@ -130,8 +130,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//pm/Node #//pm/Typeable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/ObjectType"
           eOpposite="#//ftg/ObjectType/types"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
-          eType="#//properties/Attribute" eOpposite="#//properties/Attribute/persistedIn"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributedefinition"
+          upperBound="-1" eType="#//properties/AttributeDefinition" eOpposite="#//properties/AttributeDefinition/object"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Control" abstract="true" eSuperTypes="#//pm/Node"/>
     <eClassifiers xsi:type="ecore:EClass" name="Initial" eSuperTypes="#//pm/Control"/>
@@ -179,13 +179,21 @@
           eType="#//viewpoints/Concern" eOpposite="#//viewpoints/Concern/property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//properties/RelationshipSubject">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="persistedIn" eType="#//pm/Object"
-          eOpposite="#//pm/Object/attribute"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="featuredIn" upperBound="-1"
           eType="#//properties/Formula" eOpposite="#//properties/Formula/features"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//properties/Capability"
           eOpposite="#//properties/Capability/types"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributedefinition"
+          eType="#//properties/AttributeDefinition" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinition" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//pm/Object"
+          eOpposite="#//pm/Object/attributedefinition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GraphQueryAttributeDefinition" eSuperTypes="#//properties/AttributeDefinition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MatlabAttributeDefinition" eSuperTypes="#//properties/AttributeDefinition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InMemoryAttributeDefinition" eSuperTypes="#//properties/AttributeDefinition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AmesimAttributeDefinition" eSuperTypes="#//properties/AttributeDefinition"/>
     <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//base/NamedElement #//properties/RelationshipSubject">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" lowerBound="1"
           eType="#//properties/Precision"/>

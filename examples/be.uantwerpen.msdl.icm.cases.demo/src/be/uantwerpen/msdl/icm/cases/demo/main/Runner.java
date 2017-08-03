@@ -17,8 +17,6 @@ import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
-import be.uantwerpen.msdl.icm.cases.demo.scripts.SetInitialConditions;
-import be.uantwerpen.msdl.icm.cases.demo.scripts.SimulateElectricalModel;
 import be.uantwerpen.msdl.icm.runtime.CommandInterpreter;
 import be.uantwerpen.msdl.icm.runtime.EnactmentManager;
 import be.uantwerpen.msdl.icm.runtime.scripting.scripts.IScript;
@@ -36,8 +34,6 @@ public class Runner {
 	private List<Class<? extends IScript>> getScripts() {
 		List<Class<? extends IScript>> scripts = Lists.newArrayList();
 
-		scripts.add(SetInitialConditions.class);
-		scripts.add(SimulateElectricalModel.class);
 
 		return scripts;
 	}

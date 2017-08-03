@@ -13,6 +13,7 @@ package be.uantwerpen.msdl.icm.runtime.queries
 
 import "metamodels.enactment"
 import "metamodels.pm"
+import "metamodels.properties"
 
 pattern activeToken(token: Token){
 	Token.abstract(token, a);
@@ -31,6 +32,11 @@ pattern tokenInActivity(token : Token, node : Activity){
 
 pattern activity(node: Node){
 	Activity(node);
+}
+
+pattern attributeModificationActivity(activity: Activity, attribute: Attribute){
+	Intent.activity(intent, activity);
+	Intent.subject(intent, attribute);
 }
 
 pattern fireable(token: Token, controlFlow: ControlFlow, fromNode: Node, toNode: Node)

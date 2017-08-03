@@ -26,13 +26,24 @@ class MatlabConnectionManager {
 
 	def static getMatlabEngine() {
 		logger.level = Level::DEBUG
-		if (matlabEngine == null) {
-			logger.debug('No running MATLAB engine found, starting a new one.')
-			matlabEngine = MatlabEngine.startMatlab
-			matlabEngine.eval("matlab.engine.shareEngine('engine001')")
-			logger.debug('MATLAB engine started and shared with ID "engine001".')
+		if (matlabEngine === null) {
+			logger.debug('Searching for a running MATLAB engine.')
+			val engines = MatlabEngine.findMatlab
+			if (!engines.empty) {
+				matlabEngine = MatlabEngine.connectMatlab(engines.head);
+			} else {
+				logger.debug('No running MATLAB engine found, starting a new one.')
+				matlabEngine = MatlabEngine.startMatlab
+				matlabEngine.eval("matlab.engine.shareEngine('engine001')")
+				logger.debug('MATLAB engine started and shared with ID "engine001".')
+			}
 		}
-		logger.debug('Returning MATLAB engine "engine001".')
+		logger.debug(String::format('Returning MATLAB engine %s.', matlabEngine))
 		matlabEngine
+	}
+
+	def static getMatlabEngine(String name) {
+		logger.debug(String::format('Returning MATLAB engine %s.', name))
+		MatlabEngine.connectMatlab(#[name].head)
 	}
 }

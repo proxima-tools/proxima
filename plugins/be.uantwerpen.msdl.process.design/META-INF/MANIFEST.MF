@@ -13,7 +13,7 @@ Require-Bundle: org.eclipse.ui,
  com.google.guava,
  org.eclipse.xtend.lib,
  be.uantwerpen.msdl.icm.commons.bl,
- be.uantwerpen.msdl.metamodels
+ be.uantwerpen.msdl.metamodels;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: be.uantwerpen.msdl.process.design

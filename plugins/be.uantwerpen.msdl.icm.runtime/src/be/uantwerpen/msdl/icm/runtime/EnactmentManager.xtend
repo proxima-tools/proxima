@@ -15,11 +15,13 @@ import be.uantwerpen.msdl.enactment.ActivityState
 import be.uantwerpen.msdl.enactment.Enactment
 import be.uantwerpen.msdl.enactment.EnactmentFactory
 import be.uantwerpen.msdl.enactment.Token
+import be.uantwerpen.msdl.icm.runtime.queries.util.AttributeModificationActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.AvailableActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.AvailableFinishQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.FinishedProcessQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.ReadyActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.RunnigActivityQuerySpecification
+import be.uantwerpen.msdl.icm.runtime.scripting.connection.MatlabConnectionManager
 import be.uantwerpen.msdl.icm.runtime.scripting.manager.ScriptExecutionManager
 import be.uantwerpen.msdl.icm.runtime.scripting.scripts.IScript
 import be.uantwerpen.msdl.icm.runtime.transformations.SimulatorTransformations2
@@ -36,6 +38,11 @@ import be.uantwerpen.msdl.processmodel.pm.Initial
 import be.uantwerpen.msdl.processmodel.pm.Node
 import be.uantwerpen.msdl.processmodel.pm.Object
 import be.uantwerpen.msdl.processmodel.pm.Process
+import be.uantwerpen.msdl.processmodel.properties.AmesimAttributeDefinition
+import be.uantwerpen.msdl.processmodel.properties.Attribute
+import be.uantwerpen.msdl.processmodel.properties.GraphQueryAttributeDefinition
+import be.uantwerpen.msdl.processmodel.properties.InMemoryAttributeDefinition
+import be.uantwerpen.msdl.processmodel.properties.MatlabAttributeDefinition
 import com.google.common.collect.Lists
 import com.google.common.collect.Maps
 import java.io.File
@@ -120,7 +127,7 @@ class EnactmentManager {
 				val script = scripts.findFirst [ s |
 					s.simpleName.equalsIgnoreCase((activity as NamedElement).name)
 				]
-				if (script != null) {
+				if (script !== null) {
 					val runnable = script.newInstance as IScript
 					activityScripts.put(activity, runnable)
 				}
@@ -170,7 +177,7 @@ class EnactmentManager {
 		val match = queryEngine.getMatcher(AvailableActivityQuerySpecification.instance).allMatches.findFirst [ match |
 			(match.activity as NamedElement).name.equalsIgnoreCase(activityName)
 		]
-		if (match != null) {
+		if (match !== null) {
 			prepareActivity(match.activity, match.token)
 		} else {
 			logger.debug("No available activity with matching name.")
@@ -187,7 +194,7 @@ class EnactmentManager {
 			(match.node as NamedElement).name.equalsIgnoreCase(activityName)
 		]
 
-		if (match != null) {
+		if (match !== null) {
 			runActivity(match.node)
 		} else {
 			logger.debug("No prepared activity with the matching name.")
@@ -214,13 +221,13 @@ class EnactmentManager {
 		if (activity.typedBy.definition instanceof JavaBasedActivityDefinition) {
 			// execute by name
 			val script = activityScripts.get(activity)
-			if (script != null) {
+			if (script !== null) {
 				scriptExecutionManager.execute(script, parameters)
 			}
 		} else if (activity.typedBy.definition instanceof Script) {
 			// Execution by script file
 			val location = (activity.typedBy.definition as Script).location
-			if (location != null) {
+			if (location !== null) {
 				logger.debug(String.format("Script file %s located. Executing script.", location))
 				switch (activity.typedBy.definition) {
 					PythonScript:
@@ -241,7 +248,7 @@ class EnactmentManager {
 			(match.node as NamedElement).name.equalsIgnoreCase(activityName)
 		]
 
-		if (match != null) {
+		if (match !== null) {
 			finishActivity(match.node)
 		} else {
 			logger.debug("No running activity with the matching name.")
@@ -251,18 +258,53 @@ class EnactmentManager {
 	def finishActivity(Activity activity) {
 		val token = enactment.token.findFirst[t|t.currentNode.equals(activity)]
 		token.state = ActivityState::DONE
+
+		val modifiedAttributes = queryEngine.getMatcher(AttributeModificationActivityQuerySpecification.instance).
+			getAllValuesOfattribute(activity)
+		if (!modifiedAttributes.empty) {
+			logger.debug("Checking for consistency")
+			// TODO check consistency
+			// get the variable from the model and load into the variable manager
+			var values = Maps::newHashMap();
+
+			for (attribute : modifiedAttributes) {
+				val value = attribute.getValue
+				values.put(attribute.name, value)
+			}
+			VariableManager.getInstance().setVariables(values)
+		}
+	}
+
+	def getGetValue(Attribute attribute) {
+		switch (attribute.attributedefinition) {
+			MatlabAttributeDefinition: {
+				val matlabEngine = MatlabConnectionManager::matlabEngine
+				val v = matlabEngine.getVariable(attribute.name)
+				println(v)
+				v
+			}
+			AmesimAttributeDefinition: {
+				0.0
+			}
+			GraphQueryAttributeDefinition: {
+				0.0
+			}
+			InMemoryAttributeDefinition: {
+				0.0
+			}
+		}
 	}
 
 	def stepActivity() {
 		val matchAvailable = queryEngine.getMatcher(AvailableActivityQuerySpecification.instance).allMatches.head
 		val matchReady = queryEngine.getMatcher(ReadyActivityQuerySpecification.instance).allMatches.head
 
-		if (matchAvailable != null) {
+		if (matchAvailable !== null) {
 			val match = matchAvailable
 			prepareActivity(match.activity, match.token)
 			runActivity(match.activity)
 			finishActivity(match.activity)
-		} else if (matchReady != null) {
+		} else if (matchReady !== null) {
 			val match = matchReady
 			runActivity(match.node)
 			finishActivity(match.node)
@@ -279,12 +321,12 @@ class EnactmentManager {
 			(match.node as NamedElement).name.equalsIgnoreCase(activityName)
 		]
 
-		if (matchAvailable != null) {
+		if (matchAvailable !== null) {
 			val match = matchAvailable
 			prepareActivity(match.activity, match.token)
 			runActivity(match.activity)
 			finishActivity(match.activity)
-		} else if (matchReady != null) {
+		} else if (matchReady !== null) {
 			val match = matchReady
 			runActivity(match.node)
 			finishActivity(match.node)

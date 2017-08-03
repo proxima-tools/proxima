@@ -35,6 +35,10 @@ public class SplitEquation {
 	public String getLhs() {
 		return lhs;
 	}
+	
+	public void setLhs(String lhs) {
+		this.lhs = lhs;
+	}
 
 	public Relation getRelation() {
 		return relation;
@@ -42,6 +46,10 @@ public class SplitEquation {
 
 	public String getRhs() {
 		return rhs;
+	}
+	
+	public void setRhs(String rhs) {
+		this.rhs = rhs;
 	}
 
 	public void setName(String name) {

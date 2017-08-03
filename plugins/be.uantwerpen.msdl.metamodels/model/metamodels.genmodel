@@ -66,6 +66,13 @@
       <genClasses ecoreClass="processmodel.ecore#//ftg/JavaBasedActivityDefinition"/>
       <genClasses ecoreClass="processmodel.ecore#//ftg/PythonScript"/>
       <genClasses ecoreClass="processmodel.ecore#//ftg/MatlabScript"/>
+      <genClasses ecoreClass="processmodel.ecore#//ftg/IntentSpecification">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//ftg/IntentSpecification/transformation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//ftg/IntentSpecification/capability"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//ftg/IntentSpecification/type"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Pm" basePackage="be.uantwerpen.msdl.processmodel" disposableProviderFactory="true"
         ecorePackage="processmodel.ecore#//pm">
@@ -114,7 +121,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Object/typedBy"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Object/attribute"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Object/attributedefinition"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Control"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/Initial"/>
@@ -179,12 +186,18 @@
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/Attribute">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Attribute/persistedIn"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//properties/Attribute/featuredIn"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//properties/Attribute/typedBy"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//properties/Attribute/attributedefinition"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="processmodel.ecore#//properties/AttributeDefinition">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/AttributeDefinition/object"/>
+      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//properties/GraphQueryAttributeDefinition"/>
+      <genClasses ecoreClass="processmodel.ecore#//properties/MatlabAttributeDefinition"/>
+      <genClasses ecoreClass="processmodel.ecore#//properties/AmesimAttributeDefinition"/>
       <genClasses ecoreClass="processmodel.ecore#//properties/Relationship">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Relationship/precision"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -206,6 +219,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//properties/Intent/subject"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Intent/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Intent/intentSpecification"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/Formula">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Formula/definition"/>
