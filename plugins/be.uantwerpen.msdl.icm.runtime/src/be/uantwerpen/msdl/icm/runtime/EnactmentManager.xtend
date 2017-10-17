@@ -28,6 +28,7 @@ import be.uantwerpen.msdl.icm.runtime.transformations.SimulatorTransformations2
 import be.uantwerpen.msdl.icm.runtime.variablemanager.VariableManager
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.base.NamedElement
+import be.uantwerpen.msdl.processmodel.ftg.Formalism
 import be.uantwerpen.msdl.processmodel.ftg.JavaBasedActivityDefinition
 import be.uantwerpen.msdl.processmodel.ftg.MatlabScript
 import be.uantwerpen.msdl.processmodel.ftg.PythonScript
@@ -58,6 +59,10 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
 import org.eclipse.xtend.lib.annotations.Accessors
+import be.uantwerpen.msdl.processmodel.pm.ManualActivity
+import be.uantwerpen.msdl.processmodel.ftg.Tool
+import matlabcontrol.MatlabProxyFactory
+import be.uantwerpen.msdl.icm.runtime.querying.MatlabQuery
 
 class EnactmentManager {
 
@@ -74,7 +79,7 @@ class EnactmentManager {
 	// MATLAB support
 	// FIXME this command boots up Matlab even though it's not necessarily required. A proxy pattern would
 	// solve this temporarily, but maybe a full re-structure would be the best.
-	val MatlabProxy matlabProxy = null // new MatlabProxyFactory().proxy //null
+	var MatlabProxy matlabProxy = null // new MatlabProxyFactory().proxy //null
 	// Variable support
 	@Accessors(PUBLIC_GETTER) VariableManager variableManager
 
@@ -120,7 +125,7 @@ class EnactmentManager {
 		variableManager.setup(propertyModel)
 
 		// Scripting
-		if (!scripts.empty) {
+//		if (!scripts.empty) {
 			scriptExecutionManager = new ScriptExecutionManager(matlabProxy)
 
 			for (activity : process.activities) {
@@ -132,7 +137,7 @@ class EnactmentManager {
 					activityScripts.put(activity, runnable)
 				}
 			}
-		}
+//		}
 	}
 
 	def private initialize() {
@@ -185,8 +190,14 @@ class EnactmentManager {
 	}
 
 	def prepareActivity(Activity activity, Token token) {
-		token.currentNode = activity
 		token.state = ActivityState::READY
+		logger.debug(String::format("State of token %s:", token, token.state))
+		
+		token.currentNode = activity
+		
+		//TODO boot up tools
+		val objectsIn = activity.dataFlowFrom.filter[node | node instanceof Object].map[node | (node as Object)]
+		val objectsOut = activity.dataFlowTo.filter[node | node instanceof Object].map[node | (node as Object)]
 	}
 
 	def runActivity(String activityName) {
@@ -205,41 +216,44 @@ class EnactmentManager {
 		val token = enactment.token.findFirst[t|t.currentNode.equals(activity)]
 		token.state = ActivityState::RUNNING
 
-		getTool(activity)
-
-		if (!(activity instanceof AutomatedActivity)) {
-			return
-		}
-
-		if (activity.typedBy == null) {
+//		if (!(activity instanceof AutomatedActivity)) {
+//			return
+//		}
+		if (activity.typedBy === null) {
 			return
 		}
 
 		// Parameters
 		val parameters = activity.executionParameters
 
-		if (activity.typedBy.definition instanceof JavaBasedActivityDefinition) {
-			// execute by name
-			val script = activityScripts.get(activity)
-			if (script !== null) {
-				scriptExecutionManager.execute(script, parameters)
-			}
-		} else if (activity.typedBy.definition instanceof Script) {
-			// Execution by script file
-			val location = (activity.typedBy.definition as Script).location
-			if (location !== null) {
-				logger.debug(String.format("Script file %s located. Executing script.", location))
-				switch (activity.typedBy.definition) {
-					PythonScript:
-						scriptExecutionManager.execute(
-							new be.uantwerpen.msdl.icm.runtime.scripting.scripts.PythonScript(location), parameters)
-					MatlabScript:
-						scriptExecutionManager.execute(
-							new be.uantwerpen.msdl.icm.runtime.scripting.scripts.MatlabScript(location), parameters)
-					default:
-						throw new IllegalArgumentException()
+		if (activity instanceof AutomatedActivity) {
+			if (activity.typedBy.definition instanceof JavaBasedActivityDefinition) {
+				// execute by name
+				val script = activityScripts.get(activity)
+				if (script !== null) {
+					scriptExecutionManager.execute(script, parameters)
+				}
+			} else if (activity.typedBy.definition instanceof Script) {
+				// Execution by script file
+				val location = (activity.typedBy.definition as Script).location
+				if (location !== null) {
+					logger.debug(String.format("Script file %s located. Executing script.", location))
+					switch (activity.typedBy.definition) {
+						PythonScript:
+							scriptExecutionManager.execute(
+								new be.uantwerpen.msdl.icm.runtime.scripting.scripts.PythonScript(location), parameters)
+						MatlabScript:
+							scriptExecutionManager.execute(
+								new be.uantwerpen.msdl.icm.runtime.scripting.scripts.MatlabScript(location), parameters)
+						default:
+							throw new IllegalArgumentException()
+					}
 				}
 			}
+		} else if (activity instanceof ManualActivity) {
+			getTool(activity)
+		} else{
+			throw new IllegalArgumentException
 		}
 	}
 
@@ -278,10 +292,7 @@ class EnactmentManager {
 	def getGetValue(Attribute attribute) {
 		switch (attribute.attributedefinition) {
 			MatlabAttributeDefinition: {
-				val matlabEngine = MatlabConnectionManager::matlabEngine
-				val v = matlabEngine.getVariable(attribute.name)
-				println(v)
-				v
+				new MatlabQuery(attribute).execute as Double
 			}
 			AmesimAttributeDefinition: {
 				0.0
@@ -372,10 +383,19 @@ class EnactmentManager {
 		// find by artifact
 		val inputObjects = activity.dataFlowFrom.filter[dFrom|dFrom instanceof Object].map[o|o as Object]
 
-		inputObjects.forEach [ o |
-			logger.debug(String.format("Tool %s needed for executing Activity %s.", o.typedBy.name, activity.name))
-		]
-	// TODO add calls to a connection manager
+//		inputObjects.forEach [ o |
+//			val tools = (o.typedBy as Formalism).implementedBy
+//			logger.debug(String.format("Tool %s needed for executing Activity %s.", tools.head.name, activity.name))
+//		]
+
+		val inputObject = inputObjects.head
+		val tool = (inputObject.typedBy as Formalism).implementedBy.head
+		logger.debug(String.format("Tool %s needed for executing Activity %s.", tool.name, activity.name))
+		
+		/**
+		 * XXX
+		 */		
+		MatlabConnectionManager::matlabEngine		
 	}
 
 	def runAtOnce() {
