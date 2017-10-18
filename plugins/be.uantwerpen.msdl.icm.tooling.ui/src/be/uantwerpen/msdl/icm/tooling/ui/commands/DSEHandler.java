@@ -29,8 +29,8 @@ public class DSEHandler extends Handler {
         DSERunner dseRunner = new DSERunner(getModel());
         System.out.println(getModel().getProcess().get(0).getNode().size());
         
-        logger.debug("TEST MOCK: DSE EXECUTING");
-        // dseRunner.explore();
+//        logger.debug("TEST MOCK: DSE EXECUTING");
+         dseRunner.explore();
 
         // TODO refresh diagram once execution successfully finished
 

@@ -1,61 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm" xmlns:be.uantwerpen.msdl.metamodels_2="metamodels.properties">
-  <ftg>
-    <formalism id="29482d7c-56fc-411d-ae18-095827bd2d42" name="Formalism1" inputOf="//@ftg/@transformation.0" outputOf="//@ftg/@transformation.1" implementedBy="//@ftg/@tool.0"/>
-    <formalism id="f5fec98c-9821-4e5d-84bf-3dec3d7def71" name="Formalism2" inputOf="//@ftg/@transformation.1" outputOf="//@ftg/@transformation.0" implementedBy="//@ftg/@tool.0"/>
-    <transformation id="88328783-c8c2-4e69-b613-67120488bdb9" name="trafo1" input="//@ftg/@formalism.0" output="//@ftg/@formalism.1" types="//@process.0/@node.1"/>
-    <transformation id="2bf7e5d4-0cdc-406e-8e37-be8d428b4c3f" name="trafo2" input="//@ftg/@formalism.1" output="//@ftg/@formalism.0" types="//@process.0/@node.2"/>
-    <tool name="Matlab" implements="//@ftg/@formalism.0 //@ftg/@formalism.1"/>
-  </ftg>
+<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm">
+  <ftg/>
   <process id="88f5e765-a981-4484-84c1-9af8e6884c5e">
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Initial" id="f4522fbe-f707-4431-b8a7-dae5dc44321f" controlOut="//@process.0/@controlFlow.6"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="06d7e423-9f9a-4b30-bc76-133311167f94" controlIn="//@process.0/@controlFlow.4" controlOut="//@process.0/@controlFlow.1" name="a2" typedBy="//@ftg/@transformation.0" intent="//@propertyModel/@intent.0" scriptFile="test.py"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" id="b6cd4a62-af68-475f-9b56-e2bd3fe4d72f" controlIn="//@process.0/@controlFlow.2" controlOut="//@process.0/@controlFlow.0" name="a3" typedBy="//@ftg/@transformation.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Initial" id="f4522fbe-f707-4431-b8a7-dae5dc44321f" controlOut="//@process.0/@controlFlow.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="06d7e423-9f9a-4b30-bc76-133311167f94" controlIn="//@process.0/@controlFlow.3" controlOut="//@process.0/@controlFlow.2" name="a2" intent="//@propertyModel/@intent.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" id="b6cd4a62-af68-475f-9b56-e2bd3fe4d72f" controlIn="//@process.0/@controlFlow.2" controlOut="//@process.0/@controlFlow.0" name="a3"/>
     <node xsi:type="be.uantwerpen.msdl.metamodels_1:FlowFinal" id="05154f44-eaae-43a8-93e6-0d2ab345d41f" controlIn="//@process.0/@controlFlow.0"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:CompoundActivity" id="8400f4c8-8d78-41d5-8b74-2b9565ecacae"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="e8b4eeef-e9f1-432a-a81d-95106cbc7b47" controlIn="//@process.0/@controlFlow.3" controlOut="//@process.0/@controlFlow.5" name="a1" intent="//@propertyModel/@intent.1"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Fork" id="bf43fd5e-59c4-4a63-a0f7-a00974b34327" controlIn="//@process.0/@controlFlow.7" controlOut="//@process.0/@controlFlow.3 //@process.0/@controlFlow.4" correspondingJoin="//@process.0/@node.7"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Join" id="af44e085-3fe3-4faa-b3c5-236e0c949fe0" controlIn="//@process.0/@controlFlow.1 //@process.0/@controlFlow.5" controlOut="//@process.0/@controlFlow.2" correspondingFork="//@process.0/@node.6"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" id="acb04a8c-7860-4811-937e-8638f4abbc9c" controlIn="//@process.0/@controlFlow.6" controlOut="//@process.0/@controlFlow.7" name="contract" cost="//@costModel/@costFactor.0/@cost.1" intent="//@propertyModel/@intent.2 //@propertyModel/@intent.3 //@propertyModel/@intent.4"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="01146eb7-ad5f-497f-8385-f1061462eac5" name="o1" attribute="//@propertyModel/@attribute.0"/>
-    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="275ae8d5-3848-4761-9a01-8a73b6686bc5" name="o2" attribute="//@propertyModel/@attribute.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="e8b4eeef-e9f1-432a-a81d-95106cbc7b47" controlIn="//@process.0/@controlFlow.1" controlOut="//@process.0/@controlFlow.3" name="a1" intent="//@propertyModel/@intent.0"/>
     <controlFlow id="f49324d2-8fd5-4b96-bde3-61281804e34c" from="//@process.0/@node.2" to="//@process.0/@node.3"/>
-    <controlFlow id="645470cb-9f5c-452b-a0db-873c05768b17" from="//@process.0/@node.1" to="//@process.0/@node.7"/>
-    <controlFlow id="2aa3caf2-be09-4dc7-ad6c-dd58a0ab31d7" from="//@process.0/@node.7" to="//@process.0/@node.2"/>
-    <controlFlow id="9f992f34-f4a6-444e-97da-ed24ae4d56da" from="//@process.0/@node.6" to="//@process.0/@node.5"/>
-    <controlFlow id="c444b54b-b3f1-4aa5-a47f-3f61fecac46d" from="//@process.0/@node.6" to="//@process.0/@node.1"/>
-    <controlFlow id="37ba509b-b6cc-42b8-9834-77ec97707f00" from="//@process.0/@node.5" to="//@process.0/@node.7"/>
-    <controlFlow id="33030bb2-fb66-4069-b272-fd8be768f399" from="//@process.0/@node.0" to="//@process.0/@node.8"/>
-    <controlFlow id="29fee7b7-e1a7-4ce8-97a0-1c86d3a8e66f" from="//@process.0/@node.8" to="//@process.0/@node.6"/>
+    <controlFlow id="972fab87-502e-4594-a18e-33248a3b6788" from="//@process.0/@node.0" to="//@process.0/@node.4"/>
+    <controlFlow id="cc0c35b8-b079-4ba9-a60a-a09c6af9d3e4" from="//@process.0/@node.1" to="//@process.0/@node.2"/>
+    <controlFlow id="93504fd2-a830-4c88-b42d-ada434bc04f5" from="//@process.0/@node.4" to="//@process.0/@node.1"/>
   </process>
   <propertyModel>
-    <property id="b35766da-cc28-46db-accd-01030eac7aa5" intent="//@propertyModel/@intent.0 //@propertyModel/@intent.2" name="p2" relationshipLink="//@propertyModel/@relationship.0/@relationshipLink.0 //@propertyModel/@relationship.2/@relationshipLink.0 //@propertyModel/@relationship.3/@relationshipLink.1" refinedInto="//@propertyModel/@property.1"/>
-    <property id="d192fd82-23d6-4e40-ac85-e3a37bf2b7f2" intent="//@propertyModel/@intent.1 //@propertyModel/@intent.3" name="p1" relationshipLink="//@propertyModel/@relationship.3/@relationshipLink.0" refines="//@propertyModel/@property.0"/>
-    <property id="b778af14-85c9-443c-84df-fd54cd9d2924" name="p3" relationshipLink="//@propertyModel/@relationship.0/@relationshipLink.1"/>
-    <property id="f2f88d09-0132-4274-a2df-f1fc3edf0f36" name="p4"/>
-    <relationship id="b7f5efca-261e-4cab-9233-dc40bb13af8f">
-      <relationshipLink id="e45739d9-cbd7-4212-97bc-eca89e4e4ff7" direction="CONSTRAINT" subject="//@propertyModel/@property.0"/>
-      <relationshipLink id="3da8c8f1-d1d0-43fd-be77-22dbdc66ccc5" direction="PROPERTY" subject="//@propertyModel/@property.2"/>
-    </relationship>
-    <relationship id="8e082e1f-b462-43ad-bf42-ac0116f855ab"/>
-    <relationship xsi:type="be.uantwerpen.msdl.metamodels_2:Requirement" id="b512bf09-0bd2-4c00-9135-1824af9df828" name="req1">
-      <relationshipLink id="c1a6884c-0eb4-4189-a464-d2a689284e8e" direction="PROPERTY" subject="//@propertyModel/@property.0"/>
-    </relationship>
-    <relationship xsi:type="be.uantwerpen.msdl.metamodels_2:Requirement" id="cd30636b-e5bf-4b87-84fb-952f8d9be868">
-      <relationshipLink id="d03adc94-db10-458f-9f8a-09b36d885015" subject="//@propertyModel/@property.1"/>
-      <relationshipLink id="c09c3d9b-c461-41d1-ad4e-5bb129b6f62b" subject="//@propertyModel/@property.0"/>
-    </relationship>
-    <intent id="878e5472-ef0f-4cc9-93b7-7a363552225b" activity="//@process.0/@node.1" subject="//@propertyModel/@property.0" type="MODIFY"/>
-    <intent id="95907230-ca53-4fec-a831-37b91b91faae" activity="//@process.0/@node.5" subject="//@propertyModel/@property.1" type="MODIFY"/>
-    <intent id="4d1b5c9c-7996-4a94-a6aa-323c97cf65c8" activity="//@process.0/@node.8" subject="//@propertyModel/@property.0" type="CONTRACT"/>
-    <intent id="ac24ae62-33d1-4e97-8dd4-5b2d91688389" activity="//@process.0/@node.8" subject="//@propertyModel/@property.1" type="CONTRACT"/>
-    <intent id="16141f7d-d451-4b68-a3e2-813d1f695359" activity="//@process.0/@node.8" subject="//@propertyModel/@attribute.0"/>
-    <attribute id="653178a7-c9e5-40ee-a600-2f51aa4c284e" intent="//@propertyModel/@intent.4" name="min. req. capacity" persistedIn="//@process.0/@node.9 //@process.0/@node.10"/>
+    <property id="d192fd82-23d6-4e40-ac85-e3a37bf2b7f2" intent="//@propertyModel/@intent.0 //@propertyModel/@intent.1" name="p1"/>
+    <intent id="95907230-ca53-4fec-a831-37b91b91faae" activity="//@process.0/@node.4" subject="//@propertyModel/@property.0" type="READ"/>
+    <intent id="9feff674-0877-4a3a-a93a-461bd5722195" activity="//@process.0/@node.1" subject="//@propertyModel/@property.0" type="MODIFY"/>
   </propertyModel>
   <costModel>
     <costFactor>
       <cost/>
-      <cost costItem="//@process.0/@node.8" value="1.0"/>
+      <cost value="1.0"/>
     </costFactor>
   </costModel>
 </be.uantwerpen.msdl.metamodels:ProcessModel>

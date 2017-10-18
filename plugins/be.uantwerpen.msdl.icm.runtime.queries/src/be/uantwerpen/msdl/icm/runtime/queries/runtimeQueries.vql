@@ -37,6 +37,7 @@ pattern activity(node: Node){
 pattern attributeModificationActivity(activity: Activity, attribute: Attribute){
 	Intent.activity(intent, activity);
 	Intent.subject(intent, attribute);
+	Intent.type(intent, ::MODIFY);
 }
 
 pattern fireable(token: Token, controlFlow: ControlFlow, fromNode: Node, toNode: Node)
@@ -69,17 +70,17 @@ pattern availableFinish(token: Token, controlFlow: ControlFlow, final: Final){
 	find fireable(token, controlFlow, _, final);
 }
 
-pattern fireableToControl(token: Token, control: Control){
-	find fireable(token, _, _, control);
+pattern fireableToControl(token: Token, fromNode: Node, control: Control){
+	find fireable(token, _, fromNode, control);
 	Fork(control);
 }or{
-	find fireable(token, _, _, control);
+	find fireable(token, _, fromNode, control);
 	Join(control);
 }or{
-	find fireable(token, _, _, control);
+	find fireable(token, _, fromNode, control);
 	Decision(control);
 }or{
-	find fireable(token, _, _, control);
+	find fireable(token, _, fromNode, control);
 	Merge(control);
 }
 

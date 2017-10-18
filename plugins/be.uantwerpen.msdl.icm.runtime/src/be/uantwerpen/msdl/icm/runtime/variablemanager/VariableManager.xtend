@@ -69,8 +69,10 @@ class VariableManager {
 		for (relationship : propertyModel.relationship.filter [ relationship |
 			relationship.attributeConstraint || relationship.simpleRelationship
 		]) {
-			val splitEquation = relationship.trasformEquation
-			extractVariablesAndEquations(splitEquation, relationship)
+			if (relationship.formula !== null && relationship.formula.definition !== null) {
+				val splitEquation = relationship.trasformEquation
+				extractVariablesAndEquations(splitEquation, relationship)
+			}
 		}
 
 		// Constraints over capabilities

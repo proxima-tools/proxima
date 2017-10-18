@@ -147,7 +147,10 @@
           eType="#//pm/Fork" eOpposite="#//pm/Fork/correspondingJoin"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Merge" eSuperTypes="#//pm/Control"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//pm/Control #//base/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//pm/Control #//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="0"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Typeable" abstract="true" eSuperTypes="#//base/NamedElement"/>
   </eSubpackages>
   <eSubpackages name="properties" nsURI="metamodels.properties" nsPrefix="be.uantwerpen.msdl.metamodels">
@@ -185,6 +188,7 @@
           eOpposite="#//properties/Capability/types"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributedefinition"
           eType="#//properties/AttributeDefinition" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinition" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//pm/Object"

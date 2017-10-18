@@ -137,7 +137,9 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Join/correspondingFork"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/Merge"/>
-      <genClasses ecoreClass="processmodel.ecore#//pm/Decision"/>
+      <genClasses ecoreClass="processmodel.ecore#//pm/Decision">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/Decision/repeat"/>
+      </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Typeable"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Properties" basePackage="be.uantwerpen.msdl.processmodel"
@@ -190,6 +192,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//properties/Attribute/typedBy"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//properties/Attribute/attributedefinition"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Attribute/aliases"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//properties/AttributeDefinition">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -197,6 +200,7 @@
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/GraphQueryAttributeDefinition"/>
       <genClasses ecoreClass="processmodel.ecore#//properties/MatlabAttributeDefinition"/>
+      <genClasses ecoreClass="processmodel.ecore#//properties/InMemoryAttributeDefinition"/>
       <genClasses ecoreClass="processmodel.ecore#//properties/AmesimAttributeDefinition"/>
       <genClasses ecoreClass="processmodel.ecore#//properties/Relationship">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Relationship/precision"/>

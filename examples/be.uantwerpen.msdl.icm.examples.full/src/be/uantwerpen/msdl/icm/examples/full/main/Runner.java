@@ -18,10 +18,6 @@ import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
-import be.uantwerpen.msdl.icm.examples.full.main.scripts.AssignTotalMass;
-import be.uantwerpen.msdl.icm.examples.full.main.scripts.DesignPlatform;
-import be.uantwerpen.msdl.icm.examples.full.main.scripts.SelectBattery;
-import be.uantwerpen.msdl.icm.examples.full.main.scripts.SelectMotor;
 import be.uantwerpen.msdl.icm.runtime.CommandInterpreter;
 import be.uantwerpen.msdl.icm.runtime.EnactmentManager;
 import be.uantwerpen.msdl.icm.runtime.scripting.scripts.IScript;
@@ -41,10 +37,10 @@ public class Runner {
 	private List<Class<? extends IScript>> getScripts() {
 		List<Class<? extends IScript>> scripts = Lists.newArrayList();
 
-		scripts.add(DesignPlatform.class);
-		scripts.add(SelectBattery.class);
-		scripts.add(SelectMotor.class);
-		scripts.add(AssignTotalMass.class);
+//		scripts.add(DesignPlatform.class);
+//		scripts.add(SelectBattery.class);
+//		scripts.add(SelectMotor.class);
+//		scripts.add(AssignTotalMass.class);
 
 		return scripts;
 	}

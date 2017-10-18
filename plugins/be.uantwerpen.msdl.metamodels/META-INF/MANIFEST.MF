@@ -7,7 +7,10 @@ Bundle-ClassPath: .
 Bundle-Vendor: Istvan David
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: be.uantwerpen.msdl.processmodel,
+Export-Package: be.uantwerpen.msdl.enactment,
+ be.uantwerpen.msdl.enactment.impl,
+ be.uantwerpen.msdl.enactment.util,
+ be.uantwerpen.msdl.processmodel,
  be.uantwerpen.msdl.processmodel.base,
  be.uantwerpen.msdl.processmodel.base.impl,
  be.uantwerpen.msdl.processmodel.base.util,
@@ -30,12 +33,10 @@ Export-Package: be.uantwerpen.msdl.processmodel,
  be.uantwerpen.msdl.processmodel.util,
  be.uantwerpen.msdl.processmodel.viewpoints,
  be.uantwerpen.msdl.processmodel.viewpoints.impl,
- be.uantwerpen.msdl.processmodel.viewpoints.util,
- be.uantwerpen.msdl.enactment,
- be.uantwerpen.msdl.enactment.impl,
- be.uantwerpen.msdl.enactment.util
+ be.uantwerpen.msdl.processmodel.viewpoints.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
+ be.uantwerpen.msdl.metamodels;visibility:=reexport,
  org.eclipse.emf.mwe2.lib;bundle-version="2.9.0",
  org.eclipse.emf.mwe2.launch;bundle-version="2.9.0",
  org.eclipse.emf.codegen.ecore;bundle-version="2.12.0",

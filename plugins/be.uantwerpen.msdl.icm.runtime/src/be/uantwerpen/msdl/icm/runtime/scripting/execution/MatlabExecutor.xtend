@@ -81,5 +81,9 @@ class MatlabExecutor extends ParameterizedExecutor {
 			e.printStackTrace
 		}
 	}
+	
+	public def openTool(){
+		
+	}
 
 }

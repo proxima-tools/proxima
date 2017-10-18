@@ -60,7 +60,7 @@ class SimulatorTransformations2 {
 	}
 
 	val fireToControlRule = createRule.name("fire to control").precondition(fireableToControl).action [
-		logger.debug(String.format("Firing token %s to control node %s.", token, control))
+		logger.debug(String.format("Firing token %s from node %s to control node %s.", token, fromNode, control))
 		token.currentNode = control
 	].build
 
