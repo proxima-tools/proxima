@@ -8,8 +8,11 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Untyped object" level="WARNING" message="The object has no type." targetClass="pm.Object">
         <audits auditExpression="aql:self.typedBy!=null"/>
       </ownedRules>
-      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoDirectedRelationshipLinks" level="ERROR" message="Directed relationship links are currently not supported. Please use an undirected relationship link." targetClass="properties.RelationshipLink">
-        <audits auditExpression="service:noDirectedRelationshipLinks()"/>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="DirectedL3RelationshipLink" level="ERROR" message="L3 relationships must be undirected." targetClass="properties.RelationshipLink">
+        <audits auditExpression="service:directedL3RelationshipLink()"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="UnsupportedL2Relationship" level="ERROR" message="L2 relationships are currently unsupported." targetClass="properties.Relationship">
+        <audits auditExpression="aql:self.precision != properties::Precision::L2"/>
       </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="MalformedConstraint" level="ERROR" message="Invalid Constraint!" targetClass="properties.Relationship">
         <audits auditExpression="service:validConstraint()"/>

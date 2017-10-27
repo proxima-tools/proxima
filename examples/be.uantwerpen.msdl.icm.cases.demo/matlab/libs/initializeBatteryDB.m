@@ -1,7 +1,7 @@
-function BatterySelection = BatterySelection()
+function BatterySelection = BatterySelection(catalogName)
 BatterySelection = [];
 %% Load data
-dataArray = csvread('KokamLargeBatteries2.csv',1,0);
+dataArray = csvread(catalogName,1,0);
 C.data = dataArray(:, 1); % [Ah]
 w.data = dataArray(:, 2)./1000; % [m]
 l.data = dataArray(:, 3)./1000; % [m]

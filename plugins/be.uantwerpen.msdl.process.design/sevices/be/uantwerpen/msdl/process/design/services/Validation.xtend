@@ -92,8 +92,13 @@ class Validation {
 		return true
 	}
 
-	public def noDirectedRelationshipLinks(RelationshipLink relationshipLink) {
-		return relationshipLink.direction.equals(RelationshipDirection::UNDIRECTED)
+	public def directedL3RelationshipLink(RelationshipLink relationshipLink) {
+		if ((relationshipLink.eContainer as Relationship).precision.equals(Precision::L3)) {
+			val direction = relationshipLink.direction
+			return direction.equals(RelationshipDirection::UNDIRECTED)
+		} else {
+			return true
+		}
 	}
 
 }

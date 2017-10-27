@@ -15,7 +15,7 @@ class MatlabQuery extends MatlabAttributeDefinitionImpl implements IExecutable {
 	override execute() {
 		try {
 			val matlabEngine = MatlabConnectionManager::matlabEngine;
-			if (!attribute.aliases.empty) {
+			if (attribute.aliases !== null) {
 				for (alias : attribute.aliases.split(',')) {
 					val aliasQueryResult = matlabEngine.getVariable(alias)
 					if (aliasQueryResult !== null) {

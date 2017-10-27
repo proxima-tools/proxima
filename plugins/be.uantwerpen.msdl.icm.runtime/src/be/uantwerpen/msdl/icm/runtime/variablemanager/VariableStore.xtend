@@ -58,11 +58,15 @@ class VariableStore {
 	}
 
 	def setVariable(String name, Double value) {
-		val variable = variables.findFirst[variable|variable.name.equals(name)]
-		if (variable == null) {
-			throw new IllegalArgumentException("Unknown variable")
+		val variable = variables.findFirst[variable|
+			variable.name.equals(name)
+		]
+//		if (variable == null) {
+//			throw new IllegalArgumentException("Unknown variable")
+//		}
+		if(variable!==null){
+			variable.value = value			
 		}
-		variable.value = value
 	}
 
 	def addEquation(SplitEquation equation) {

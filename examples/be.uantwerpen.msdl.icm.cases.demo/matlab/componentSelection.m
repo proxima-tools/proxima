@@ -1,7 +1,7 @@
-display('Motor power #1:')
+addpath('D:\GitHub\msdl\ICM\examples\be.uantwerpen.msdl.icm.cases.demo\matlab\libs');
 
-display(MotorDB(1).P)
-
-display('Battery capacity #1:')
-
-display(BatteryDB(1).C)
+if string('%{args['componentType'].value}%') == string('battery')
+	[Ceff, batteryMass, batteryLength, batteryWidth, batteryHeight] = BatterySelection(CdesV, %{args['batteryDbName'].value}%);
+else
+	[Peff, motorMass, motorLength, motorRadius] = MotorSelection(PdesV, %{args['motorDbName'].value}%);
+end

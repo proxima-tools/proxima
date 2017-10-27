@@ -3,6 +3,7 @@ package be.uantwerpen.msdl.icm.scripting
 import be.uantwerpen.msdl.icm.runtime.scripting.execution.ParameterizedExecutor
 import org.eclipse.emf.common.util.BasicEMap
 import org.junit.Test
+import org.junit.Assert
 
 class ParametersTest {
 
@@ -20,5 +21,14 @@ class ParametersTest {
 		println(pe.resolveParameters(command2, parameters))
 		println(pe.resolveParameters(command3, parameters))
 		println(pe.resolveParameters(command4, parameters))
+	}
+	
+	@Test
+	def void unusedParamReplacement(){
+		val replacee = "BatterySelection(PdesV, %{args['motorDbName'].value}%);"
+		val pattern = "\\%\\{args\\['[a-zA-Z0-9_]*'\\].value\\}\\%"
+		val expected = "BatterySelection(PdesV, null);"
+		
+		Assert::assertEquals(expected, replacee.replaceAll(pattern, 'null'))
 	}
 }

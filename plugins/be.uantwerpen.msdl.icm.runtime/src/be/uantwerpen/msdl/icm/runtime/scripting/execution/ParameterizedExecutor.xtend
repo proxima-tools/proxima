@@ -38,6 +38,14 @@ class ParameterizedExecutor {
 			newCommand = newCommand.replaceAll(BYNAME_VALUE_PATTERN.replaceFirst('n', key), value)
 		}
 
+		newCommand = newCommand.replaceUnused
+
+		newCommand
+	}
+
+	def getReplaceUnused(String command) {
+		var String newCommand = command
+		newCommand = newCommand.replaceAll("\\%\\{args\\['[a-zA-Z0-9_]*'\\].value\\}\\%", 'null')
 		newCommand
 	}
 
