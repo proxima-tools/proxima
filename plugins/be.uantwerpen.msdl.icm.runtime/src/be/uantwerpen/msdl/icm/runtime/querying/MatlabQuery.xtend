@@ -15,6 +15,7 @@ class MatlabQuery extends MatlabAttributeDefinitionImpl implements IExecutable {
 	override execute() {
 		try {
 			val matlabEngine = MatlabConnectionManager::matlabEngine;
+			// TODO lift alias handling to a more abstract level where it's independent from the service being queried
 			if (attribute.aliases !== null) {
 				for (alias : attribute.aliases.split(',')) {
 					val aliasQueryResult = matlabEngine.getVariable(alias)
