@@ -286,7 +286,7 @@
     <attribute id="dfdc0274-1f90-4574-8ccb-67ed4b2ec0d9" intent="//@propertyModel/@intent.3" name="actualPower" subjectOf="//@propertyModel/@relationship.0/@relationshipLink.0" typedBy="//@propertyModel/@capability.2" aliases="motorDB:Peff">
       <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_3:MatlabAttributeDefinition"/>
     </attribute>
-    <attribute id="357fb9e6-ef8d-462b-9cc2-6cb38b80661a" intent="//@propertyModel/@intent.1" name="actualCapacity" subjectOf="//@propertyModel/@relationship.1/@relationshipLink.1 //@propertyModel/@relationship.8/@relationshipLink.2 //@propertyModel/@relationship.17/@relationshipLink.0 //@propertyModel/@relationship.21/@relationshipLink.0" typedBy="//@propertyModel/@capability.1" aliases="motorDB: Ceff">
+    <attribute id="357fb9e6-ef8d-462b-9cc2-6cb38b80661a" intent="//@propertyModel/@intent.1" name="actualCapacity" subjectOf="//@propertyModel/@relationship.1/@relationshipLink.1 //@propertyModel/@relationship.8/@relationshipLink.2 //@propertyModel/@relationship.17/@relationshipLink.0 //@propertyModel/@relationship.21/@relationshipLink.0" typedBy="//@propertyModel/@capability.1" aliases="batteryDB:Ceff">
       <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_3:MatlabAttributeDefinition"/>
     </attribute>
     <attribute id="3309dab0-c189-416a-9189-25fb28d8df15" intent="//@propertyModel/@intent.0" name="batteryMass" subjectOf="//@propertyModel/@relationship.2/@relationshipLink.3 //@propertyModel/@relationship.17/@relationshipLink.1" typedBy="//@propertyModel/@capability.0">
@@ -295,7 +295,7 @@
     <attribute id="30102a66-5ddf-4c3b-a0b8-102ccc508f87" intent="//@propertyModel/@intent.4 //@propertyModel/@intent.26 //@propertyModel/@intent.37" name="desiredPower" subjectOf="//@propertyModel/@relationship.0/@relationshipLink.1" typedBy="//@propertyModel/@capability.2" aliases="PdesV">
       <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_3:MatlabAttributeDefinition"/>
     </attribute>
-    <attribute id="69b88179-2152-4fdc-9b30-c95dd0b97ade" intent="//@propertyModel/@intent.5 //@propertyModel/@intent.6 //@propertyModel/@intent.27" name="desiredCapacity" subjectOf="//@propertyModel/@relationship.1/@relationshipLink.0 //@propertyModel/@relationship.9/@relationshipLink.1" typedBy="//@propertyModel/@capability.1" aliases="CdesV">
+    <attribute id="69b88179-2152-4fdc-9b30-c95dd0b97ade" intent="//@propertyModel/@intent.5 //@propertyModel/@intent.6 //@propertyModel/@intent.27" name="desiredCapacity" subjectOf="//@propertyModel/@relationship.1/@relationshipLink.0 //@propertyModel/@relationship.9/@relationshipLink.1" typedBy="//@propertyModel/@capability.1" aliases="matlab: CdesV">
       <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_3:MatlabAttributeDefinition"/>
     </attribute>
     <attribute id="a6dbb862-85c3-4be9-8580-52164ffabd9f" intent="//@propertyModel/@intent.9" name="platformMass" subjectOf="//@propertyModel/@relationship.2/@relationshipLink.0" typedBy="//@propertyModel/@capability.0"/>

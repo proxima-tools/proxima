@@ -12154,7 +12154,7 @@
       <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
       <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
-      <cells xmi:type="table:DCell" xmi:id="_XQOHh72CEeek-5T6UrapOg" label="motorDB: Ceff" column="_XQOHur2CEeek-5T6UrapOg">
+      <cells xmi:type="table:DCell" xmi:id="_XQOHh72CEeek-5T6UrapOg" label="batteryDB:Ceff" column="_XQOHur2CEeek-5T6UrapOg">
         <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
         <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
       </cells>
@@ -12181,7 +12181,7 @@
       <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.5"/>
       <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.5"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
-      <cells xmi:type="table:DCell" xmi:id="_XQOHjb2CEeek-5T6UrapOg" label="CdesV" column="_XQOHur2CEeek-5T6UrapOg">
+      <cells xmi:type="table:DCell" xmi:id="_XQOHjb2CEeek-5T6UrapOg" label="matlab: CdesV" column="_XQOHur2CEeek-5T6UrapOg">
         <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.5"/>
         <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.5"/>
       </cells>

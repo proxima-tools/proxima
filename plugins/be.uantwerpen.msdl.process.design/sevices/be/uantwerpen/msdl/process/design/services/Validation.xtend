@@ -16,12 +16,14 @@ import be.uantwerpen.msdl.processmodel.ftg.MatlabScript
 import be.uantwerpen.msdl.processmodel.ftg.PythonScript
 import be.uantwerpen.msdl.processmodel.ftg.Script
 import be.uantwerpen.msdl.processmodel.ftg.Transformation
+import be.uantwerpen.msdl.processmodel.properties.Attribute
 import be.uantwerpen.msdl.processmodel.properties.Precision
 import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import be.uantwerpen.msdl.processmodel.properties.Relationship
 import be.uantwerpen.msdl.processmodel.properties.RelationshipDirection
 import be.uantwerpen.msdl.processmodel.properties.RelationshipLink
 import be.uantwerpen.msdl.processmodel.properties.RelationshipSubject
+import com.google.common.base.Strings
 import com.google.common.collect.Lists
 
 class Validation {
@@ -99,6 +101,14 @@ class Validation {
 		} else {
 			return true
 		}
+	}
+
+	public def malformedFormedAliasList(Attribute attribute) {
+		val listFormatPattern = "(((\\s)*[a-zA-Z0-9_-]+(\\s)*:(\\s)*[a-zA-Z0-9_-]+(\\s)*)(\\s)*;(\\s)*)*((\\s)*[a-zA-Z0-9_-]+(\\s)*:(\\s)*[a-zA-Z0-9_-]+(\\s)*)"
+		if (Strings::isNullOrEmpty(attribute.aliases)) {
+			return true
+		}
+		return attribute.aliases.trim.matches(listFormatPattern)
 	}
 
 }

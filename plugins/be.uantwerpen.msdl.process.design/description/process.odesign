@@ -11,6 +11,9 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="DirectedL3RelationshipLink" level="ERROR" message="L3 relationships must be undirected." targetClass="properties.RelationshipLink">
         <audits auditExpression="service:directedL3RelationshipLink()"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="MalformedFormedAliasList" level="ERROR" message="Alias list must follow the format modelName1:alias1; modelName2:alias2..." targetClass="properties.Attribute">
+        <audits auditExpression="service:malformedFormedAliasList()"/>
+      </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="UnsupportedL2Relationship" level="ERROR" message="L2 relationships are currently unsupported." targetClass="properties.Relationship">
         <audits auditExpression="aql:self.precision != properties::Precision::L2"/>
       </ownedRules>
