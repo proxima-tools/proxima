@@ -21,7 +21,9 @@ import be.uantwerpen.msdl.icm.runtime.queries.util.AvailableFinishQuerySpecifica
 import be.uantwerpen.msdl.icm.runtime.queries.util.FinishedProcessQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.ReadyActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.RunnigActivityQuerySpecification
+import be.uantwerpen.msdl.icm.runtime.querying.AmesimQuery
 import be.uantwerpen.msdl.icm.runtime.querying.MatlabQuery
+import be.uantwerpen.msdl.icm.runtime.querying.toolselection.ToolSelectionHelper
 import be.uantwerpen.msdl.icm.runtime.scripting.connection.MatlabConnectionManager
 import be.uantwerpen.msdl.icm.runtime.scripting.manager.ScriptExecutionManager
 import be.uantwerpen.msdl.icm.runtime.scripting.scripts.IScript
@@ -61,7 +63,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
 import org.eclipse.xtend.lib.annotations.Accessors
-import be.uantwerpen.msdl.icm.runtime.querying.AmesimQuery
 
 class EnactmentManager {
 
@@ -125,17 +126,17 @@ class EnactmentManager {
 
 		// Scripting
 //		if (!scripts.empty) {
-			scriptExecutionManager = new ScriptExecutionManager(matlabProxy)
+		scriptExecutionManager = new ScriptExecutionManager(matlabProxy)
 
-			for (activity : process.activities) {
-				val script = scripts.findFirst [ s |
-					s.simpleName.equalsIgnoreCase((activity as NamedElement).name)
-				]
-				if (script !== null) {
-					val runnable = script.newInstance as IScript
-					activityScripts.put(activity, runnable)
-				}
+		for (activity : process.activities) {
+			val script = scripts.findFirst [ s |
+				s.simpleName.equalsIgnoreCase((activity as NamedElement).name)
+			]
+			if (script !== null) {
+				val runnable = script.newInstance as IScript
+				activityScripts.put(activity, runnable)
 			}
+		}
 //		}
 	}
 
@@ -191,12 +192,12 @@ class EnactmentManager {
 	def prepareActivity(Activity activity, Token token) {
 		token.state = ActivityState::READY
 		logger.debug(String::format("State of token %s:", token, token.state))
-		
+
 		token.currentNode = activity
-		
-		//TODO boot up tools
-		val objectsIn = activity.dataFlowFrom.filter[node | node instanceof Object].map[node | (node as Object)]
-		val objectsOut = activity.dataFlowTo.filter[node | node instanceof Object].map[node | (node as Object)]
+
+		// TODO boot up tools
+		val objectsIn = activity.dataFlowFrom.filter[node|node instanceof Object].map[node|(node as Object)]
+		val objectsOut = activity.dataFlowTo.filter[node|node instanceof Object].map[node|(node as Object)]
 	}
 
 	def runActivity(String activityName) {
@@ -251,7 +252,7 @@ class EnactmentManager {
 			}
 		} else if (activity instanceof ManualActivity) {
 			getTool(activity)
-		} else{
+		} else {
 			throw new IllegalArgumentException
 		}
 	}
@@ -281,13 +282,14 @@ class EnactmentManager {
 			var values = Maps::newHashMap();
 
 			for (attribute : modifiedAttributes) {
-				val value = attribute.getValue(activity)
+				val value = attribute.getValue2(activity)
 				values.put(attribute.name, value)
 			}
 			VariableManager.getInstance().setVariables(values)
 		}
 	}
-
+	
+	@Deprecated
 	def getValue(Attribute attribute, Activity activity) {
 		switch (attribute.attributedefinition) {
 			MatlabAttributeDefinition: {
@@ -300,6 +302,23 @@ class EnactmentManager {
 				0.0
 			}
 			InMemoryAttributeDefinition: {
+				0.0
+			}
+		}
+	}
+
+	private static extension val ToolSelectionHelper toolSelectionHelper = new ToolSelectionHelper
+
+	private def getValue2(Attribute attribute, Activity activity) {
+		val tool = attribute.selectTool(activity)
+		switch (tool.name.toLowerCase) {
+			case "matlab": {
+				new MatlabQuery(attribute, activity).execute as Double
+			}
+			case "amesim": {
+				new AmesimQuery(attribute, activity).execute as Double
+			}
+			default: {
 				0.0
 			}
 		}
@@ -386,15 +405,14 @@ class EnactmentManager {
 //			val tools = (o.typedBy as Formalism).implementedBy
 //			logger.debug(String.format("Tool %s needed for executing Activity %s.", tools.head.name, activity.name))
 //		]
-
 		val inputObject = inputObjects.head
 		val tool = (inputObject.typedBy as Formalism).implementedBy.head
 		logger.debug(String.format("Tool %s needed for executing Activity %s.", tool.name, activity.name))
-		
+
 		/**
 		 * XXX
-		 */		
-		MatlabConnectionManager::matlabEngine		
+		 */
+		MatlabConnectionManager::matlabEngine
 	}
 
 	def runAtOnce() {

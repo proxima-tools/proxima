@@ -122,6 +122,8 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Object/typedBy"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Object/attributedefinition"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Object/intent"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Control"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/Initial"/>
@@ -225,6 +227,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Intent/type"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//properties/Intent/intentSpecification"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//properties/Intent/object"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//properties/Formula">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//properties/Formula/definition"/>

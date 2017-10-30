@@ -11,6 +11,9 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="DirectedL3RelationshipLink" level="ERROR" message="L3 relationships must be undirected." targetClass="properties.RelationshipLink">
         <audits auditExpression="service:directedL3RelationshipLink()"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="AmbiguousAttributeDefinition" level="WARNING" message="Ambiguous attribute definition. Please specify model/object on the intent." targetClass="properties.Intent">
+        <audits auditExpression="service:ambiguousAttributeDefinition()"/>
+      </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="MalformedFormedAliasList" level="ERROR" message="Alias list must follow the format modelName1:alias1; modelName2:alias2..." targetClass="properties.Attribute">
         <audits auditExpression="service:malformedFormedAliasList()"/>
       </ownedRules>
@@ -429,7 +432,7 @@
         <edgeMappings name="IntentEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']" targetFinderExpression="feature:subject" sourceFinderExpression="feature:activity" domainClass="properties.Intent" useDomainElement="true">
           <style lineStyle="dash" targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.type.toString().toLower()">
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:if(self.object=null) then (self.type.toString().toLower()) else (self.type.toString().toLower().concat('(').concat(self.object.name).concat(')')) endif">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>

@@ -132,6 +132,8 @@
           eOpposite="#//ftg/ObjectType/types"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributedefinition"
           upperBound="-1" eType="#//properties/AttributeDefinition" eOpposite="#//properties/AttributeDefinition/object"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
+          eType="#//properties/Intent" eOpposite="#//properties/Intent/object"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Control" abstract="true" eSuperTypes="#//pm/Node"/>
     <eClassifiers xsi:type="ecore:EClass" name="Initial" eSuperTypes="#//pm/Control"/>
@@ -235,6 +237,8 @@
           eType="#//properties/IntentType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="intentSpecification"
           eType="#//ftg/IntentSpecification"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//pm/Object"
+          eOpposite="#//pm/Object/intent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="IntentType">
       <eLiterals name="UNKNOWN" literal="UNKNOWN"/>

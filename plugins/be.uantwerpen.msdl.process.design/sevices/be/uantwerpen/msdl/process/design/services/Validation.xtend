@@ -12,11 +12,14 @@
 package be.uantwerpen.msdl.process.design.services
 
 import be.uantwerpen.msdl.icm.commons.bl.Relationships
+import be.uantwerpen.msdl.processmodel.ftg.Formalism
 import be.uantwerpen.msdl.processmodel.ftg.MatlabScript
 import be.uantwerpen.msdl.processmodel.ftg.PythonScript
 import be.uantwerpen.msdl.processmodel.ftg.Script
 import be.uantwerpen.msdl.processmodel.ftg.Transformation
+import be.uantwerpen.msdl.processmodel.pm.Object
 import be.uantwerpen.msdl.processmodel.properties.Attribute
+import be.uantwerpen.msdl.processmodel.properties.Intent
 import be.uantwerpen.msdl.processmodel.properties.Precision
 import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import be.uantwerpen.msdl.processmodel.properties.Relationship
@@ -109,6 +112,19 @@ class Validation {
 			return true
 		}
 		return attribute.aliases.trim.matches(listFormatPattern)
+	}
+
+	/*
+	 * TODO shall we group by read-in/modify-out? 
+	 */
+	public def ambiguousAttributeDefinition(Intent intent) {
+		val dataIn = intent.activity.dataFlowFrom
+		val dataOut = intent.activity.dataFlowTo
+		val objects = (dataIn + dataOut).map[d|d as Object]
+
+		val tools = objects.map[o|(o.typedBy as Formalism).implementedBy].flatten.groupBy[it]
+
+		return tools.size <= 1
 	}
 
 }
