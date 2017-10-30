@@ -283,10 +283,10 @@
     <attribute id="5b4e6378-66d6-4d63-b07e-26317190b8f4" intent="//@propertyModel/@intent.2" name="motorMass" subjectOf="//@propertyModel/@relationship.2/@relationshipLink.2 //@propertyModel/@relationship.18/@relationshipLink.0" typedBy="//@propertyModel/@capability.0">
       <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_3:MatlabAttributeDefinition"/>
     </attribute>
-    <attribute id="dfdc0274-1f90-4574-8ccb-67ed4b2ec0d9" intent="//@propertyModel/@intent.3" name="actualPower" subjectOf="//@propertyModel/@relationship.0/@relationshipLink.0" typedBy="//@propertyModel/@capability.2" aliases="Peff">
+    <attribute id="dfdc0274-1f90-4574-8ccb-67ed4b2ec0d9" intent="//@propertyModel/@intent.3" name="actualPower" subjectOf="//@propertyModel/@relationship.0/@relationshipLink.0" typedBy="//@propertyModel/@capability.2" aliases="motorDB:Peff">
       <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_3:MatlabAttributeDefinition"/>
     </attribute>
-    <attribute id="26963f25-bee4-415b-90ae-d2bbc789baf0" intent="//@propertyModel/@intent.1" name="actualCapacity" subjectOf="//@propertyModel/@relationship.1/@relationshipLink.1 //@propertyModel/@relationship.8/@relationshipLink.2 //@propertyModel/@relationship.17/@relationshipLink.0 //@propertyModel/@relationship.21/@relationshipLink.0" typedBy="//@propertyModel/@capability.1" aliases="Ceff">
+    <attribute id="357fb9e6-ef8d-462b-9cc2-6cb38b80661a" intent="//@propertyModel/@intent.1" name="actualCapacity" subjectOf="//@propertyModel/@relationship.1/@relationshipLink.1 //@propertyModel/@relationship.8/@relationshipLink.2 //@propertyModel/@relationship.17/@relationshipLink.0 //@propertyModel/@relationship.21/@relationshipLink.0" typedBy="//@propertyModel/@capability.1" aliases="motorDB: Ceff">
       <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_3:MatlabAttributeDefinition"/>
     </attribute>
     <attribute id="3309dab0-c189-416a-9189-25fb28d8df15" intent="//@propertyModel/@intent.0" name="batteryMass" subjectOf="//@propertyModel/@relationship.2/@relationshipLink.3 //@propertyModel/@relationship.17/@relationshipLink.1" typedBy="//@propertyModel/@capability.0">

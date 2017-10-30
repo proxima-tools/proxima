@@ -16,13 +16,17 @@ import be.uantwerpen.msdl.processmodel.base.Identifiable
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
 import be.uantwerpen.msdl.processmodel.pm.Node
+import be.uantwerpen.msdl.processmodel.pm.Object
 import be.uantwerpen.msdl.processmodel.pm.Process
+import be.uantwerpen.msdl.processmodel.properties.Attribute
 import be.uantwerpen.msdl.processmodel.properties.Intent
 import be.uantwerpen.msdl.processmodel.properties.IntentType
 import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import com.google.common.base.Joiner
+import com.google.common.base.Strings
 import com.google.common.collect.Lists
 import com.google.common.collect.Sets
+import java.util.List
 import java.util.Set
 import java.util.UUID
 
@@ -37,7 +41,7 @@ class Services {
 
 	public def calculatePerformance(ProcessModel processModel) {
 		processModel.process.head
-		
+
 		0.0
 	}
 
@@ -87,6 +91,37 @@ class Services {
 		(activity.eContainer as PropertyModel).intent.filter [ i |
 			i.activity.equals(activity)
 		]
+	}
+
+	public def getAliases(Attribute attribute) {
+		if (Strings.isNullOrEmpty(attribute.aliases)) {
+			return null
+		}
+
+		val aliases = attribute.aliases.trim.split(";")
+
+		var List<Object> aliasObjects = Lists::newArrayList
+
+		val objects = (attribute.eContainer.eContainer as ProcessModel).process.head.node.filter[n|n instanceof Object].
+			map[n|n as Object]
+
+		for (alias : aliases) {
+			for (object : objects) {
+				val aliasObjectName = alias.trim.split(':').head.trim
+				if (object.name.equalsIgnoreCase(aliasObjectName)) {
+					// model's name found in alias list, should look for the specific name
+					aliasObjects += object
+				}
+			}
+		}
+		
+		aliasObjects
+	}
+
+	public def getAlias(Attribute attribute, Object object) {
+		attribute.aliases.split(';').findFirst[a |
+			a.trim.split(':').head.trim.equalsIgnoreCase(object.name)
+		].trim.split(':').last.trim
 	}
 
 //	public def getIntents(Activity activity) {

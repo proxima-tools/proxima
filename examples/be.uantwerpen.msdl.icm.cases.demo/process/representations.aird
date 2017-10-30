@@ -40,6 +40,14 @@
         <description xmi:type="description_2:CrossTableDescription" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSMView']"/>
         <target xmi:type="be.uantwerpen.msdl.metamodels_1:Process" href="process.processmodel#//@process.0"/>
       </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_TKb-Db2CEeek-5T6UrapOg" name="new Alias-Model overview" repPath="#_TKb94L2CEeek-5T6UrapOg">
+        <description xmi:type="description_2:CrossTableDescription" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']"/>
+        <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="process.processmodel#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_XQOHu72CEeek-5T6UrapOg" name="new Alias Editor" repPath="#_XQOHgL2CEeek-5T6UrapOg">
+        <description xmi:type="description_2:EditionTableDescription" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']"/>
+        <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="process.processmodel#/"/>
+      </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
   <diagram:DSemanticDiagram xmi:id="_mmalgDwJEeeeY9Hn6jJJFA" name="new Process Model">
@@ -8256,16 +8264,6 @@
         <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@intersection.0"/>
       </cells>
     </lines>
-    <lines xmi:type="table:DLine" xmi:id="_BV96B7SrEeeFIpYajg46WA" label="dynamicResponse">
-      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedLineMappings[name='ObjectLine']"/>
-      <cells xmi:type="table:DCell" xmi:id="_BV96H7SrEeeFIpYajg46WA" label="X" column="_BV96DrSrEeeFIpYajg46WA">
-        <currentStyle xmi:type="table:DCellStyle" xmi:id="_BV96ILSrEeeFIpYajg46WA" labelSize="12" defaultBackgroundStyle="true" backgroundColor="138,226,52">
-          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@intersection.0"/>
-          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@intersection.0"/>
-        </currentStyle>
-        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@intersection.0"/>
-      </cells>
-    </lines>
     <lines xmi:type="table:DLine" xmi:id="_BV96CLSrEeeFIpYajg46WA" label="plant">
       <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.29"/>
       <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.29"/>
@@ -8319,7 +8317,7 @@
       <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Formalism" href="process.processmodel#//@ftg/@formalism.4"/>
       <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedColumnMappings.0"/>
     </columns>
-    <columns xmi:type="table:DTargetColumn" xmi:id="_BV96DrSrEeeFIpYajg46WA" label="Trace" cells="_BV96H7SrEeeFIpYajg46WA" width="72">
+    <columns xmi:type="table:DTargetColumn" xmi:id="_BV96DrSrEeeFIpYajg46WA" label="Trace" width="72">
       <target xmi:type="be.uantwerpen.msdl.metamodels_2:Formalism" href="process.processmodel#//@ftg/@formalism.5"/>
       <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Formalism" href="process.processmodel#//@ftg/@formalism.5"/>
       <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedColumnMappings.0"/>
@@ -11914,5 +11912,482 @@
       <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSMView']/@ownedColumnMappings.0"/>
     </columns>
     <description xmi:type="description_2:CrossTableDescription" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSMView']"/>
+  </table:DTable>
+  <table:DTable xmi:id="_TKb94L2CEeek-5T6UrapOg" name="new Alias-Model overview" headerColumnWidth="129">
+    <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="process.processmodel#/"/>
+    <lines xmi:type="table:DLine" xmi:id="_TKb94r2CEeek-5T6UrapOg" label="motorMass">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.0"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9472CEeek-5T6UrapOg" label="actualPower">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.1"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.1"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_TKb95L2CEeek-5T6UrapOg" label="Peff" column="_TKb-Bb2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.1"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.1"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_TKb95b2CEeek-5T6UrapOg" labelSize="12" defaultBackgroundStyle="true" backgroundColor="194,239,255">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@intersection.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb95r2CEeek-5T6UrapOg" label="actualCapacity">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_TKb9572CEeek-5T6UrapOg" label="Ceff" column="_TKb-Bb2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_TKb96L2CEeek-5T6UrapOg" labelSize="12" defaultBackgroundStyle="true" backgroundColor="194,239,255">
+          <foregroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@intersection.0"/>
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@intersection.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb96b2CEeek-5T6UrapOg" label="batteryMass">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.3"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.3"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb96r2CEeek-5T6UrapOg" label="desiredPower">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.4"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.4"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9672CEeek-5T6UrapOg" label="desiredCapacity">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.5"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.5"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb97L2CEeek-5T6UrapOg" label="platformMass">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.6"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.6"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb97b2CEeek-5T6UrapOg" label="totalMass">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.7"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.7"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb97r2CEeek-5T6UrapOg" label="TMot1">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.8"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.8"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9772CEeek-5T6UrapOg" label="desiredCurrent">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.9"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.9"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb98L2CEeek-5T6UrapOg" label="actualCurrent(t)">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.10"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.10"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb98b2CEeek-5T6UrapOg" label="supportTime">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.11"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.11"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb98r2CEeek-5T6UrapOg" label="batteryPosition">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.12"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.12"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9872CEeek-5T6UrapOg" label="motorPosition">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.13"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.13"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb99L2CEeek-5T6UrapOg" label="trajectory">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.14"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.14"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb99b2CEeek-5T6UrapOg" label="riseTime">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.15"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.15"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb99r2CEeek-5T6UrapOg" label="overshoot">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.16"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.16"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9972CEeek-5T6UrapOg" label="maxRiseTime">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.17"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.17"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9-L2CEeek-5T6UrapOg" label="maxOvershoot">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.18"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.18"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9-b2CEeek-5T6UrapOg" label="IxxTot">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.19"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.19"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9-r2CEeek-5T6UrapOg" label="IyyTot">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.20"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.20"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9-72CEeek-5T6UrapOg" label="IzzTot">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.21"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.21"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9_L2CEeek-5T6UrapOg" label="motorRadius">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.22"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.22"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9_b2CEeek-5T6UrapOg" label="motorLength">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.23"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.23"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9_r2CEeek-5T6UrapOg" label="batteryLength">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.24"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.24"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb9_72CEeek-5T6UrapOg" label="batteryWidth">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.25"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.25"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb-AL2CEeek-5T6UrapOg" label="batteryHeight">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.26"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.26"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_TKb-Ab2CEeek-5T6UrapOg" label="TMot2">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.27"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.27"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']"/>
+    </lines>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-Ar2CEeek-5T6UrapOg" label="MechanicalModel" width="138">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.3"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.3"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-A72CEeek-5T6UrapOg" label="ElectricalModel" width="124">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.8"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.8"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-BL2CEeek-5T6UrapOg" label="KokamLargeBatteries" width="154">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.11"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.11"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-Bb2CEeek-5T6UrapOg" label="MotorDB" cells="_TKb95L2CEeek-5T6UrapOg _TKb9572CEeek-5T6UrapOg" width="91">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.12"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.12"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-Br2CEeek-5T6UrapOg" label="BatteryDB" width="95">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.13"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.13"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-B72CEeek-5T6UrapOg" label="SelectedBattery" width="124">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.23"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.23"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-CL2CEeek-5T6UrapOg" label="SelectedMotor" width="120">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.24"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.24"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-Cb2CEeek-5T6UrapOg" label="MBM" width="72">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.26"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.26"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-Cr2CEeek-5T6UrapOg" label="controlModel" width="115">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.27"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.27"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-C72CEeek-5T6UrapOg" label="plant" width="70">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.29"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.29"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_TKb-DL2CEeek-5T6UrapOg" label="simulationResults" width="136">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.30"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="process.processmodel#//@process.0/@node.30"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0"/>
+    </columns>
+    <description xmi:type="description_2:CrossTableDescription" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']"/>
+  </table:DTable>
+  <table:DTable xmi:id="_XQOHgL2CEeek-5T6UrapOg" name="new Alias Editor" headerColumnWidth="129">
+    <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="process.processmodel#/"/>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHgr2CEeek-5T6UrapOg" label="motorMass">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.0"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHg72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.0"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHhL2CEeek-5T6UrapOg" label="actualPower">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.1"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.1"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHhb2CEeek-5T6UrapOg" label="motorDB:Peff" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.1"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.1"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHhr2CEeek-5T6UrapOg" label="actualCapacity">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHh72CEeek-5T6UrapOg" label="motorDB: Ceff" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.2"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHiL2CEeek-5T6UrapOg" label="batteryMass">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.3"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.3"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHib2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.3"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.3"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHir2CEeek-5T6UrapOg" label="desiredPower">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.4"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.4"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHi72CEeek-5T6UrapOg" label="PdesV" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.4"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.4"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHjL2CEeek-5T6UrapOg" label="desiredCapacity">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.5"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.5"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHjb2CEeek-5T6UrapOg" label="CdesV" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.5"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.5"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHjr2CEeek-5T6UrapOg" label="platformMass">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.6"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.6"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHj72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.6"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.6"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHkL2CEeek-5T6UrapOg" label="totalMass">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.7"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.7"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHkb2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.7"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.7"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHkr2CEeek-5T6UrapOg" label="TMot1">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.8"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.8"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHk72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.8"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.8"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHlL2CEeek-5T6UrapOg" label="desiredCurrent">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.9"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.9"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHlb2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.9"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.9"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHlr2CEeek-5T6UrapOg" label="actualCurrent(t)">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.10"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.10"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHl72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.10"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.10"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHmL2CEeek-5T6UrapOg" label="supportTime">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.11"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.11"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHmb2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.11"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.11"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHmr2CEeek-5T6UrapOg" label="batteryPosition">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.12"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.12"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHm72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.12"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.12"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHnL2CEeek-5T6UrapOg" label="motorPosition">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.13"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.13"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHnb2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.13"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.13"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHnr2CEeek-5T6UrapOg" label="trajectory">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.14"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.14"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHn72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.14"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.14"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHoL2CEeek-5T6UrapOg" label="riseTime">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.15"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.15"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHob2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.15"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.15"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHor2CEeek-5T6UrapOg" label="overshoot">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.16"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.16"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHo72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.16"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.16"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHpL2CEeek-5T6UrapOg" label="maxRiseTime">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.17"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.17"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHpb2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.17"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.17"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHpr2CEeek-5T6UrapOg" label="maxOvershoot">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.18"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.18"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHp72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.18"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.18"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHqL2CEeek-5T6UrapOg" label="IxxTot">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.19"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.19"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHqb2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.19"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.19"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHqr2CEeek-5T6UrapOg" label="IyyTot">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.20"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.20"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHq72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.20"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.20"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHrL2CEeek-5T6UrapOg" label="IzzTot">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.21"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.21"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHrb2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.21"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.21"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHrr2CEeek-5T6UrapOg" label="motorRadius">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.22"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.22"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHr72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.22"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.22"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHsL2CEeek-5T6UrapOg" label="motorLength">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.23"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.23"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHsb2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.23"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.23"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHsr2CEeek-5T6UrapOg" label="batteryLength">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.24"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.24"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHs72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.24"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.24"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHtL2CEeek-5T6UrapOg" label="batteryWidth">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.25"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.25"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHtb2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.25"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.25"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHtr2CEeek-5T6UrapOg" label="batteryHeight">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.26"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.26"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHt72CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.26"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.26"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XQOHuL2CEeek-5T6UrapOg" label="TMot2">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.27"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.27"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedLineMappings[name='AttributeLine']"/>
+      <cells xmi:type="table:DCell" xmi:id="_XQOHub2CEeek-5T6UrapOg" label="" column="_XQOHur2CEeek-5T6UrapOg">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.27"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Attribute" href="process.processmodel#//@propertyModel/@attribute.27"/>
+      </cells>
+    </lines>
+    <columns xmi:type="table:DFeatureColumn" xmi:id="_XQOHur2CEeek-5T6UrapOg" label="Alias list (Format: modelName1: alias1; modelName2: alias2; ...)" cells="_XQOHg72CEeek-5T6UrapOg _XQOHhb2CEeek-5T6UrapOg _XQOHh72CEeek-5T6UrapOg _XQOHib2CEeek-5T6UrapOg _XQOHi72CEeek-5T6UrapOg _XQOHjb2CEeek-5T6UrapOg _XQOHj72CEeek-5T6UrapOg _XQOHkb2CEeek-5T6UrapOg _XQOHk72CEeek-5T6UrapOg _XQOHlb2CEeek-5T6UrapOg _XQOHl72CEeek-5T6UrapOg _XQOHmb2CEeek-5T6UrapOg _XQOHm72CEeek-5T6UrapOg _XQOHnb2CEeek-5T6UrapOg _XQOHn72CEeek-5T6UrapOg _XQOHob2CEeek-5T6UrapOg _XQOHo72CEeek-5T6UrapOg _XQOHpb2CEeek-5T6UrapOg _XQOHp72CEeek-5T6UrapOg _XQOHqb2CEeek-5T6UrapOg _XQOHq72CEeek-5T6UrapOg _XQOHrb2CEeek-5T6UrapOg _XQOHr72CEeek-5T6UrapOg _XQOHsb2CEeek-5T6UrapOg _XQOHs72CEeek-5T6UrapOg _XQOHtb2CEeek-5T6UrapOg _XQOHt72CEeek-5T6UrapOg _XQOHub2CEeek-5T6UrapOg" width="391" featureName="aliases">
+      <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']/@ownedColumnMappings[name='AliasFeature']"/>
+      <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_oOrzwL2CEeek-5T6UrapOg"/>
+    </columns>
+    <description xmi:type="description_2:EditionTableDescription" href="platform:/resource/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasEditor']"/>
   </table:DTable>
 </xmi:XMI>

@@ -21,6 +21,7 @@ import be.uantwerpen.msdl.icm.runtime.queries.util.AvailableFinishQuerySpecifica
 import be.uantwerpen.msdl.icm.runtime.queries.util.FinishedProcessQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.ReadyActivityQuerySpecification
 import be.uantwerpen.msdl.icm.runtime.queries.util.RunnigActivityQuerySpecification
+import be.uantwerpen.msdl.icm.runtime.querying.MatlabQuery
 import be.uantwerpen.msdl.icm.runtime.scripting.connection.MatlabConnectionManager
 import be.uantwerpen.msdl.icm.runtime.scripting.manager.ScriptExecutionManager
 import be.uantwerpen.msdl.icm.runtime.scripting.scripts.IScript
@@ -36,6 +37,7 @@ import be.uantwerpen.msdl.processmodel.ftg.Script
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import be.uantwerpen.msdl.processmodel.pm.AutomatedActivity
 import be.uantwerpen.msdl.processmodel.pm.Initial
+import be.uantwerpen.msdl.processmodel.pm.ManualActivity
 import be.uantwerpen.msdl.processmodel.pm.Node
 import be.uantwerpen.msdl.processmodel.pm.Object
 import be.uantwerpen.msdl.processmodel.pm.Process
@@ -59,10 +61,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.query.runtime.emf.EMFScope
 import org.eclipse.xtend.lib.annotations.Accessors
-import be.uantwerpen.msdl.processmodel.pm.ManualActivity
-import be.uantwerpen.msdl.processmodel.ftg.Tool
-import matlabcontrol.MatlabProxyFactory
-import be.uantwerpen.msdl.icm.runtime.querying.MatlabQuery
+import be.uantwerpen.msdl.icm.runtime.querying.AmesimQuery
 
 class EnactmentManager {
 
@@ -282,20 +281,20 @@ class EnactmentManager {
 			var values = Maps::newHashMap();
 
 			for (attribute : modifiedAttributes) {
-				val value = attribute.getValue
+				val value = attribute.getValue(activity)
 				values.put(attribute.name, value)
 			}
 			VariableManager.getInstance().setVariables(values)
 		}
 	}
 
-	def getGetValue(Attribute attribute) {
+	def getValue(Attribute attribute, Activity activity) {
 		switch (attribute.attributedefinition) {
 			MatlabAttributeDefinition: {
-				new MatlabQuery(attribute).execute as Double
+				new MatlabQuery(attribute, activity).execute as Double
 			}
 			AmesimAttributeDefinition: {
-				0.0
+				new AmesimQuery(attribute, activity).execute as Double
 			}
 			GraphQueryAttributeDefinition: {
 				0.0

@@ -11,6 +11,9 @@ import java.io.InputStreamReader
 import java.util.List
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
+import be.uantwerpen.msdl.icm.runtime.querying.aliases.AliasHandler
+import org.eclipse.xtend.lib.annotations.Accessors
+import be.uantwerpen.msdl.processmodel.pm.Activity
 
 class AmesimQuery extends AmesimAttributeDefinitionImpl implements IExecutable {
 
@@ -19,20 +22,24 @@ class AmesimQuery extends AmesimAttributeDefinitionImpl implements IExecutable {
 	private val QUERY_RESULT_LABEL = "queryresult:"
 	private val ERROR_MSG = "From AMEGetParameterValue: fail to locate parameter or variable in the active circuit:"
 
-	private var Attribute attribute;
+	private static extension val AliasHandler aliasHandler = new AliasHandler()
 
-	new(Attribute attribute) {
+	@Accessors(PRIVATE_GETTER, PRIVATE_SETTER) private val Attribute attribute;
+	@Accessors(PRIVATE_GETTER, PRIVATE_SETTER) private val Activity activity;
+
+	new(Attribute attribute, Activity activity) {
 		this.attribute = attribute
+		this.activity = activity
 	}
 
 	override execute() {
-		logger.level = Level::OFF
+		logger.level = Level::DEBUG
 
 		val file = File.createTempFile("amesimquery", ".py", AMESIM_LOCATION)
 		file.deleteOnExit()
 		val bufferedWriter = new BufferedWriter(new FileWriter(file))
 
-		val scriptText = AmesimQueryScriptTemplate.generateAmesimQueryScript(attribute.name).toString
+		val scriptText = AmesimQueryScriptTemplate.generateAmesimQueryScript(attribute.getQueryableName(activity)).toString
 		bufferedWriter.write(scriptText)
 		bufferedWriter.close();
 

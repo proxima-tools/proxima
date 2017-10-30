@@ -1020,6 +1020,47 @@
         </create>
       </intersection>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="AliasModelOverview" label="Alias-Model overview" domainClass="processmodel.ProcessModel">
+      <ownedLineMappings name="AttributeLine" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.propertyModel.attribute" headerLabelExpression="aql:self.name"/>
+      <ownedColumnMappings name="ObjectColumn" headerLabelExpression="aql:self.name" domainClass="pm.Object" semanticCandidatesExpression="aql:self.process.node"/>
+      <intersection name="Alias" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0" labelExpression="service:getAlias(columnSemantic)" columnFinderExpression="service:getAliases">
+        <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic">
+            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="processmodel.ResourceConstraint" referenceName="resourceConstraint">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="resource" valueExpression="var:columnSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="transformation" valueExpression="var:lineSemantic"/>
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </directEdit>
+        <defaultForeground>
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+        </defaultBackground>
+        <create name="CreateCell">
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:lineSemantic">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="typedBy" valueExpression="var:columnSemantic"/>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </create>
+      </intersection>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="AliasEditor" label="Alias Editor" domainClass="processmodel.ProcessModel">
+      <ownedLineMappings name="AttributeLine" label="Attribute" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.propertyModel.attribute" headerLabelExpression="aql:self.name"/>
+      <ownedColumnMappings name="AliasFeature" headerLabelExpression="Alias list (Format: modelName1: alias1; modelName2: alias2; ...)" featureName="aliases"/>
+    </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="ConstraintsTable" domainClass="processmodel.ProcessModel">
       <ownedLineMappings name="ConstraintsLine" domainClass="properties.Relationship" semanticCandidatesExpression="aql:self.propertyModel.relationship ->  select(r | r.precision==properties::Precision::L3)" headerLabelExpression="aql:if(self.name!=null and self.name.size()>0) then self.name+': '+self.formula.definition else self.formula.definition endif"/>
       <ownedColumnMappings name="SubjectColumn" headerLabelExpression="aql:self.name" domainClass="properties.RelationshipSubject" semanticCandidatesExpression="aql:self.propertyModel.attribute -> union(self.propertyModel.capability) -> union(self.propertyModel.property)"/>
