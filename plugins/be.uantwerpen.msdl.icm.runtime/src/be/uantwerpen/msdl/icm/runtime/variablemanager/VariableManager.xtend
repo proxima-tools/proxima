@@ -204,7 +204,8 @@ class VariableManager {
 		variableStore.setVariable(variableName, value)
 		evaluateExpressions2();
 	}
-
+	
+	@Deprecated
 	def evaluateExpressions() {
 		Preconditions::checkNotNull(this.variableStore)
 

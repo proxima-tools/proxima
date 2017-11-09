@@ -482,7 +482,14 @@
         </edgeMappings>
         <containerMappings name="RelationshipContainer" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Relationship" childrenPresentation="List">
           <subNodeMappings name="FormulaSubNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@toolSections.1/@ownedTools[name='EditFormula']" semanticCandidatesExpression="aql:self.formula" domainClass="properties.Formula">
-            <style xsi:type="style:SquareDescription" borderLineStyle="dot" showIcon="false" labelExpression="aql:self.definition" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.definition" iconPath="/be.uantwerpen.msdl.process.design/icons/constraint.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="ToleranceSubNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@toolSections.1/@ownedTools[name='EditTolerance']" semanticCandidatesExpression="aql:self.tolerance" domainClass="properties.Tolerance">
+            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.value" iconPath="/be.uantwerpen.msdl.process.design/icons/tolerance.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -537,6 +544,18 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="properties.Formula" referenceName="formula">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="DEFINE FORMULA"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateTolerance" label="Tolerance" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='ToleranceSubNode']" iconPath="/be.uantwerpen.msdl.process.design/icons/tolerance.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="properties.Absolute" referenceName="tolerance">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="0.0"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -635,6 +654,14 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="var:0"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditTolerance">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="var:0"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
