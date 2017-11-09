@@ -117,7 +117,7 @@ class Generator {
 	}
 
 	private def generateScript(AutomatedActivity activity) {
-		if (activity.typedBy == null) {
+		if (activity.typedBy === null) {
 			return
 		}
 		logger.debug(String::format("generating script for activity %s", activity.name))

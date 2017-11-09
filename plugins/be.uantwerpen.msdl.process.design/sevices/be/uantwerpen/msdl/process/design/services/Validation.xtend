@@ -37,7 +37,7 @@ class Validation {
 	}
 
 	public def consistentScriptExtension(Transformation transformation) {
-		if(transformation.definition == null) return true
+		if(transformation.definition === null) return true
 		if(!(transformation.definition instanceof Script)) return true
 
 		val script = transformation.definition as Script
@@ -49,7 +49,7 @@ class Validation {
 	}
 
 	public def formulaOnlyInL3Relationship(Relationship relationship) {
-		if (relationship.formula != null) {
+		if (relationship.formula !== null) {
 			return relationship.precision.equals(Precision::L3)
 		}
 		return true
@@ -62,7 +62,7 @@ class Validation {
 			subjects.addAll(subject)
 		]
 
-		return !subjects.filter[subject|(subject.name != null && !subject.name.empty)].exists [ subject |
+		return !subjects.filter[subject|(subject.name !== null && !subject.name.empty)].exists [ subject |
 			subject.name.equalsIgnoreCase(relationshipSubject.name) && subject != relationshipSubject
 		]
 	}

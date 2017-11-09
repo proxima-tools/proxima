@@ -255,17 +255,17 @@ class VariableManager {
 
 	private def ResultType evaluate(BufferedReader standardReader, BufferedReader errorReader) {
 		val stdLine = standardReader.readLine();
-		if (stdLine != null) {
+		if (stdLine !== null) {
 			if (stdLine.equalsIgnoreCase(INCONSISTENCY_MSG)) {
 				return ResultType.INCONSISTENT;
 			} else {
 				return ResultType.OK;
 			}
-		} else if (errorReader.readLine() != null) {
+		} else if (errorReader.readLine() !== null) {
 			val List<String> lines = Lists::newArrayList(errorReader.lines().toArray)
-			if (lines.findFirst[line|line.contains(INCONCLUSIVE_ERROR_MSG)] != null) {
+			if (lines.findFirst[line|line.contains(INCONCLUSIVE_ERROR_MSG)] !== null) {
 				return ResultType.INCONCLUSIVE;
-			} else if (lines.findFirst[line|line.contains(INCONSISTENCY_ERROR_MSG)] != null) {
+			} else if (lines.findFirst[line|line.contains(INCONSISTENCY_ERROR_MSG)] !== null) {
 				return ResultType.INCONSISTENT;
 			} else {
 				return ResultType.INCONCLUSIVE;
@@ -276,7 +276,7 @@ class VariableManager {
 	}
 
 	private def ResultType evaluate2(BufferedReader standardReader, BufferedReader errorReader) {
-		if (standardReader.readLine() != null) {
+		if (standardReader.readLine() !== null) {
 			val List<String> lines = Lists::newArrayList(standardReader.lines().toArray)
 
 			for (line : lines) {
@@ -289,11 +289,11 @@ class VariableManager {
 					}
 				}
 			}
-		} else if (errorReader.readLine() != null) {
+		} else if (errorReader.readLine() !== null) {
 			val List<String> lines = Lists::newArrayList(errorReader.lines().toArray)
-			if (lines.findFirst[line|line.contains(INCONCLUSIVE_ERROR_MSG)] != null) {
+			if (lines.findFirst[line|line.contains(INCONCLUSIVE_ERROR_MSG)] !== null) {
 				return ResultType.INCONCLUSIVE;
-			} else if (lines.findFirst[line|line.contains(INCONSISTENCY_ERROR_MSG)] != null) {
+			} else if (lines.findFirst[line|line.contains(INCONSISTENCY_ERROR_MSG)] !== null) {
 				return ResultType.INCONSISTENT;
 			} else {
 				return ResultType.INCONCLUSIVE;

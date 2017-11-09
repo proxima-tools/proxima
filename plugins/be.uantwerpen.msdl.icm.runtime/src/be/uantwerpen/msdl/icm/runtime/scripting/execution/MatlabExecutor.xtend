@@ -67,7 +67,7 @@ class MatlabExecutor extends ParameterizedExecutor {
 			val bufferedReader = new BufferedReader(new FileReader(file))
 			var String line = ""
 
-			while ((line = bufferedReader.readLine()) != null) {
+			while ((line = bufferedReader.readLine()) !== null) {
 				// resolve parameters in the next line of the script
 				line = line.resolveParameters(parameters)
 

@@ -88,7 +88,7 @@ class FixedIterationCostSimulator {
 				val resourceUnitPrice = allocation.resource.cost.findFirst [c |
 					(c.eContainer as CostFactor).type.equals(CostType::COST_PER_TIME)
 				]
-				if(resourceUnitPrice!=null){
+				if(resourceUnitPrice!==null){
 					value += cost.value * resourceUnitPrice.value * times
 				}
 			}

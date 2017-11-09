@@ -23,7 +23,7 @@ class Variable {
 	}
 
 	def isBound() {
-		value != null
+		value !== null
 	}
 
 	override equals(Object obj) {
@@ -37,10 +37,10 @@ class Variable {
 
 	override hashCode() {
 		var hash = 3
-		if (this.name != null) {
+		if (this.name !== null) {
 			hash = 53 * hash + this.name.hashCode
 		}
-		if (this.value != null) {
+		if (this.value !== null) {
 			hash = 53 * hash + this.value.hashCode
 		}
 		return hash

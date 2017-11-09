@@ -23,7 +23,7 @@ class CostFactory2 extends CostFactoryImpl {
 	def createCost(Activity activity, double value, CostType costType) {
 		val cost = createCost
 		val processModel = (activity.eContainer as Process).eContainer as ProcessModel
-		if (processModel.costModel == null) {
+		if (processModel.costModel === null) {
 			processModel.costModel = createCostModel
 		}
 		val costModel = processModel.costModel

@@ -38,7 +38,7 @@ class VariableStore {
 
 	def addVariable(Variable variable) {
 		val v = variables.findFirst[v|v.equals(variable)]
-		if (v != null) {
+		if (v !== null) {
 			return
 		}
 		variables.add(variable)
@@ -82,7 +82,7 @@ class VariableStore {
 		variables.forEach [ v0 |
 			val v = variables.findFirst[v|v.equals(v0)]
 			val equationsForV = variablesInEquations.get(v)
-			if (equationsForV == null) {
+			if (equationsForV === null) {
 				variablesInEquations.put(v, Sets::newHashSet)
 			}
 			variablesInEquations.get(v).add(equation)
