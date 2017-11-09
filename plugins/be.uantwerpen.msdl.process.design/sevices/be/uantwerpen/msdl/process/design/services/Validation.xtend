@@ -20,6 +20,7 @@ import be.uantwerpen.msdl.processmodel.ftg.Transformation
 import be.uantwerpen.msdl.processmodel.pm.Object
 import be.uantwerpen.msdl.processmodel.properties.Attribute
 import be.uantwerpen.msdl.processmodel.properties.Intent
+import be.uantwerpen.msdl.processmodel.properties.IntentType
 import be.uantwerpen.msdl.processmodel.properties.Precision
 import be.uantwerpen.msdl.processmodel.properties.PropertyModel
 import be.uantwerpen.msdl.processmodel.properties.Relationship
@@ -53,6 +54,14 @@ class Validation {
 			return relationship.precision.equals(Precision::L3)
 		}
 		return true
+	}
+
+	public def L3EvaluationRequired(Relationship relationship) {
+		if (relationship.precision.equals(Precision::L3)) {
+			return (relationship.formula !== null) || (relationship.intent.exists[i|i.type.equals(IntentType::EVAL)]
+		)
+		} else
+			return true
 	}
 
 	public def uniqueAttributeNames(RelationshipSubject relationshipSubject) {

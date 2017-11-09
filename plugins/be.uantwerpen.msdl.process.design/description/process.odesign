@@ -32,6 +32,9 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="FormulaInNonL3Relationship" level="ERROR" message="Formulas are supported for L3 relationships only." targetClass="properties.Relationship">
         <audits auditExpression="service:formulaOnlyInL3Relationship()"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="L3EvaluationRequired" level="ERROR" message="An evaluation method (a formula or an activity an EVAL intent) for the L3 relationship is required." targetClass="properties.Relationship">
+        <audits auditExpression="service:L3EvaluationRequired()"/>
+      </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="DuplicateAttributeName" level="ERROR" message="Duplicate name." targetClass="properties.RelationshipSubject">
         <audits auditExpression="service:uniqueAttributeNames()"/>
       </ownedRules>
