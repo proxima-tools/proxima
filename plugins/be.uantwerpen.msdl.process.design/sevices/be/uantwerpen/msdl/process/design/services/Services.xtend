@@ -114,12 +114,12 @@ class Services {
 				}
 			}
 		}
-		
+
 		aliasObjects
 	}
 
 	public def getAlias(Attribute attribute, Object object) {
-		attribute.aliases.split(';').findFirst[a |
+		attribute.aliases.split(';').findFirst [ a |
 			a.trim.split(':').head.trim.equalsIgnoreCase(object.name)
 		].trim.split(':').last.trim
 	}

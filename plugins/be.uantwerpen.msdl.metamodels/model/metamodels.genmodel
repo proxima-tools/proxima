@@ -349,6 +349,9 @@
       <genClasses image="false" ecoreClass="processmodel.ecore#//base/Identifiable">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//base/Identifiable/id"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="processmodel.ecore#//base/Documentable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//base/Documentable/documentation"/>
+      </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//base/StringToStringMap">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//base/StringToStringMap/key"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//base/StringToStringMap/value"/>

@@ -127,13 +127,22 @@ class Validation {
 	 * TODO shall we group by read-in/modify-out? 
 	 */
 	public def ambiguousAttributeDefinition(Intent intent) {
+		if (intent.type.equals(IntentType::EVAL)) {
+			return true
+		}
 		val dataIn = intent.activity.dataFlowFrom
 		val dataOut = intent.activity.dataFlowTo
 		val objects = (dataIn + dataOut).map[d|d as Object]
 
 		val tools = objects.map[o|(o.typedBy as Formalism).implementedBy].flatten.groupBy[it]
 
-		return tools.size <= 1
+		val toolSelectionIsUnambiguous = tools.size <= 1
+
+		if (toolSelectionIsUnambiguous) {
+			return true
+		}
+
+		return intent.object !== null
 	}
 
 }

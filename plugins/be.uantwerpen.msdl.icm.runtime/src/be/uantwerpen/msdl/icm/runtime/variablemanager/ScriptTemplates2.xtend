@@ -85,7 +85,7 @@ class ScriptTemplates2 {
 		for (key : variableStore.variablesInEquations.filter[variable, eqs|variable.bound].keySet) {
 			val newEq = new SplitEquation(key.name, Relation::EQ, variableStore.variables.findFirst [ variable |
 				variable.name.equals(key.name)
-			].value.intValue.toString)
+			].value.doubleValue.toString)
 			substitutedEquations += newEq
 		}
 

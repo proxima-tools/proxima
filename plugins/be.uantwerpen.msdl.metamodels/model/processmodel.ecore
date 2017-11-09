@@ -107,7 +107,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//pm/Node #//cost/CostItem #//pm/Typeable">
+    <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//pm/Node #//cost/CostItem #//pm/Typeable #//base/Documentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/ActivityType"
           eOpposite="#//ftg/ActivityType/types"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" upperBound="-1"
@@ -127,7 +127,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="activity" upperBound="-1"
           eType="#//pm/Activity" eOpposite="#//pm/Activity/partOf"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//pm/Node #//pm/Typeable">
+    <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//pm/Node #//pm/Typeable #//base/Documentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/ObjectType"
           eOpposite="#//ftg/ObjectType/types"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributedefinition"
@@ -385,6 +385,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Documentable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StringToStringMap" instanceClassName="java.util.Map$Entry">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
