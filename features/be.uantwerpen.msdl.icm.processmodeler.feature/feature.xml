@@ -2,7 +2,7 @@
 <feature
       id="be.uantwerpen.msdl.icm.processmodeler.feature"
       label="Process Modeler"
-      version="0.1.0.qualifier"
+      version="0.1.1.qualifier"
       provider-name="Istvan David">
 
    <description url="http://www.example.com/description">

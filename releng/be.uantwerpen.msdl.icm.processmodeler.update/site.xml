@@ -3,28 +3,12 @@
    <description name="ICM Framework" url="msdl.cs.mcgill.ca/people/istvan/icm">
       A framework for inconsistency management.
    </description>
-   <feature url="features/be.uantwerpen.msdl.icm.core.feature_0.1.0.201708251335.jar" id="be.uantwerpen.msdl.icm.core.feature" version="0.1.0.201708251335">
+   <feature url="features/be.uantwerpen.msdl.icm.core.feature_0.1.1.201907191047.jar" id="be.uantwerpen.msdl.icm.core.feature" version="0.1.1.201907191047">
       <category name="core"/>
    </feature>
-   <feature url="features/be.uantwerpen.msdl.icm.processmodeler.feature_0.1.0.201708251335.jar" id="be.uantwerpen.msdl.icm.processmodeler.feature" version="0.1.0.201708251335">
+   <feature url="features/be.uantwerpen.msdl.icm.processmodeler.feature_0.1.1.201907191047.jar" id="be.uantwerpen.msdl.icm.processmodeler.feature" version="0.1.1.201907191047">
       <category name="processModeler"/>
-   </feature>
-   <feature url="features/be.uantwerpen.msdl.icm.dse.feature_0.1.0.201708251335.jar" id="be.uantwerpen.msdl.icm.dse.feature" version="0.1.0.201708251335">
-      <category name="dse"/>
-   </feature>
-   <feature url="features/be.uantwerpen.msdl.icm.runtime.feature_0.1.0.201708251335.jar" id="be.uantwerpen.msdl.icm.runtime.feature" version="0.1.0.201708251335">
-      <category name="runtime"/>
-   </feature>
-   <feature url="features/be.uantwerpen.msdl.icm.tooling.feature_0.1.0.201708251335.jar" id="be.uantwerpen.msdl.icm.tooling.feature" version="0.1.0.201708251335">
-      <category name="tooling"/>
-   </feature>
-   <feature url="features/be.uantwerpen.msdl.icm.external.feature_0.1.0.201708251335.jar" id="be.uantwerpen.msdl.icm.external.feature" version="0.1.0.201708251335">
-      <category name="thirdparty"/>
    </feature>
    <category-def name="core" label="Core"/>
    <category-def name="processModeler" label="Process Modeler"/>
-   <category-def name="dse" label="DSE"/>
-   <category-def name="runtime" label="Runtime"/>
-   <category-def name="tooling" label="Tooling"/>
-   <category-def name="thirdparty" label="Third-party dependencies"/>
 </site>
