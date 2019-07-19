@@ -11,15 +11,15 @@
 
 package be.uantwerpen.msdl.process.dse.simulator
 
-import be.uantwerpen.msdl.icm.queries.simulator.util.CostInCircleQuerySpecification
-import be.uantwerpen.msdl.icm.queries.simulator.util.TimeQuerySpecification
+import be.uantwerpen.msdl.icm.queries.simulator.CostForPresence
+import be.uantwerpen.msdl.icm.queries.simulator.CostInCircle
+import be.uantwerpen.msdl.icm.queries.simulator.Time
 import be.uantwerpen.msdl.processmodel.ProcessModel
 import be.uantwerpen.msdl.processmodel.cost.Cost
 import be.uantwerpen.msdl.processmodel.cost.CostFactor
 import be.uantwerpen.msdl.processmodel.cost.CostType
-import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import be.uantwerpen.msdl.processmodel.pm.Activity
-import be.uantwerpen.msdl.icm.queries.simulator.util.CostForPresenceQuerySpecification
+import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 
 class FixedIterationCostSimulator {
 
@@ -44,7 +44,7 @@ class FixedIterationCostSimulator {
 	}
 
 	def simulate() {
-		val timeCosts = queryEngine.getMatcher(TimeQuerySpecification.instance).allMatches
+		val timeCosts = queryEngine.getMatcher(Time.instance).allMatches
 
 		var timeBasedCosts = 0.0
 
@@ -53,7 +53,7 @@ class FixedIterationCostSimulator {
 			timeBasedCosts += cost.calculateTimeBasedCost
 		}
 
-		val costsInLoops = queryEngine.getMatcher(CostInCircleQuerySpecification.instance).allMatches;
+		val costsInLoops = queryEngine.getMatcher(CostInCircle.instance).allMatches;
 
 		for (costInLoop : costsInLoops) {
 			val cost = costInLoop.cost
@@ -62,7 +62,7 @@ class FixedIterationCostSimulator {
 			}
 		}
 		
-		val costsForPresence = queryEngine.getMatcher(CostForPresenceQuerySpecification.instance).allMatches
+		val costsForPresence = queryEngine.getMatcher(CostForPresence.instance).allMatches
 		
 		var singlePresenceCosts = 0.0
 		

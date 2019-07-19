@@ -1,10 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: ICM Metamodels
+Bundle-Name: %pluginName
 Bundle-SymbolicName: be.uantwerpen.msdl.metamodels;singleton:=true
+Automatic-Module-Name: be.uantwerpen.msdl.metamodels
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: Istvan David
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: be.uantwerpen.msdl.enactment,
@@ -36,11 +37,10 @@ Export-Package: be.uantwerpen.msdl.enactment,
  be.uantwerpen.msdl.processmodel.viewpoints.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- be.uantwerpen.msdl.metamodels;visibility:=reexport,
- org.eclipse.emf.mwe2.lib;bundle-version="2.9.0",
- org.eclipse.emf.mwe2.launch;bundle-version="2.9.0",
- org.eclipse.emf.codegen.ecore;bundle-version="2.12.0",
+ org.eclipse.emf.mwe2.lib;bundle-version="2.10.0",
+ org.eclipse.emf.mwe2.launch;bundle-version="2.10.0",
+ org.eclipse.emf.codegen.ecore;bundle-version="2.18.0",
  org.apache.log4j;bundle-version="1.2.15",
- org.eclipse.xtext.xbase.lib;bundle-version="2.10.0",
- org.apache.commons.logging;bundle-version="1.1.1"
+ org.eclipse.xtext.xbase.lib;bundle-version="2.18.0",
+ org.apache.commons.logging;bundle-version="1.2.0"
 Bundle-ActivationPolicy: lazy

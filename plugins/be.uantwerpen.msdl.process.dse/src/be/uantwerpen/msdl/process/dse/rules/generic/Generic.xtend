@@ -12,12 +12,7 @@
 package be.uantwerpen.msdl.process.dse.rules.generic
 
 import be.uantwerpen.msdl.icm.queries.general.GeneralPatterns
-import be.uantwerpen.msdl.icm.queries.general.util.SoftControlFlowBetweenActivitiesProcessor
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
-import be.uantwerpen.msdl.processmodel.pm.Activity
-import be.uantwerpen.msdl.processmodel.pm.ControlFlow
-import be.uantwerpen.msdl.processmodel.pm.Process
-import org.eclipse.viatra.dse.api.DSETransformationRule
 
 class Generic extends RuleGroup {
 
@@ -32,13 +27,8 @@ class Generic extends RuleGroup {
 	/**
 	 * Control flow patterns
 	 */
-	val deleteSoftControlFlow = new DSETransformationRule(
-		softControlFlowBetweenActivities,
-		new SoftControlFlowBetweenActivitiesProcessor() {
-			override process(Activity activity1, Activity activity2, ControlFlow controlFlow, Process process) {
-				process.controlFlow.remove(controlFlow)
-			}
-		}
-	)
-
+	val deleteSoftControlFlow = batchTransformationRuleFactory.createRule(softControlFlowBetweenActivities).name(
+		"Delete soft ctrl flow").action [
+		process.controlFlow.remove(controlFlow)
+	].build
 }

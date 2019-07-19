@@ -5,18 +5,20 @@ Bundle-SymbolicName: be.uantwerpen.msdl.process.dse;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: be.uantwerpen.msdl.process.dse.internal.Activator
 Bundle-Vendor: Istvan David
-Require-Bundle: org.eclipse.core.runtime,
- org.apache.log4j;bundle-version="1.2.15",
- com.google.guava;bundle-version="15.0.0",
+Export-Package: be.uantwerpen.msdl.process.dse
+Require-Bundle: org.eclipse.viatra.query.runtime,
+ org.eclipse.viatra.transformation.runtime.emf,
+ org.eclipse.viatra.transformation.evm,
+ org.eclipse.core.runtime,
+ org.apache.log4j,
+ com.google.guava,
  org.eclipse.emf.ecore.xmi,
  org.junit,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
  org.eclipse.xtext.xbase.lib,
  be.uantwerpen.msdl.metamodels,
- org.eclipse.viatra.dse;bundle-version="0.16.0",
- be.uantwerpen.msdl.icm.queries;bundle-version="0.1.0"
+ be.uantwerpen.msdl.icm.queries,
+ org.eclipse.viatra.dse;bundle-version="0.22.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: be.uantwerpen.msdl.process.dse
-

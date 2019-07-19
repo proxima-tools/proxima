@@ -12,8 +12,6 @@
 package be.uantwerpen.msdl.process.dse.rules
 
 import be.uantwerpen.msdl.icm.queries.general.GeneralPatterns
-import be.uantwerpen.msdl.icm.queries.general.util.ParallelActivitiesProcessor
-import be.uantwerpen.msdl.icm.queries.general.util.SequentialActivitiesDirectProcessor
 import be.uantwerpen.msdl.icm.queries.inconsistencies.InconsistencyPatterns
 import be.uantwerpen.msdl.icm.queries.inconsistencies.UnmanagedPatterns
 import be.uantwerpen.msdl.processmodel.cost.CostType
@@ -23,10 +21,9 @@ import be.uantwerpen.msdl.processmodel.pm.Process
 import be.uantwerpen.msdl.processmodel.properties.IntentType
 import be.uantwerpen.msdl.processmodel.properties.Property
 import java.util.List
-import org.eclipse.viatra.dse.api.DSETransformationRule
 import org.eclipse.viatra.dse.api.DesignSpaceExplorer
-import org.eclipse.viatra.query.runtime.api.impl.BaseMatcher
-import org.eclipse.viatra.query.runtime.api.impl.BasePatternMatch
+import org.eclipse.viatra.transformation.runtime.emf.rules.batch.BatchTransformationRule
+import org.eclipse.viatra.transformation.runtime.emf.rules.batch.BatchTransformationRuleFactory
 
 abstract class RuleGroup {
 
@@ -39,71 +36,63 @@ abstract class RuleGroup {
 	protected val extension PropertiesFactory2 propertiesFactory = new PropertiesFactory2
 	protected val extension PmFactory2 pmFactory = new PmFactory2
 	protected val extension CostFactory2 costFactory = new CostFactory2
+	protected val extension BatchTransformationRuleFactory batchTransformationRuleFactory = new BatchTransformationRuleFactory
 
 	public def addTransformationRules(DesignSpaceExplorer dse) {
-		(rules
-			//+ generalRules
-		).
-			forEach [ rule |
-				dse.addTransformationRule(rule)
-			]
+		(rules + generalRules
+		).forEach [ rule |
+			dse.addTransformationRule(rule)
+		]
 	}
 
-	abstract protected def List<DSETransformationRule<? extends BasePatternMatch, ? extends BaseMatcher<? extends BasePatternMatch>>> rules()
+	abstract protected def List<BatchTransformationRule<?, ?>> rules()
 
-	def generalRules() {
-		#[//			 sequenceNodes,
-//			parallelizeNodes
+	def List<BatchTransformationRule<?, ?>> generalRules() {
+		#[
+			sequenceNodes,
+			parallelizeNodes
 		]
 	}
 
 	/**
 	 * Organize independent nodes into a sequence
 	 */
-	val sequenceNodes = new DSETransformationRule(
-		parallelActivities,
-		new ParallelActivitiesProcessor() {
-			override process(Activity activity1, Activity activity2) {
-				val previousControl1To = activity1.controlOut.head.to
-				val previousControl2From = activity2.controlIn.head.from
+	val sequenceNodes = batchTransformationRuleFactory.createRule(parallelActivities).name(
+		"Organize independent nodes into a sequence").action [
+		val previousControl1To = activity1.controlOut.head.to
+		val previousControl2From = activity2.controlIn.head.from
 
-				val process = (activity1.eContainer as Process)
+		val process = (activity1.eContainer as Process)
 
-				process.controlFlow.remove(activity1.controlOut.head)
-				process.controlFlow.remove(activity2.controlIn.head)
+		process.controlFlow.remove(activity1.controlOut.head)
+		process.controlFlow.remove(activity2.controlIn.head)
 
-				process.createControlFlow(activity1, activity2)
-			}
-		}
-	)
+		process.createControlFlow(activity1, activity2)
+	].build
 
-//	/**
-//	 * Organize independent nodes into a parallel structure
-//	 */
-	val parallelizeNodes = new DSETransformationRule(
-		sequentialActivitiesDirect,
-		new SequentialActivitiesDirectProcessor() {
-			override process(Activity activity1, Activity activity2) {
-				val process = (activity1.eContainer as Process)
-				val fork = process.createFork;
-				val join = process.createJoin;
+	/**
+	 * Organize independent nodes into a parallel structure
+	 */
+	val parallelizeNodes = batchTransformationRuleFactory.createRule(sequentialActivitiesDirect).name(
+		"Organize independent nodes into a parallel structure").action [
+		val process = (activity1.eContainer as Process)
+		val fork = process.createFork;
+		val join = process.createJoin;
 
-				// control inputs of activity1 and activity2 should be redirected to the fork
-				fork.controlIn += activity1.controlIn
-				fork.controlIn += activity2.controlIn
+		// control inputs of activity1 and activity2 should be redirected to the fork
+		fork.controlIn += activity1.controlIn
+		fork.controlIn += activity2.controlIn
 
-				// control outputs of activity1 and activity2 should be redirected from the join
-				join.controlOut += activity1.controlOut
-				join.controlOut += activity2.controlOut
+		// control outputs of activity1 and activity2 should be redirected from the join
+		join.controlOut += activity1.controlOut
+		join.controlOut += activity2.controlOut
 
-				// wave activities into the fork-join structure
-				#[activity1, activity2].forEach [ activity |
-					process.createControlFlow(fork, activity)
-					process.createControlFlow(activity, join)
-				]
-			}
-		}
-	)
+		// wave activities into the fork-join structure
+		#[activity1, activity2].forEach [ activity |
+			process.createControlFlow(fork, activity)
+			process.createControlFlow(activity, join)
+		]
+	].build
 
 	def createDecision(Activity activity, Property propertyToCheck, Node loopTarget) {
 		val process = activity.eContainer as Process

@@ -15,7 +15,7 @@ import be.uantwerpen.msdl.enactment.ActivityState
 import be.uantwerpen.msdl.enactment.Enactment
 import be.uantwerpen.msdl.enactment.EnactmentFactory
 import be.uantwerpen.msdl.icm.runtime.queries.RuntimeQueries
-import be.uantwerpen.msdl.icm.runtime.queries.util.TokenInNodeQuerySpecification
+import be.uantwerpen.msdl.icm.runtime.queries.TokenInNode
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
@@ -84,7 +84,7 @@ class SimulatorTransformations2 {
 
 	val joinableRule = createRule.name("joinable").precondition(joinable).action [
 		logger.debug(String.format("Joining tokens at %s.", join))
-		val tokenMatches = queryEngine.getMatcher(TokenInNodeQuerySpecification.instance).allMatches.filter [ match |
+		val tokenMatches = queryEngine.getMatcher(TokenInNode.instance).allMatches.filter [ match |
 			match.node.equals(join)
 		] // each token at this point should be joinable
 		logger.debug(String.format("Joinable tokens: %s.", tokenMatches.map[tm|tm.token].toList))

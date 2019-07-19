@@ -15,7 +15,7 @@ import be.uantwerpen.msdl.enactment.ActivityState
 import be.uantwerpen.msdl.enactment.Enactment
 import be.uantwerpen.msdl.enactment.EnactmentFactory
 import be.uantwerpen.msdl.icm.runtime.queries.RuntimeQueries
-import be.uantwerpen.msdl.icm.runtime.queries.util.TokenInNodeQuerySpecification
+import be.uantwerpen.msdl.icm.runtime.queries.TokenInNode
 import be.uantwerpen.msdl.processmodel.pm.Activity
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.transformation.runtime.emf.modelmanipulation.IModelManipulations
@@ -73,7 +73,7 @@ class SimulatorTransformations {
 	].build
 
 	val joinableRule = createRule.name("joinable").precondition(joinable).action [
-		val tokenMatches = queryEngine.getMatcher(TokenInNodeQuerySpecification.instance).allMatches.filter [ match |
+		val tokenMatches = queryEngine.getMatcher(TokenInNode.instance).allMatches.filter [ match |
 			match.node.equals(join)
 		] // each token at this point should be joinable
 		// activate parent

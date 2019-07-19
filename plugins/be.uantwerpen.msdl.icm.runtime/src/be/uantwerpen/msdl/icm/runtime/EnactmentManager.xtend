@@ -15,12 +15,12 @@ import be.uantwerpen.msdl.enactment.ActivityState
 import be.uantwerpen.msdl.enactment.Enactment
 import be.uantwerpen.msdl.enactment.EnactmentFactory
 import be.uantwerpen.msdl.enactment.Token
-import be.uantwerpen.msdl.icm.runtime.queries.util.AttributeModificationActivityQuerySpecification
-import be.uantwerpen.msdl.icm.runtime.queries.util.AvailableActivityQuerySpecification
-import be.uantwerpen.msdl.icm.runtime.queries.util.AvailableFinishQuerySpecification
-import be.uantwerpen.msdl.icm.runtime.queries.util.FinishedProcessQuerySpecification
-import be.uantwerpen.msdl.icm.runtime.queries.util.ReadyActivityQuerySpecification
-import be.uantwerpen.msdl.icm.runtime.queries.util.RunnigActivityQuerySpecification
+import be.uantwerpen.msdl.icm.runtime.queries.AttributeModificationActivity
+import be.uantwerpen.msdl.icm.runtime.queries.AvailableActivity
+import be.uantwerpen.msdl.icm.runtime.queries.AvailableFinish
+import be.uantwerpen.msdl.icm.runtime.queries.FinishedProcess
+import be.uantwerpen.msdl.icm.runtime.queries.ReadyActivity
+import be.uantwerpen.msdl.icm.runtime.queries.RunnigActivity
 import be.uantwerpen.msdl.icm.runtime.querying.AmesimQuery
 import be.uantwerpen.msdl.icm.runtime.querying.MatlabQuery
 import be.uantwerpen.msdl.icm.runtime.querying.toolselection.ToolSelectionHelper
@@ -53,7 +53,6 @@ import com.google.common.collect.Maps
 import java.io.File
 import java.util.List
 import java.util.Map
-import matlabcontrol.MatlabProxy
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
 import org.eclipse.emf.common.util.URI
@@ -149,7 +148,7 @@ class EnactmentManager {
 	}
 
 	def getAvailableActivities() {
-		val fireableControlFlows = queryEngine.getMatcher(AvailableActivityQuerySpecification.instance).allMatches
+		val fireableControlFlows = queryEngine.getMatcher(AvailableActivity.instance).allMatches
 		val activities = Lists::newArrayList
 
 		for (ctrlFlowMatch : fireableControlFlows) {
@@ -157,7 +156,7 @@ class EnactmentManager {
 			activities.add(toNode)
 		}
 
-		val fireableFinalControlFlows = queryEngine.getMatcher(AvailableFinishQuerySpecification.instance).allMatches
+		val fireableFinalControlFlows = queryEngine.getMatcher(AvailableFinish.instance).allMatches
 		for (ctrlFlowMatch : fireableFinalControlFlows) {
 			val toNode = ctrlFlowMatch.controlFlow.to
 			activities.add(toNode)
@@ -167,7 +166,7 @@ class EnactmentManager {
 	}
 
 	def getReadyActivities() {
-		val matches = queryEngine.getMatcher(ReadyActivityQuerySpecification.instance).allMatches
+		val matches = queryEngine.getMatcher(ReadyActivity.instance).allMatches
 
 		val activities = Lists::newArrayList
 
@@ -179,7 +178,7 @@ class EnactmentManager {
 	}
 
 	def prepareActivity(String activityName) {
-		val match = queryEngine.getMatcher(AvailableActivityQuerySpecification.instance).allMatches.findFirst [ match |
+		val match = queryEngine.getMatcher(AvailableActivity.instance).allMatches.findFirst [ match |
 			(match.activity as NamedElement).name.equalsIgnoreCase(activityName)
 		]
 		if (match !== null) {
@@ -201,7 +200,7 @@ class EnactmentManager {
 	}
 
 	def runActivity(String activityName) {
-		val match = queryEngine.getMatcher(ReadyActivityQuerySpecification.instance).allMatches.findFirst [ match |
+		val match = queryEngine.getMatcher(ReadyActivity.instance).allMatches.findFirst [ match |
 			(match.node as NamedElement).name.equalsIgnoreCase(activityName)
 		]
 
@@ -258,7 +257,7 @@ class EnactmentManager {
 	}
 
 	def finishActivity(String activityName) {
-		val match = queryEngine.getMatcher(RunnigActivityQuerySpecification.instance).allMatches.findFirst [ match |
+		val match = queryEngine.getMatcher(RunnigActivity.instance).allMatches.findFirst [ match |
 			(match.node as NamedElement).name.equalsIgnoreCase(activityName)
 		]
 
@@ -273,7 +272,7 @@ class EnactmentManager {
 		val token = enactment.token.findFirst[t|t.currentNode.equals(activity)]
 		token.state = ActivityState::DONE
 
-		val modifiedAttributes = queryEngine.getMatcher(AttributeModificationActivityQuerySpecification.instance).
+		val modifiedAttributes = queryEngine.getMatcher(AttributeModificationActivity.instance).
 			getAllValuesOfattribute(activity)
 		if (!modifiedAttributes.empty) {
 			logger.debug("Checking for consistency")
@@ -325,8 +324,8 @@ class EnactmentManager {
 	}
 
 	def stepActivity() {
-		val matchAvailable = queryEngine.getMatcher(AvailableActivityQuerySpecification.instance).allMatches.head
-		val matchReady = queryEngine.getMatcher(ReadyActivityQuerySpecification.instance).allMatches.head
+		val matchAvailable = queryEngine.getMatcher(AvailableActivity.instance).allMatches.head
+		val matchReady = queryEngine.getMatcher(ReadyActivity.instance).allMatches.head
 
 		if (matchAvailable !== null) {
 			val match = matchAvailable
@@ -343,10 +342,10 @@ class EnactmentManager {
 	}
 
 	def stepActivity(String activityName) {
-		val matchAvailable = queryEngine.getMatcher(AvailableActivityQuerySpecification.instance).allMatches.findFirst [ match |
+		val matchAvailable = queryEngine.getMatcher(AvailableActivity.instance).allMatches.findFirst [ match |
 			(match.activity as NamedElement).name.equalsIgnoreCase(activityName)
 		]
-		val matchReady = queryEngine.getMatcher(ReadyActivityQuerySpecification.instance).allMatches.findFirst [ match |
+		val matchReady = queryEngine.getMatcher(ReadyActivity.instance).allMatches.findFirst [ match |
 			(match.node as NamedElement).name.equalsIgnoreCase(activityName)
 		]
 
@@ -365,7 +364,7 @@ class EnactmentManager {
 	}
 
 	def finalStep() {
-		val fireableFinalControlFlows = queryEngine.getMatcher(AvailableFinishQuerySpecification.instance).allMatches
+		val fireableFinalControlFlows = queryEngine.getMatcher(AvailableFinish.instance).allMatches
 
 		if (fireableFinalControlFlows.empty) {
 			logger.debug("The process cannot be finished at this point.")
@@ -378,7 +377,7 @@ class EnactmentManager {
 	}
 
 	def boolean processFinished() {
-		queryEngine.getMatcher(FinishedProcessQuerySpecification.instance).countMatches > 0
+		queryEngine.getMatcher(FinishedProcess.instance).countMatches > 0
 	}
 
 	// Use this method if maintenance is done in a batch-fashion

@@ -11,12 +11,7 @@
 
 package be.uantwerpen.msdl.process.dse.rules.parallel
 
-import be.uantwerpen.msdl.icm.queries.inconsistencies.util.UnmanagedModifyModifyParallelProcessor
 import be.uantwerpen.msdl.process.dse.rules.RuleGroup
-import be.uantwerpen.msdl.processmodel.pm.Activity
-import be.uantwerpen.msdl.processmodel.pm.Fork
-import be.uantwerpen.msdl.processmodel.properties.Property
-import org.eclipse.viatra.dse.api.DSETransformationRule
 
 class ParallelModify extends RuleGroup {
 
@@ -37,15 +32,9 @@ class ParallelModify extends RuleGroup {
 //			}
 //		}
 //	)
-	val addContract = new DSETransformationRule(
-		unmanagedModifyModifyParallel,
-		new UnmanagedModifyModifyParallelProcessor() {
-			override process(Activity activity1, Property property1, Activity activity2, Property property2,
-				Fork fork) {
-				createContract(fork, #[property1, property2], activity1)
-			}
-		}
-	)
+	val addContract = batchTransformationRuleFactory.createRule(unmanagedModifyModifyParallel).name("").action [
+		createContract(fork, #[property1, property2], activity1)
+	].build
 
 //	val makeSequential = new DSETransformationRule(
 //		unmanagedModifyModify3,

@@ -4,12 +4,13 @@ Bundle-Name: Process Runtime Queries
 Bundle-SymbolicName: be.uantwerpen.msdl.icm.runtime.queries;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Istvan David
-Export-Package: be.uantwerpen.msdl.icm.runtime.queries,
-  be.uantwerpen.msdl.icm.runtime.queries.util
-Require-Bundle: org.eclipse.emf.ecore,
-  org.eclipse.viatra.query.runtime,
-  org.eclipse.xtext.xbase.lib,
-  be.uantwerpen.msdl.metamodels
+Export-Package: be.uantwerpen.msdl.icm.runtime.queries
+Require-Bundle: org.eclipse.viatra.query.runtime.rete,
+ org.eclipse.viatra.query.runtime.localsearch,
+ org.eclipse.emf.ecore,
+ org.eclipse.viatra.query.runtime,
+ org.eclipse.xtext.xbase.lib,
+ be.uantwerpen.msdl.metamodels
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.log4j
 Bundle-ActivationPolicy: lazy
