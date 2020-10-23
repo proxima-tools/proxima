@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="processmodel" nsURI="metamodels.processmodel" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessModel" eSuperTypes="#//base/NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ftg" lowerBound="1" eType="#//ftg/FormalismTransformationGraph"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" upperBound="-1"
+        eType="#//pm/Process" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyModel" eType="#//properties/PropertyModel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceModel" eType="#//resources/ResourceModel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="costModel" eType="#//cost/CostModel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewpointsmodel" eType="#//viewpoints/ViewpointsModel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="codeGenProperties" upperBound="-1"
+        eType="#//base/StringToStringMap" containment="true"/>
+  </eClassifiers>
+  <eSubpackages name="ftg" nsURI="metamodels.ftg" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+    <eClassifiers xsi:type="ecore:EClass" name="FormalismTransformationGraph">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formalism" upperBound="-1"
+          eType="#//ftg/Formalism" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" upperBound="-1"
+          eType="#//ftg/Transformation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tool" upperBound="-1"
+          eType="#//ftg/Tool" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//base/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectType" eSuperTypes="#//base/Identifiable #//ftg/Type">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+          eType="#//pm/Object" eOpposite="#//pm/Object/typedBy"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ActivityType" eSuperTypes="#//base/Identifiable #//ftg/Type">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+          eType="#//pm/Activity" eOpposite="#//pm/Activity/typedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//ftg/ActivityDefinition"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Formalism" eSuperTypes="#//ftg/ObjectType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputOf" upperBound="-1"
+          eType="#//ftg/Transformation" eOpposite="#//ftg/Transformation/input"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputOf" upperBound="-1"
+          eType="#//ftg/Transformation" eOpposite="#//ftg/Transformation/output"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"
+          eType="#//viewpoints/Viewpoint" eOpposite="#//viewpoints/Viewpoint/formalism"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="implementedBy" upperBound="-1"
+          eType="#//ftg/Tool" eOpposite="#//ftg/Tool/implements"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="capability" upperBound="-1"
+          eType="#//properties/Capability" eOpposite="#//properties/Capability/formalism"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Transformation" eSuperTypes="#//ftg/ActivityType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
+          eType="#//ftg/Formalism" eOpposite="#//ftg/Formalism/inputOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
+          eType="#//ftg/Formalism" eOpposite="#//ftg/Formalism/outputOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceConstraint" eType="#//resources/ResourceConstraint"
+          eOpposite="#//resources/ResourceConstraint/transformation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Tool" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="implements" upperBound="-1"
+          eType="#//ftg/Formalism" eOpposite="#//ftg/Formalism/implementedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"
+          eType="#//viewpoints/Viewpoint" eOpposite="#//viewpoints/Viewpoint/tool"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ActivityDefinition" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Script" abstract="true" eSuperTypes="#//ftg/ActivityDefinition">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JavaBasedActivityDefinition" eSuperTypes="#//ftg/ActivityDefinition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PythonScript" eSuperTypes="#//ftg/Script"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MatlabScript" eSuperTypes="#//ftg/Script"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IntentSpecification" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
+          eType="#//ftg/Transformation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="capability" lowerBound="1"
+          eType="#//properties/Capability"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//properties/IntentType"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="pm" nsURI="metamodels.pm" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+    <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//base/Identifiable #//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="node" upperBound="-1"
+          eType="#//pm/Node" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controlFlow" upperBound="-1"
+          eType="#//pm/ControlFlow" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowFrom" upperBound="-1"
+          eType="#//pm/Node" eOpposite="#//pm/Node/dataFlowTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowTo" upperBound="-1"
+          eType="#//pm/Node" eOpposite="#//pm/Node/dataFlowFrom"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controlIn" upperBound="-1"
+          eType="#//pm/ControlFlow" eOpposite="#//pm/ControlFlow/to"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controlOut" upperBound="-1"
+          eType="#//pm/ControlFlow" eOpposite="#//pm/ControlFlow/from"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ControlFlow" eSuperTypes="#//base/Identifiable #//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
+          eType="#//pm/Node" eOpposite="#//pm/Node/controlOut"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//pm/Node"
+          eOpposite="#//pm/Node/controlIn"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="feedback" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//pm/Node #//cost/CostItem #//pm/Typeable #//base/Documentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/ActivityType"
+          eOpposite="#//ftg/ActivityType/types"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" upperBound="-1"
+          eType="#//resources/Allocation" eOpposite="#//resources/Allocation/activity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="demand" upperBound="-1"
+          eType="#//resources/Demand" eOpposite="#//resources/Demand/activity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
+          eType="#//properties/Intent" eOpposite="#//properties/Intent/activity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//pm/CompoundActivity"
+          eOpposite="#//pm/CompoundActivity/activity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="executionParameters"
+          upperBound="-1" eType="#//base/StringToStringMap" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ManualActivity" eSuperTypes="#//pm/Activity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//pm/Activity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CompoundActivity" eSuperTypes="#//pm/Activity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activity" upperBound="-1"
+          eType="#//pm/Activity" eOpposite="#//pm/Activity/partOf"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//pm/Node #//pm/Typeable #//base/Documentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/ObjectType"
+          eOpposite="#//ftg/ObjectType/types"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributedefinition"
+          upperBound="-1" eType="#//properties/AttributeDefinition" eOpposite="#//properties/AttributeDefinition/object"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
+          eType="#//properties/Intent" eOpposite="#//properties/Intent/object"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Control" abstract="true" eSuperTypes="#//pm/Node"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Initial" eSuperTypes="#//pm/Control"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Final" abstract="true" eSuperTypes="#//pm/Control"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ActivityFinal" eSuperTypes="#//pm/Final"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FlowFinal" eSuperTypes="#//pm/Final"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Fork" eSuperTypes="#//pm/Control">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="correspondingJoin" lowerBound="1"
+          eType="#//pm/Join" eOpposite="#//pm/Join/correspondingFork"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//pm/Control">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="correspondingFork" lowerBound="1"
+          eType="#//pm/Fork" eOpposite="#//pm/Fork/correspondingJoin"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Merge" eSuperTypes="#//pm/Control"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Decision" eSuperTypes="#//pm/Control #//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Typeable" abstract="true" eSuperTypes="#//base/NamedElement"/>
+  </eSubpackages>
+  <eSubpackages name="properties" nsURI="metamodels.properties" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+    <eClassifiers xsi:type="ecore:EClass" name="PropertyModel">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+          eType="#//properties/Property" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relationship" upperBound="-1"
+          eType="#//properties/Relationship" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
+          eType="#//properties/Intent" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
+          eType="#//properties/Attribute" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="capability" upperBound="-1"
+          eType="#//properties/Capability" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contract" upperBound="-1"
+          eType="#//properties/Contract" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RelationshipSubject" abstract="true"
+        eSuperTypes="#//properties/IntentSubject #//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subjectOf" upperBound="-1"
+          eType="#//properties/RelationshipLink" eOpposite="#//properties/RelationshipLink/subject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refinedInto" upperBound="-1"
+          eType="#//properties/RelationshipSubject" eOpposite="#//properties/RelationshipSubject/refines"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refines" eType="#//properties/RelationshipSubject"
+          eOpposite="#//properties/RelationshipSubject/refinedInto"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//properties/RelationshipSubject">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
+          eType="#//viewpoints/Concern" eOpposite="#//viewpoints/Concern/property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//properties/RelationshipSubject">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="featuredIn" upperBound="-1"
+          eType="#//properties/Formula" eOpposite="#//properties/Formula/features"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//properties/Capability"
+          eOpposite="#//properties/Capability/types"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributedefinition"
+          eType="#//properties/AttributeDefinition" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinition" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//pm/Object"
+          eOpposite="#//pm/Object/attributedefinition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GraphQueryAttributeDefinition" eSuperTypes="#//properties/AttributeDefinition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MatlabAttributeDefinition" eSuperTypes="#//properties/AttributeDefinition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InMemoryAttributeDefinition" eSuperTypes="#//properties/AttributeDefinition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AmesimAttributeDefinition" eSuperTypes="#//properties/AttributeDefinition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//base/NamedElement #//properties/RelationshipSubject">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" lowerBound="1"
+          eType="#//properties/Precision"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relationshipLink" upperBound="-1"
+          eType="#//properties/RelationshipLink" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="#//properties/Formula"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tolerance" eType="#//properties/Tolerance"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RelationshipLink" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" lowerBound="1"
+          eType="#//properties/RelationshipDirection"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subject" lowerBound="1"
+          eType="#//properties/RelationshipSubject" eOpposite="#//properties/RelationshipSubject/subjectOf"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Precision">
+      <eLiterals name="L1" literal="L1"/>
+      <eLiterals name="L2" value="1" literal="L2"/>
+      <eLiterals name="L3" value="2" literal="L3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="RelationshipDirection">
+      <eLiterals name="UNDIRECTED"/>
+      <eLiterals name="PROPERTY" value="1"/>
+      <eLiterals name="RELATIONSHIP" value="2" literal="RELATIONSHIP"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IntentSubject" abstract="true" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
+          eType="#//properties/Intent" eOpposite="#//properties/Intent/subject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Intent" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+          eType="#//pm/Activity" eOpposite="#//pm/Activity/intent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subject" lowerBound="1"
+          eType="#//properties/IntentSubject" eOpposite="#//properties/IntentSubject/intent"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//properties/IntentType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="intentSpecification"
+          eType="#//ftg/IntentSpecification"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//pm/Object"
+          eOpposite="#//pm/Object/intent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="IntentType">
+      <eLiterals name="UNKNOWN" literal="UNKNOWN"/>
+      <eLiterals name="CREATE" value="1"/>
+      <eLiterals name="READ" value="2"/>
+      <eLiterals name="MODIFY" value="3"/>
+      <eLiterals name="CHECK_PROPERTY" value="4" literal="CHECK_PROPERTY"/>
+      <eLiterals name="LOCK" value="5"/>
+      <eLiterals name="RELEASE" value="6"/>
+      <eLiterals name="CONTRACT" value="7"/>
+      <eLiterals name="EVAL" value="8" literal="EVAL"/>
+      <eLiterals name="RESOLVE_CONSTRAINT" value="9" literal="RESOLVE_CONSTRAINT"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+          eType="#//properties/Attribute" eOpposite="#//properties/Attribute/featuredIn"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Capability" eSuperTypes="#//properties/RelationshipSubject">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formalism" eType="#//ftg/Formalism"
+          eOpposite="#//ftg/Formalism/capability"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+          eType="#//properties/Attribute" eOpposite="#//properties/Attribute/typedBy"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Contract" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contractConstraints"
+          upperBound="-1" eType="#//properties/ContractConstraint" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="satisfaction" eType="#//properties/PropertySatisfaction"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContractConstraint" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"
+          eType="#//properties/Attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+          eType="#//properties/Relationship"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PropertySatisfaction" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
+          eType="#//properties/Property"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="satisfactionRelationship"
+          lowerBound="1" eType="#//properties/Relationship"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Tolerance" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Absolute" eSuperTypes="#//properties/Tolerance"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Relative" eSuperTypes="#//properties/Tolerance"/>
+  </eSubpackages>
+  <eSubpackages name="resources" nsURI="metamodels.resources" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceModel">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType" upperBound="-1"
+          eType="#//resources/ResourceType" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" upperBound="-1"
+          eType="#//resources/Resource" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" upperBound="-1"
+          eType="#//resources/Allocation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="demand" upperBound="-1"
+          eType="#//resources/Demand" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceConstraint" upperBound="-1"
+          eType="#//resources/ResourceConstraint" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specialize" eType="#//resources/ResourceType"
+          eOpposite="#//resources/ResourceType/generalize"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="generalize" upperBound="-1"
+          eType="#//resources/ResourceType" eOpposite="#//resources/ResourceType/specialize"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+          eType="#//resources/Resource" eOpposite="#//resources/Resource/typedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocationConstraint"
+          upperBound="-1" eType="#//resources/ResourceConstraint" eOpposite="#//resources/ResourceConstraint/resourceType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="demand" upperBound="-1"
+          eType="#//resources/Demand" eOpposite="#//resources/Demand/resourceType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//base/NamedElement #//cost/CostItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" lowerBound="1"
+          eType="#//resources/ResourceType" eOpposite="#//resources/ResourceType/types"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" upperBound="-1"
+          eType="#//resources/Allocation" eOpposite="#//resources/Allocation/resource"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="availability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="enacts" upperBound="-1"
+          eType="#//viewpoints/Stakeholder" eOpposite="#//viewpoints/Stakeholder/enactedBy"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Allocation" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+          eType="#//pm/Activity" eOpposite="#//pm/Activity/allocation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+          eType="#//resources/Resource" eOpposite="#//resources/Resource/allocation"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Demand" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType" lowerBound="1"
+          eType="#//resources/ResourceType" eOpposite="#//resources/ResourceType/demand"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
+          eType="#//pm/Activity" eOpposite="#//pm/Activity/demand"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceConstraint" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
+          eType="#//ftg/Transformation" eOpposite="#//ftg/Transformation/resourceConstraint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType" lowerBound="1"
+          eType="#//resources/ResourceType" eOpposite="#//resources/ResourceType/allocationConstraint"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="1"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="cost" nsURI="metamodels.cost" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+    <eClassifiers xsi:type="ecore:EClass" name="CostModel">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="costFactor" upperBound="-1"
+          eType="#//cost/CostFactor" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CostFactor" eSuperTypes="#//base/NamedElement #//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cost" upperBound="-1"
+          eType="#//cost/Cost" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//cost/CostType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Cost" eSuperTypes="#//base/Identifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="costItem" lowerBound="1"
+          eType="#//cost/CostItem" eOpposite="#//cost/CostItem/cost"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CostItem" abstract="true" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cost" upperBound="-1"
+          eType="#//cost/Cost" eOpposite="#//cost/Cost/costItem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="CostType">
+      <eLiterals name="CostPerTime"/>
+      <eLiterals name="UnitCost" value="1" literal="UnitCost"/>
+      <eLiterals name="CostForPresence" value="2" literal="CostForPresence"/>
+      <eLiterals name="Time" value="4" literal="Time"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="base" nsURI="metamodels.base" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+    <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Documentable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringToStringMap" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="viewpoints" nsURI="metamodels.viewpoints" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+    <eClassifiers xsi:type="ecore:EClass" name="ViewpointsModel">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"
+          eType="#//viewpoints/Viewpoint" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" upperBound="-1"
+          eType="#//viewpoints/Stakeholder" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
+          eType="#//viewpoints/Concern" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="system" lowerBound="1"
+          eType="#//viewpoints/System" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Viewpoint" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="part" upperBound="-1"
+          eType="#//viewpoints/Part" eOpposite="#//viewpoints/Part/viewpoint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
+          eType="#//viewpoints/Concern" eOpposite="#//viewpoints/Concern/viewpoint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formalism" upperBound="-1"
+          eType="#//ftg/Formalism" eOpposite="#//ftg/Formalism/viewpoint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tool" upperBound="-1"
+          eType="#//ftg/Tool" eOpposite="#//ftg/Tool/viewpoint"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
+          eType="#//viewpoints/Concern" eOpposite="#//viewpoints/Concern/stakeholder"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="enactedBy" eType="#//resources/Resource"
+          eOpposite="#//resources/Resource/enacts"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Concern" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" upperBound="-1"
+          eType="#//viewpoints/Stakeholder" eOpposite="#//viewpoints/Stakeholder/concern"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+          eType="#//properties/Property" eOpposite="#//properties/Property/concern"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"
+          eType="#//viewpoints/Viewpoint" eOpposite="#//viewpoints/Viewpoint/concern"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Part" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"
+          eType="#//viewpoints/Viewpoint" eOpposite="#//viewpoints/Viewpoint/part"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//base/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="part" upperBound="-1"
+          eType="#//viewpoints/Part" containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>
