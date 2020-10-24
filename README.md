@@ -27,7 +27,9 @@ We are currently stabilizing the Modeling module before proceeding with the migr
 
 ## Installation guide (for developers)
 1. Download the [Eclipse 2020-9 R Modeling](https://www.eclipse.org/downloads/packages/release/2020-09/r/eclipse-modeling-tools) package.
+
 ~~2. Install [Sirius 5.0.1](http://download.eclipse.org/sirius/updates/releases/5.0.1/oxygen).~~
+
 ~~3. Install [VIATRA 1.6.0](http://download.eclipse.org/viatra/updates/release).~~
 
 ### External dependencies
