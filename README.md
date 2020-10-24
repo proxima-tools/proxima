@@ -20,6 +20,8 @@ We are doing this by gradually releasing the rewamped modules one-by-one
  - [ ] Enactment
  - [ ] Design-space exploration and simulation
 
+We are currently stabilizing the Modeling module before proceeding with the migration of the rest of the modules.
+
 ## Update site (for users)
 !TODO
 
