@@ -153,11 +153,11 @@ class Services {
 	 */
 	public def getDataDependencies(Activity activity) {
 		var process = activity.eContainer as Process
-
-		process.node.filter [ node |
-			node.dataFlowFrom.contains(activity) && !node.dataFlowTo.contains(activity)
-		].fold(Lists::newArrayList) [ list, node |
-			list.addAll(node.dataFlowTo)
+		
+		process.objectFlow.filter[ o |
+			o.from.equals(activity) && !o.to.equals(activity)
+		].fold(Lists::newArrayList) [ list, o |
+			list.addAll(o.to)
 			list
 		]
 	}
