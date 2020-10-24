@@ -2,31 +2,36 @@
 
 # *PRO*cess engineering with *I*nconsistency *MA*nagement
 
-<!---
-Our prototype tool aims to enhance engineering processes by managing potential inconsistencies emering in collaborative modeling settings. The tool is built on top of the Eclipse platform and is available as a set of Eclipse plugins. (See the installation guide.)
+PROxIMA is a process modeling and simulation framework. It enables the optimization of the modeled processes for multi-paradigm semantic inconsistencies.
 
 The features of the framework include:
- -  A visual process modeler based on the extended FTG+PM formalism that enables modeling languages and system properties in conjuction with processes.
- -  A process optimization module, that augments the process with the appropriate inconsistency management techniques.
+ -  A visual process modeler based on the FTG+PM formalism that enables the modeling processes along with a formalism transformation graph as its strong type system.
+ -  A fully modeled process enactment module.
+ -  A process simulation and optimization module, with the ability to rewrite the process.
  -  The catalogue of inconsistency patterns and the catalogue of management patterns is fully extensible.
 
 
-### Architecture
-![alt text](https://dl.dropboxusercontent.com/u/44011277/icm/architecture.png "Architectural overview")
+# NOTE. WE ARE GRADUALLY MIGRATING PROxIMA.
+We are doing this by gradually releasing the rewamped modules one-by-one
 
-### Versioning and roadmap
-The first public release is planned for Summer of 2016.
--->
+## PROxIMA 0.2 status
+ - [x] Core (metamodels and commons)
+ - [x] Modeling
+ - [ ] Enactment
+ - [ ] Design-space exploration and simulation
 
-### Installation guide
-1. Download the [Eclipse Oxygen Modeling](http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/oxygenr) package.
-2. Install [Sirius 5.0.1](http://download.eclipse.org/sirius/updates/releases/5.0.1/oxygen).
-3. Install [VIATRA 1.6.0](http://download.eclipse.org/viatra/updates/release).
+## Update site (for users)
+!TODO
+
+## Installation guide (for developers)
+1. Download the [Eclipse 2020-9 R Modeling](https://www.eclipse.org/downloads/packages/release/2020-09/r/eclipse-modeling-tools) package.
+~~2. Install [Sirius 5.0.1](http://download.eclipse.org/sirius/updates/releases/5.0.1/oxygen).~~
+~~3. Install [VIATRA 1.6.0](http://download.eclipse.org/viatra/updates/release).~~
 
 ### External dependencies
-1. Install [Python3](https://www.python.org/download/releases/3.0/) and [SymPy](http://www.sympy.org) for  for symbolic inconsistency checking.
+~~1. Install [Python3](https://www.python.org/download/releases/3.0/) and [SymPy](http://www.sympy.org) for  for symbolic inconsistency checking.~~
 
-2. Install Matlab/Simulink (last tested version: 2016b) and set up your environment for the Java API as described [here](https://nl.mathworks.com/help/matlab/matlab_external/setup-environment.html). (Typically, you'll only have to add ```matlabroot/bin/<arch>``` to your system environment variable, where ```<arch>``` is your computer architecture. For example, win64 for 64–bit Windows machines, maci64 on Macintosh, or glnxa64 on Linux.)
+~~2. Install Matlab/Simulink (last tested version: 2016b) and set up your environment for the Java API as described [here](https://nl.mathworks.com/help/matlab/matlab_external/setup-environment.html). (Typically, you'll only have to add ```matlabroot/bin/<arch>``` to your system environment variable, where ```<arch>``` is your computer architecture. For example, win64 for 64–bit Windows machines, maci64 on Macintosh, or glnxa64 on Linux.)~~
 
 ### Setting up the environment
 1. Import the plugins from this repository's ```plugins``` and ```external``` folders.
@@ -36,5 +41,5 @@ The first public release is planned for Summer of 2016.
 
    Manual way: use the ```processmodel.genmodel``` and ```enactment.genmodel``` generator models.
    
-### Pointers for using the tool
+## Pointers for using the tool
  - [Sharing MATLAB sessions](https://nl.mathworks.com/help/matlab/ref/matlab.engine.shareengine.html)
