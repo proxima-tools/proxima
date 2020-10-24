@@ -85,16 +85,18 @@
           eType="#//pm/Node" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="controlFlow" upperBound="-1"
           eType="#//pm/ControlFlow" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectFlow" upperBound="-1"
+          eType="#//pm/ObjectFlow" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//base/Identifiable">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowFrom" upperBound="-1"
-          eType="#//pm/Node" eOpposite="#//pm/Node/dataFlowTo"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowTo" upperBound="-1"
-          eType="#//pm/Node" eOpposite="#//pm/Node/dataFlowFrom"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="controlIn" upperBound="-1"
           eType="#//pm/ControlFlow" eOpposite="#//pm/ControlFlow/to"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="controlOut" upperBound="-1"
           eType="#//pm/ControlFlow" eOpposite="#//pm/ControlFlow/from"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectOut" upperBound="-1"
+          eType="#//pm/ObjectFlow" eOpposite="#//pm/ObjectFlow/from"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectIn" upperBound="-1"
+          eType="#//pm/ObjectFlow" eOpposite="#//pm/ObjectFlow/to"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ControlFlow" eSuperTypes="#//base/Identifiable #//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
@@ -154,6 +156,12 @@
           defaultValueLiteral="0"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Typeable" abstract="true" eSuperTypes="#//base/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectFlow">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
+          eType="#//pm/Node" eOpposite="#//pm/Node/objectOut"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//pm/Node"
+          eOpposite="#//pm/Node/objectIn"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="properties" nsURI="metamodels.properties" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="PropertyModel">

@@ -81,16 +81,17 @@
       <genClasses ecoreClass="processmodel.ecore#//pm/Process">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/node"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/controlFlow"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/objectFlow"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Node">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Node/dataFlowFrom"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Node/dataFlowTo"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Node/controlIn"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Node/controlOut"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Node/objectOut"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Node/objectIn"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ControlFlow">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -145,6 +146,12 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/Decision/repeat"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Typeable"/>
+      <genClasses ecoreClass="processmodel.ecore#//pm/ObjectFlow">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/ObjectFlow/from"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/ObjectFlow/to"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Properties" basePackage="be.uantwerpen.msdl.proxima.processmodel"
         disposableProviderFactory="true" ecorePackage="processmodel.ecore#//properties">

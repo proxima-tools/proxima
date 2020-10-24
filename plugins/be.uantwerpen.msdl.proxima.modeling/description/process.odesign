@@ -238,15 +238,31 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createObjectFlow" label="Object Flow" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createObjectFlow" label="Object Flow" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlow']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="dataFlowTo" valueExpression="var:target"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer()">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(pm::Object)">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:target.oclIsKindOf(pm::Activity)">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="pm.ObjectFlow" referenceName="objectFlow">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="from" valueExpression="var:source"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="to" valueExpression="var:target"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:source.oclIsKindOf(pm::Activity)">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:target.oclIsKindOf(pm::Object)">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="pm.ObjectFlow" referenceName="objectFlow">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="from" valueExpression="var:source"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="to" valueExpression="var:target"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="service:getId()"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -298,10 +314,10 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="ObjectFlowTo" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetFinderExpression="feature:dataFlowTo">
-          <style targetArrow="InputFillClosedArrow">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
-            <centerLabelStyleDescription>
+        <edgeMappings name="ObjectFlow" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@nodeMappings[name='ObjectNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@nodeMappings[name='ObjectNode']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ObjectFlow" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
