@@ -11,7 +11,7 @@ The features of the framework include:
  -  The catalogue of inconsistency patterns and the catalogue of management patterns is fully extensible.
 
 
-# NOTE. WE ARE GRADUALLY MIGRATING PROxIMA.
+# :warning: WE ARE GRADUALLY MIGRATING PROxIMA. :warning:
 We are doing this by gradually releasing the rewamped modules one-by-one
 
 ## PROxIMA 0.2 status
