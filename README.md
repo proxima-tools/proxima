@@ -20,6 +20,8 @@ We are doing this by gradually releasing the ravamped modules one-by-one.
  - [ ] Enactment
  - [ ] Design-space exploration and simulation
 
+![Plugin structure and status](https://github.com/david-istvan/proxima/tree/master/doc/pluginstructure.png?raw=true)
+ 
 We are currently stabilizing the Modeling module before proceeding with the migration of the rest of the modules.
 
 ## Update site (for users)
