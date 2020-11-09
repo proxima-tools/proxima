@@ -155,6 +155,15 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
+        <containerMappings name="CompoundActivityContainer" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" doubleClickDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='DoubleClickCompoundActivity']" domainClass="pm.CompoundActivity" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelExpression="aql:if (self.expandedAsProcess=null) then (self.name) else (self.name.concat(' : ').concat(self.expandedAsProcess.name)) endif" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/compound2.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+          </style>
+        </containerMappings>
         <toolSections name="Process">
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createInitNode" label="Initial" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/init.png">
             <variable name="container"/>
@@ -228,7 +237,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CompoundActivity" label="Compound Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='CompoundActivities']/@containerMappings[name='CompoundActivityContainer']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/compound2.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CompoundActivity" label="Compound Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/compound2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -291,32 +300,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-        </toolSections>
-      </additionalLayers>
-      <additionalLayers name="CompoundActivities" label="Compound Activities">
-        <containerMappings name="CompoundActivityContainer" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="pm.CompoundActivity" childrenPresentation="List">
-          <subNodeMappings name="ActivitySubNode" semanticCandidatesExpression="feature:activity" domainClass="pm.Activity">
-            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/compound2.png" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
-          </style>
-        </containerMappings>
-        <toolSections name="CompoundActivities">
-          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="DeleteContainedActivity">
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="DoubleClickCompoundActivity" precondition="aql:self.expandedAsProcess!=null" elementsToSelect="aql:self.expandedAsProcess" mappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']">
             <element name="element"/>
             <elementView name="elementView"/>
-            <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:SetValue" featureName="partOf" valueExpression="aql:{}"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.expandedAsProcess">
+                <subModelOperations xsi:type="tool_1:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -960,9 +950,18 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ActvityTypingTable" domainClass="processmodel.ProcessModel">
-      <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
+      <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.eContainer().name.concat('.').concat(self.name)"/>
       <ownedColumnMappings name="TransformationColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Transformation" semanticCandidatesExpression="aql:self.ftg.transformation"/>
       <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <mask mask="{0}"/>
+        </directEdit>
         <defaultForeground>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
@@ -981,7 +980,7 @@
       </intersection>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ObjectTypingTable" domainClass="processmodel.ProcessModel">
-      <ownedLineMappings name="ObjectLine" domainClass="pm.Object" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
+      <ownedLineMappings name="ObjectLine" domainClass="pm.Object" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.eContainer().name.concat('.').concat(self.name)"/>
       <ownedColumnMappings name="FormalismColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Formalism" semanticCandidatesExpression="aql:self.ftg.formalism"/>
       <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedLineMappings[name='ObjectLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
         <defaultForeground>

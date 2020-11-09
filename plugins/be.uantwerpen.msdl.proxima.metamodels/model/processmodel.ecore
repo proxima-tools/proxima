@@ -87,6 +87,8 @@
           eType="#//pm/ControlFlow" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="objectFlow" upperBound="-1"
           eType="#//pm/ObjectFlow" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expandsCompoundActivity"
+          upperBound="-1" eType="#//pm/CompoundActivity" eOpposite="#//pm/CompoundActivity/expandedAsProcess"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//base/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="controlIn" upperBound="-1"
@@ -124,16 +126,14 @@
           eType="#//resources/Demand" eOpposite="#//resources/Demand/activity"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="intent" upperBound="-1"
           eType="#//properties/Intent" eOpposite="#//properties/Intent/activity"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//pm/CompoundActivity"
-          eOpposite="#//pm/CompoundActivity/activity"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="executionParameters"
           upperBound="-1" eType="#//base/StringToStringMap" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ManualActivity" eSuperTypes="#//pm/Activity"/>
     <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//pm/Activity"/>
     <eClassifiers xsi:type="ecore:EClass" name="CompoundActivity" eSuperTypes="#//pm/Activity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="activity" upperBound="-1"
-          eType="#//pm/Activity" eOpposite="#//pm/Activity/partOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expandedAsProcess" eType="#//pm/Process"
+          eOpposite="#//pm/Process/expandsCompoundActivity"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//pm/Node #//pm/Typeable #//base/Documentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/ObjectType"

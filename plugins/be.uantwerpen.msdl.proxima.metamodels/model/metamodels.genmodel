@@ -82,6 +82,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/node"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/controlFlow"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/objectFlow"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/expandsCompoundActivity"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Node">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -101,6 +103,12 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/ControlFlow/final"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/ControlFlow/feedback"/>
       </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//pm/ObjectFlow">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/ObjectFlow/from"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/ObjectFlow/to"/>
+      </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Activity">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/typedBy"/>
@@ -110,15 +118,13 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/demand"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/intent"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/partOf"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/executionParameters"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ManualActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/CompoundActivity">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/CompoundActivity/activity"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/CompoundActivity/expandedAsProcess"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/Object">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -146,12 +152,6 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//pm/Decision/repeat"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Typeable"/>
-      <genClasses ecoreClass="processmodel.ecore#//pm/ObjectFlow">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/ObjectFlow/from"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/ObjectFlow/to"/>
-      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Properties" basePackage="be.uantwerpen.msdl.proxima.processmodel"
         disposableProviderFactory="true" ecorePackage="processmodel.ecore#//properties">
