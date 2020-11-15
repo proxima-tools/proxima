@@ -23,3 +23,6 @@ We are doing this by gradually releasing the ravamped modules one-by-one.
 <img src="https://github.com/david-istvan/proxima/blob/master/doc/pluginstructure.png?raw=true" width="800"/>
  
 We are currently stabilizing the Modeling module before proceeding with the migration of the rest of the modules.
+
+# User manual
+The user manual can be found on our [wiki](https://github.com/david-istvan/proxima/wiki).
