@@ -14,9 +14,9 @@ The features of the framework include:
 # :warning: WE ARE GRADUALLY MIGRATING PROxIMA. :warning:
 We are doing this by gradually releasing the ravamped modules one-by-one.
 
-## PROxIMA 0.2 status
- - [x] Core (metamodels and commons)
- - [x] Modeling
+## PROxIMA 0.2 focus/status
+ - [x] Core (metamodels and commons) - In Progress
+ - [x] Modeling - In Progress
  - [ ] Enactment
  - [ ] Design-space exploration and simulation
 
