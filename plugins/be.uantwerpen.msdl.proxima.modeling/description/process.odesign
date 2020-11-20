@@ -122,7 +122,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="ControlFlow" semanticCandidatesExpression="feature:controlFlow" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='FinalNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ControlFlow" useDomainElement="true">
+        <edgeMappings name="ControlFlow" semanticCandidatesExpression="feature:controlFlow" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='FinalNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ControlFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.0/@ownedTools[name='reconnectControlFlowTarget'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.0/@ownedTools[name='reconnectControlFlowSource']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
@@ -130,7 +130,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ObjectFlow" semanticCandidatesExpression="feature:objectFlow" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ObjectFlow" useDomainElement="true">
+        <edgeMappings name="ObjectFlow" semanticCandidatesExpression="feature:objectFlow" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ObjectFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.0/@ownedTools[name='reconnectObjectFlowSource'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.0/@ownedTools[name='reconnectObjectFlowTarget']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -290,6 +290,50 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectControlFlowTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="to" valueExpression="var:target"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectControlFlowSource" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="from" valueExpression="var:target"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectObjectFlowTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="to" valueExpression="var:target"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectObjectFlowSource" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="from" valueExpression="var:target"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
         </toolSections>
         <toolSections name="ProcessModelEditing">
           <ownedTools xsi:type="tool_1:DirectEditLabel" name="EditInitNodeName">
@@ -318,12 +362,14 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.ftg=null">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="ftg"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container.ftg->first()">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.Formalism" referenceName="formalism">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:eContainer">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.ftg=null">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="ftg"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.ftg">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.Formalism" referenceName="formalism">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -334,15 +380,17 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.ftg=null">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="ftg"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container.ftg->first()">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.Transformation" referenceName="transformation">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:eContainer">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.ftg=null">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="ftg"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.JavaBasedActivityDefinition" referenceName="definition"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.ftg">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.Transformation" referenceName="transformation">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.JavaBasedActivityDefinition" referenceName="definition"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -353,12 +401,14 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.ftg=null">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="ftg"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container.ftg->first()">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.Tool" referenceName="tool">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:eContainer">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.ftg=null">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.FormalismTransformationGraph" referenceName="ftg"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.ftg">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="ftg.Tool" referenceName="tool">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -369,12 +419,14 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.propertyModel->first()=null">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.PropertyModel" referenceName="propertyModel"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container.propertyModel->first()">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Capability" referenceName="capability">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:eContainer">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.propertyModel->first()=null">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.PropertyModel" referenceName="propertyModel"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container.propertyModel->first()">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Capability" referenceName="capability">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -417,6 +469,64 @@
                 <subModelOperations xsi:type="tool:SetValue" featureName="implements" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectTypedByTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="typedBy" valueExpression="var:target"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="deleteTypedBy">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Unset" featureName="typedBy"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectImplementsTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Unset" featureName="implements" elementExpression="var:source">
+                <subModelOperations xsi:type="tool:SetValue" featureName="implements" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectTransformedByTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Unset" featureName="inputOf" elementExpression="var:source">
+                <subModelOperations xsi:type="tool:SetValue" featureName="inputOf" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectTransformationToTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Unset" featureName="output" elementExpression="var:source">
+                <subModelOperations xsi:type="tool:SetValue" featureName="output" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
           </ownedTools>
         </toolSections>
       </additionalLayers>
@@ -702,7 +812,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="TransformedByEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:inputOf">
+        <edgeMappings name="TransformedByEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:inputOf" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectTransformedByTarget'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectTransformedByTarget']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«transformedBy»">
@@ -710,7 +820,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="TransformationToEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:output">
+        <edgeMappings name="TransformationToEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:output" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectTransformationToTarget'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectTransformationToTarget']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«transformationTo»">
@@ -718,7 +828,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="TypeLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:typedBy">
+        <edgeMappings name="TypeLink" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteTypedBy']" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:typedBy" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectTypedByTarget'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectTypedByTarget']">
           <style lineStyle="dash" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«typedBy»">
@@ -734,7 +844,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ImplementationLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:implements">
+        <edgeMappings name="ImplementationLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:implements" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectImplementsTarget'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectImplementsTarget']">
           <style lineStyle="dash" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«implements»">
@@ -847,6 +957,64 @@
                 <subModelOperations xsi:type="tool:SetValue" featureName="implements" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectTypedByTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="typedBy" valueExpression="var:target"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="deleteTypedBy">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Unset" featureName="typedBy"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectImplementsTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Unset" featureName="implements" elementExpression="var:source">
+                <subModelOperations xsi:type="tool:SetValue" featureName="implements" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectTransformedByTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Unset" featureName="inputOf" elementExpression="var:source">
+                <subModelOperations xsi:type="tool:SetValue" featureName="inputOf" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnectTransformationToTarget">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Unset" featureName="output" elementExpression="var:source">
+                <subModelOperations xsi:type="tool:SetValue" featureName="output" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
           </ownedTools>
         </toolSections>
       </defaultLayer>
