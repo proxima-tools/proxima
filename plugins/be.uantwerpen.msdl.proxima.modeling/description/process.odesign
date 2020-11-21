@@ -156,7 +156,7 @@
           </style>
         </containerMappings>
         <containerMappings name="CompoundActivityContainer" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" doubleClickDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='DoubleClickCompoundActivity']" domainClass="pm.CompoundActivity" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelExpression="aql:if (self.expandedAsProcess=null) then (self.name) else (self.name.concat(' : ').concat(self.expandedAsProcess.name)) endif" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/compound2.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/compound2.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -300,11 +300,11 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="DoubleClickCompoundActivity" precondition="aql:self.expandedAsProcess!=null" elementsToSelect="aql:self.expandedAsProcess" mappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']">
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="DoubleClickCompoundActivity" precondition="aql:self.typedBy!=null" elementsToSelect="aql:self.typedBy" mappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.expandedAsProcess">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.typedBy">
                 <subModelOperations xsi:type="tool_1:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']"/>
               </firstModelOperations>
             </initialOperation>
