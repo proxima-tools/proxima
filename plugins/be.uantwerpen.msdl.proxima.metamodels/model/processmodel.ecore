@@ -33,7 +33,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ActivityType" eSuperTypes="#//base/Identifiable #//ftg/Type">
       <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-          eType="#//pm/Activity" eOpposite="#//pm/Activity/typedBy"/>
+          eType="#//pm/AtomicActivity" eOpposite="#//pm/AtomicActivity/typedBy"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//ftg/ActivityDefinition"
           containment="true"/>
     </eClassifiers>
@@ -118,8 +118,6 @@
           eOpposite="#//pm/Node/objectIn"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//pm/Node #//cost/CostItem #//pm/Typeable #//base/Documentable">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/ActivityType"
-          eOpposite="#//ftg/ActivityType/types"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="allocation" upperBound="-1"
           eType="#//resources/Allocation" eOpposite="#//resources/Allocation/activity"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="demand" upperBound="-1"
@@ -129,8 +127,12 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="executionParameters"
           upperBound="-1" eType="#//base/StringToStringMap" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ManualActivity" eSuperTypes="#//pm/Activity"/>
-    <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//pm/Activity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AtomicActivity" abstract="true" eSuperTypes="#//pm/Activity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/ActivityType"
+          eOpposite="#//ftg/ActivityType/types"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ManualActivity" eSuperTypes="#//pm/AtomicActivity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//pm/AtomicActivity"/>
     <eClassifiers xsi:type="ecore:EClass" name="CompoundActivity" eSuperTypes="#//pm/Activity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="expandedAsProcess" eType="#//pm/Process"
           eOpposite="#//pm/Process/expandsCompoundActivity"/>

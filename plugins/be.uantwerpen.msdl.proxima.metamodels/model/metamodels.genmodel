@@ -111,14 +111,16 @@
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Activity">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/typedBy"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/allocation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/demand"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/intent"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Activity/executionParameters"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="processmodel.ecore#//pm/AtomicActivity">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/AtomicActivity/typedBy"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/ManualActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity"/>
