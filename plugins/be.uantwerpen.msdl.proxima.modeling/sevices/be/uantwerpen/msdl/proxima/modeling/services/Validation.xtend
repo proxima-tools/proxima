@@ -126,7 +126,7 @@ class Validation {
 	/*
 	 * TODO shall we group by read-in/modify-out? 
 	 */
-	public def ambiguousAttributeDefinition(Intent intent) {
+	/*public def ambiguousAttributeDefinition(Intent intent) {
 		if (intent.type.equals(IntentType::EVAL)) {
 			return true
 		}
@@ -143,6 +143,6 @@ class Validation {
 		}
 
 		return intent.object !== null
-	}
+	}*/
 
 }

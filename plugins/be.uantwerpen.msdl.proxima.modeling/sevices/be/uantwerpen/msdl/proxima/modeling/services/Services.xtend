@@ -13,6 +13,8 @@ package be.uantwerpen.msdl.proxima.modeling.services
 
 import be.uantwerpen.msdl.proxima.processmodel.ProcessModel
 import be.uantwerpen.msdl.proxima.processmodel.base.Identifiable
+import be.uantwerpen.msdl.proxima.processmodel.ftg.Formalism
+import be.uantwerpen.msdl.proxima.processmodel.ftg.Tool
 import be.uantwerpen.msdl.proxima.processmodel.pm.Activity
 import be.uantwerpen.msdl.proxima.processmodel.pm.AutomatedActivity
 import be.uantwerpen.msdl.proxima.processmodel.pm.Node
@@ -29,6 +31,9 @@ import com.google.common.collect.Sets
 import java.util.List
 import java.util.Set
 import java.util.UUID
+import org.eclipse.sirius.diagram.DEdge
+import org.eclipse.sirius.diagram.DNode
+import be.uantwerpen.msdl.proxima.processmodel.ftg.Transformation
 
 /**
  * Services for the editor
@@ -256,4 +261,23 @@ class Services {
 	def getExecutionParameters(AutomatedActivity automatedActivity) {
 		Joiner.on(", ").withKeyValueSeparator(":").join(automatedActivity.executionParameters)
 	}
+	
+	def unsetImplementationLink(DEdge dEdge){
+		val tool = (dEdge.sourceNode as DNode).target as Tool
+		val formalism = (dEdge.targetNode as DNode).target as Formalism
+		tool.implements.remove(formalism)
+	}
+	
+	def unsetTransformedByLink(DEdge dEdge){
+		val formalism = (dEdge.sourceNode as DNode).target as Formalism
+		val transformation = (dEdge.targetNode as DNode).target as Transformation
+		formalism.inputOf.remove(transformation)
+	}
+	
+	def unsetTransformationToLink(DEdge dEdge){
+		val transformation = (dEdge.sourceNode as DNode).target as Transformation
+		val formalism = (dEdge.targetNode as DNode).target as Formalism
+		formalism.outputOf.remove(transformation)
+	}
+	
 }

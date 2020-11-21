@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.118.0",
  com.google.guava;bundle-version="27.1.0",
  org.eclipse.xtend.lib;bundle-version="2.22.0",
  be.uantwerpen.msdl.proxima.commons.bl;bundle-version="0.2.0",
- be.uantwerpen.msdl.proxima.metamodels;bundle-version="0.2.0"
+ be.uantwerpen.msdl.proxima.metamodels;bundle-version="0.2.0",
+ org.eclipse.sirius.diagram;bundle-version="6.3.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: be.uantwerpen.msdl.proxima.modeling
