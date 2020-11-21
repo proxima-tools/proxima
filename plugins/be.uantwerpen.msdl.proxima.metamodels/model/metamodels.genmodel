@@ -26,10 +26,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ftg/FormalismTransformationGraph/tool"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//ftg/Type"/>
-      <genClasses ecoreClass="processmodel.ecore#//ftg/ObjectType">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//ftg/ObjectType/types"/>
-      </genClasses>
+      <genClasses ecoreClass="processmodel.ecore#//ftg/ObjectType"/>
       <genClasses ecoreClass="processmodel.ecore#//ftg/ActivityType"/>
       <genClasses ecoreClass="processmodel.ecore#//ftg/Formalism">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -42,6 +39,8 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Formalism/implementedBy"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Formalism/capability"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference processmodel.ecore#//ftg/Formalism/types"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//ftg/Transformation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -82,7 +81,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/controlFlow"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/objectFlow"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/expandsCompoundActivity"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/types"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Node">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -125,7 +124,7 @@
       <genClasses ecoreClass="processmodel.ecore#//pm/AutomatedActivity"/>
       <genClasses ecoreClass="processmodel.ecore#//pm/CompoundActivity">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/CompoundActivity/expandedAsProcess"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/CompoundActivity/typedBy"/>
       </genClasses>
       <genClasses ecoreClass="processmodel.ecore#//pm/Object">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
