@@ -27,8 +27,8 @@
           eType="#//ftg/Tool" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//base/NamedElement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ObjectType" eSuperTypes="#//base/Identifiable #//ftg/Type"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ActivityType" eSuperTypes="#//base/Identifiable #//ftg/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectType" abstract="true" eSuperTypes="#//base/Identifiable #//ftg/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ActivityType" abstract="true" eSuperTypes="#//base/Identifiable #//ftg/Type"/>
     <eClassifiers xsi:type="ecore:EClass" name="Formalism" eSuperTypes="#//ftg/ObjectType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="inputOf" upperBound="-1"
           eType="#//ftg/Transformation" eOpposite="#//ftg/Transformation/input"/>
