@@ -697,7 +697,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="processmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_j1HZAR6xEeewEruDl3xWqw" name="ftgpm" repPath="#_FleWkF1OEeaeuJbdLuxDgg" changeId="8e7c5939-ad87-4a37-909a-6f8409c24773">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_j1HZAR6xEeewEruDl3xWqw" name="ftgpm" repPath="#_FleWkF1OEeaeuJbdLuxDgg" changeId="4012559a-6cf9-4d44-832f-c8b73a0accc1">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="processmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -2245,8 +2245,8 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_wvgEUR3LEeeccL9uiQm8Cw" routing="Tree"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_wvgEUh3LEeeccL9uiQm8Cw" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wvgEUx3LEeeccL9uiQm8Cw" points="[0, -1, 16, 181]$[0, -71, 16, 111]$[-49, -71, -33, 111]$[-49, -128, -33, 54]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wvs4oB3LEeeccL9uiQm8Cw" id="(0.08333333333333333,0.011764705882352941)"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wvgEUx3LEeeccL9uiQm8Cw" points="[0, -1, 33, 193]$[0, -121, 33, 73]$[-66, -121, -33, 73]$[-66, -140, -33, 54]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wvs4oB3LEeeccL9uiQm8Cw" id="(0.03333333333333333,0.047058823529411764)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wvs4oR3LEeeccL9uiQm8Cw" id="(0.5,-0.3611111111111111)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_5swTMB3LEeeccL9uiQm8Cw" type="4001" element="_5saU8B3LEeeccL9uiQm8Cw" source="_wvLUMB3LEeeccL9uiQm8Cw" target="_5splgB3LEeeccL9uiQm8Cw">

@@ -1746,7 +1746,7 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="ProcessModelProperties">
     <categories name="Default Category">
       <pages name="CodeGenProperties" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.0"/>
-      <pages labelExpression="Performance overview" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.1"/>
+      <pages name="ProcessModelPropertiesPage" labelExpression="Performance overview" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.1"/>
       <groups name="CodeGen" labelExpression="Group" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="CodeGenLocationText" labelExpression="Location" helpExpression="The absolute path to the directory where the artefacts will be generated. The path must be separated by backslashes. (E.g.: c:\scripts\script.py.) The directory will be created if it does not exists." valueExpression="service:getCodeGenLocation()">
           <initialOperation>
