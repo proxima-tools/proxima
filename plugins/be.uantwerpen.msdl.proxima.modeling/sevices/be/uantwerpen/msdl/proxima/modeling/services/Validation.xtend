@@ -13,13 +13,16 @@ package be.uantwerpen.msdl.proxima.modeling.services
 
 import be.uantwerpen.msdl.proxima.commons.bl.Relationships
 import be.uantwerpen.msdl.proxima.processmodel.ftg.Formalism
+import be.uantwerpen.msdl.proxima.processmodel.ftg.FormalismTransformationGraph
 import be.uantwerpen.msdl.proxima.processmodel.ftg.MatlabScript
 import be.uantwerpen.msdl.proxima.processmodel.ftg.PythonScript
 import be.uantwerpen.msdl.proxima.processmodel.ftg.Script
 import be.uantwerpen.msdl.proxima.processmodel.ftg.Transformation
-import be.uantwerpen.msdl.proxima.processmodel.pm.Object
+import be.uantwerpen.msdl.proxima.processmodel.pm.Activity
+import be.uantwerpen.msdl.proxima.processmodel.pm.Final
+import be.uantwerpen.msdl.proxima.processmodel.pm.Initial
+import be.uantwerpen.msdl.proxima.processmodel.pm.Process
 import be.uantwerpen.msdl.proxima.processmodel.properties.Attribute
-import be.uantwerpen.msdl.proxima.processmodel.properties.Intent
 import be.uantwerpen.msdl.proxima.processmodel.properties.IntentType
 import be.uantwerpen.msdl.proxima.processmodel.properties.Precision
 import be.uantwerpen.msdl.proxima.processmodel.properties.PropertyModel
@@ -35,6 +38,59 @@ class Validation {
 	private extension val Relationships = new Relationships
 
 	new() {
+	}
+
+	/**
+	 * Naming rules
+	 */
+	def formalismRequiresName(Formalism formalism) {
+		!formalism.name.nullOrEmpty
+	}
+
+	def transformationRequiresName(Transformation transformation) {
+		!transformation.name.nullOrEmpty
+	}
+
+	def formalismNameUnique(Formalism formalism) {
+		val ftg = formalism.eContainer as FormalismTransformationGraph
+		!ftg.formalism.exists [ otherFormalism |
+			!otherFormalism.equals(formalism) && otherFormalism.name.equalsIgnoreCase(formalism.name)
+		]
+	}
+
+	def transformationNameUnique(Transformation transformation) {
+		val ftg = transformation.eContainer as FormalismTransformationGraph
+		!ftg.transformation.exists [ otherTransformation |
+			!otherTransformation.equals(transformation) &&
+				otherTransformation.name.equalsIgnoreCase(transformation.name)
+		]
+	}
+
+	/**
+	 * Topology rules
+	 */
+	def initNotDetached(Initial initNode) {
+		initNode.controlIn.empty && initNode.controlOut.length == 1
+	}
+
+	def finalNotDetached(Final finalNode) {
+		!finalNode.controlIn.empty && finalNode.controlOut.empty
+	}
+
+	def noDetachedActivity(Activity activity) {
+		!activity.controlIn.empty && !activity.controlOut.empty
+	}
+
+	def initNodeExists(Process process) {
+		process.node.exists[n|n instanceof Initial]
+	}
+
+	def finalNodeExists(Process process) {
+		process.node.exists[n|n instanceof Final]
+	}
+
+	def processHasActivities(Process process) {
+		process.node.exists[n|n instanceof Activity]
 	}
 
 	public def consistentScriptExtension(Transformation transformation) {
@@ -123,26 +179,25 @@ class Validation {
 		return attribute.aliases.trim.matches(listFormatPattern)
 	}
 
-	/*
-	 * TODO shall we group by read-in/modify-out? 
-	 */
-	/*public def ambiguousAttributeDefinition(Intent intent) {
-		if (intent.type.equals(IntentType::EVAL)) {
-			return true
-		}
-		val dataIn = intent.activity.dataFlowFrom
-		val dataOut = intent.activity.dataFlowTo
-		val objects = (dataIn + dataOut).map[d|d as Object]
+/*
+ * TODO shall we group by read-in/modify-out? 
+ */
+/*public def ambiguousAttributeDefinition(Intent intent) {
+ * 	if (intent.type.equals(IntentType::EVAL)) {
+ * 		return true
+ * 	}
+ * 	val dataIn = intent.activity.dataFlowFrom
+ * 	val dataOut = intent.activity.dataFlowTo
+ * 	val objects = (dataIn + dataOut).map[d|d as Object]
 
-		val tools = objects.map[o|(o.typedBy as Formalism).implementedBy].flatten.groupBy[it]
+ * 	val tools = objects.map[o|(o.typedBy as Formalism).implementedBy].flatten.groupBy[it]
 
-		val toolSelectionIsUnambiguous = tools.size <= 1
+ * 	val toolSelectionIsUnambiguous = tools.size <= 1
 
-		if (toolSelectionIsUnambiguous) {
-			return true
-		}
+ * 	if (toolSelectionIsUnambiguous) {
+ * 		return true
+ * 	}
 
-		return intent.object !== null
-	}*/
-
+ * 	return intent.object !== null
+ }*/
 }

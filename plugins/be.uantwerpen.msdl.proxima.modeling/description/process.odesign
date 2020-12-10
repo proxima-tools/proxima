@@ -2,11 +2,44 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="process" version="12.0.0.2017041100">
   <ownedViewpoints name="ProcessViewpoint" label="Process Modeling" modelFileExtension="processmodel">
     <validationSet name="Validation">
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="UnnamedFormalism" level="ERROR" message="The formalism has no name." targetClass="ftg.Formalism">
+        <audits auditExpression="service:formalismRequiresName()"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="UnnamedTransformation" level="ERROR" message="The transformation has no name." targetClass="ftg.Transformation">
+        <audits auditExpression="service:transformationRequiresName()"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="NonUniqueFormalismName" level="ERROR" message="The name of the formalism is not unique" targetClass="ftg.Formalism">
+        <audits auditExpression="service:formalismNameUnique()"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="NonUniqueTransformationName" level="ERROR" message="The name of the transformation is not unique" targetClass="ftg.Transformation">
+        <audits auditExpression="service:transformationNameUnique()"/>
+      </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Untyped activity" level="WARNING" message="The activity has no type." targetClass="pm.AtomicActivity">
         <audits auditExpression="aql:self.typedBy!=null"/>
       </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="Untyped object" level="WARNING" message="The object has no type." targetClass="pm.Object">
         <audits auditExpression="aql:self.typedBy!=null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="Untyped compound activity" level="WARNING" message="The compound activity has no type." targetClass="pm.CompoundActivity">
+        <audits auditExpression="aql:self.typedBy!=null"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="DetachedInit" level="ERROR" message="The initial node is not part of the process." targetClass="pm.Initial">
+        <audits auditExpression="service:initNotDetached()"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="DetachedFinal" level="ERROR" message="The final node is not part of the process." targetClass="pm.Final">
+        <audits auditExpression="service:finalNotDetached()"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="DetachedActivity" level="ERROR" message="The activity is not part of the process." targetClass="pm.Activity">
+        <audits auditExpression="service:noDetachedActivity()"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoInitNode" level="ERROR" message="Incomplete process: the process has no Initial node." targetClass="pm.Process">
+        <audits auditExpression="service:initNodeExists()"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoFinalNode" level="ERROR" message="Incomplete process: the process has no Final node." targetClass="pm.Process">
+        <audits auditExpression="service:finalNodeExists()"/>
+      </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoActivities" level="ERROR" message="Incomplete process: the process has no activities." targetClass="pm.Process">
+        <audits auditExpression="service:processHasActivities()"/>
       </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="DirectedL3RelationshipLink" level="ERROR" message="L3 relationships must be undirected." targetClass="properties.RelationshipLink">
         <audits auditExpression="service:directedL3RelationshipLink()"/>
@@ -65,7 +98,7 @@
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
       </createTreeItem>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ProcessView" domainClass="pm.Process" rootExpression="var:self">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ProcessView" domainClass="pm.Process" rootExpression="var:self" enablePopupBars="true">
       <defaultLayer name="Default">
         <toolSections name="GenericTools">
           <ownedTools xsi:type="tool_1:DirectEditLabel" name="EditNamedElementName">
