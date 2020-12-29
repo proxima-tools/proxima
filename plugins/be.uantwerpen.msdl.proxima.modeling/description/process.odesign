@@ -163,7 +163,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ObjectFlow" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:objectFlow" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ObjectFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectObjectFlowSource'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectObjectFlowTarget']">
+        <edgeMappings name="ObjectFlow" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:objectFlow" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ObjectFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectObjectFlowSource'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectObjectFlowTarget']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
@@ -310,8 +310,24 @@
                       <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
                     </subModelOperations>
                   </subModelOperations>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:target.oclIsKindOf(pm::Decision)">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="pm.ObjectFlow" referenceName="objectFlow">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="from" valueExpression="var:source"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="to" valueExpression="var:target"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
+                    </subModelOperations>
+                  </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:If" conditionExpression="aql:source.oclIsKindOf(pm::Activity)">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:target.oclIsKindOf(pm::Object)">
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="pm.ObjectFlow" referenceName="objectFlow">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="from" valueExpression="var:source"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="to" valueExpression="var:target"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:source.oclIsKindOf(pm::Decision)">
                   <subModelOperations xsi:type="tool:If" conditionExpression="aql:target.oclIsKindOf(pm::Object)">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="pm.ObjectFlow" referenceName="objectFlow">
                       <subModelOperations xsi:type="tool:SetValue" featureName="from" valueExpression="var:source"/>
