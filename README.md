@@ -2,6 +2,8 @@
 
 # *PRO*cess engineering with *I*nconsistency *MA*nagement
 
+[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
+
 PROxIMA is a process modeling and simulation framework. It enables the optimization of the modeled processes for multi-paradigm semantic inconsistencies.
 
 The features of the framework include:
