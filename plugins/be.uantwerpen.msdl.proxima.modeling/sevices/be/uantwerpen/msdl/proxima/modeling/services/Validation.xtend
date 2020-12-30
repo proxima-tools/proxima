@@ -52,6 +52,9 @@ class Validation {
 	}
 
 	def formalismNameUnique(Formalism formalism) {
+		if(formalism.name.nullOrEmpty){
+			return false
+		}
 		val ftg = formalism.eContainer as FormalismTransformationGraph
 		!ftg.formalism.exists [ otherFormalism |
 			!otherFormalism.equals(formalism) && otherFormalism.name.equalsIgnoreCase(formalism.name)
@@ -59,6 +62,9 @@ class Validation {
 	}
 
 	def transformationNameUnique(Transformation transformation) {
+		if(transformation.name.nullOrEmpty){
+			return false
+		}
 		val ftg = transformation.eContainer as FormalismTransformationGraph
 		!ftg.transformation.exists [ otherTransformation |
 			!otherTransformation.equals(transformation) &&

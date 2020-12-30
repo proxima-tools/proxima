@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PROxIMA Modeling Tests
+Bundle-SymbolicName: org.proxima.modeling.tests
+Bundle-Version: 0.2.0.qualifier
+Fragment-Host: be.uantwerpen.msdl.proxima.modeling;bundle-version="0.2.0"
+Automatic-Module-Name: org.proxima.modeling.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.junit;bundle-version="4.13.0"
+Bundle-Vendor: Istvan David
