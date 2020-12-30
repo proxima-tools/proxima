@@ -1,4 +1,4 @@
-package org.proxima.modeling.tests
+package org.proxima.modeling.services.tests.validation
 
 import be.uantwerpen.msdl.proxima.modeling.services.Validation
 import be.uantwerpen.msdl.proxima.processmodel.pm.PmFactory

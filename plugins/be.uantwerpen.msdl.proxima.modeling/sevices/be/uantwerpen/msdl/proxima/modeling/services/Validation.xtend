@@ -99,6 +99,9 @@ class Validation {
 		process.node.exists[n|n instanceof Activity]
 	}
 
+
+////////////////CURRENTLY NOT USED////////////////
+
 	public def consistentScriptExtension(Transformation transformation) {
 		if(transformation.definition === null) return true
 		if(!(transformation.definition instanceof Script)) return true
