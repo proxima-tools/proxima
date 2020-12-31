@@ -2,4 +2,11 @@
   <extension point="org.eclipse.sirius.componentization">
     <component class="be.uantwerpen.msdl.proxima.modeling.internal.Activator" id="be.uantwerpen.msdl.proxima.modeling" name="process"/>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="be.uantwerpen.msdl.proxima.modeling.CopyPasteJavaAction"
+           id="be.uantwerpen.msdl.proxima.modeling.copyPasteJavaAction">
+     </javaActions>
+  </extension>
 </plugin>

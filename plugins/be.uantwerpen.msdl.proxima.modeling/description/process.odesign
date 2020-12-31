@@ -98,7 +98,7 @@
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
       </createTreeItem>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ProcessView" domainClass="pm.Process" rootExpression="var:self" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ProcessView" pasteDescriptions="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='ActivityPaste']" domainClass="pm.Process" rootExpression="var:self" enablePopupBars="true">
       <defaultLayer name="Default">
         <toolSections name="GenericTools">
           <ownedTools xsi:type="tool_1:DirectEditLabel" name="EditNamedElementName">
@@ -422,6 +422,18 @@
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:RemoveElement"/>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ExternalJavaAction" name="CopyPasteJavaAction" id="be.uantwerpen.msdl.proxima.modeling.copypastejavaaction">
+            <parameters name="copiedElement" value="var:copiedElement"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:PasteDescription" name="ActivityPaste" forceRefresh="true">
+            <container name="container"/>
+            <containerView name="containerView"/>
+            <copiedView name="copiedView"/>
+            <copiedElement name="copiedElement"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="PasteJavaCall" action="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='CopyPasteJavaAction']"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
