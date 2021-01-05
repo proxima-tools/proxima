@@ -1,4 +1,0 @@
-language: java
-script:    
-  - cd releng/be.uantwerpen.msdl.proxima.parent
-  - mvn clean verify
