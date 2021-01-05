@@ -14,7 +14,7 @@ module org.proxima.metamodels.generator
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.emf.mwe2.ecore.*
 
-var projectName = "be.uantwerpen.msdl.proxima.metamodels"
+var projectName = "org.proxima.metamodels"
 var processGenModelPath = "platform:/resource/${projectName}/model/metamodels.genmodel"
 var enactmentGenModelPath = "platform:/resource/${projectName}/model/enactment.genmodel"
 var directory = "${projectName}/src"

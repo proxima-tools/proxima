@@ -12,7 +12,7 @@
     </parent>
  
     <modelVersion>4.0.0</modelVersion>
-	<artifactId>be.uantwerpen.msdl.proxima.metamodels</artifactId>
+	<artifactId>org.proxima.metamodels</artifactId>
 	<name>PROxIMA Metamodels</name>
 	<packaging>eclipse-plugin</packaging>
 	

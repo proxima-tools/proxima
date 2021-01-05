@@ -19,7 +19,7 @@
     </properties>
     
     <modules>
-        <module>../../plugins/be.uantwerpen.msdl.proxima.metamodels</module>
+        <module>../../plugins/org.proxima.metamodels</module>
         <module>../../plugins/org.proxima.commons.bl</module>
         <module>../../plugins/org.proxima.modeling</module>
     </modules>
