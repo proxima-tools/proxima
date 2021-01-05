@@ -9,7 +9,7 @@
  *    Istvan David - initial API and implementation
  *******************************************************************************/
 
-package be.uantwerpen.msdl.proxima.commons.bl.internal;
+package org.proxima.commons.bl.internal;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

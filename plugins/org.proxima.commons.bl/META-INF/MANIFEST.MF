@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PROxIMA Common Business Layer
-Bundle-SymbolicName: be.uantwerpen.msdl.proxima.commons.bl
+Bundle-SymbolicName: org.proxima.commons.bl
 Bundle-Version: 0.2.0.qualifier
-Bundle-Activator: be.uantwerpen.msdl.proxima.commons.bl.internal.Activator
+Bundle-Activator: org.proxima.commons.bl.internal.Activator
 Bundle-Vendor: Istvan David
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.19.0",
  com.google.guava;bundle-version="27.1.0",
@@ -13,5 +13,5 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.19.0",
  be.uantwerpen.msdl.proxima.metamodels;bundle-version="0.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: be.uantwerpen.msdl.proxima.commons.bl
+Export-Package: org.proxima.commons.bl
 

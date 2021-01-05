@@ -11,7 +11,7 @@
 
 package org.proxima.modeling.services
 
-import be.uantwerpen.msdl.proxima.commons.bl.Relationships
+import org.proxima.commons.bl.Relationships
 import be.uantwerpen.msdl.proxima.processmodel.ftg.Formalism
 import be.uantwerpen.msdl.proxima.processmodel.ftg.FormalismTransformationGraph
 import be.uantwerpen.msdl.proxima.processmodel.ftg.MatlabScript

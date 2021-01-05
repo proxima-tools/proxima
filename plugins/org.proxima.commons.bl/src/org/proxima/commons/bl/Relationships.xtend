@@ -9,7 +9,7 @@
  *    Istvan David - initial API and implementation
  *******************************************************************************/
 
-package be.uantwerpen.msdl.proxima.commons.bl
+package org.proxima.commons.bl
 
 import be.uantwerpen.msdl.proxima.processmodel.properties.Attribute
 import be.uantwerpen.msdl.proxima.processmodel.properties.Capability
