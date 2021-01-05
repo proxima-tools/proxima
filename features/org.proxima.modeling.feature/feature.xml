@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="be.uantwerpen.msdl.proxima.modeling.feature"
+      id="org.proxima.modeling.feature"
       label="PROxIMA Modeling feature"
       version="0.2.0.qualifier"
       provider-name="Istvan David">
@@ -18,11 +18,11 @@
    </license>
 
    <requires>
-      <import feature="be.uantwerpen.msdl.proxima.core.feature" version="0.1.1.qualifier"/>
+      <import feature="org.proxima.core.feature"/>
    </requires>
 
    <plugin
-         id="be.uantwerpen.msdl.proxima.modeling"
+         id="org.proxima.modeling"
          download-size="0"
          install-size="0"
          version="0.0.0"
