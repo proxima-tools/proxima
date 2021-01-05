@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>be.uantwerpen.msdl.proxima</groupId>
+	<artifactId>be.uantwerpen.msdl.proxima.parent</artifactId>
+	<name>PROxIMA Parent job</name>
+	<url>http://proximatools.com</url>
+	<version>0.2.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <tycho.version>1.6.0</tycho.version>
+        <proxima.main.version>0.2.0-SNAPSHOT</proxima.main.version>
+        <xtend.compiler.version>2.20.0</xtend.compiler.version>
+    </properties>
+    
+    <modules>
+        <module>../../plugins/be.uantwerpen.msdl.proxima.metamodels</module>
+        <module>../../plugins/be.uantwerpen.msdl.proxima.commons.bl</module>
+        <module>../../plugins/be.uantwerpen.msdl.proxima.modeling</module>
+    </modules>
+    
+    <build>
+    	<pluginManagement>
+            <plugins>
+               <plugin>
+                   <groupId>org.eclipse.tycho</groupId>
+                   <artifactId>tycho-versions-plugin</artifactId>
+                   <version>${tycho.version}</version>
+                   <configuration>
+                     <artifacts>be.uantwerpen.msdl.proxima.parent</artifacts>
+                     <properties>proxima.main.version</properties>
+                   </configuration>
+               </plugin>
+               <plugin>
+					<groupId>org.eclipse.xtend</groupId>
+					<artifactId>xtend-maven-plugin</artifactId>
+					<version>${xtend.compiler.version}</version>
+					<configuration>
+						<!-- need to prefix by basedir to generate to currently built module -->
+						<outputDirectory>${basedir}/xtend-gen</outputDirectory>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-surefire-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.xtend</groupId>
+					<artifactId>xtend-maven-plugin</artifactId>
+					<version>${xtend.compiler.version}</version>
+					<configuration>
+						<!-- need to prefix by basedir to generate to currently built module -->
+						<outputDirectory>${basedir}/xtend-gen</outputDirectory>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</configuration>
+				</plugin>
+            </plugins>
+      </pluginManagement>
+	  <plugins>
+	    <plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<labelSuffix></labelSuffix>
+				</configuration>
+			</plugin>
+	  </plugins>
+	</build>
+ 
+    <dependencies>
+    </dependencies>
+    
+    <pluginRepositories>
+		<pluginRepository>
+			<id>cbi-releases</id>
+			<url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
+		</pluginRepository>
+	</pluginRepositories>
+	
+	<repositories>
+   	<repository>
+     <id>2020-09</id>
+     <layout>p2</layout>
+     <url>https://download.eclipse.org/releases/2020-09/</url>
+   </repository>
+  </repositories>
+
+</project>
