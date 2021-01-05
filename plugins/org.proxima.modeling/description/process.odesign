@@ -424,7 +424,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ExternalJavaAction" name="CopyPasteJavaAction" id="be.uantwerpen.msdl.proxima.modeling.copypastejavaaction">
+          <ownedTools xsi:type="tool:ExternalJavaAction" name="CopyPasteJavaAction" id="org.proxima.modeling.copypastejavaaction">
             <parameters name="copiedElement" value="var:copiedElement"/>
           </ownedTools>
           <ownedTools xsi:type="tool:PasteDescription" name="ActivityPaste" forceRefresh="true">
@@ -1730,8 +1730,8 @@
         </defaultBackground>
       </intersection>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="be.uantwerpen.msdl.proxima.modeling.services.Services"/>
-    <ownedJavaExtensions qualifiedClassName="be.uantwerpen.msdl.proxima.modeling.services.Validation"/>
+    <ownedJavaExtensions qualifiedClassName="org.proxima.modeling.services.Services"/>
+    <ownedJavaExtensions qualifiedClassName="org.proxima.modeling.services.Validation"/>
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="ActivityProperties">
     <categories name="Default Category">

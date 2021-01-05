@@ -11,20 +11,20 @@
 
 package org.proxima.modeling.services
 
-import be.uantwerpen.msdl.proxima.processmodel.ProcessModel
-import be.uantwerpen.msdl.proxima.processmodel.base.Identifiable
-import be.uantwerpen.msdl.proxima.processmodel.ftg.Formalism
-import be.uantwerpen.msdl.proxima.processmodel.ftg.Tool
-import be.uantwerpen.msdl.proxima.processmodel.ftg.Transformation
-import be.uantwerpen.msdl.proxima.processmodel.pm.Activity
-import be.uantwerpen.msdl.proxima.processmodel.pm.AutomatedActivity
-import be.uantwerpen.msdl.proxima.processmodel.pm.Node
-import be.uantwerpen.msdl.proxima.processmodel.pm.Object
-import be.uantwerpen.msdl.proxima.processmodel.pm.Process
-import be.uantwerpen.msdl.proxima.processmodel.properties.Attribute
-import be.uantwerpen.msdl.proxima.processmodel.properties.Intent
-import be.uantwerpen.msdl.proxima.processmodel.properties.IntentType
-import be.uantwerpen.msdl.proxima.processmodel.properties.PropertyModel
+import org.proxima.processmodel.ProcessModel
+import org.proxima.processmodel.base.Identifiable
+import org.proxima.processmodel.ftg.Formalism
+import org.proxima.processmodel.ftg.Tool
+import org.proxima.processmodel.ftg.Transformation
+import org.proxima.processmodel.pm.Activity
+import org.proxima.processmodel.pm.AutomatedActivity
+import org.proxima.processmodel.pm.Node
+import org.proxima.processmodel.pm.Object
+import org.proxima.processmodel.pm.Process
+import org.proxima.processmodel.properties.Attribute
+import org.proxima.processmodel.properties.Intent
+import org.proxima.processmodel.properties.IntentType
+import org.proxima.processmodel.properties.PropertyModel
 import com.google.common.base.Joiner
 import com.google.common.base.Strings
 import com.google.common.collect.Lists

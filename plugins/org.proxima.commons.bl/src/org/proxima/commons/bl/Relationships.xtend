@@ -11,11 +11,11 @@
 
 package org.proxima.commons.bl
 
-import be.uantwerpen.msdl.proxima.processmodel.properties.Attribute
-import be.uantwerpen.msdl.proxima.processmodel.properties.Capability
-import be.uantwerpen.msdl.proxima.processmodel.properties.Property
-import be.uantwerpen.msdl.proxima.processmodel.properties.Relationship
-import be.uantwerpen.msdl.proxima.processmodel.properties.RelationshipSubject
+import org.proxima.processmodel.properties.Attribute
+import org.proxima.processmodel.properties.Capability
+import org.proxima.processmodel.properties.Property
+import org.proxima.processmodel.properties.Relationship
+import org.proxima.processmodel.properties.RelationshipSubject
 import java.util.HashMap
 
 class Relationships {

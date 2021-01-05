@@ -7,7 +7,7 @@ import org.eclipse.sirius.diagram.ui.tools.internal.clipboard.SiriusClipboardMan
 
 import com.google.common.collect.Lists;
 
-import be.uantwerpen.msdl.proxima.processmodel.pm.Process;
+import org.proxima.processmodel.pm.Process;
 
 public class PasteActionHandler {
 

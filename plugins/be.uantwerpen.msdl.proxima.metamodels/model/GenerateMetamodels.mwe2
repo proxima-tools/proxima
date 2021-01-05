@@ -9,7 +9,7 @@
  *    Istvan David - initial API and implementation
  *******************************************************************************/
  
-module be.uantwerpen.msdl.proxima.metamodels.generator
+module org.proxima.metamodels.generator
 
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.emf.mwe2.ecore.*

@@ -13,10 +13,10 @@ import org.eclipse.sirius.diagram.ui.tools.internal.clipboard.SiriusClipboardMan
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.proxima.modeling.services.Services;
 
-import be.uantwerpen.msdl.proxima.processmodel.pm.ControlFlow;
-import be.uantwerpen.msdl.proxima.processmodel.pm.Node;
-import be.uantwerpen.msdl.proxima.processmodel.pm.ObjectFlow;
-import be.uantwerpen.msdl.proxima.processmodel.pm.Process;
+import org.proxima.processmodel.pm.ControlFlow;
+import org.proxima.processmodel.pm.Node;
+import org.proxima.processmodel.pm.ObjectFlow;
+import org.proxima.processmodel.pm.Process;
 
 public class CopyPasteJavaAction implements IExternalJavaAction {
 

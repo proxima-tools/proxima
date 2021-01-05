@@ -5,28 +5,11 @@
 -->
 
 <plugin>
-
-
-
-
-
-
-
-
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated enactment -->
-      <package
-            uri="metamodels.enactment"
-            class="be.uantwerpen.msdl.proxima.enactment.EnactmentPackage"
-            genModel="model/enactment.genmodel"/>
-   </extension>
-
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated metamodels -->
       <package
             uri="metamodels.processmodel"
-            class="be.uantwerpen.msdl.proxima.processmodel.ProcessmodelPackage"
+            class="org.proxima.processmodel.ProcessmodelPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
@@ -34,7 +17,7 @@
       <!-- @generated metamodels -->
       <package
             uri="metamodels.ftg"
-            class="be.uantwerpen.msdl.proxima.processmodel.ftg.FtgPackage"
+            class="org.proxima.processmodel.ftg.FtgPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
@@ -42,7 +25,7 @@
       <!-- @generated metamodels -->
       <package
             uri="metamodels.pm"
-            class="be.uantwerpen.msdl.proxima.processmodel.pm.PmPackage"
+            class="org.proxima.processmodel.pm.PmPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
@@ -50,7 +33,7 @@
       <!-- @generated metamodels -->
       <package
             uri="metamodels.properties"
-            class="be.uantwerpen.msdl.proxima.processmodel.properties.PropertiesPackage"
+            class="org.proxima.processmodel.properties.PropertiesPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
@@ -58,7 +41,7 @@
       <!-- @generated metamodels -->
       <package
             uri="metamodels.resources"
-            class="be.uantwerpen.msdl.proxima.processmodel.resources.ResourcesPackage"
+            class="org.proxima.processmodel.resources.ResourcesPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
@@ -66,7 +49,7 @@
       <!-- @generated metamodels -->
       <package
             uri="metamodels.cost"
-            class="be.uantwerpen.msdl.proxima.processmodel.cost.CostPackage"
+            class="org.proxima.processmodel.cost.CostPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
@@ -74,7 +57,7 @@
       <!-- @generated metamodels -->
       <package
             uri="metamodels.base"
-            class="be.uantwerpen.msdl.proxima.processmodel.base.BasePackage"
+            class="org.proxima.processmodel.base.BasePackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
@@ -82,7 +65,15 @@
       <!-- @generated metamodels -->
       <package
             uri="metamodels.viewpoints"
-            class="be.uantwerpen.msdl.proxima.processmodel.viewpoints.ViewpointsPackage"
+            class="org.proxima.processmodel.viewpoints.ViewpointsPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated enactment -->
+      <package
+            uri="metamodels.enactment"
+            class="org.proxima.enactment.EnactmentPackage"
+            genModel="model/enactment.genmodel"/>
+   </extension>
+
 </plugin>

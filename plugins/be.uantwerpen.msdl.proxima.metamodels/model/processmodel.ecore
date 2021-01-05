@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="processmodel" nsURI="metamodels.processmodel" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="processmodel" nsURI="metamodels.processmodel" nsPrefix="org.proxima.metamodels">
   <eClassifiers xsi:type="ecore:EClass" name="ProcessModel" eSuperTypes="#//base/NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ftg" lowerBound="1" eType="#//ftg/FormalismTransformationGraph"
         containment="true"/>
@@ -17,7 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="codeGenProperties" upperBound="-1"
         eType="#//base/StringToStringMap" containment="true"/>
   </eClassifiers>
-  <eSubpackages name="ftg" nsURI="metamodels.ftg" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+  <eSubpackages name="ftg" nsURI="metamodels.ftg" nsPrefix="org.proxima.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="FormalismTransformationGraph">
       <eStructuralFeatures xsi:type="ecore:EReference" name="formalism" upperBound="-1"
           eType="#//ftg/Formalism" containment="true"/>
@@ -78,7 +78,7 @@
           eType="#//properties/IntentType"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="pm" nsURI="metamodels.pm" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+  <eSubpackages name="pm" nsURI="metamodels.pm" nsPrefix="org.proxima.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//base/Identifiable #//base/NamedElement #//ftg/ActivityType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="node" upperBound="-1"
           eType="#//pm/Node" containment="true"/>
@@ -164,7 +164,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Typeable" abstract="true" eSuperTypes="#//base/NamedElement #//pm/Node"/>
   </eSubpackages>
-  <eSubpackages name="properties" nsURI="metamodels.properties" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+  <eSubpackages name="properties" nsURI="metamodels.properties" nsPrefix="org.proxima.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="PropertyModel">
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
           eType="#//properties/Property" containment="true"/>
@@ -300,7 +300,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="Absolute" eSuperTypes="#//properties/Tolerance"/>
     <eClassifiers xsi:type="ecore:EClass" name="Relative" eSuperTypes="#//properties/Tolerance"/>
   </eSubpackages>
-  <eSubpackages name="resources" nsURI="metamodels.resources" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+  <eSubpackages name="resources" nsURI="metamodels.resources" nsPrefix="org.proxima.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="ResourceModel">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType" upperBound="-1"
           eType="#//resources/ResourceType" containment="true"/>
@@ -360,7 +360,7 @@
           defaultValueLiteral="1"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="cost" nsURI="metamodels.cost" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+  <eSubpackages name="cost" nsURI="metamodels.cost" nsPrefix="org.proxima.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="CostModel">
       <eStructuralFeatures xsi:type="ecore:EReference" name="costFactor" upperBound="-1"
           eType="#//cost/CostFactor" containment="true"/>
@@ -388,7 +388,7 @@
       <eLiterals name="Time" value="4" literal="Time"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="base" nsURI="metamodels.base" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+  <eSubpackages name="base" nsURI="metamodels.base" nsPrefix="org.proxima.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
@@ -403,7 +403,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="viewpoints" nsURI="metamodels.viewpoints" nsPrefix="be.uantwerpen.msdl.proxima.metamodels">
+  <eSubpackages name="viewpoints" nsURI="metamodels.viewpoints" nsPrefix="org.proxima.metamodels">
     <eClassifiers xsi:type="ecore:EClass" name="ViewpointsModel">
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"
           eType="#//viewpoints/Viewpoint" containment="true"/>
