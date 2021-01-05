@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="PROxIMA" url="http://istvandavid.com/tools/proxima">
+   <description name="PROxIMA" url="http://proximatools.org">
       PROcess modeling x Inconsistency MAnagement. The tool provides modeling support for FTG+PM models, and simulation support for their inconsistency management.
    </description>
-   <feature url="features/be.uantwerpen.msdl.proxima.core.feature_0.1.1.202010232213.jar" id="be.uantwerpen.msdl.proxima.core.feature" version="0.1.1.202010232213">
+   <feature url="features/org.proxima.core.feature_0.2.0.qualifier.jar" id="org.proxima.core.feature" version="0.2.0.qualifier">
       <category name="core"/>
    </feature>
-   <feature url="features/be.uantwerpen.msdl.proxima.modeling.feature_0.1.1.202010232213.jar" id="be.uantwerpen.msdl.proxima.modeling.feature" version="0.1.1.202010232213">
+   <feature url="features/org.proxima.modeling.feature_0.2.0.qualifier.jar" id="org.proxima.modeling.feature" version="0.2.0.qualifier">
       <category name="modeling"/>
    </feature>
    <category-def name="core" label="Core"/>
