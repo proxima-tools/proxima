@@ -5,10 +5,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	
 	<parent>
-        <artifactId>be.uantwerpen.msdl.proxima.parent</artifactId>
-        <groupId>be.uantwerpen.msdl.proxima</groupId>
+        <artifactId>org.proxima.parent</artifactId>
+        <groupId>org.proxima</groupId>
         <version>0.2.0-SNAPSHOT</version>
-        <relativePath>../../releng/be.uantwerpen.msdl.proxima.parent/pom.xml</relativePath>
+        <relativePath>../../releng/org.proxima.parent/pom.xml</relativePath>
     </parent>
  
     <modelVersion>4.0.0</modelVersion>

@@ -4,10 +4,10 @@
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>be.uantwerpen.msdl.proxima</groupId>
-	<artifactId>be.uantwerpen.msdl.proxima.parent</artifactId>
+	<groupId>org.proxima</groupId>
+	<artifactId>org.proxima.parent</artifactId>
 	<name>PROxIMA Parent job</name>
-	<url>http://proximatools.com</url>
+	<url>http://proximatools.org</url>
 	<version>0.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
@@ -32,7 +32,7 @@
                    <artifactId>tycho-versions-plugin</artifactId>
                    <version>${tycho.version}</version>
                    <configuration>
-                     <artifacts>be.uantwerpen.msdl.proxima.parent</artifacts>
+                     <artifacts>org.proxima.parent</artifacts>
                      <properties>proxima.main.version</properties>
                    </configuration>
                </plugin>
