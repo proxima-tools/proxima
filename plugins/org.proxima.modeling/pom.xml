@@ -12,7 +12,7 @@
     </parent>
  
     <modelVersion>4.0.0</modelVersion>
-	<artifactId>be.uantwerpen.msdl.proxima.modeling</artifactId>
+	<artifactId>org.proxima.modeling</artifactId>
 	<name>PROxIMA Modeling</name>
 	<packaging>eclipse-plugin</packaging>
 	

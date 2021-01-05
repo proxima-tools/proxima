@@ -120,7 +120,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="FinalNode" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" semanticCandidatesExpression="feature:node" domainClass="pm.FlowFinal">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="final" hideLabelByDefault="true" workspacePath="/be.uantwerpen.msdl.proxima.modeling/icons/activity-final-2.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="final" hideLabelByDefault="true" workspacePath="/org.proxima.modeling/icons/activity-final-2.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -149,7 +149,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="ObjectNode" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.Object">
-          <style xsi:type="style:SquareDescription" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/cube.png" labelPosition="node" resizeKind="NSEW" width="13" height="3">
+          <style xsi:type="style:SquareDescription" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/org.proxima.modeling/icons/cube.png" labelPosition="node" resizeKind="NSEW" width="13" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -172,7 +172,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="AutomatedActivityContainer" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.AutomatedActivity" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/automatic.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/org.proxima.modeling/icons/automatic.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
@@ -181,7 +181,7 @@
           </style>
         </containerMappings>
         <containerMappings name="ManualActivityContainer" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.ManualActivity" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/manual.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="3" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" iconPath="/org.proxima.modeling/icons/manual.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="3" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -189,7 +189,7 @@
           </style>
         </containerMappings>
         <containerMappings name="CompoundActivityContainer" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" doubleClickDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='DoubleClickCompoundActivity']" domainClass="pm.CompoundActivity" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/compound2.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/org.proxima.modeling/icons/compound2.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -198,7 +198,7 @@
           </style>
         </containerMappings>
         <toolSections name="Process">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createInitNode" label="Initial" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/init.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createInitNode" label="Initial" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode']" iconPath="/org.proxima.modeling/icons/init.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -207,7 +207,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFinalNode" label="Final" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='FinalNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/final.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFinalNode" label="Final" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='FinalNode']" iconPath="/org.proxima.modeling/icons/final.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -216,7 +216,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createDecisionNode" label="Decision" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/decision.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createDecisionNode" label="Decision" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode']" iconPath="/org.proxima.modeling/icons/decision.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -225,7 +225,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFork" label="Fork" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/fork-black.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFork" label="Fork" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode']" iconPath="/org.proxima.modeling/icons/fork-black.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -234,7 +234,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createJoin" label="Join" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/join-black.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createJoin" label="Join" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode']" iconPath="/org.proxima.modeling/icons/join-black.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -243,7 +243,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createObject" label="Object" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/cube.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createObject" label="Object" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" iconPath="/org.proxima.modeling/icons/cube.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -252,7 +252,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="AutomatedActivity" label="Automated Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/automatic.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="AutomatedActivity" label="Automated Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer']" iconPath="/org.proxima.modeling/icons/automatic.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -261,7 +261,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ManualActivity" label="Manual Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/manual.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ManualActivity" label="Manual Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" iconPath="/org.proxima.modeling/icons/manual.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -270,7 +270,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CompoundActivity" label="Compound Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/compound2.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CompoundActivity" label="Compound Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" iconPath="/org.proxima.modeling/icons/compound2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -279,7 +279,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createControlFlow" label="Control Flow" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createControlFlow" label="Control Flow" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']" iconPath="/org.proxima.modeling/icons/arrow.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -295,7 +295,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createObjectFlow" label="Object Flow" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ObjectFlow']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createObjectFlow" label="Object Flow" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ObjectFlow']" iconPath="/org.proxima.modeling/icons/arrow.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -440,7 +440,7 @@
       </additionalLayers>
       <additionalLayers name="FormalismLayer" label="Formalisms" reusedMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='CapabilityLink'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" reusedTools="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createFormalism'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createImplementationEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTool'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTransformation'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTransformationEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTypedByRelationship'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createCapability']">
         <toolSections name="Formalisms">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/formalism.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" iconPath="/org.proxima.modeling/icons/formalism.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -458,7 +458,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/transformation.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" iconPath="/org.proxima.modeling/icons/transformation.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -479,7 +479,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTool" label="Tool" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/tool.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTool" label="Tool" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" iconPath="/org.proxima.modeling/icons/tool.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -497,7 +497,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/capability2.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/org.proxima.modeling/icons/capability2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -515,7 +515,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -526,7 +526,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -542,7 +542,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createImplementationEdge" label="Implements" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createImplementationEdge" label="Implements" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -645,7 +645,7 @@
       </additionalLayers>
       <additionalLayers name="PropertyLayer" label="Properties">
         <nodeMappings name="PropertyNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Property">
-          <style xsi:type="style:EllipseNodeDescription" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/property2.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
+          <style xsi:type="style:EllipseNodeDescription" iconPath="/org.proxima.modeling/icons/property2.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
@@ -653,7 +653,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="AttributeNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Attribute">
-          <style xsi:type="style:SquareDescription" labelExpression="aql:self.name" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/attribute2.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
+          <style xsi:type="style:SquareDescription" labelExpression="aql:self.name" iconPath="/org.proxima.modeling/icons/attribute2.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -709,20 +709,20 @@
         </edgeMappings>
         <containerMappings name="RelationshipContainer" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Relationship" childrenPresentation="List">
           <subNodeMappings name="FormulaSubNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@toolSections.1/@ownedTools[name='EditFormula']" semanticCandidatesExpression="aql:self.formula" domainClass="properties.Formula">
-            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.definition" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/constraint.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.definition" iconPath="/org.proxima.modeling/icons/constraint.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="ToleranceSubNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@toolSections.1/@ownedTools[name='EditTolerance']" semanticCandidatesExpression="aql:self.tolerance" domainClass="properties.Tolerance">
-            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.value" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/tolerance.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.value" iconPath="/org.proxima.modeling/icons/tolerance.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:if (self.name.size()=0) then (self.precision.toString()) else (self.name.concat(' : ').concat(self.precision.toString())) endif" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/rel.png" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:if (self.name.size()=0) then (self.precision.toString()) else (self.name.concat(' : ').concat(self.precision.toString())) endif" iconPath="/org.proxima.modeling/icons/rel.png" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
@@ -731,7 +731,7 @@
           </style>
         </containerMappings>
         <toolSections name="Properties">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createAttribute" label="Attribute" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/attribute2.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createAttribute" label="Attribute" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']" iconPath="/org.proxima.modeling/icons/attribute2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -748,7 +748,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CreateRelationshipContainer" label="Relationship" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/rel.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CreateRelationshipContainer" label="Relationship" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']" iconPath="/org.proxima.modeling/icons/rel.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -764,7 +764,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateFormula" label="Formula" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='FormulaSubNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/constraint.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateFormula" label="Formula" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='FormulaSubNode']" iconPath="/org.proxima.modeling/icons/constraint.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -776,7 +776,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateTolerance" label="Tolerance" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='ToleranceSubNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/tolerance.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateTolerance" label="Tolerance" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='ToleranceSubNode']" iconPath="/org.proxima.modeling/icons/tolerance.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -788,7 +788,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createProperty" label="Property" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/property2.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createProperty" label="Property" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" iconPath="/org.proxima.modeling/icons/property2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -804,7 +804,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createIntentEdge" label="Intent" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow-red.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createIntentEdge" label="Intent" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']" iconPath="/org.proxima.modeling/icons/arrow-red.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -819,7 +819,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createUndirectedRelationshipLink" label="Relationship link" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/edge-red2.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createUndirectedRelationshipLink" label="Relationship link" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']" iconPath="/org.proxima.modeling/icons/edge-red2.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -863,7 +863,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createRefinementLink" label="Property refinement" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RefinementEdge']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow-red.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createRefinementLink" label="Property refinement" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RefinementEdge']" iconPath="/org.proxima.modeling/icons/arrow-red.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -898,28 +898,28 @@
     <ownedRepresentations xsi:type="description_2:DiagramDescription" name="FTG" domainClass="processmodel.ProcessModel" enablePopupBars="true">
       <defaultLayer name="Default">
         <nodeMappings name="FormalismNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Formalism">
-          <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/org.proxima.modeling/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="TransformationNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Transformation">
-          <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/org.proxima.modeling/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="ToolNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Tool">
-          <style xsi:type="style:SquareDescription" showIcon="false" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/tool.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
+          <style xsi:type="style:SquareDescription" showIcon="false" iconPath="/org.proxima.modeling/icons/tool.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="CapabilityNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Capability">
-          <style xsi:type="style:SquareDescription" labelExpression="aql:self.name" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/capability2.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
+          <style xsi:type="style:SquareDescription" labelExpression="aql:self.name" iconPath="/org.proxima.modeling/icons/capability2.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -966,7 +966,7 @@
           </style>
         </edgeMappings>
         <toolSections name="Formalisms">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/formalism.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" iconPath="/org.proxima.modeling/icons/formalism.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -982,7 +982,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/transformation.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" iconPath="/org.proxima.modeling/icons/transformation.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1001,7 +1001,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTool" label="Tool" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/tool.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTool" label="Tool" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" iconPath="/org.proxima.modeling/icons/tool.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1017,7 +1017,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/capability2.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/org.proxima.modeling/icons/capability2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1033,7 +1033,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1044,7 +1044,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1060,7 +1060,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createImplementationEdge" label="Implements" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createImplementationEdge" label="Implements" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1229,7 +1229,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/resource.png" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" iconPath="/org.proxima.modeling/icons/resource.png" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
@@ -1253,7 +1253,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Resource" label="Resource" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/resource.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Resource" label="Resource" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']" iconPath="/org.proxima.modeling/icons/resource.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1269,7 +1269,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createResourceTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@edgeMappings[name='ResourceTypeLink']" iconPath="/be.uantwerpen.msdl.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createResourceTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@edgeMappings[name='ResourceTypeLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>

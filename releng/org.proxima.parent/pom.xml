@@ -21,7 +21,7 @@
     <modules>
         <module>../../plugins/be.uantwerpen.msdl.proxima.metamodels</module>
         <module>../../plugins/be.uantwerpen.msdl.proxima.commons.bl</module>
-        <module>../../plugins/be.uantwerpen.msdl.proxima.modeling</module>
+        <module>../../plugins/org.proxima.modeling</module>
     </modules>
     
     <build>

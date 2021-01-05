@@ -9,7 +9,7 @@
  *    Istvan David - initial API and implementation
  *******************************************************************************/
 
-package be.uantwerpen.msdl.proxima.modeling.internal;
+package org.proxima.modeling.internal;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,7 +24,7 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator extends AbstractUIPlugin {
     // The plug-in ID
-    public static final String PLUGIN_ID = "be.uantwerpen.msdl.proxima.modeling";
+    public static final String PLUGIN_ID = "org.proxima.modeling";
 
     // The shared instance
     private static Activator plugin;

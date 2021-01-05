@@ -9,7 +9,7 @@
  *    Istvan David - initial API and implementation
  *******************************************************************************/
 
-package be.uantwerpen.msdl.proxima.modeling.services
+package org.proxima.modeling.services
 
 import be.uantwerpen.msdl.proxima.processmodel.ProcessModel
 import be.uantwerpen.msdl.proxima.processmodel.base.Identifiable

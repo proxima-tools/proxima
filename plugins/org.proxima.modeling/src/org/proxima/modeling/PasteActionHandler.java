@@ -1,4 +1,4 @@
-package be.uantwerpen.msdl.proxima.modeling;
+package org.proxima.modeling;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package org.proxima.modeling.services.tests.validation
 
-import be.uantwerpen.msdl.proxima.modeling.services.Validation
+import org.proxima.modeling.services.Validation
 import org.junit.Rule
 import org.junit.rules.ExternalResource
 

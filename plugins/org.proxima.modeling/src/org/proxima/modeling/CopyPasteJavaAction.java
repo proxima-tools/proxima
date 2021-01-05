@@ -1,4 +1,4 @@
-package be.uantwerpen.msdl.proxima.modeling;
+package org.proxima.modeling;
 
 import java.util.Collection;
 import java.util.Map;
@@ -11,8 +11,8 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.ui.tools.internal.clipboard.SiriusClipboardManager;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
+import org.proxima.modeling.services.Services;
 
-import be.uantwerpen.msdl.proxima.modeling.services.Services;
 import be.uantwerpen.msdl.proxima.processmodel.pm.ControlFlow;
 import be.uantwerpen.msdl.proxima.processmodel.pm.Node;
 import be.uantwerpen.msdl.proxima.processmodel.pm.ObjectFlow;

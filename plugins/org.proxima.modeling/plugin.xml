@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?eclipse version="3.0"?><plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="org.proxima.modeling.internal.Activator" id="org.proxima.modeling" name="process"/>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="org.proxima.modeling.CopyPasteJavaAction"
+           id="org.proxima.modeling.copyPasteJavaAction">
+     </javaActions>
+  </extension>
+</plugin>

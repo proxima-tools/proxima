@@ -1,6 +1,6 @@
 package org.proxima.modeling.services.tests.validation
 
-import be.uantwerpen.msdl.proxima.modeling.services.Validation
+import org.proxima.modeling.services.Validation
 import be.uantwerpen.msdl.proxima.processmodel.pm.PmFactory
 import org.junit.After
 import org.junit.Before

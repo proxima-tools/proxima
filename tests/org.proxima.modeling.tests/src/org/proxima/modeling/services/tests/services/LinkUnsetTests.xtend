@@ -1,6 +1,6 @@
 package org.proxima.modeling.services.tests.services
 
-import be.uantwerpen.msdl.proxima.modeling.services.Services
+import org.proxima.modeling.services.Services
 import be.uantwerpen.msdl.proxima.processmodel.ftg.Formalism
 import be.uantwerpen.msdl.proxima.processmodel.ftg.FtgFactory
 import be.uantwerpen.msdl.proxima.processmodel.ftg.Tool
