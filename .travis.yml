@@ -1,3 +1,4 @@
 language: java
-install: true
-script: ./mvn clean package install
+script:    
+  - cd releng/be.uantwerpen.msdl.proxima.parent
+  - mvn clean verify
