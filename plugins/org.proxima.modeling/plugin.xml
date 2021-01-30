@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><?eclipse version="3.0"?><plugin>
   <extension point="org.eclipse.sirius.componentization">
-    <component class="org.proxima.modeling.internal.Activator" id="org.proxima.modeling" name="process"/>
+    <component class="org.proxima.modeling.internal.Activator" id="org.proxima.modeling" name="proxima"/>
   </extension>
   <extension
         point="org.eclipse.sirius.externalJavaAction">

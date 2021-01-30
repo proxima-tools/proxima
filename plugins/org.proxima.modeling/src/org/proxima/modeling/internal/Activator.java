@@ -47,7 +47,7 @@ public class Activator extends AbstractUIPlugin {
         plugin = this;
         viewpoints = new HashSet<Viewpoint>();
         viewpoints
-                .addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/process.odesign"));
+                .addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/proxima.odesign"));
     }
 
     /*

@@ -4,7 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ProximaModel" eSuperTypes="#//base/NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ftg" lowerBound="1" eType="#//ftg/FormalismTransformationGraph"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="process" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processModel" upperBound="-1"
         eType="#//pm/ProcessModel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyModel" eType="#//properties/PropertyModel"
         containment="true"/>

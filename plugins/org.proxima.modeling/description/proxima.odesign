@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="process" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="proxima" version="12.0.0.2017041100">
   <ownedViewpoints name="ProximaViewpoint" label="PROxIMA" modelFileExtension="proxima">
     <validationSet name="Validation">
       <ownedRules xsi:type="validation:SemanticValidationRule" name="UnnamedFormalism" level="ERROR" message="The formalism has no name." targetClass="ftg.Formalism">
@@ -82,7 +82,7 @@
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultStyle>
-        <subItemMappings name="ProcessNode" domainClass="pm.ProcessModel" semanticCandidatesExpression="feature:process">
+        <subItemMappings name="ProcessNode" domainClass="pm.ProcessModel" semanticCandidatesExpression="feature:processModel">
           <defaultStyle>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -90,7 +90,7 @@
         </subItemMappings>
       </subItemMappings>
       <createTreeItem name="CreateProcessModelNode" label="Create new Process Model" mapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessesTree']/@subItemMappings[name='RootNode']/@subItemMappings[name='ProcessNode']">
-        <firstModelOperation xsi:type="tool:CreateInstance" typeName="pm.ProcessModel" referenceName="process">
+        <firstModelOperation xsi:type="tool:CreateInstance" typeName="pm.ProcessModel" referenceName="processModel">
           <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
         </firstModelOperation>
         <variables name="root" documentation="The semantic element of the tree."/>
@@ -1162,7 +1162,7 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ActvityTypingTable" domainClass="proxima.ProximaModel">
-      <ownedLineMappings name="ActivityLine" domainClass="pm.AtomicActivity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.eContainer().name.concat('.').concat(self.name)"/>
+      <ownedLineMappings name="ActivityLine" domainClass="pm.AtomicActivity" semanticCandidatesExpression="aql:self.processModel.node" headerLabelExpression="aql:self.eContainer().name.concat('.').concat(self.name)"/>
       <ownedColumnMappings name="TransformationColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Transformation" semanticCandidatesExpression="aql:self.ftg.transformation"/>
       <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
         <defaultForeground>
@@ -1183,7 +1183,7 @@
       </intersection>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ObjectTypingTable" domainClass="proxima.ProximaModel">
-      <ownedLineMappings name="ObjectLine" domainClass="pm.Object" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.eContainer().name.concat('.').concat(self.name)"/>
+      <ownedLineMappings name="ObjectLine" domainClass="pm.Object" semanticCandidatesExpression="aql:self.processModel.node" headerLabelExpression="aql:self.eContainer().name.concat('.').concat(self.name)"/>
       <ownedColumnMappings name="FormalismColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Formalism" semanticCandidatesExpression="aql:self.ftg.formalism"/>
       <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedLineMappings[name='ObjectLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
         <defaultForeground>
@@ -1324,7 +1324,7 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="AliasModelOverview" label="Alias-Model overview" domainClass="proxima.ProximaModel">
       <ownedLineMappings name="AttributeLine" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.propertyModel.attribute" headerLabelExpression="aql:self.name"/>
-      <ownedColumnMappings name="ObjectColumn" headerLabelExpression="aql:self.name" domainClass="pm.Object" semanticCandidatesExpression="aql:self.process.node"/>
+      <ownedColumnMappings name="ObjectColumn" headerLabelExpression="aql:self.name" domainClass="pm.Object" semanticCandidatesExpression="aql:self.processModel.node"/>
       <intersection name="Alias" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0" labelExpression="service:getAlias(columnSemantic)" columnFinderExpression="service:getAliases">
         <defaultForeground>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1593,7 +1593,7 @@
       </intersection>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ResourceDemandTable" label="Resource Demand Table" domainClass="proxima.ProximaModel">
-      <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
+      <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.processModel.node" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="ResourceTypeColumn" headerLabelExpression="aql:self.name" domainClass="resources.ResourceType"/>
       <intersection name="Demand" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourceDemandTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourceDemandTable']/@ownedColumnMappings.0" labelExpression="aql:(self.demand -> select(d | d.resourceType == columnSemantic)).amount->at(1)" columnFinderExpression="aql:self.demand.resourceType">
         <directEdit>
@@ -1640,7 +1640,7 @@
       </intersection>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ResourceAllocationTable" label="Resource Allocation Table" domainClass="proxima.ProximaModel">
-      <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
+      <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.processModel.node" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="ResourceColumn" headerLabelExpression="aql:self.name" domainClass="resources.Resource"/>
       <intersection name="Allocation" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourceAllocationTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourceAllocationTable']/@ownedColumnMappings.0" labelExpression="aql:(self.allocation -> select(a | a.resource == columnSemantic)).amount->at(1)" columnFinderExpression="aql:self.allocation.resource">
         <defaultForeground>
@@ -1861,7 +1861,7 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:SelectDescription" name="SelectObject" labelExpression="Select object/model" helpExpression="This property is currently not supported." isEnabledExpression="aql:false" valueExpression="aql:self.attributedefinition.object" candidatesExpression="aql:self.eContainer().eContainer().process.node ->filter(pm::Object)" candidateDisplayExpression="aql:candidate.name.concat(' : ').concat(candidate.typedBy.name)">
+        <controls xsi:type="properties:SelectDescription" name="SelectObject" labelExpression="Select object/model" helpExpression="This property is currently not supported." isEnabledExpression="aql:false" valueExpression="aql:self.attributedefinition.object" candidatesExpression="aql:self.eContainer().eContainer().processModel.node ->filter(pm::Object)" candidateDisplayExpression="aql:candidate.name.concat(' : ').concat(candidate.typedBy.name)">
           <initialOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.attributedefinition">

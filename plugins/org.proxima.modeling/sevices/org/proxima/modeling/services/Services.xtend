@@ -81,7 +81,7 @@ class Services {
 ////////////////CURRENTLY NOT USED////////////////
 
 	public def calculatePerformance(ProximaModel proximaModel) {
-		proximaModel.process.head
+		proximaModel.processModel.head
 
 		0.0
 	}
@@ -139,7 +139,7 @@ class Services {
 
 		var List<Object> aliasObjects = Lists::newArrayList
 
-		val objects = (attribute.eContainer.eContainer as ProximaModel).process.head.node.filter[n|n instanceof Object].
+		val objects = (attribute.eContainer.eContainer as ProximaModel).processModel.head.node.filter[n|n instanceof Object].
 			map[n|n as Object]
 
 		for (alias : aliases) {

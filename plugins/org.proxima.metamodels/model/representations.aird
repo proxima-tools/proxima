@@ -693,7 +693,7 @@
     <semanticResources>java:/Objects/org.eclipse.emf.mwe.core.container.WorkflowConditional</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_bwGaMFojEea6VL_6AJL-SA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_j1HZAB6xEeewEruDl3xWqw" name="top level" repPath="#_osDTQFojEea6VL_6AJL-SA" changeId="526657a7-196b-4804-88f6-371655a14e9f">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_j1HZAB6xEeewEruDl3xWqw" name="top level" repPath="#_osDTQFojEea6VL_6AJL-SA" changeId="5c6d62ef-42b2-40d0-be15-9d2549c9b11f">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="processmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1219,9 +1219,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_svEcwFojEea6VL_6AJL-SA" name="[0..*] process" sourceNode="_pqf4gFojEea6VL_6AJL-SA" targetNode="_su2aUFojEea6VL_6AJL-SA">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/process"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/process"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_svEcwFojEea6VL_6AJL-SA" name="[0..*] processModel" sourceNode="_pqf4gFojEea6VL_6AJL-SA" targetNode="_su2aUFojEea6VL_6AJL-SA">
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/processModel"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/processModel"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_svFq41ojEea6VL_6AJL-SA" description="_svFq4FojEea6VL_6AJL-SA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_svFq5FojEea6VL_6AJL-SA" showIcon="false">
           <customFeatures>labelSize</customFeatures>

@@ -11,7 +11,7 @@
       ecorePackage="processmodel.ecore#/" publicationLocation="">
     <genClasses ecoreClass="processmodel.ecore#//ProximaModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/ftg"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/process"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/processModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/propertyModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/resourceModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/costModel"/>

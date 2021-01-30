@@ -86,7 +86,7 @@ class ValidationTopologyTests {
 
 	@Test
 	def void testInitNodeExists() {
-		val process = PmFactory.eINSTANCE.createProcess
+		val process = PmFactory.eINSTANCE.createProcessModel
 
 		assertFalse(validation.initNodeExists(process))
 
@@ -97,7 +97,7 @@ class ValidationTopologyTests {
 
 	@Test
 	def void testFinalNodeExists() {
-		val process = PmFactory.eINSTANCE.createProcess
+		val process = PmFactory.eINSTANCE.createProcessModel
 
 		assertFalse(validation.finalNodeExists(process))
 
@@ -108,7 +108,7 @@ class ValidationTopologyTests {
 
 	@Test
 	def void testProcessHasActivities() {
-		val process = PmFactory.eINSTANCE.createProcess
+		val process = PmFactory.eINSTANCE.createProcessModel
 
 		assertFalse(validation.processHasActivities(process))
 
