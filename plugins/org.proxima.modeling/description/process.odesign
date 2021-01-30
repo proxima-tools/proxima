@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="process" version="12.0.0.2017041100">
-  <ownedViewpoints name="ProcessViewpoint" label="Process Modeling" modelFileExtension="processmodel">
+  <ownedViewpoints name="ProximaViewpoint" label="PROxIMA" modelFileExtension="proxima">
     <validationSet name="Validation">
       <ownedRules xsi:type="validation:SemanticValidationRule" name="UnnamedFormalism" level="ERROR" message="The formalism has no name." targetClass="ftg.Formalism">
         <audits auditExpression="service:formalismRequiresName()"/>
@@ -75,8 +75,8 @@
         <audits auditExpression="service:consistentScriptExtension()"/>
       </ownedRules>
     </validationSet>
-    <ownedRepresentations xsi:type="description_1:TreeDescription" name="ProcessesTree" domainClass="processmodel::ProximaModel">
-      <subItemMappings name="RootNode" domainClass="processmodel::ProximaModel" semanticCandidatesExpression="var:self">
+    <ownedRepresentations xsi:type="description_1:TreeDescription" name="ProcessesTree" domainClass="proxima::ProximaModel">
+      <subItemMappings name="RootNode" domainClass="proxima::ProximaModel" semanticCandidatesExpression="var:self">
         <defaultStyle labelExpression="root">
           <labelFormat>italic</labelFormat>
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -89,7 +89,7 @@
           </defaultStyle>
         </subItemMappings>
       </subItemMappings>
-      <createTreeItem name="CreateProcessNode" label="Create new Process" mapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessesTree']/@subItemMappings[name='RootNode']/@subItemMappings[name='ProcessNode']">
+      <createTreeItem name="CreateProcessNode" label="Create new Process" mapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessesTree']/@subItemMappings[name='RootNode']/@subItemMappings[name='ProcessNode']">
         <firstModelOperation xsi:type="tool:CreateInstance" typeName="pm.Process" referenceName="process">
           <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
         </firstModelOperation>
@@ -98,7 +98,7 @@
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
       </createTreeItem>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ProcessView" pasteDescriptions="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='ActivityPaste']" domainClass="pm.Process" rootExpression="var:self" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ProcessView" pasteDescriptions="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='ActivityPaste']" domainClass="pm.Process" rootExpression="var:self" enablePopupBars="true">
       <defaultLayer name="Default">
         <toolSections name="GenericTools">
           <ownedTools xsi:type="tool_1:DirectEditLabel" name="EditNamedElementName">
@@ -112,20 +112,20 @@
         </toolSections>
       </defaultLayer>
       <additionalLayers name="ProcessLayer" label="Process" activeByDefault="true">
-        <nodeMappings name="InitNode" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='EditInitNodeName']" semanticCandidatesExpression="feature:node" domainClass="pm.Initial">
+        <nodeMappings name="InitNode" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='EditInitNodeName']" semanticCandidatesExpression="feature:node" domainClass="pm.Initial">
           <style xsi:type="style:DotDescription" showIcon="false" labelExpression="aql:self.eContainer().name" sizeComputationExpression="2">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="FinalNode" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" semanticCandidatesExpression="feature:node" domainClass="pm.FlowFinal">
+        <nodeMappings name="FinalNode" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" semanticCandidatesExpression="feature:node" domainClass="pm.FlowFinal">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="final" hideLabelByDefault="true" workspacePath="/org.proxima.modeling/icons/activity-final-2.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ForkNode" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" semanticCandidatesExpression="feature:node" domainClass="pm.Fork">
+        <nodeMappings name="ForkNode" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" semanticCandidatesExpression="feature:node" domainClass="pm.Fork">
           <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="fork" tooltipExpression="Fork" sizeComputationExpression="1" width="7" height="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>italic</labelFormat>
@@ -133,7 +133,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="JoinNode" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" semanticCandidatesExpression="feature:node" domainClass="pm.Join">
+        <nodeMappings name="JoinNode" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" semanticCandidatesExpression="feature:node" domainClass="pm.Join">
           <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="join" tooltipExpression="Join" sizeComputationExpression="1" width="7" height="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>italic</labelFormat>
@@ -141,21 +141,21 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="DecisionNode" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.Decision">
+        <nodeMappings name="DecisionNode" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.Decision">
           <style xsi:type="style:LozengeNodeDescription" showIcon="false" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ObjectNode" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.Object">
+        <nodeMappings name="ObjectNode" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.Object">
           <style xsi:type="style:SquareDescription" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/org.proxima.modeling/icons/cube.png" labelPosition="node" resizeKind="NSEW" width="13" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="ControlFlow" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:controlFlow" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='FinalNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ControlFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectControlFlowTarget'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectControlFlowSource']">
+        <edgeMappings name="ControlFlow" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:controlFlow" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='FinalNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ControlFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectControlFlowTarget'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectControlFlowSource']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
@@ -163,7 +163,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ObjectFlow" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:objectFlow" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ObjectFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectObjectFlowSource'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectObjectFlowTarget']">
+        <edgeMappings name="ObjectFlow" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:objectFlow" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="pm.ObjectFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectObjectFlowSource'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='reconnectObjectFlowTarget']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
@@ -171,7 +171,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="AutomatedActivityContainer" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.AutomatedActivity" childrenPresentation="List">
+        <containerMappings name="AutomatedActivityContainer" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.AutomatedActivity" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/org.proxima.modeling/icons/automatic.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -180,7 +180,7 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
           </style>
         </containerMappings>
-        <containerMappings name="ManualActivityContainer" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.ManualActivity" childrenPresentation="List">
+        <containerMappings name="ManualActivityContainer" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" domainClass="pm.ManualActivity" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" iconPath="/org.proxima.modeling/icons/manual.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="3" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -188,7 +188,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="CompoundActivityContainer" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" doubleClickDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='DoubleClickCompoundActivity']" domainClass="pm.CompoundActivity" childrenPresentation="List">
+        <containerMappings name="CompoundActivityContainer" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='cascadeDeleteControlAndObjectFlowsOnNodeDeletion']" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" semanticCandidatesExpression="feature:node" doubleClickDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='DoubleClickCompoundActivity']" domainClass="pm.CompoundActivity" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" labelExpression="aql:if (self.typedBy=null) then (self.name) else (self.name.concat(' : ').concat(self.typedBy.name)) endif" iconPath="/org.proxima.modeling/icons/compound2.png" roundedCorner="true" widthComputationExpression="13" heightComputationExpression="4" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -198,7 +198,7 @@
           </style>
         </containerMappings>
         <toolSections name="Process">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createInitNode" label="Initial" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode']" iconPath="/org.proxima.modeling/icons/init.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createInitNode" label="Initial" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode']" iconPath="/org.proxima.modeling/icons/init.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -207,7 +207,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFinalNode" label="Final" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='FinalNode']" iconPath="/org.proxima.modeling/icons/final.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFinalNode" label="Final" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='FinalNode']" iconPath="/org.proxima.modeling/icons/final.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -216,7 +216,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createDecisionNode" label="Decision" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode']" iconPath="/org.proxima.modeling/icons/decision.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createDecisionNode" label="Decision" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='DecisionNode']" iconPath="/org.proxima.modeling/icons/decision.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -225,7 +225,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFork" label="Fork" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode']" iconPath="/org.proxima.modeling/icons/fork-black.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFork" label="Fork" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ForkNode']" iconPath="/org.proxima.modeling/icons/fork-black.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -234,7 +234,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createJoin" label="Join" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode']" iconPath="/org.proxima.modeling/icons/join-black.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createJoin" label="Join" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='JoinNode']" iconPath="/org.proxima.modeling/icons/join-black.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -243,7 +243,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createObject" label="Object" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" iconPath="/org.proxima.modeling/icons/cube.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createObject" label="Object" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode']" iconPath="/org.proxima.modeling/icons/cube.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -252,7 +252,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="AutomatedActivity" label="Automated Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer']" iconPath="/org.proxima.modeling/icons/automatic.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="AutomatedActivity" label="Automated Activity" containerMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer']" iconPath="/org.proxima.modeling/icons/automatic.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -261,7 +261,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ManualActivity" label="Manual Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" iconPath="/org.proxima.modeling/icons/manual.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ManualActivity" label="Manual Activity" containerMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" iconPath="/org.proxima.modeling/icons/manual.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -270,7 +270,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CompoundActivity" label="Compound Activity" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" iconPath="/org.proxima.modeling/icons/compound2.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CompoundActivity" label="Compound Activity" containerMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']" iconPath="/org.proxima.modeling/icons/compound2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -279,7 +279,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createControlFlow" label="Control Flow" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']" iconPath="/org.proxima.modeling/icons/arrow.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createControlFlow" label="Control Flow" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']" iconPath="/org.proxima.modeling/icons/arrow.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -295,7 +295,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createObjectFlow" label="Object Flow" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ObjectFlow']" iconPath="/org.proxima.modeling/icons/arrow.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createObjectFlow" label="Object Flow" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ObjectFlow']" iconPath="/org.proxima.modeling/icons/arrow.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -349,12 +349,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="DoubleClickCompoundActivity" precondition="aql:self.typedBy!=null" elementsToSelect="aql:self.typedBy" mappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']">
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="DoubleClickCompoundActivity" precondition="aql:self.typedBy!=null" elementsToSelect="aql:self.typedBy" mappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='CompoundActivityContainer']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.typedBy">
-                <subModelOperations xsi:type="tool_1:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']"/>
+                <subModelOperations xsi:type="tool_1:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -433,14 +433,14 @@
             <copiedView name="copiedView"/>
             <copiedElement name="copiedElement"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="PasteJavaCall" action="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='CopyPasteJavaAction']"/>
+              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="PasteJavaCall" action="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='CopyPasteJavaAction']"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
       </additionalLayers>
-      <additionalLayers name="FormalismLayer" label="Formalisms" reusedMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='CapabilityLink'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" reusedTools="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createFormalism'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createImplementationEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTool'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTransformation'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTransformationEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTypedByRelationship'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createCapability']">
+      <additionalLayers name="FormalismLayer" label="Formalisms" reusedMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='CapabilityLink'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" reusedTools="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createFormalism'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createImplementationEdge'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTool'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTransformation'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTransformationEdge'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createTypedByRelationship'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='createCapability']">
         <toolSections name="Formalisms">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" iconPath="/org.proxima.modeling/icons/formalism.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" iconPath="/org.proxima.modeling/icons/formalism.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -458,7 +458,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" iconPath="/org.proxima.modeling/icons/transformation.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" iconPath="/org.proxima.modeling/icons/transformation.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -479,7 +479,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTool" label="Tool" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" iconPath="/org.proxima.modeling/icons/tool.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTool" label="Tool" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" iconPath="/org.proxima.modeling/icons/tool.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -497,7 +497,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/org.proxima.modeling/icons/capability2.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/org.proxima.modeling/icons/capability2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -515,7 +515,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -526,7 +526,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -542,7 +542,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createImplementationEdge" label="Implements" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createImplementationEdge" label="Implements" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -644,7 +644,7 @@
         </toolSections>
       </additionalLayers>
       <additionalLayers name="PropertyLayer" label="Properties">
-        <nodeMappings name="PropertyNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Property">
+        <nodeMappings name="PropertyNode" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Property">
           <style xsi:type="style:EllipseNodeDescription" iconPath="/org.proxima.modeling/icons/property2.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelFormat>bold</labelFormat>
@@ -652,14 +652,14 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="AttributeNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Attribute">
+        <nodeMappings name="AttributeNode" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Attribute">
           <style xsi:type="style:SquareDescription" labelExpression="aql:self.name" iconPath="/org.proxima.modeling/icons/attribute2.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="IntentEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']" targetFinderExpression="feature:subject" sourceFinderExpression="feature:activity" domainClass="properties.Intent" useDomainElement="true">
+        <edgeMappings name="IntentEdge" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']" targetFinderExpression="feature:subject" sourceFinderExpression="feature:activity" domainClass="properties.Intent" useDomainElement="true">
           <style lineStyle="dash" targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="aql:if(self.object=null) then (self.type.toString().toLower()) else (self.type.toString().toLower().concat('(').concat(self.object.name).concat(')')) endif">
@@ -667,7 +667,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="RelationshipEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" targetFinderExpression="feature:subject" sourceFinderExpression="feature:eContainer" domainClass="properties.RelationshipLink" useDomainElement="true">
+        <edgeMappings name="RelationshipEdge" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" targetFinderExpression="feature:subject" sourceFinderExpression="feature:eContainer" domainClass="properties.RelationshipLink" useDomainElement="true">
           <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription>
@@ -699,7 +699,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="RefinementEdge" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="aql:self.refines">
+        <edgeMappings name="RefinementEdge" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" targetFinderExpression="aql:self.refines">
           <style lineStyle="dot" sourceArrow="Diamond" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«refinedInto»">
@@ -707,15 +707,15 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="RelationshipContainer" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Relationship" childrenPresentation="List">
-          <subNodeMappings name="FormulaSubNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@toolSections.1/@ownedTools[name='EditFormula']" semanticCandidatesExpression="aql:self.formula" domainClass="properties.Formula">
+        <containerMappings name="RelationshipContainer" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Relationship" childrenPresentation="List">
+          <subNodeMappings name="FormulaSubNode" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@toolSections.1/@ownedTools[name='EditFormula']" semanticCandidatesExpression="aql:self.formula" domainClass="properties.Formula">
             <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.definition" iconPath="/org.proxima.modeling/icons/constraint.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="ToleranceSubNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@toolSections.1/@ownedTools[name='EditTolerance']" semanticCandidatesExpression="aql:self.tolerance" domainClass="properties.Tolerance">
+          <subNodeMappings name="ToleranceSubNode" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@toolSections.1/@ownedTools[name='EditTolerance']" semanticCandidatesExpression="aql:self.tolerance" domainClass="properties.Tolerance">
             <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:self.value" iconPath="/org.proxima.modeling/icons/tolerance.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -731,7 +731,7 @@
           </style>
         </containerMappings>
         <toolSections name="Properties">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createAttribute" label="Attribute" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']" iconPath="/org.proxima.modeling/icons/attribute2.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createAttribute" label="Attribute" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']" iconPath="/org.proxima.modeling/icons/attribute2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -748,7 +748,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CreateRelationshipContainer" label="Relationship" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']" iconPath="/org.proxima.modeling/icons/rel.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="CreateRelationshipContainer" label="Relationship" containerMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']" iconPath="/org.proxima.modeling/icons/rel.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -764,7 +764,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateFormula" label="Formula" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='FormulaSubNode']" iconPath="/org.proxima.modeling/icons/constraint.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateFormula" label="Formula" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='FormulaSubNode']" iconPath="/org.proxima.modeling/icons/constraint.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -776,19 +776,18 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateTolerance" label="Tolerance" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='ToleranceSubNode']" iconPath="/org.proxima.modeling/icons/tolerance.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateTolerance" label="Tolerance" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='ToleranceSubNode']" iconPath="/org.proxima.modeling/icons/tolerance.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Absolute" referenceName="tolerance">
                   <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="0.0"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createProperty" label="Property" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" iconPath="/org.proxima.modeling/icons/property2.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createProperty" label="Property" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='PropertyNode']" iconPath="/org.proxima.modeling/icons/property2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -804,7 +803,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createIntentEdge" label="Intent" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']" iconPath="/org.proxima.modeling/icons/arrow-red.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createIntentEdge" label="Intent" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']" iconPath="/org.proxima.modeling/icons/arrow-red.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -819,7 +818,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createUndirectedRelationshipLink" label="Relationship link" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']" iconPath="/org.proxima.modeling/icons/edge-red2.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createUndirectedRelationshipLink" label="Relationship link" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']" iconPath="/org.proxima.modeling/icons/edge-red2.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -863,7 +862,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createRefinementLink" label="Property refinement" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RefinementEdge']" iconPath="/org.proxima.modeling/icons/arrow-red.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createRefinementLink" label="Property refinement" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RefinementEdge']" iconPath="/org.proxima.modeling/icons/arrow-red.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -895,37 +894,37 @@
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="FTG" domainClass="processmodel.ProximaModel" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="FTG" domainClass="proxima.ProximaModel" enablePopupBars="true">
       <defaultLayer name="Default">
-        <nodeMappings name="FormalismNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Formalism">
+        <nodeMappings name="FormalismNode" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Formalism">
           <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/org.proxima.modeling/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="TransformationNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Transformation">
+        <nodeMappings name="TransformationNode" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Transformation">
           <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/org.proxima.modeling/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ToolNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Tool">
+        <nodeMappings name="ToolNode" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Tool">
           <style xsi:type="style:SquareDescription" showIcon="false" iconPath="/org.proxima.modeling/icons/tool.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="CapabilityNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Capability">
+        <nodeMappings name="CapabilityNode" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="properties.Capability">
           <style xsi:type="style:SquareDescription" labelExpression="aql:self.name" iconPath="/org.proxima.modeling/icons/capability2.png" labelPosition="node" resizeKind="NSEW" width="10" height="3">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="TransformedByEdge" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteTransformedByEdge']" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:inputOf" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectTransformedByTarget'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectTransformedByTarget']">
+        <edgeMappings name="TransformedByEdge" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteTransformedByEdge']" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:inputOf" reconnections="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectTransformedByTarget'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectTransformedByTarget']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«transformedBy»">
@@ -933,7 +932,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="TransformationToEdge" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteTransformationToEdge']" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:output" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectTransformationToTarget'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectTransformationToTarget']">
+        <edgeMappings name="TransformationToEdge" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteTransformationToEdge']" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:output" reconnections="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectTransformationToTarget'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectTransformationToTarget']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«transformationTo»">
@@ -941,7 +940,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="TypeLink" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteTypedBy']" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:typedBy" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectTypedByTarget'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectTypedByTarget']">
+        <edgeMappings name="TypeLink" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteTypedBy']" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='ObjectNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" targetFinderExpression="feature:typedBy" reconnections="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectTypedByTarget'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectTypedByTarget']">
           <style lineStyle="dash" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«typedBy»">
@@ -949,7 +948,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="CapabilityLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" targetFinderExpression="feature:capability">
+        <edgeMappings name="CapabilityLink" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" targetFinderExpression="feature:capability">
           <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false">
@@ -957,7 +956,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ImplementationLink" deletionDescription="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteToolImplementsFormalismLink']" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:implements" reconnections="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectImplementsTarget'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectImplementsTarget']">
+        <edgeMappings name="ImplementationLink" deletionDescription="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteToolImplementsFormalismLink']" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" targetFinderExpression="feature:implements" reconnections="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='FormalismLayer']/@toolSections.0/@ownedTools[name='reconnectImplementsTarget'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnectImplementsTarget']">
           <style lineStyle="dash" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«implements»">
@@ -966,7 +965,7 @@
           </style>
         </edgeMappings>
         <toolSections name="Formalisms">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" iconPath="/org.proxima.modeling/icons/formalism.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createFormalism" label="Formalism" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']" iconPath="/org.proxima.modeling/icons/formalism.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -982,7 +981,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" iconPath="/org.proxima.modeling/icons/transformation.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTransformation" label="Transformation" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']" iconPath="/org.proxima.modeling/icons/transformation.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1001,7 +1000,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTool" label="Tool" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" iconPath="/org.proxima.modeling/icons/tool.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createTool" label="Tool" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']" iconPath="/org.proxima.modeling/icons/tool.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1017,7 +1016,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/org.proxima.modeling/icons/capability2.png">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createCapability" label="Capability" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']" iconPath="/org.proxima.modeling/icons/capability2.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1033,7 +1032,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1044,7 +1043,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createTransformationEdge" label="Transformation" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge'] //@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1060,7 +1059,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createImplementationEdge" label="Implements" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createImplementationEdge" label="Implements" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1162,10 +1161,10 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ActvityTypingTable" domainClass="processmodel.ProximaModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ActvityTypingTable" domainClass="proxima.ProximaModel">
       <ownedLineMappings name="ActivityLine" domainClass="pm.AtomicActivity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.eContainer().name.concat('.').concat(self.name)"/>
       <ownedColumnMappings name="TransformationColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Transformation" semanticCandidatesExpression="aql:self.ftg.transformation"/>
-      <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
+      <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
         <defaultForeground>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
@@ -1183,10 +1182,10 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ObjectTypingTable" domainClass="processmodel.ProximaModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ObjectTypingTable" domainClass="proxima.ProximaModel">
       <ownedLineMappings name="ObjectLine" domainClass="pm.Object" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.eContainer().name.concat('.').concat(self.name)"/>
       <ownedColumnMappings name="FormalismColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Formalism" semanticCandidatesExpression="aql:self.ftg.formalism"/>
-      <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedLineMappings[name='ObjectLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
+      <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedLineMappings[name='ObjectLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
         <defaultForeground>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
@@ -1204,16 +1203,16 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ResourcesModel" label="Resource Model" domainClass="processmodel.ProximaModel">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ResourcesModel" label="Resource Model" domainClass="proxima.ProximaModel">
       <defaultLayer name="Default">
-        <nodeMappings name="ResourceTypeNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='EditInitNodeName']" domainClass="resources.ResourceType">
+        <nodeMappings name="ResourceTypeNode" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='EditInitNodeName']" domainClass="resources.ResourceType">
           <style xsi:type="style:SquareDescription" tooltipExpression="aql:self.name" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="ResourceTypeLink" sourceMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']" targetMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@nodeMappings[name='ResourceTypeNode']" targetFinderExpression="feature:typedBy">
+        <edgeMappings name="ResourceTypeLink" sourceMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']" targetMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@nodeMappings[name='ResourceTypeNode']" targetFinderExpression="feature:typedBy">
           <style lineStyle="dash" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="«typedBy»">
@@ -1221,7 +1220,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="ResourceContainer" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="resources.Resource" dropDescriptions="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@toolSections.0/@ownedTools[name='DropAllocationConstraint']" childrenPresentation="List">
+        <containerMappings name="ResourceContainer" labelDirectEdit="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="resources.Resource" dropDescriptions="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@toolSections.0/@ownedTools[name='DropAllocationConstraint']" childrenPresentation="List">
           <subNodeMappings name="AvailabilitySubNode" semanticCandidatesExpression="aql:self" domainClass="resources.Resource">
             <style xsi:type="style:SquareDescription" borderLineStyle="dot" labelExpression="aql:'availability: '+self.availability" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1237,7 +1236,7 @@
           </style>
         </containerMappings>
         <toolSections name="Resources">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createResourceType" label="ResourceType" nodeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@nodeMappings[name='ResourceTypeNode']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="createResourceType" label="ResourceType" nodeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@nodeMappings[name='ResourceTypeNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1253,7 +1252,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Resource" label="Resource" containerMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']" iconPath="/org.proxima.modeling/icons/resource.png">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Resource" label="Resource" containerMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']" iconPath="/org.proxima.modeling/icons/resource.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1269,7 +1268,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createResourceTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@edgeMappings[name='ResourceTypeLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="createResourceTypedByRelationship" label="Typed by" edgeMappings="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@edgeMappings[name='ResourceTypeLink']" iconPath="/org.proxima.modeling/icons/arrow-blue.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -1302,10 +1301,10 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="AttributeTypingTable" domainClass="processmodel.ProximaModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="AttributeTypingTable" domainClass="proxima.ProximaModel">
       <ownedLineMappings name="AttributeLine" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.propertyModel.attribute" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="CapabilityColumn" headerLabelExpression="aql:self.name" domainClass="properties.Capability" semanticCandidatesExpression="aql:self.propertyModel.capability"/>
-      <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AttributeTypingTable']/@ownedLineMappings[name='AttributeLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AttributeTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
+      <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='AttributeTypingTable']/@ownedLineMappings[name='AttributeLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='AttributeTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
         <defaultForeground>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
@@ -1323,10 +1322,10 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="AliasModelOverview" label="Alias-Model overview" domainClass="processmodel.ProximaModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="AliasModelOverview" label="Alias-Model overview" domainClass="proxima.ProximaModel">
       <ownedLineMappings name="AttributeLine" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.propertyModel.attribute" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="ObjectColumn" headerLabelExpression="aql:self.name" domainClass="pm.Object" semanticCandidatesExpression="aql:self.process.node"/>
-      <intersection name="Alias" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0" labelExpression="service:getAlias(columnSemantic)" columnFinderExpression="service:getAliases">
+      <intersection name="Alias" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0" labelExpression="service:getAlias(columnSemantic)" columnFinderExpression="service:getAliases">
         <defaultForeground>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
@@ -1344,14 +1343,14 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:EditionTableDescription" name="AliasEditor" label="Alias Editor" domainClass="processmodel.ProximaModel">
+    <ownedRepresentations xsi:type="description_3:EditionTableDescription" name="AliasEditor" label="Alias Editor" domainClass="proxima.ProximaModel">
       <ownedLineMappings name="AttributeLine" label="Attribute" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.propertyModel.attribute" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="AliasFeature" headerLabelExpression="Alias list (Format: modelName1: alias1; modelName2: alias2; ...)" featureName="aliases"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ConstraintsTable" domainClass="processmodel.ProximaModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ConstraintsTable" domainClass="proxima.ProximaModel">
       <ownedLineMappings name="ConstraintsLine" domainClass="properties.Relationship" semanticCandidatesExpression="aql:self.propertyModel.relationship ->  select(r | r.precision==properties::Precision::L3)" headerLabelExpression="aql:if(self.name!=null and self.name.size()>0) then self.name+': '+self.formula.definition else self.formula.definition endif"/>
       <ownedColumnMappings name="SubjectColumn" headerLabelExpression="aql:self.name" domainClass="properties.RelationshipSubject" semanticCandidatesExpression="aql:self.propertyModel.attribute -> union(self.propertyModel.capability) -> union(self.propertyModel.property)"/>
-      <intersection name="Constrains" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ConstraintsTable']/@ownedLineMappings[name='ConstraintsLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ConstraintsTable']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="aql:self.subject" lineFinderExpression="aql:self.eContainer()" domainClass="properties.RelationshipLink">
+      <intersection name="Constrains" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ConstraintsTable']/@ownedLineMappings[name='ConstraintsLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ConstraintsTable']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="aql:self.subject" lineFinderExpression="aql:self.eContainer()" domainClass="properties.RelationshipLink">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -1360,7 +1359,7 @@
           <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
           <variables name="root" documentation="The semantic root element of the table."/>
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic">
-            <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.ResourceConstraint" referenceName="resourceConstraint">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="resources::ResourceConstraint" referenceName="resourceConstraint">
               <subModelOperations xsi:type="tool:SetValue" featureName="resource" valueExpression="var:columnSemantic"/>
               <subModelOperations xsi:type="tool:SetValue" featureName="transformation" valueExpression="var:lineSemantic"/>
               <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
@@ -1388,7 +1387,7 @@
     <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="IntentTable" domainClass="pm.Process">
       <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.node" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="PropertyColumn" headerLabelExpression="aql:self.name" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.eContainer().propertyModel.eContents() -> filter(properties::RelationshipSubject)"/>
-      <intersection name="ReadIntent" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="read" columnFinderExpression="service:getReadIntents">
+      <intersection name="ReadIntent" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="read" columnFinderExpression="service:getReadIntents">
         <defaultForeground labelSize="10">
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
@@ -1401,7 +1400,7 @@
           <variables name="root" documentation="The semantic root element of the table."/>
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('read')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties::Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::READ"/>
@@ -1409,7 +1408,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('modify')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::MODIFY"/>
@@ -1417,7 +1416,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('check')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::CHECK_PROPERTY"/>
@@ -1425,7 +1424,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('contract')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::CONTRACT"/>
@@ -1436,7 +1435,7 @@
           <mask mask="{0}"/>
         </create>
       </intersection>
-      <intersection name="ModifyIntent" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="modify" columnFinderExpression="service:getModifyIntents">
+      <intersection name="ModifyIntent" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="modify" columnFinderExpression="service:getModifyIntents">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -1461,7 +1460,7 @@
           <variables name="root" documentation="The semantic root element of the table."/>
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('read')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::READ"/>
@@ -1469,7 +1468,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('modify')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::MODIFY"/>
@@ -1477,7 +1476,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('check')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::CHECK_PROPERTY"/>
@@ -1485,7 +1484,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('contract')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::CONTRACT"/>
@@ -1496,7 +1495,7 @@
           <mask mask="{0}"/>
         </create>
       </intersection>
-      <intersection name="CheckIntent" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="check" columnFinderExpression="service:getCheckIntents">
+      <intersection name="CheckIntent" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="check" columnFinderExpression="service:getCheckIntents">
         <defaultForeground labelSize="10">
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
@@ -1509,7 +1508,7 @@
           <variables name="root" documentation="The semantic root element of the table."/>
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('read')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::READ"/>
@@ -1517,7 +1516,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('modify')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::MODIFY"/>
@@ -1525,7 +1524,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('check')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::CHECK_PROPERTY"/>
@@ -1533,7 +1532,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('contract')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::CONTRACT"/>
@@ -1544,7 +1543,7 @@
           <mask mask="{0}"/>
         </create>
       </intersection>
-      <intersection name="ContractIntent" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="contract" columnFinderExpression="service:getContractIntents">
+      <intersection name="ContractIntent" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="contract" columnFinderExpression="service:getContractIntents">
         <defaultForeground labelSize="10">
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
@@ -1557,7 +1556,7 @@
           <variables name="root" documentation="The semantic root element of the table."/>
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic.eContainer().eContainer()">
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('read')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::READ"/>
@@ -1565,7 +1564,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('modify')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::MODIFY"/>
@@ -1573,7 +1572,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('check')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::CHECK_PROPERTY"/>
@@ -1581,7 +1580,7 @@
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0.toString().equalsIgnoreCase('contract')">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="processmodel.Intent" referenceName="intent">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="properties.Intent" referenceName="intent">
                 <subModelOperations xsi:type="tool:SetValue" featureName="activity" valueExpression="var:lineSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="subject" valueExpression="var:columnSemantic"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="aql:properties::IntentType::CONTRACT"/>
@@ -1593,10 +1592,10 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ResourceDemandTable" label="Resource Demand Table" domainClass="processmodel.ProximaModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ResourceDemandTable" label="Resource Demand Table" domainClass="proxima.ProximaModel">
       <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="ResourceTypeColumn" headerLabelExpression="aql:self.name" domainClass="resources.ResourceType"/>
-      <intersection name="Demand" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceDemandTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceDemandTable']/@ownedColumnMappings.0" labelExpression="aql:(self.demand -> select(d | d.resourceType == columnSemantic)).amount->at(1)" columnFinderExpression="aql:self.demand.resourceType">
+      <intersection name="Demand" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourceDemandTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourceDemandTable']/@ownedColumnMappings.0" labelExpression="aql:(self.demand -> select(d | d.resourceType == columnSemantic)).amount->at(1)" columnFinderExpression="aql:self.demand.resourceType">
         <directEdit>
           <variables name="table" documentation="The current DTable."/>
           <variables name="line" documentation="The DLine of the current DCell."/>
@@ -1640,10 +1639,10 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ResourceAllocationTable" label="Resource Allocation Table" domainClass="processmodel.ProximaModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ResourceAllocationTable" label="Resource Allocation Table" domainClass="proxima.ProximaModel">
       <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="ResourceColumn" headerLabelExpression="aql:self.name" domainClass="resources.Resource"/>
-      <intersection name="Allocation" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceAllocationTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceAllocationTable']/@ownedColumnMappings.0" labelExpression="aql:(self.allocation -> select(a | a.resource == columnSemantic)).amount->at(1)" columnFinderExpression="aql:self.allocation.resource">
+      <intersection name="Allocation" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourceAllocationTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ResourceAllocationTable']/@ownedColumnMappings.0" labelExpression="aql:(self.allocation -> select(a | a.resource == columnSemantic)).amount->at(1)" columnFinderExpression="aql:self.allocation.resource">
         <defaultForeground>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultForeground>
@@ -1666,17 +1665,15 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="CostTable" domainClass="processmodel.ProximaModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="CostTable" domainClass="proxima.ProximaModel">
       <ownedLineMappings name="CostFactorLine" domainClass="cost.CostFactor" headerLabelExpression="aql:self.name"/>
-      <ownedCreateLine name="CreateCostFactor" mapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='CostTable']/@ownedLineMappings[name='CostFactorLine']">
+      <ownedCreateLine name="CreateCostFactor" mapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='CostTable']/@ownedLineMappings[name='CostFactorLine']">
         <variables name="root" documentation="The semantic root element of the table."/>
         <variables name="element" documentation="The semantic currently edited element."/>
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
         <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self">
           <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.costModel==null">
-            <subModelOperations xsi:type="tool:CreateInstance" typeName="cost.CostModel" referenceName="costModel">
-              <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
-            </subModelOperations>
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="cost.CostModel" referenceName="costModel"/>
           </subModelOperations>
           <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.costModel">
             <subModelOperations xsi:type="tool:CreateInstance" typeName="cost.CostFactor" referenceName="costFactor">
@@ -1686,7 +1683,7 @@
         </firstModelOperation>
       </ownedCreateLine>
       <ownedColumnMappings name="CostItemColumn" headerLabelExpression="aql:self.name" domainClass="cost.CostItem"/>
-      <intersection name="Cost" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='CostTable']/@ownedLineMappings[name='CostFactorLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='CostTable']/@ownedColumnMappings.0" labelExpression="aql:(self.cost -> select(c | c.costItem == columnSemantic)).value->at(1)" columnFinderExpression="aql:self.cost.costItem">
+      <intersection name="Cost" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='CostTable']/@ownedLineMappings[name='CostFactorLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='CostTable']/@ownedColumnMappings.0" labelExpression="aql:(self.cost -> select(c | c.costItem == columnSemantic)).value->at(1)" columnFinderExpression="aql:self.cost.costItem">
         <create name="CreateCost">
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
@@ -1702,7 +1699,7 @@
     <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="DSMView" label="DSM View" domainClass="pm.Process">
       <ownedLineMappings name="ActivitiesLines" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.node" headerLabelExpression="feature:name"/>
       <ownedColumnMappings name="ActivityColumn" headerLabelExpression="feature:name" domainClass="pm.Activity"/>
-      <intersection name="MainDiagonal" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSMView']/@ownedLineMappings[name='ActivitiesLines']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSMView']/@ownedColumnMappings.0" columnFinderExpression="aql:self">
+      <intersection name="MainDiagonal" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='DSMView']/@ownedLineMappings[name='ActivitiesLines']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='DSMView']/@ownedColumnMappings.0" columnFinderExpression="aql:self">
         <defaultForeground labelSize="8">
           <labelFormat>bold</labelFormat>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1711,7 +1708,7 @@
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
         </defaultBackground>
       </intersection>
-      <intersection name="DataDependency" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSMView']/@ownedLineMappings[name='ActivitiesLines']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSMView']/@ownedColumnMappings.0" labelExpression="D" columnFinderExpression="service:getDataDependencies">
+      <intersection name="DataDependency" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='DSMView']/@ownedLineMappings[name='ActivitiesLines']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='DSMView']/@ownedColumnMappings.0" labelExpression="D" columnFinderExpression="service:getDataDependencies">
         <defaultForeground labelSize="8">
           <labelFormat>bold</labelFormat>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1720,7 +1717,7 @@
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
         </defaultBackground>
       </intersection>
-      <intersection name="PropertyDependency" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSMView']/@ownedLineMappings[name='ActivitiesLines']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='DSMView']/@ownedColumnMappings.0" labelExpression="P" columnFinderExpression="service:getPropertyDependencies">
+      <intersection name="PropertyDependency" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='DSMView']/@ownedLineMappings[name='ActivitiesLines']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='DSMView']/@ownedColumnMappings.0" labelExpression="P" columnFinderExpression="service:getPropertyDependencies">
         <defaultForeground labelSize="8">
           <labelFormat>bold</labelFormat>
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1806,8 +1803,8 @@
   </extensions>
   <extensions xsi:type="properties:ViewExtensionDescription" name="ProximaProperties">
     <categories name="Default Category">
-      <pages name="CodeGenProperties" labelExpression="Codegen config" domainClass="processmodel.ProximaModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.0"/>
-      <pages name="ProximaModelPropertiesPage" label="Proxima Model Properties" labelExpression="Performance overview" domainClass="processmodel.ProximaModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.1"/>
+      <pages name="CodeGenProperties" labelExpression="Codegen config" domainClass="proxima.ProximaModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.0"/>
+      <pages name="ProximaModelPropertiesPage" label="Proxima Model Properties" labelExpression="Performance overview" domainClass="proxima.ProximaModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.1"/>
       <groups name="CodeGen" labelExpression="Group" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="CodeGenLocationText" labelExpression="Location" helpExpression="The absolute path to the directory where the artefacts will be generated. The path must be separated by backslashes. (E.g.: c:\scripts\script.py.) The directory will be created if it does not exists." valueExpression="service:getCodeGenLocation()">
           <initialOperation>

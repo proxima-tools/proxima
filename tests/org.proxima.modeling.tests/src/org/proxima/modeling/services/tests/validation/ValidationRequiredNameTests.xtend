@@ -1,6 +1,6 @@
 package org.proxima.modeling.services.tests.validation
 
-import org.proxima.processmodel.ftg.FtgFactory
+import org.proxima.ftg.FtgFactory
 import java.util.Arrays
 import java.util.Collection
 import org.junit.Test

@@ -6,7 +6,7 @@
     editorPluginClass="org.proxima.enactment.presentation.EnactmentEditorPlugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     testSuiteClass="org.proxima.enactment.tests.EnactmentAllTests" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" editPluginID="org.proxima.metamodels.edit"
-    editorPluginID="org.proxima.metamodels.editor" usedGenPackages="metamodels.genmodel#//processmodel"
+    editorPluginID="org.proxima.metamodels.editor" usedGenPackages="metamodels.genmodel#//proxima"
     operationReflection="true" importOrganizing="true">
   <foreignModel>enactment.ecore</foreignModel>
   <genPackages prefix="Enactment" basePackage="org.proxima" disposableProviderFactory="true"

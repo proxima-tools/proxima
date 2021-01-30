@@ -7,7 +7,7 @@
     editPluginID="org.proxima.metamodels.edit" editorPluginID="org.proxima.metamodels.editor"
     operationReflection="true" importOrganizing="true">
   <foreignModel>processmodel.ecore</foreignModel>
-  <genPackages prefix="Processmodel" basePackage="org.proxima" disposableProviderFactory="true"
+  <genPackages prefix="Proxima" basePackage="org" disposableProviderFactory="true"
       ecorePackage="processmodel.ecore#/" publicationLocation="">
     <genClasses ecoreClass="processmodel.ecore#//ProximaModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/ftg"/>
@@ -18,7 +18,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/viewpointsmodel"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/codeGenProperties"/>
     </genClasses>
-    <nestedGenPackages prefix="Ftg" basePackage="org.proxima.processmodel" disposableProviderFactory="true"
+    <nestedGenPackages prefix="Ftg" basePackage="org.proxima" disposableProviderFactory="true"
         ecorePackage="processmodel.ecore#//ftg">
       <genClasses ecoreClass="processmodel.ecore#//ftg/FormalismTransformationGraph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ftg/FormalismTransformationGraph/formalism"/>
@@ -74,7 +74,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//ftg/IntentSpecification/type"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Pm" basePackage="org.proxima.processmodel" disposableProviderFactory="true"
+    <nestedGenPackages prefix="Pm" basePackage="org.proxima" disposableProviderFactory="true"
         ecorePackage="processmodel.ecore#//pm">
       <genClasses ecoreClass="processmodel.ecore#//pm/Process">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/node"/>
@@ -153,8 +153,8 @@
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Typeable"/>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Properties" basePackage="org.proxima.processmodel"
-        disposableProviderFactory="true" ecorePackage="processmodel.ecore#//properties">
+    <nestedGenPackages prefix="Properties" basePackage="org.proxima" disposableProviderFactory="true"
+        ecorePackage="processmodel.ecore#//properties">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="processmodel.ecore#//properties/Precision">
         <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/Precision/L1"/>
         <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//properties/Precision/L2"/>
@@ -273,7 +273,7 @@
       <genClasses ecoreClass="processmodel.ecore#//properties/Absolute"/>
       <genClasses ecoreClass="processmodel.ecore#//properties/Relative"/>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Resources" basePackage="org.proxima.processmodel" disposableProviderFactory="true"
+    <nestedGenPackages prefix="Resources" basePackage="org.proxima" disposableProviderFactory="true"
         ecorePackage="processmodel.ecore#//resources">
       <genClasses ecoreClass="processmodel.ecore#//resources/ResourceModel">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//resources/ResourceModel/resourceType"/>
@@ -325,7 +325,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//resources/ResourceConstraint/amount"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Cost" basePackage="org.proxima.processmodel" disposableProviderFactory="true"
+    <nestedGenPackages prefix="Cost" basePackage="org.proxima" disposableProviderFactory="true"
         ecorePackage="processmodel.ecore#//cost">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="processmodel.ecore#//cost/CostType">
         <genEnumLiterals ecoreEnumLiteral="processmodel.ecore#//cost/CostType/CostPerTime"/>
@@ -350,7 +350,7 @@
             ecoreFeature="ecore:EReference processmodel.ecore#//cost/CostItem/cost"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Base" basePackage="org.proxima.processmodel" disposableProviderFactory="true"
+    <nestedGenPackages prefix="Base" basePackage="org.proxima" disposableProviderFactory="true"
         ecorePackage="processmodel.ecore#//base">
       <genClasses image="false" ecoreClass="processmodel.ecore#//base/NamedElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//base/NamedElement/name"/>
@@ -366,8 +366,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute processmodel.ecore#//base/StringToStringMap/value"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Viewpoints" basePackage="org.proxima.processmodel"
-        disposableProviderFactory="true" ecorePackage="processmodel.ecore#//viewpoints">
+    <nestedGenPackages prefix="Viewpoints" basePackage="org.proxima" disposableProviderFactory="true"
+        ecorePackage="processmodel.ecore#//viewpoints">
       <genClasses ecoreClass="processmodel.ecore#//viewpoints/ViewpointsModel">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//viewpoints/ViewpointsModel/viewpoint"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//viewpoints/ViewpointsModel/stakeholder"/>

@@ -8,70 +8,71 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated metamodels -->
       <package
-            uri="metamodels.processmodel"
-            class="org.proxima.processmodel.ProcessmodelPackage"
+            uri="http://proximatools.org/metamodels"
+            class="org.proxima.ProximaPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated metamodels -->
       <package
-            uri="metamodels.ftg"
-            class="org.proxima.processmodel.ftg.FtgPackage"
+            uri="http://proximatools.org/metamodels/ftg"
+            class="org.proxima.ftg.FtgPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated metamodels -->
       <package
-            uri="metamodels.pm"
-            class="org.proxima.processmodel.pm.PmPackage"
+            uri="http://proximatools.org/metamodels/pm"
+            class="org.proxima.pm.PmPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated metamodels -->
       <package
-            uri="metamodels.properties"
-            class="org.proxima.processmodel.properties.PropertiesPackage"
+            uri="http://proximatools.org/metamodels/properties"
+            class="org.proxima.properties.PropertiesPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated metamodels -->
       <package
-            uri="metamodels.resources"
-            class="org.proxima.processmodel.resources.ResourcesPackage"
+            uri="http://proximatools.org/metamodels/resources"
+            class="org.proxima.resources.ResourcesPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated metamodels -->
       <package
-            uri="metamodels.cost"
-            class="org.proxima.processmodel.cost.CostPackage"
+            uri="http://proximatools.org/metamodels/cost"
+            class="org.proxima.cost.CostPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated metamodels -->
       <package
-            uri="metamodels.base"
-            class="org.proxima.processmodel.base.BasePackage"
+            uri="http://proximatools.org/metamodels/base"
+            class="org.proxima.base.BasePackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated metamodels -->
       <package
-            uri="metamodels.viewpoints"
-            class="org.proxima.processmodel.viewpoints.ViewpointsPackage"
+            uri="http://proximatools.org/metamodels/viewpoints"
+            class="org.proxima.viewpoints.ViewpointsPackage"
             genModel="model/metamodels.genmodel"/>
    </extension>
+
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated enactment -->
       <package
-            uri="metamodels.enactment"
+            uri="http://proximatools.org/metamodels/enactment"
             class="org.proxima.enactment.EnactmentPackage"
             genModel="model/enactment.genmodel"/>
    </extension>

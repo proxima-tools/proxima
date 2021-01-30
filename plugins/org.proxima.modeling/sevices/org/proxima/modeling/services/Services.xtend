@@ -11,19 +11,20 @@
 
 package org.proxima.modeling.services
 
-import org.proxima.processmodel.base.Identifiable
-import org.proxima.processmodel.ftg.Formalism
-import org.proxima.processmodel.ftg.Tool
-import org.proxima.processmodel.ftg.Transformation
-import org.proxima.processmodel.pm.Activity
-import org.proxima.processmodel.pm.AutomatedActivity
-import org.proxima.processmodel.pm.Node
-import org.proxima.processmodel.pm.Object
-import org.proxima.processmodel.pm.Process
-import org.proxima.processmodel.properties.Attribute
-import org.proxima.processmodel.properties.Intent
-import org.proxima.processmodel.properties.IntentType
-import org.proxima.processmodel.properties.PropertyModel
+import org.proxima.ProximaModel
+import org.proxima.base.Identifiable
+import org.proxima.ftg.Formalism
+import org.proxima.ftg.Tool
+import org.proxima.ftg.Transformation
+import org.proxima.pm.Activity
+import org.proxima.pm.AutomatedActivity
+import org.proxima.pm.Node
+import org.proxima.pm.Object
+import org.proxima.pm.Process
+import org.proxima.properties.Attribute
+import org.proxima.properties.Intent
+import org.proxima.properties.IntentType
+import org.proxima.properties.PropertyModel
 import com.google.common.base.Joiner
 import com.google.common.base.Strings
 import com.google.common.collect.Lists
@@ -33,7 +34,6 @@ import java.util.Set
 import java.util.UUID
 import org.eclipse.sirius.diagram.DEdge
 import org.eclipse.sirius.diagram.DNode
-import org.proxima.processmodel.ProximaModel
 
 /**
  * Services for the editor

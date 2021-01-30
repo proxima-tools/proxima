@@ -1,7 +1,7 @@
 package org.proxima.modeling.services.tests.validation
 
 import org.proxima.modeling.services.Validation
-import org.proxima.processmodel.pm.PmFactory
+import org.proxima.pm.PmFactory
 import org.junit.After
 import org.junit.Before
 import org.junit.Test

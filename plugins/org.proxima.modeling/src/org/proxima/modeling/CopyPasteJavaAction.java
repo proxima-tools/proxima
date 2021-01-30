@@ -6,17 +6,16 @@ import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.ui.tools.internal.clipboard.SiriusClipboardManager;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.proxima.modeling.services.Services;
 
-import org.proxima.processmodel.pm.ControlFlow;
-import org.proxima.processmodel.pm.Node;
-import org.proxima.processmodel.pm.ObjectFlow;
-import org.proxima.processmodel.pm.Process;
+import org.proxima.pm.ControlFlow;
+import org.proxima.pm.Node;
+import org.proxima.pm.ObjectFlow;
+import org.proxima.pm.Process;
 
 public class CopyPasteJavaAction implements IExternalJavaAction {
 

@@ -1,9 +1,9 @@
 package org.proxima.modeling.services.tests.services
 
 import org.proxima.modeling.services.Services
-import org.proxima.processmodel.ftg.Formalism
-import org.proxima.processmodel.ftg.FtgFactory
-import org.proxima.processmodel.ftg.Tool
+import org.proxima.ftg.Formalism
+import org.proxima.ftg.FtgFactory
+import org.proxima.ftg.Tool
 import org.eclipse.sirius.diagram.DEdge
 import org.eclipse.sirius.diagram.DNode
 import org.eclipse.sirius.diagram.DiagramFactory
