@@ -4,7 +4,7 @@ import org.proxima.modeling.services.Validation
 import org.junit.Rule
 import org.junit.rules.ExternalResource
 
-class ValidationTests {
+abstract class ValidationTests {
 	enum Outcome {
 		FAIL,
 		PASS
