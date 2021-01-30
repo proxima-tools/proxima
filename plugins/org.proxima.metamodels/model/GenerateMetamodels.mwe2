@@ -17,6 +17,7 @@ import org.eclipse.emf.mwe2.ecore.*
 var projectName = "org.proxima.metamodels"
 var processGenModelPath = "platform:/resource/${projectName}/model/metamodels.genmodel"
 var enactmentGenModelPath = "platform:/resource/${projectName}/model/enactment.genmodel"
+var codegenGenModelPath = "platform:/resource/${projectName}/model/codegen.genmodel"
 var directory = "${projectName}/src"
 
 Workflow {
@@ -25,6 +26,7 @@ Workflow {
 		platformUri = ".."
 		registerGenModelFile = processGenModelPath
 		registerGenModelFile = enactmentGenModelPath
+		registerGenModelFile = codegenGenModelPath
 	}
 
 	component = DirectoryCleaner {
@@ -38,6 +40,11 @@ Workflow {
 	
 	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
         genModel = enactmentGenModelPath
+        srcPath = "platform:/resource/${directory}"
+	}
+	
+	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+        genModel = codegenGenModelPath
         srcPath = "platform:/resource/${directory}"
 	}
 }

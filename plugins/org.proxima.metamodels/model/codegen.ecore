@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="codegen" nsURI="http://proximatools.org/metamodels/codegen"
+    nsPrefix="org.proxima.metamodels">
+  <eClassifiers xsi:type="ecore:EClass" name="Script" eSuperTypes="#//TransformationDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TransformationDefinition" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" eType="ecore:EClass processmodel.ecore#//ftg/Transformation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PythonScript" eSuperTypes="#//Script"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MatlabScript" eSuperTypes="#//Script"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaBasedTransformationDefinition" eSuperTypes="#//TransformationDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProximaGenmodel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformationDefinition"
+        upperBound="-1" eType="#//TransformationDefinition" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
