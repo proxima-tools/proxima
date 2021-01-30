@@ -693,7 +693,7 @@
     <semanticResources>java:/Objects/org.eclipse.emf.mwe.core.container.WorkflowConditional</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_bwGaMFojEea6VL_6AJL-SA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_j1HZAB6xEeewEruDl3xWqw" name="top level" repPath="#_osDTQFojEea6VL_6AJL-SA" changeId="028d7648-fda8-441d-9904-fde49d4339d7">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_j1HZAB6xEeewEruDl3xWqw" name="top level" repPath="#_osDTQFojEea6VL_6AJL-SA" changeId="526657a7-196b-4804-88f6-371655a14e9f">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="processmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1173,9 +1173,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_su2aUFojEea6VL_6AJL-SA" name="Process" tooltipText="" incomingEdges="_svEcwFojEea6VL_6AJL-SA" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="processmodel.ecore#//pm/Process"/>
-      <semanticElements xmi:type="ecore:EClass" href="processmodel.ecore#//pm/Process"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_su2aUFojEea6VL_6AJL-SA" name="ProcessModel" tooltipText="" incomingEdges="_svEcwFojEea6VL_6AJL-SA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="processmodel.ecore#//pm/ProcessModel"/>
+      <semanticElements xmi:type="ecore:EClass" href="processmodel.ecore#//pm/ProcessModel"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_svBZcFojEea6VL_6AJL-SA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -1187,32 +1187,32 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_-EobUF1NEeaeuJbdLuxDgg" name=" node : Node" tooltipText="">
-        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/node"/>
-        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/node"/>
+        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/node"/>
+        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/node"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_-EpCYF1NEeaeuJbdLuxDgg" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_-EpCYV1NEeaeuJbdLuxDgg" name=" controlFlow : ControlFlow" tooltipText="">
-        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/controlFlow"/>
-        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/controlFlow"/>
+        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/controlFlow"/>
+        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/controlFlow"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_-EppcF1NEeaeuJbdLuxDgg" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_mKTRsRXjEeuI9P9qjq95SA" name=" objectFlow : ObjectFlow" tooltipText="">
-        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/objectFlow"/>
-        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/objectFlow"/>
+        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/objectFlow"/>
+        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/objectFlow"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_mKVG4BXjEeuI9P9qjq95SA" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_MlsGASw_Eeuj56Izoyh_ag" name=" types : CompoundActivity" tooltipText="">
-        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/types"/>
-        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/types"/>
+        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/types"/>
+        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/types"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_MlsGAiw_Eeuj56Izoyh_ag" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
@@ -2702,8 +2702,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_HvhzUF1OEeaeuJbdLuxDgg" name="Process" tooltipText="" outgoingEdges="_HxzrQF1OEeaeuJbdLuxDgg _Hx2ukF1OEeaeuJbdLuxDgg _06DO1hWPEeuQOMz5TUQkVw _tNG5liw-Eeuj56Izoyh_ag _MlnNkiw_Eeuj56Izoyh_ag" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="processmodel.ecore#//pm/Process"/>
-      <semanticElements xmi:type="ecore:EClass" href="processmodel.ecore#//pm/Process"/>
+      <target xmi:type="ecore:EClass" href="processmodel.ecore#//pm/ProcessModel"/>
+      <semanticElements xmi:type="ecore:EClass" href="processmodel.ecore#//pm/ProcessModel"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_HxosIF1OEeaeuJbdLuxDgg">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -3029,8 +3029,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_HxzrQF1OEeaeuJbdLuxDgg" name="[0..*] node" sourceNode="_HvhzUF1OEeaeuJbdLuxDgg" targetNode="_HvldsF1OEeaeuJbdLuxDgg">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/node"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/node"/>
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/node"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/node"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Hx1gcF1OEeaeuJbdLuxDgg" description="_GkC3oF1OEeaeuJbdLuxDgg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Hx1gcV1OEeaeuJbdLuxDgg" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -3042,8 +3042,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Hx2ukF1OEeaeuJbdLuxDgg" name="[0..*] controlFlow" sourceNode="_HvhzUF1OEeaeuJbdLuxDgg" targetNode="_HvrkUF1OEeaeuJbdLuxDgg">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/controlFlow"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/controlFlow"/>
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/controlFlow"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/controlFlow"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Hx38sF1OEeaeuJbdLuxDgg" description="_GkC3oF1OEeaeuJbdLuxDgg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Hx38sV1OEeaeuJbdLuxDgg" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -3612,8 +3612,8 @@
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_06DO1hWPEeuQOMz5TUQkVw" name="[0..*] objectFlow" sourceNode="_HvhzUF1OEeaeuJbdLuxDgg" targetNode="_xv61IBWPEeuQOMz5TUQkVw">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/objectFlow"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/objectFlow"/>
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/objectFlow"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/objectFlow"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_06FEABWPEeuQOMz5TUQkVw" description="_GkC3oF1OEeaeuJbdLuxDgg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_06FEAhWPEeuQOMz5TUQkVw" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -3773,8 +3773,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tNG5liw-Eeuj56Izoyh_ag" sourceNode="_HvhzUF1OEeaeuJbdLuxDgg" targetNode="_wsdXYB3LEeeccL9uiQm8Cw">
-      <target xmi:type="ecore:EClass" href="processmodel.ecore#//pm/Process"/>
-      <semanticElements xmi:type="ecore:EClass" href="processmodel.ecore#//pm/Process"/>
+      <target xmi:type="ecore:EClass" href="processmodel.ecore#//pm/ProcessModel"/>
+      <semanticElements xmi:type="ecore:EClass" href="processmodel.ecore#//pm/ProcessModel"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_tNHgpiw-Eeuj56Izoyh_ag">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -3789,9 +3789,9 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_MlnNkiw_Eeuj56Izoyh_ag" sourceNode="_HvhzUF1OEeaeuJbdLuxDgg" targetNode="_OIx-UGnZEeaLmPdrZH1b6Q" beginLabel="[0..1] typedBy" endLabel="[0..*] types">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/types"/>
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/types"/>
       <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/CompoundActivity/typedBy"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Process/types"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/ProcessModel/types"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Mln0kCw_Eeuj56Izoyh_ag" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_Mln0kSw_Eeuj56Izoyh_ag" showIcon="false"/>

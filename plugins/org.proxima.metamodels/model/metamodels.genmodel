@@ -76,12 +76,12 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Pm" basePackage="org.proxima" disposableProviderFactory="true"
         ecorePackage="processmodel.ecore#//pm">
-      <genClasses ecoreClass="processmodel.ecore#//pm/Process">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/node"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/controlFlow"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/objectFlow"/>
+      <genClasses ecoreClass="processmodel.ecore#//pm/ProcessModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/ProcessModel/node"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/ProcessModel/controlFlow"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//pm/ProcessModel/objectFlow"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference processmodel.ecore#//pm/Process/types"/>
+            ecoreFeature="ecore:EReference processmodel.ecore#//pm/ProcessModel/types"/>
       </genClasses>
       <genClasses image="false" ecoreClass="processmodel.ecore#//pm/Node">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

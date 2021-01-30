@@ -3,19 +3,14 @@ package org.proxima.modeling;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.diagram.ui.tools.internal.clipboard.SiriusClipboardManager;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.proxima.modeling.services.Services;
-
 import org.proxima.pm.ControlFlow;
 import org.proxima.pm.Node;
 import org.proxima.pm.ObjectFlow;
-import org.proxima.pm.Process;
+import org.proxima.pm.ProcessModel;
 
 public class CopyPasteJavaAction implements IExternalJavaAction {
 
@@ -34,7 +29,7 @@ public class CopyPasteJavaAction implements IExternalJavaAction {
 
 	@Override
 	public void execute(Collection<? extends EObject> arg0, Map<String, Object> arg1) {
-		Process process = (Process) arg0.iterator().next();
+		ProcessModel processModel = (ProcessModel) arg0.iterator().next();
 
 		EObject pasteElement = (EObject) arg1.values().iterator().next();
 
@@ -45,7 +40,7 @@ public class CopyPasteJavaAction implements IExternalJavaAction {
 
 
 		if (pasteElement instanceof Node) {
-			paste((Node) pasteElement, process);
+			paste((Node) pasteElement, processModel);
 		}
 //		else if (pasteElement instanceof ControlFlow) {
 //			paste((ControlFlow) pasteElement, process);
@@ -57,7 +52,7 @@ public class CopyPasteJavaAction implements IExternalJavaAction {
 		}
 	}
 
-	private void paste(Node node, Process process) {
+	private void paste(Node node, ProcessModel processModel) {
 		//System.out.println("copying node " + node.toString());
 
 		//CopyPasteHeap copyPasteHeap = CopyPasteHeap.getInstance();
@@ -65,7 +60,7 @@ public class CopyPasteJavaAction implements IExternalJavaAction {
 		Node newNode = EcoreUtil.copy(node);
 		newNode.setId(new Services().getId(newNode));
 
-		process.getNode().add(newNode);
+		processModel.getNode().add(newNode);
 		//copyPasteHeap.getCopyHeap().put(node, newNode);
 
 		// try to reroute objectFlows
@@ -87,17 +82,17 @@ public class CopyPasteJavaAction implements IExternalJavaAction {
 //		System.out.println("success");
 	}
 
-	private void paste(ControlFlow controlFlow, Process process) {
+	private void paste(ControlFlow controlFlow, ProcessModel processModel) {
 		System.out.println("copying controlFlow " + controlFlow.toString());
 	}
 
-	private void paste(ObjectFlow objectFlow, Process process) {
+	private void paste(ObjectFlow objectFlow, ProcessModel processModel) {
 		CopyPasteHeap copyPasteHeap = CopyPasteHeap.getInstance();
 
 		ObjectFlow newObjectFlow = EcoreUtil.copy(objectFlow);
 		newObjectFlow.setId(new Services().getId(newObjectFlow));
 
-		process.getObjectFlow().add(newObjectFlow);
+		processModel.getObjectFlow().add(newObjectFlow);
 		copyPasteHeap.getCopyHeap().put(objectFlow, newObjectFlow);
 
 		// try to reroute

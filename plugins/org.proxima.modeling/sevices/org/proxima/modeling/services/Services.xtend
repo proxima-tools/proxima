@@ -20,7 +20,6 @@ import org.proxima.pm.Activity
 import org.proxima.pm.AutomatedActivity
 import org.proxima.pm.Node
 import org.proxima.pm.Object
-import org.proxima.pm.Process
 import org.proxima.properties.Attribute
 import org.proxima.properties.Intent
 import org.proxima.properties.IntentType
@@ -34,6 +33,7 @@ import java.util.Set
 import java.util.UUID
 import org.eclipse.sirius.diagram.DEdge
 import org.eclipse.sirius.diagram.DNode
+import org.proxima.pm.ProcessModel
 
 /**
  * Services for the editor
@@ -189,9 +189,9 @@ class Services {
 	 * Collects data dependencies for a given activity.
 	 */
 	public def getDataDependencies(Activity activity) {
-		var process = activity.eContainer as Process
+		var processModel = activity.eContainer as ProcessModel
 
-		process.objectFlow.filter [ o |
+		processModel.objectFlow.filter [ o |
 			o.from.equals(activity) && !o.to.equals(activity)
 		].fold(Lists::newArrayList) [ list, o |
 			list.addAll(o.to)

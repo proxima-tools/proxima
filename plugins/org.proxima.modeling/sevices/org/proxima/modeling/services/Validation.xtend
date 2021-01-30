@@ -21,7 +21,6 @@ import org.proxima.ftg.Transformation
 import org.proxima.pm.Activity
 import org.proxima.pm.Final
 import org.proxima.pm.Initial
-import org.proxima.pm.Process
 import org.proxima.properties.Attribute
 import org.proxima.properties.IntentType
 import org.proxima.properties.Precision
@@ -32,6 +31,7 @@ import org.proxima.properties.RelationshipLink
 import org.proxima.properties.RelationshipSubject
 import com.google.common.base.Strings
 import com.google.common.collect.Lists
+import org.proxima.pm.ProcessModel
 
 class Validation {
 
@@ -87,16 +87,16 @@ class Validation {
 		!activity.controlIn.empty && !activity.controlOut.empty
 	}
 
-	def initNodeExists(Process process) {
-		process.node.exists[n|n instanceof Initial]
+	def initNodeExists(ProcessModel processModel) {
+		processModel.node.exists[n|n instanceof Initial]
 	}
 
-	def finalNodeExists(Process process) {
-		process.node.exists[n|n instanceof Final]
+	def finalNodeExists(ProcessModel processModel) {
+		processModel.node.exists[n|n instanceof Final]
 	}
 
-	def processHasActivities(Process process) {
-		process.node.exists[n|n instanceof Activity]
+	def processHasActivities(ProcessModel processModel) {
+		processModel.node.exists[n|n instanceof Activity]
 	}
 
 

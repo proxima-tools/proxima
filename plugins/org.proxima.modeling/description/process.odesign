@@ -32,13 +32,13 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="DetachedActivity" level="ERROR" message="The activity is not part of the process." targetClass="pm.Activity">
         <audits auditExpression="service:noDetachedActivity()"/>
       </ownedRules>
-      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoInitNode" level="ERROR" message="Incomplete process: the process has no Initial node." targetClass="pm.Process">
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoInitNode" level="ERROR" message="Incomplete process: the process has no Initial node." targetClass="pm.ProcessModel">
         <audits auditExpression="service:initNodeExists()"/>
       </ownedRules>
-      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoFinalNode" level="ERROR" message="Incomplete process: the process has no Final node." targetClass="pm.Process">
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoFinalNode" level="ERROR" message="Incomplete process: the process has no Final node." targetClass="pm.ProcessModel">
         <audits auditExpression="service:finalNodeExists()"/>
       </ownedRules>
-      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoActivities" level="ERROR" message="Incomplete process: the process has no activities." targetClass="pm.Process">
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="NoActivities" level="ERROR" message="Incomplete process: the process has no activities." targetClass="pm.ProcessModel">
         <audits auditExpression="service:processHasActivities()"/>
       </ownedRules>
       <ownedRules xsi:type="validation:SemanticValidationRule" name="DirectedL3RelationshipLink" level="ERROR" message="L3 relationships must be undirected." targetClass="properties.RelationshipLink">
@@ -82,15 +82,15 @@
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultStyle>
-        <subItemMappings name="ProcessNode" domainClass="pm.Process" semanticCandidatesExpression="feature:process">
+        <subItemMappings name="ProcessNode" domainClass="pm.ProcessModel" semanticCandidatesExpression="feature:process">
           <defaultStyle>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
         </subItemMappings>
       </subItemMappings>
-      <createTreeItem name="CreateProcessNode" label="Create new Process" mapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessesTree']/@subItemMappings[name='RootNode']/@subItemMappings[name='ProcessNode']">
-        <firstModelOperation xsi:type="tool:CreateInstance" typeName="pm.Process" referenceName="process">
+      <createTreeItem name="CreateProcessModelNode" label="Create new Process Model" mapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessesTree']/@subItemMappings[name='RootNode']/@subItemMappings[name='ProcessNode']">
+        <firstModelOperation xsi:type="tool:CreateInstance" typeName="pm.ProcessModel" referenceName="process">
           <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="service:getId()"/>
         </firstModelOperation>
         <variables name="root" documentation="The semantic element of the tree."/>
@@ -98,7 +98,7 @@
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
       </createTreeItem>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ProcessView" pasteDescriptions="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='ActivityPaste']" domainClass="pm.Process" rootExpression="var:self" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ProcessView" pasteDescriptions="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='ActivityPaste']" domainClass="pm.ProcessModel" rootExpression="var:self" enablePopupBars="true">
       <defaultLayer name="Default">
         <toolSections name="GenericTools">
           <ownedTools xsi:type="tool_1:DirectEditLabel" name="EditNamedElementName">
@@ -1384,7 +1384,7 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="IntentTable" domainClass="pm.Process">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="IntentTable" domainClass="pm.ProcessModel">
       <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.node" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="PropertyColumn" headerLabelExpression="aql:self.name" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.eContainer().propertyModel.eContents() -> filter(properties::RelationshipSubject)"/>
       <intersection name="ReadIntent" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='IntentTable']/@ownedColumnMappings.0" labelExpression="read" columnFinderExpression="service:getReadIntents">
@@ -1696,7 +1696,7 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="DSMView" label="DSM View" domainClass="pm.Process">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="DSMView" label="DSM View" domainClass="pm.ProcessModel">
       <ownedLineMappings name="ActivitiesLines" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.node" headerLabelExpression="feature:name"/>
       <ownedColumnMappings name="ActivityColumn" headerLabelExpression="feature:name" domainClass="pm.Activity"/>
       <intersection name="MainDiagonal" lineMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='DSMView']/@ownedLineMappings[name='ActivitiesLines']" columnMapping="//@ownedViewpoints[name='ProximaViewpoint']/@ownedRepresentations[name='DSMView']/@ownedColumnMappings.0" columnFinderExpression="aql:self">

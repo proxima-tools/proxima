@@ -5,7 +5,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ftg" lowerBound="1" eType="#//ftg/FormalismTransformationGraph"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="process" upperBound="-1"
-        eType="#//pm/Process" containment="true"/>
+        eType="#//pm/ProcessModel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyModel" eType="#//properties/PropertyModel"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resourceModel" eType="#//resources/ResourceModel"
@@ -79,7 +79,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="pm" nsURI="http://proximatools.org/metamodels/pm" nsPrefix="org.proxima.metamodels">
-    <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//base/Identifiable #//base/NamedElement #//ftg/ActivityType">
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessModel" eSuperTypes="#//base/Identifiable #//base/NamedElement #//ftg/ActivityType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="node" upperBound="-1"
           eType="#//pm/Node" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="controlFlow" upperBound="-1"
@@ -133,8 +133,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="ManualActivity" eSuperTypes="#//pm/AtomicActivity"/>
     <eClassifiers xsi:type="ecore:EClass" name="AutomatedActivity" eSuperTypes="#//pm/AtomicActivity"/>
     <eClassifiers xsi:type="ecore:EClass" name="CompoundActivity" eSuperTypes="#//pm/Activity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//pm/Process"
-          eOpposite="#//pm/Process/types"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//pm/ProcessModel"
+          eOpposite="#//pm/ProcessModel/types"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//pm/Typeable #//base/Documentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typedBy" eType="#//ftg/Formalism"
