@@ -50,8 +50,6 @@
           eType="#//ftg/Formalism" eOpposite="#//ftg/Formalism/outputOf"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceConstraint" eType="#//resources/ResourceConstraint"
           eOpposite="#//resources/ResourceConstraint/transformation"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//ftg/TransformationDefinition"
-          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
           eType="#//pm/AtomicActivity" eOpposite="#//pm/AtomicActivity/typedBy"/>
     </eClassifiers>
@@ -61,14 +59,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" upperBound="-1"
           eType="#//viewpoints/Viewpoint" eOpposite="#//viewpoints/Viewpoint/tool"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TransformationDefinition" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Script" abstract="true" eSuperTypes="#//ftg/TransformationDefinition">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="JavaBasedTransformationDefinition"
-        eSuperTypes="#//ftg/TransformationDefinition"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PythonScript" eSuperTypes="#//ftg/Script"/>
-    <eClassifiers xsi:type="ecore:EClass" name="MatlabScript" eSuperTypes="#//ftg/Script"/>
     <eClassifiers xsi:type="ecore:EClass" name="IntentSpecification" eSuperTypes="#//base/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
           eType="#//ftg/Transformation"/>

@@ -14,9 +14,9 @@ package org.proxima.modeling.services
 import org.proxima.commons.bl.Relationships
 import org.proxima.ftg.Formalism
 import org.proxima.ftg.FormalismTransformationGraph
-import org.proxima.ftg.MatlabScript
-import org.proxima.ftg.PythonScript
-import org.proxima.ftg.Script
+import org.proxima.codegen.MatlabScript
+import org.proxima.codegen.PythonScript
+import org.proxima.codegen.Script
 import org.proxima.ftg.Transformation
 import org.proxima.pm.Activity
 import org.proxima.pm.Final
@@ -102,17 +102,17 @@ class Validation {
 
 ////////////////CURRENTLY NOT USED////////////////
 
-	public def consistentScriptExtension(Transformation transformation) {
-		if(transformation.definition === null) return true
-		if(!(transformation.definition instanceof Script)) return true
-
-		val script = transformation.definition as Script
-
-		switch script {
-			PythonScript: return script.location.endsWith('.py')
-			MatlabScript: return script.location.endsWith('.m')
-		}
-	}
+//	public def consistentScriptExtension(Transformation transformation) {
+//		if(transformation.definition === null) return true
+//		if(!(transformation.definition instanceof Script)) return true
+//
+//		val script = transformation.definition as Script
+//
+//		switch script {
+//			PythonScript: return script.location.endsWith('.py')
+//			MatlabScript: return script.location.endsWith('.m')
+//		}
+//	}
 
 	public def formulaOnlyInL3Relationship(Relationship relationship) {
 		if (relationship.formula !== null) {
