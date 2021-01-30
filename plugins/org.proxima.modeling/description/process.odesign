@@ -75,8 +75,8 @@
         <audits auditExpression="service:consistentScriptExtension()"/>
       </ownedRules>
     </validationSet>
-    <ownedRepresentations xsi:type="description_1:TreeDescription" name="ProcessesTree" domainClass="processmodel::ProcessModel">
-      <subItemMappings name="RootNode" domainClass="processmodel::ProcessModel" semanticCandidatesExpression="var:self">
+    <ownedRepresentations xsi:type="description_1:TreeDescription" name="ProcessesTree" domainClass="processmodel::ProximaModel">
+      <subItemMappings name="RootNode" domainClass="processmodel::ProximaModel" semanticCandidatesExpression="var:self">
         <defaultStyle labelExpression="root">
           <labelFormat>italic</labelFormat>
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -340,7 +340,7 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="ProcessModelEditing">
+        <toolSections name="ProcessEditing">
           <ownedTools xsi:type="tool_1:DirectEditLabel" name="EditInitNodeName">
             <mask mask="{0}"/>
             <initialOperation>
@@ -895,7 +895,7 @@
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="FTG" domainClass="processmodel.ProcessModel" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="FTG" domainClass="processmodel.ProximaModel" enablePopupBars="true">
       <defaultLayer name="Default">
         <nodeMappings name="FormalismNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@defaultLayer/@toolSections.0/@ownedTools[name='EditNamedElementName']" domainClass="ftg.Formalism">
           <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/org.proxima.modeling/icons/language.png" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="3">
@@ -1162,7 +1162,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ActvityTypingTable" domainClass="processmodel.ProcessModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ActvityTypingTable" domainClass="processmodel.ProximaModel">
       <ownedLineMappings name="ActivityLine" domainClass="pm.AtomicActivity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.eContainer().name.concat('.').concat(self.name)"/>
       <ownedColumnMappings name="TransformationColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Transformation" semanticCandidatesExpression="aql:self.ftg.transformation"/>
       <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ActvityTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
@@ -1183,7 +1183,7 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ObjectTypingTable" domainClass="processmodel.ProcessModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ObjectTypingTable" domainClass="processmodel.ProximaModel">
       <ownedLineMappings name="ObjectLine" domainClass="pm.Object" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.eContainer().name.concat('.').concat(self.name)"/>
       <ownedColumnMappings name="FormalismColumn" headerLabelExpression="aql:self.name" domainClass="ftg.Formalism" semanticCandidatesExpression="aql:self.ftg.formalism"/>
       <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedLineMappings[name='ObjectLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ObjectTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
@@ -1204,7 +1204,7 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ResourcesModel" label="Resource Model" domainClass="processmodel.ProcessModel">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="ResourcesModel" label="Resource Model" domainClass="processmodel.ProximaModel">
       <defaultLayer name="Default">
         <nodeMappings name="ResourceTypeNode" labelDirectEdit="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessView']/@additionalLayers[name='ProcessLayer']/@toolSections.1/@ownedTools[name='EditInitNodeName']" domainClass="resources.ResourceType">
           <style xsi:type="style:SquareDescription" tooltipExpression="aql:self.name" labelPosition="node" resizeKind="NSEW">
@@ -1302,7 +1302,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="AttributeTypingTable" domainClass="processmodel.ProcessModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="AttributeTypingTable" domainClass="processmodel.ProximaModel">
       <ownedLineMappings name="AttributeLine" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.propertyModel.attribute" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="CapabilityColumn" headerLabelExpression="aql:self.name" domainClass="properties.Capability" semanticCandidatesExpression="aql:self.propertyModel.capability"/>
       <intersection name="Typing" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AttributeTypingTable']/@ownedLineMappings[name='AttributeLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AttributeTypingTable']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="aql:self.typedBy">
@@ -1323,7 +1323,7 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="AliasModelOverview" label="Alias-Model overview" domainClass="processmodel.ProcessModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="AliasModelOverview" label="Alias-Model overview" domainClass="processmodel.ProximaModel">
       <ownedLineMappings name="AttributeLine" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.propertyModel.attribute" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="ObjectColumn" headerLabelExpression="aql:self.name" domainClass="pm.Object" semanticCandidatesExpression="aql:self.process.node"/>
       <intersection name="Alias" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedLineMappings[name='AttributeLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='AliasModelOverview']/@ownedColumnMappings.0" labelExpression="service:getAlias(columnSemantic)" columnFinderExpression="service:getAliases">
@@ -1344,11 +1344,11 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:EditionTableDescription" name="AliasEditor" label="Alias Editor" domainClass="processmodel.ProcessModel">
+    <ownedRepresentations xsi:type="description_3:EditionTableDescription" name="AliasEditor" label="Alias Editor" domainClass="processmodel.ProximaModel">
       <ownedLineMappings name="AttributeLine" label="Attribute" domainClass="properties.Attribute" semanticCandidatesExpression="aql:self.propertyModel.attribute" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="AliasFeature" headerLabelExpression="Alias list (Format: modelName1: alias1; modelName2: alias2; ...)" featureName="aliases"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ConstraintsTable" domainClass="processmodel.ProcessModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ConstraintsTable" domainClass="processmodel.ProximaModel">
       <ownedLineMappings name="ConstraintsLine" domainClass="properties.Relationship" semanticCandidatesExpression="aql:self.propertyModel.relationship ->  select(r | r.precision==properties::Precision::L3)" headerLabelExpression="aql:if(self.name!=null and self.name.size()>0) then self.name+': '+self.formula.definition else self.formula.definition endif"/>
       <ownedColumnMappings name="SubjectColumn" headerLabelExpression="aql:self.name" domainClass="properties.RelationshipSubject" semanticCandidatesExpression="aql:self.propertyModel.attribute -> union(self.propertyModel.capability) -> union(self.propertyModel.property)"/>
       <intersection name="Constrains" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ConstraintsTable']/@ownedLineMappings[name='ConstraintsLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ConstraintsTable']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="aql:self.subject" lineFinderExpression="aql:self.eContainer()" domainClass="properties.RelationshipLink">
@@ -1593,7 +1593,7 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ResourceDemandTable" label="Resource Demand Table" domainClass="processmodel.ProcessModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ResourceDemandTable" label="Resource Demand Table" domainClass="processmodel.ProximaModel">
       <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="ResourceTypeColumn" headerLabelExpression="aql:self.name" domainClass="resources.ResourceType"/>
       <intersection name="Demand" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceDemandTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceDemandTable']/@ownedColumnMappings.0" labelExpression="aql:(self.demand -> select(d | d.resourceType == columnSemantic)).amount->at(1)" columnFinderExpression="aql:self.demand.resourceType">
@@ -1640,7 +1640,7 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ResourceAllocationTable" label="Resource Allocation Table" domainClass="processmodel.ProcessModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="ResourceAllocationTable" label="Resource Allocation Table" domainClass="processmodel.ProximaModel">
       <ownedLineMappings name="ActivityLine" domainClass="pm.Activity" semanticCandidatesExpression="aql:self.process.node" headerLabelExpression="aql:self.name"/>
       <ownedColumnMappings name="ResourceColumn" headerLabelExpression="aql:self.name" domainClass="resources.Resource"/>
       <intersection name="Allocation" lineMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceAllocationTable']/@ownedLineMappings[name='ActivityLine']" columnMapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourceAllocationTable']/@ownedColumnMappings.0" labelExpression="aql:(self.allocation -> select(a | a.resource == columnSemantic)).amount->at(1)" columnFinderExpression="aql:self.allocation.resource">
@@ -1666,7 +1666,7 @@
         </create>
       </intersection>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="CostTable" domainClass="processmodel.ProcessModel">
+    <ownedRepresentations xsi:type="description_3:CrossTableDescription" name="CostTable" domainClass="processmodel.ProximaModel">
       <ownedLineMappings name="CostFactorLine" domainClass="cost.CostFactor" headerLabelExpression="aql:self.name"/>
       <ownedCreateLine name="CreateCostFactor" mapping="//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='CostTable']/@ownedLineMappings[name='CostFactorLine']">
         <variables name="root" documentation="The semantic root element of the table."/>
@@ -1804,10 +1804,10 @@
       </groups>
     </categories>
   </extensions>
-  <extensions xsi:type="properties:ViewExtensionDescription" name="ProcessModelProperties">
+  <extensions xsi:type="properties:ViewExtensionDescription" name="ProximaProperties">
     <categories name="Default Category">
-      <pages name="CodeGenProperties" labelExpression="Codegen config" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.0"/>
-      <pages name="ProcessModelPropertiesPage" labelExpression="Performance overview" domainClass="processmodel.ProcessModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.1"/>
+      <pages name="CodeGenProperties" labelExpression="Codegen config" domainClass="processmodel.ProximaModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.0"/>
+      <pages name="ProximaModelPropertiesPage" label="Proxima Model Properties" labelExpression="Performance overview" domainClass="processmodel.ProximaModel" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.1"/>
       <groups name="CodeGen" labelExpression="Group" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="CodeGenLocationText" labelExpression="Location" helpExpression="The absolute path to the directory where the artefacts will be generated. The path must be separated by backslashes. (E.g.: c:\scripts\script.py.) The directory will be created if it does not exists." valueExpression="service:getCodeGenLocation()">
           <initialOperation>

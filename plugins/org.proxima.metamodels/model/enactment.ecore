@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="enactment" nsURI="metamodels.enactment" nsPrefix="org.proxima.metamodels">
   <eClassifiers xsi:type="ecore:EClass" name="Enactment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enactedProcessModel" lowerBound="1"
-        eType="ecore:EClass processmodel.ecore#//ProcessModel" containment="true"/>
+        eType="ecore:EClass processmodel.ecore#//ProximaModel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="token" upperBound="-1"
         eType="#//Token" containment="true"/>
   </eClassifiers>

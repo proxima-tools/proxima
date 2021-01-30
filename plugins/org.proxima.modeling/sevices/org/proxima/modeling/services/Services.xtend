@@ -11,7 +11,6 @@
 
 package org.proxima.modeling.services
 
-import org.proxima.processmodel.ProcessModel
 import org.proxima.processmodel.base.Identifiable
 import org.proxima.processmodel.ftg.Formalism
 import org.proxima.processmodel.ftg.Tool
@@ -34,6 +33,7 @@ import java.util.Set
 import java.util.UUID
 import org.eclipse.sirius.diagram.DEdge
 import org.eclipse.sirius.diagram.DNode
+import org.proxima.processmodel.ProximaModel
 
 /**
  * Services for the editor
@@ -80,8 +80,8 @@ class Services {
 
 ////////////////CURRENTLY NOT USED////////////////
 
-	public def calculatePerformance(ProcessModel processModel) {
-		processModel.process.head
+	public def calculatePerformance(ProximaModel proximaModel) {
+		proximaModel.process.head
 
 		0.0
 	}
@@ -139,7 +139,7 @@ class Services {
 
 		var List<Object> aliasObjects = Lists::newArrayList
 
-		val objects = (attribute.eContainer.eContainer as ProcessModel).process.head.node.filter[n|n instanceof Object].
+		val objects = (attribute.eContainer.eContainer as ProximaModel).process.head.node.filter[n|n instanceof Object].
 			map[n|n as Object]
 
 		for (alias : aliases) {
@@ -282,12 +282,12 @@ class Services {
 //
 //		linkedProperties
 //	}
-	def getCodeGenLocation(ProcessModel processModel) {
-		processModel.codeGenProperties.get("location")
+	def getCodeGenLocation(ProximaModel proximaModel) {
+		proximaModel.codeGenProperties.get("location")
 	}
 
-	def getCodeGenRootPackage(ProcessModel processModel) {
-		processModel.codeGenProperties.get("rootPackage")
+	def getCodeGenRootPackage(ProximaModel proximaModel) {
+		proximaModel.codeGenProperties.get("rootPackage")
 	}
 
 	def getExecutionParameters(AutomatedActivity automatedActivity) {

@@ -9,14 +9,14 @@
   <foreignModel>processmodel.ecore</foreignModel>
   <genPackages prefix="Processmodel" basePackage="org.proxima" disposableProviderFactory="true"
       ecorePackage="processmodel.ecore#/" publicationLocation="">
-    <genClasses ecoreClass="processmodel.ecore#//ProcessModel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/ftg"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/process"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/propertyModel"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/resourceModel"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/costModel"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/viewpointsmodel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProcessModel/codeGenProperties"/>
+    <genClasses ecoreClass="processmodel.ecore#//ProximaModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/ftg"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/process"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/propertyModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/resourceModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/costModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/viewpointsmodel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference processmodel.ecore#//ProximaModel/codeGenProperties"/>
     </genClasses>
     <nestedGenPackages prefix="Ftg" basePackage="org.proxima.processmodel" disposableProviderFactory="true"
         ecorePackage="processmodel.ecore#//ftg">

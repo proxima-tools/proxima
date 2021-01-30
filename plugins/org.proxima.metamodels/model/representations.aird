@@ -693,7 +693,7 @@
     <semanticResources>java:/Objects/org.eclipse.emf.mwe.core.container.WorkflowConditional</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_bwGaMFojEea6VL_6AJL-SA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_j1HZAB6xEeewEruDl3xWqw" name="top level" repPath="#_osDTQFojEea6VL_6AJL-SA" changeId="354ca9ef-e566-44b6-ad0b-59d2c2117669">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_j1HZAB6xEeewEruDl3xWqw" name="top level" repPath="#_osDTQFojEea6VL_6AJL-SA" changeId="028d7648-fda8-441d-9904-fde49d4339d7">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="processmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -717,7 +717,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="process.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_j1HZBh6xEeewEruDl3xWqw" name="enactment class diagram" repPath="#_K4nKUF-iEeafpr84r2g-DA">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_j1HZBh6xEeewEruDl3xWqw" name="enactment class diagram" repPath="#_K4nKUF-iEeafpr84r2g-DA" changeId="bda9fd1f-bc8e-402a-9768-d9c2d91b9888">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="enactment.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1102,9 +1102,9 @@
         </edges>
       </data>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_pqf4gFojEea6VL_6AJL-SA" name="ProcessModel" tooltipText="" outgoingEdges="_rMVesFojEea6VL_6AJL-SA _svEcwFojEea6VL_6AJL-SA _tNTQ4FojEea6VL_6AJL-SA _tvO5QFojEea6VL_6AJL-SA _uGAagFojEea6VL_6AJL-SA _cHMFkOlfEea_rf0b4Q35ww" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="processmodel.ecore#//ProcessModel"/>
-      <semanticElements xmi:type="ecore:EClass" href="processmodel.ecore#//ProcessModel"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_pqf4gFojEea6VL_6AJL-SA" name="ProximaModel" tooltipText="" outgoingEdges="_rMVesFojEea6VL_6AJL-SA _svEcwFojEea6VL_6AJL-SA _tNTQ4FojEea6VL_6AJL-SA _tvO5QFojEea6VL_6AJL-SA _uGAagFojEea6VL_6AJL-SA _cHMFkOlfEea_rf0b4Q35ww" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="processmodel.ecore#//ProximaModel"/>
+      <semanticElements xmi:type="ecore:EClass" href="processmodel.ecore#//ProximaModel"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1113,8 +1113,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_yUJhsCsjEeeQjKred69-6w" name=" codeGenProperties : StringToStringMap" tooltipText="">
-        <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/codeGenProperties"/>
-        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/codeGenProperties"/>
+        <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/codeGenProperties"/>
+        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/codeGenProperties"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_yUJhsSsjEeeQjKred69-6w" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
@@ -1160,8 +1160,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rMVesFojEea6VL_6AJL-SA" name="[1..1] ftg" sourceNode="_pqf4gFojEea6VL_6AJL-SA" targetNode="_rMKfkFojEea6VL_6AJL-SA">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/ftg"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/ftg"/>
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/ftg"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/ftg"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_rMWs0FojEea6VL_6AJL-SA" description="_rMWFwFojEea6VL_6AJL-SA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_rMWs0VojEea6VL_6AJL-SA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -1220,8 +1220,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_svEcwFojEea6VL_6AJL-SA" name="[0..*] process" sourceNode="_pqf4gFojEea6VL_6AJL-SA" targetNode="_su2aUFojEea6VL_6AJL-SA">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/process"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/process"/>
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/process"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/process"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_svFq41ojEea6VL_6AJL-SA" description="_svFq4FojEea6VL_6AJL-SA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_svFq5FojEea6VL_6AJL-SA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -1295,8 +1295,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tNTQ4FojEea6VL_6AJL-SA" name="[0..1] propertyModel" sourceNode="_pqf4gFojEea6VL_6AJL-SA" targetNode="_tM95sFojEea6VL_6AJL-SA">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/propertyModel"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/propertyModel"/>
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/propertyModel"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/propertyModel"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_tNUfAFojEea6VL_6AJL-SA" description="_svFq4FojEea6VL_6AJL-SA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_tNUfAVojEea6VL_6AJL-SA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -1362,8 +1362,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tvO5QFojEea6VL_6AJL-SA" name="[0..1] resourceModel" sourceNode="_pqf4gFojEea6VL_6AJL-SA" targetNode="_tu2ewFojEea6VL_6AJL-SA">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/resourceModel"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/resourceModel"/>
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/resourceModel"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/resourceModel"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_tvQHYFojEea6VL_6AJL-SA" description="_svFq4FojEea6VL_6AJL-SA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_tvQHYVojEea6VL_6AJL-SA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -1397,8 +1397,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_uGAagFojEea6VL_6AJL-SA" name="[0..1] costModel" sourceNode="_pqf4gFojEea6VL_6AJL-SA" targetNode="_uFqcQFojEea6VL_6AJL-SA">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/costModel"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/costModel"/>
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/costModel"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/costModel"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_uGBooFojEea6VL_6AJL-SA" description="_svFq4FojEea6VL_6AJL-SA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_uGBooVojEea6VL_6AJL-SA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -1456,8 +1456,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_cHMFkOlfEea_rf0b4Q35ww" name="[0..1] viewpointsmodel" sourceNode="_pqf4gFojEea6VL_6AJL-SA" targetNode="_XeQLkOlfEea_rf0b4Q35ww">
-      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/viewpointsmodel"/>
-      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProcessModel/viewpointsmodel"/>
+      <target xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/viewpointsmodel"/>
+      <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//ProximaModel/viewpointsmodel"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_cHMsoOlfEea_rf0b4Q35ww" description="_svFq4FojEea6VL_6AJL-SA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_cHMsoelfEea_rf0b4Q35ww" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -8562,6 +8562,14 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_qDJ-gWnZEeaLmPdrZH1b6Q" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_qDJ-gmnZEeaLmPdrZH1b6Q"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_u5WeoGMVEeuQuKEEncwm1A" type="3010" element="_u4TVwmMVEeuQuKEEncwm1A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_u5WeoWMVEeuQuKEEncwm1A" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u5WeomMVEeuQuKEEncwm1A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_u5aJAGMVEeuQuKEEncwm1A" type="3010" element="_u4WZEGMVEeuQuKEEncwm1A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_u5aJAWMVEeuQuKEEncwm1A" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u5aJAmMVEeuQuKEEncwm1A"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_qDG7MmnZEeaLmPdrZH1b6Q"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_qDG7M2nZEeaLmPdrZH1b6Q"/>
           </children>
@@ -8622,22 +8630,6 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qDMawGnZEeaLmPdrZH1b6Q" id="(0.43414634146341463,0.5045537340619307)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qDMawWnZEeaLmPdrZH1b6Q" id="(0.5,0.5)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_qDMawmnZEeaLmPdrZH1b6Q" type="4001" element="_qDDQ0GnZEeaLmPdrZH1b6Q" source="_qDGUIGnZEeaLmPdrZH1b6Q" target="_qDGUIGnZEeaLmPdrZH1b6Q">
-          <children xmi:type="notation:Node" xmi:id="_qDNB0GnZEeaLmPdrZH1b6Q" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qDNB0WnZEeaLmPdrZH1b6Q" x="3" y="-72"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_qDNB0mnZEeaLmPdrZH1b6Q" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qDNB02nZEeaLmPdrZH1b6Q" x="-52" y="-6"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_qDNB1GnZEeaLmPdrZH1b6Q" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qDNB1WnZEeaLmPdrZH1b6Q" x="13" y="35"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_qDMaw2nZEeaLmPdrZH1b6Q" routing="Rectilinear"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_qDMaxGnZEeaLmPdrZH1b6Q" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qDMaxWnZEeaLmPdrZH1b6Q" points="[1, 49, 1, 49]$[1, 83, 1, 83]$[116, 83, 116, 83]$[116, 1, 116, 1]$[81, 1, 81, 1]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qDNo4GnZEeaLmPdrZH1b6Q" id="(0.5,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qDNo4WnZEeaLmPdrZH1b6Q" id="(0.5,0.5)"/>
-        </edges>
         <edges xmi:type="notation:Edge" xmi:id="_2jVDwPjiEeayA8DFfIwG2w" type="4001" element="_2jI2gPjiEeayA8DFfIwG2w" source="_MDmWx1-iEeafpr84r2g-DA" target="_MDmWx1-iEeafpr84r2g-DA">
           <children xmi:type="notation:Node" xmi:id="_2jVDxPjiEeayA8DFfIwG2w" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2jVDxfjiEeayA8DFfIwG2w" x="5" y="-28"/>
@@ -8666,7 +8658,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_MCvbIF-iEeafpr84r2g-DA" name=" enactedProcessModel : ProcessModel" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_MCvbIF-iEeafpr84r2g-DA" name=" enactedProcessModel : ProximaModel" tooltipText="">
         <target xmi:type="ecore:EReference" href="enactment.ecore#//Enactment/enactedProcessModel"/>
         <semanticElements xmi:type="ecore:EReference" href="enactment.ecore#//Enactment/enactedProcessModel"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_MCvbIl-iEeafpr84r2g-DA" labelAlignment="LEFT" description="_MCvbIV-iEeafpr84r2g-DA" color="114,159,207">
@@ -8715,7 +8707,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qCtSkGnZEeaLmPdrZH1b6Q" name="Node" tooltipText="" outgoingEdges="_qDDQ0GnZEeaLmPdrZH1b6Q" incomingEdges="_qDBboGnZEeaLmPdrZH1b6Q _qDDQ0GnZEeaLmPdrZH1b6Q" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qCtSkGnZEeaLmPdrZH1b6Q" name="Node" tooltipText="" incomingEdges="_qDBboGnZEeaLmPdrZH1b6Q" width="12" height="10">
       <target xmi:type="ecore:EClass" href="processmodel.ecore#//pm/Node"/>
       <semanticElements xmi:type="ecore:EClass" href="processmodel.ecore#//pm/Node"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_qDANgGnZEeaLmPdrZH1b6Q">
@@ -8745,6 +8737,22 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_u4TVwmMVEeuQuKEEncwm1A" name=" objectOut : ObjectFlow" tooltipText="">
+        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Node/objectOut"/>
+        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Node/objectOut"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_u4VK8GMVEeuQuKEEncwm1A" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_u4WZEGMVEeuQuKEEncwm1A" name=" objectIn : ObjectFlow" tooltipText="">
+        <target xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Node/objectIn"/>
+        <semanticElements xmi:type="ecore:EReference" href="processmodel.ecore#//pm/Node/objectIn"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_u4XAIGMVEeuQuKEEncwm1A" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_qDBboGnZEeaLmPdrZH1b6Q" name="[0..1] currentNode" sourceNode="_MCdHQV-iEeafpr84r2g-DA" targetNode="_qCtSkGnZEeaLmPdrZH1b6Q">
       <target xmi:type="ecore:EReference" href="enactment.ecore#//Token/currentNode"/>
@@ -8759,14 +8767,6 @@
         </endLabelStyle>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_qDDQ0GnZEeaLmPdrZH1b6Q" sourceNode="_qCtSkGnZEeaLmPdrZH1b6Q" targetNode="_qCtSkGnZEeaLmPdrZH1b6Q" beginLabel="[0..*] dataFlowTo" endLabel="[0..*] dataFlowFrom">
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_qDD34GnZEeaLmPdrZH1b6Q" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_qDD34WnZEeaLmPdrZH1b6Q" showIcon="false"/>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_qDD34mnZEeaLmPdrZH1b6Q" showIcon="false"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_7UdF4PjhEeayA8DFfIwG2w" name="ActivityState" tooltipText="" width="12" height="10">
       <target xmi:type="ecore:EEnum" href="enactment.ecore#//ActivityState"/>
