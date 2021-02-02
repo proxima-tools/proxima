@@ -1,4 +1,4 @@
-<img src="https://github.com/david-istvan/icm/blob/master/branding/logo.png" width="160">
+<img src="https://github.com/david-istvan/proxima/blob/master/branding/logo.png" width="160">
 
 # *PRO*cess engineering with *I*nconsistency *MA*nagement
 
