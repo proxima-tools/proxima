@@ -12,19 +12,5 @@ The features of the framework include:
  -  A process simulation and optimization module, with the ability to rewrite the process.
  -  The catalogue of inconsistency patterns and the catalogue of management patterns is fully extensible.
 
-
-# :warning: WE ARE GRADUALLY MIGRATING PROxIMA. :warning:
-We are doing this by gradually releasing the ravamped modules one-by-one.
-
-## PROxIMA 0.2 focus/status
- - [x] Core (metamodels and commons) - In Progress
- - [x] Modeling - In Progress
- - [ ] Enactment
- - [ ] Design-space exploration and simulation
-
-<img src="https://github.com/david-istvan/proxima/blob/master/doc/pluginstructure.png?raw=true" width="800"/>
- 
-We are currently stabilizing the Modeling module before proceeding with the migration of the rest of the modules.
-
 # User manual
 The user manual can be found on our [wiki](https://github.com/david-istvan/proxima/wiki).
