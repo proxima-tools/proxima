@@ -1,0 +1,54 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Istvan David
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *    Istvan David - initial API and implementation
+ *******************************************************************************/
+
+package be.uantwerpen.msdl.icm.queries.simulator
+
+import "metamodels.pm"
+import "metamodels.cost"
+import be.uantwerpen.msdl.icm.queries.general.nodeReachableViaFeedback
+
+pattern costInCircle(cost: Cost, activity: Activity, decision: Decision){
+	Activity.cost(activity, cost);
+	find nodeReachableViaFeedback(activity, decision);
+}
+
+pattern cost(cost: Cost){
+	Cost(cost);
+}
+
+pattern time(cost : Cost){
+	CostFactor.cost(costFactor, cost);
+	CostFactor.type(costFactor, ::Time);
+}
+
+pattern timeBasedCost(cost : Cost){
+	CostFactor.cost(costFactor, cost);
+	CostFactor.type(costFactor, ::CostPerTime);
+}
+
+pattern timeBasedCostWithTime(price : Cost, developmentTime : Cost){
+	find time(developmentTime);
+	find timeBasedCost(price );
+	Cost.costItem(developmentTime, costItem);
+	Cost.costItem(price, costItem);
+}
+
+pattern timeBasedCostInCircle(price : Cost, developmentTime : Cost, activity : Activity){
+	find timeBasedCostWithTime(price, developmentTime);
+	find costInCircle(price, activity, _);
+}
+
+
+
+pattern costForPresence(cost : Cost){
+	CostFactor.cost(costFactor, cost);
+	CostFactor.type(costFactor, ::CostForPresence);
+}

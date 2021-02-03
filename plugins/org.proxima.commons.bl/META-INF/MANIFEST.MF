@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PROxIMA Common Business Layer
 Bundle-SymbolicName: org.proxima.commons.bl
+Automatic-Module-Name: org.proxima.commons.bl
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.proxima.commons.bl.internal.Activator
 Bundle-Vendor: Istvan David
@@ -11,7 +12,6 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.19.0",
  org.eclipse.xtend.lib;bundle-version="2.22.0",
  org.eclipse.xtend.lib.macro;bundle-version="2.22.0",
  org.proxima.metamodels;bundle-version="0.2.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Export-Package: org.proxima.commons.bl
-

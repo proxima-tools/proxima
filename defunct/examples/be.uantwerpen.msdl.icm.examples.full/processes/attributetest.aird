@@ -1,0 +1,1547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm" xmlns:be.uantwerpen.msdl.metamodels_2="metamodels.properties" xmlns:be.uantwerpen.msdl.metamodels_3="metamodels.ftg" xmlns:be.uantwerpen.msdl.metamodels_4="metamodels.resources" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="metamodels.pm metamodels.processmodel#//pm metamodels.properties metamodels.processmodel#//properties metamodels.ftg metamodels.processmodel#//ftg metamodels.resources metamodels.processmodel#//resources http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_hp4agHiYEeeSLfON_Vg2jQ" selectedViews="_iGxx4HiYEeeSLfON_Vg2jQ" version="12.0.0.201704271200">
+    <semanticResources>attributetest.processmodel</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_iGxx4HiYEeeSLfON_Vg2jQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_t2aBwHiYEeeSLfON_Vg2jQ" name="new Process Model" repPath="#_t2N0gHiYEeeSLfON_Vg2jQ">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']"/>
+        <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="attributetest.processmodel#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_ncNVYIvnEee0qbDyquTUpg" name="new Resource Model" repPath="#_ncHOwIvnEee0qbDyquTUpg">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']"/>
+        <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="attributetest.processmodel#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_qHFASIvnEee0qbDyquTUpg" name="new FTG" repPath="#_qHFAMIvnEee0qbDyquTUpg">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']"/>
+        <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="attributetest.processmodel#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_t2N0gHiYEeeSLfON_Vg2jQ" name="new Process Model">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_t2N0gXiYEeeSLfON_Vg2jQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_t2N0gniYEeeSLfON_Vg2jQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_t24i4HiYEeeSLfON_Vg2jQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_t24i4XiYEeeSLfON_Vg2jQ" type="Sirius" element="_t2N0gHiYEeeSLfON_Vg2jQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_t24i43iYEeeSLfON_Vg2jQ" type="2001" element="_t2N0hHiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t2-pgHiYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_t2-pgXiYEeeSLfON_Vg2jQ" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t3dKtXiYEeeSLfON_Vg2jQ" type="3002" element="_t2N0hXiYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_t3dKtniYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3dKt3iYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t24i5HiYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t24i5XiYEeeSLfON_Vg2jQ" x="736" y="-432" width="20" height="20"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_t3K2wHiYEeeSLfON_Vg2jQ" type="2001" element="_t2N0hniYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t3K2w3iYEeeSLfON_Vg2jQ" visible="false" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_t3K2xHiYEeeSLfON_Vg2jQ" x="31"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t3dKuHiYEeeSLfON_Vg2jQ" type="3005" element="_t2N0iHiYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_t3dKuXiYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3dKuniYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t3K2wXiYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3K2wniYEeeSLfON_Vg2jQ" x="720" y="132" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_t3K2xXiYEeeSLfON_Vg2jQ" type="2001" element="_t2N0iXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t3Q9YHiYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_t3Q9YXiYEeeSLfON_Vg2jQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t3jRQHiYEeeSLfON_Vg2jQ" type="3003" element="_t2N0iniYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_t3jRQXiYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3jRQniYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t3K2xniYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3K2x3iYEeeSLfON_Vg2jQ" x="330" y="-348" width="130" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_t3Q9YniYEeeSLfON_Vg2jQ" type="2001" element="_t2N0i3iYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t3Q9ZXiYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_t3Q9ZniYEeeSLfON_Vg2jQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t3jRQ3iYEeeSLfON_Vg2jQ" type="3003" element="_t2N0jHiYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_t3jRRHiYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3jRRXiYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t3Q9Y3iYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3Q9ZHiYEeeSLfON_Vg2jQ" x="1020" y="-12" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_t3Q9Z3iYEeeSLfON_Vg2jQ" type="2001" element="_t2N0jXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t3Q9aniYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_t3Q9a3iYEeeSLfON_Vg2jQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t3jRRniYEeeSLfON_Vg2jQ" type="3003" element="_t2N0jniYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_t3jRR3iYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3jRSHiYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t3Q9aHiYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3Q9aXiYEeeSLfON_Vg2jQ" x="1008" y="-331" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_t3Q9bHiYEeeSLfON_Vg2jQ" type="2001" element="_t2N0j3iYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t3Q9b3iYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_t3Q9cHiYEeeSLfON_Vg2jQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t3jRSXiYEeeSLfON_Vg2jQ" type="3003" element="_t2N0kHiYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_t3jRSniYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3jRS3iYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t3Q9bXiYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3Q9bniYEeeSLfON_Vg2jQ" x="1020" y="-236" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_t3Q9cXiYEeeSLfON_Vg2jQ" type="2001" element="_t2N0kXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t3Q9dHiYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_t3Q9dXiYEeeSLfON_Vg2jQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t3jRTHiYEeeSLfON_Vg2jQ" type="3003" element="_t2N0kniYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_t3jRTXiYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3jRTniYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t3Q9cniYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3Q9c3iYEeeSLfON_Vg2jQ" x="1008" y="-156" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_t3XEEniYEeeSLfON_Vg2jQ" type="2003" element="_t2N0mXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t3XEFXiYEeeSLfON_Vg2jQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_t3XEFniYEeeSLfON_Vg2jQ" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_t3XEF3iYEeeSLfON_Vg2jQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_t3XEGHiYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t3XEE3iYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3XEFHiYEeeSLfON_Vg2jQ" x="682" y="-24"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_t3XEGXiYEeeSLfON_Vg2jQ" type="2003" element="_t2N0m3iYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t3XEHHiYEeeSLfON_Vg2jQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_t3XEHXiYEeeSLfON_Vg2jQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_t3jRT3iYEeeSLfON_Vg2jQ" type="3010" element="_t2N0nXiYEeeSLfON_Vg2jQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_t3jRUHiYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_t3jRUXiYEeeSLfON_Vg2jQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_t3XEHniYEeeSLfON_Vg2jQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_t3XEH3iYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t3XEGniYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3XEG3iYEeeSLfON_Vg2jQ" x="1284" y="-211" height="63"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_t3dKoHiYEeeSLfON_Vg2jQ" type="2003" element="_t2T7IHiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t3dKo3iYEeeSLfON_Vg2jQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_t3dKpHiYEeeSLfON_Vg2jQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_t3jRUniYEeeSLfON_Vg2jQ" type="3010" element="_t2T7IniYEeeSLfON_Vg2jQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_t3jRU3iYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_t3jRVHiYEeeSLfON_Vg2jQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_t3dKpXiYEeeSLfON_Vg2jQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_t3dKpniYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t3dKoXiYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3dKoniYEeeSLfON_Vg2jQ" x="1119" y="180"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_t3dKp3iYEeeSLfON_Vg2jQ" type="2003" element="_t2T7JHiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t3dKqniYEeeSLfON_Vg2jQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_t3dKq3iYEeeSLfON_Vg2jQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_t3jRVXiYEeeSLfON_Vg2jQ" type="3010" element="_t2T7JniYEeeSLfON_Vg2jQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_t3jRVniYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_t3jRV3iYEeeSLfON_Vg2jQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_t3dKrHiYEeeSLfON_Vg2jQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_t3dKrXiYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_t3dKqHiYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t3dKqXiYEeeSLfON_Vg2jQ" x="132" y="-24"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_v-csUHiYEeeSLfON_Vg2jQ" type="2001" element="_v9NWMHiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-csU3iYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_v-csVHiYEeeSLfON_Vg2jQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-iy_HiYEeeSLfON_Vg2jQ" type="3016" element="_v9NWMXiYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_v-iy_XiYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-iy_niYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_v-csUXiYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-csUniYEeeSLfON_Vg2jQ" x="132" y="288" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_v-csVXiYEeeSLfON_Vg2jQ" type="2001" element="_v9NWMniYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-csWHiYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_v-csWXiYEeeSLfON_Vg2jQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-iy_3iYEeeSLfON_Vg2jQ" type="3016" element="_v9NWM3iYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_v-izAHiYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-izAXiYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_v-csVniYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-csV3iYEeeSLfON_Vg2jQ" x="132" y="-269" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_v-csWniYEeeSLfON_Vg2jQ" type="2001" element="_v9NWNHiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-iy8HiYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_v-iy8XiYEeeSLfON_Vg2jQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-izAniYEeeSLfON_Vg2jQ" type="3016" element="_v9NWNXiYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_v-izA3iYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-izBHiYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_v-csW3iYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-csXHiYEeeSLfON_Vg2jQ" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_v-iy8niYEeeSLfON_Vg2jQ" type="2001" element="_v9NWNniYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-iy9XiYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_v-iy9niYEeeSLfON_Vg2jQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-izBXiYEeeSLfON_Vg2jQ" type="3016" element="_v9NWN3iYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_v-izBniYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-izB3iYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_v-iy83iYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-iy9HiYEeeSLfON_Vg2jQ" x="360" y="-180" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_v-iy93iYEeeSLfON_Vg2jQ" type="2001" element="_v9NWOHiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-iy-niYEeeSLfON_Vg2jQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_v-iy-3iYEeeSLfON_Vg2jQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-o5kHiYEeeSLfON_Vg2jQ" type="3003" element="_v9Tc0HiYEeeSLfON_Vg2jQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_v-o5kXiYEeeSLfON_Vg2jQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-o5kniYEeeSLfON_Vg2jQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_v-iy-HiYEeeSLfON_Vg2jQ" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-iy-XiYEeeSLfON_Vg2jQ" x="12" y="-120" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_uqoq8IvnEee0qbDyquTUpg" type="2001" element="_uqQQcIvnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_uqoq84vnEee0qbDyquTUpg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_uqoq9IvnEee0qbDyquTUpg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_uqoq9YvnEee0qbDyquTUpg" type="3003" element="_uqQQcYvnEee0qbDyquTUpg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_uqoq9ovnEee0qbDyquTUpg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uqoq94vnEee0qbDyquTUpg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_uqoq8YvnEee0qbDyquTUpg" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uqoq8ovnEee0qbDyquTUpg" x="12" y="-360" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-N6rQIvqEeeSFOYYNlAfHw" type="2003" element="_-M9pAIvqEeeSFOYYNlAfHw">
+          <children xmi:type="notation:Node" xmi:id="_-OfTAIvqEeeSFOYYNlAfHw" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_-OfTAYvqEeeSFOYYNlAfHw" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_-OfTAovqEeeSFOYYNlAfHw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_-OfTA4vqEeeSFOYYNlAfHw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-N6rQYvqEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-N6rQovqEeeSFOYYNlAfHw" x="693" y="-340" width="130" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_aT828IvtEeeSFOYYNlAfHw" type="2003" element="_Z23SUIvtEeeSFOYYNlAfHw">
+          <children xmi:type="notation:Node" xmi:id="_aT8284vtEeeSFOYYNlAfHw" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_aT829IvtEeeSFOYYNlAfHw" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_aT829YvtEeeSFOYYNlAfHw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_aT829ovtEeeSFOYYNlAfHw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_aT828YvtEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aT828ovtEeeSFOYYNlAfHw" x="709" y="-264" width="130" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_fE1MAIvtEeeSFOYYNlAfHw" type="2003" element="_fEQkQIvtEeeSFOYYNlAfHw">
+          <children xmi:type="notation:Node" xmi:id="_fE1MA4vtEeeSFOYYNlAfHw" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_fE1MBIvtEeeSFOYYNlAfHw" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_fE1MBYvtEeeSFOYYNlAfHw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_fE1MBovtEeeSFOYYNlAfHw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_fE1MAYvtEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fE1MAovtEeeSFOYYNlAfHw" x="720" y="-161" width="130" height="30"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_t24i4niYEeeSLfON_Vg2jQ"/>
+        <edges xmi:type="notation:Edge" xmi:id="_t37r0niYEeeSLfON_Vg2jQ" type="4001" element="_t2T7OHiYEeeSLfON_Vg2jQ" source="_t3XEEniYEeeSLfON_Vg2jQ" target="_t3K2wHiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t37r1niYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t37r13iYEeeSLfON_Vg2jQ" x="2" y="11"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t37r2HiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t37r2XiYEeeSLfON_Vg2jQ" y="-9"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t37r2niYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t37r23iYEeeSLfON_Vg2jQ" x="-1" y="-10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_t37r03iYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_t37r1HiYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t37r1XiYEeeSLfON_Vg2jQ" points="[-3, 39, 8, -147]$[-11, 185, 0, -1]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t37r3HiYEeeSLfON_Vg2jQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t37r3XiYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_t4P02HiYEeeSLfON_Vg2jQ" type="4001" element="_t2T7SniYEeeSLfON_Vg2jQ" source="_t3XEEniYEeeSLfON_Vg2jQ" target="_t3Q9YniYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t4P03HiYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4P03XiYEeeSLfON_Vg2jQ" x="-1" y="-9"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4P03niYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4P033iYEeeSLfON_Vg2jQ" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4P04HiYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4P04XiYEeeSLfON_Vg2jQ" y="-2"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_t4P02XiYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_t4P02niYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t4P023iYEeeSLfON_Vg2jQ" points="[64, 16, -260, -26]$[274, 37, -50, -5]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4P04niYEeeSLfON_Vg2jQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4P043iYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_t4P05HiYEeeSLfON_Vg2jQ" type="4001" element="_t2T7TXiYEeeSLfON_Vg2jQ" source="_t3XEGXiYEeeSLfON_Vg2jQ" target="_t3Q9Z3iYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t4P06HiYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4P06XiYEeeSLfON_Vg2jQ" x="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4P06niYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4P063iYEeeSLfON_Vg2jQ" x="3"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4P07HiYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4P07XiYEeeSLfON_Vg2jQ" x="-1" y="1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_t4P05XiYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_t4P05niYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t4P053iYEeeSLfON_Vg2jQ" points="[0, 0, 371, 90]$[-371, -90, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4V7cHiYEeeSLfON_Vg2jQ" id="(0.4982935153583617,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4V7cXiYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_t4V7cniYEeeSLfON_Vg2jQ" type="4001" element="_t2T7UHiYEeeSLfON_Vg2jQ" source="_t3XEGXiYEeeSLfON_Vg2jQ" target="_t3Q9cXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t4V7dniYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4V7d3iYEeeSLfON_Vg2jQ" x="2" y="2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4V7eHiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4V7eXiYEeeSLfON_Vg2jQ" x="3" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4V7eniYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4V7e3iYEeeSLfON_Vg2jQ" x="-1" y="3"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_t4V7c3iYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_t4V7dHiYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t4V7dXiYEeeSLfON_Vg2jQ" points="[-145, 1, 226, -84]$[-321, 66, 50, -19]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4V7fHiYEeeSLfON_Vg2jQ" id="(0.4982935153583617,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4V7fXiYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_t4V7fniYEeeSLfON_Vg2jQ" type="4001" element="_t2T7U3iYEeeSLfON_Vg2jQ" source="_t3XEGXiYEeeSLfON_Vg2jQ" target="_t3Q9bHiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t4V7gniYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4V7g3iYEeeSLfON_Vg2jQ" x="1" y="2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4V7hHiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4V7hXiYEeeSLfON_Vg2jQ" y="2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4V7hniYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4V7h3iYEeeSLfON_Vg2jQ" y="3"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_t4V7f3iYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_t4V7gHiYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t4V7gXiYEeeSLfON_Vg2jQ" points="[-145, 40, 214, 35]$[-359, 5, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4V7iHiYEeeSLfON_Vg2jQ" id="(0.4982935153583617,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4V7iXiYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_t4V7iniYEeeSLfON_Vg2jQ" type="4001" element="_t2T7VniYEeeSLfON_Vg2jQ" source="_t3XEGXiYEeeSLfON_Vg2jQ" target="_t3Q9YniYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t4V7jniYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4V7j3iYEeeSLfON_Vg2jQ" x="-5" y="8"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4V7kHiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4V7kXiYEeeSLfON_Vg2jQ" x="5" y="-8"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4V7kniYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4V7k3iYEeeSLfON_Vg2jQ" x="5" y="-8"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_t4V7i3iYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_t4V7jHiYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t4V7jXiYEeeSLfON_Vg2jQ" points="[-66, 42, 293, -187]$[-312, 199, 47, -30]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4cCEHiYEeeSLfON_Vg2jQ" id="(0.4982935153583617,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4cCEXiYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_t4cCEniYEeeSLfON_Vg2jQ" type="4001" element="_t2T7WXiYEeeSLfON_Vg2jQ" source="_t3dKoHiYEeeSLfON_Vg2jQ" target="_t3Q9YniYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_t4cCFniYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4cCF3iYEeeSLfON_Vg2jQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4cCGHiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4cCGXiYEeeSLfON_Vg2jQ" x="1" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_t4cCGniYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t4cCG3iYEeeSLfON_Vg2jQ" x="1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_t4cCE3iYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_t4cCFHiYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t4cCFXiYEeeSLfON_Vg2jQ" points="[0, 0, 113, 162]$[-113, -162, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4cCHHiYEeeSLfON_Vg2jQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t4cCHXiYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_v-o5k3iYEeeSLfON_Vg2jQ" type="4001" element="_v9r3UHiYEeeSLfON_Vg2jQ" source="_v-iy8niYEeeSLfON_Vg2jQ" target="_v-csVXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-o5l3iYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-o5mHiYEeeSLfON_Vg2jQ" x="-2" y="12"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-o5mXiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-o5mniYEeeSLfON_Vg2jQ" x="4" y="-7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-o5m3iYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-o5nHiYEeeSLfON_Vg2jQ" x="4" y="-8"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_v-o5lHiYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_v-o5lXiYEeeSLfON_Vg2jQ" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v-o5lniYEeeSLfON_Vg2jQ" points="[50, 17, 278, 76]$[-228, -59, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-o5nXiYEeeSLfON_Vg2jQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-o5nniYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_v-o5n3iYEeeSLfON_Vg2jQ" type="4001" element="_v9x98HiYEeeSLfON_Vg2jQ" source="_v-csUHiYEeeSLfON_Vg2jQ" target="_v-iy8niYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-o5o3iYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-o5pHiYEeeSLfON_Vg2jQ" x="7" y="-9"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-o5pXiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-o5pniYEeeSLfON_Vg2jQ" x="-5" y="8"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-o5p3iYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-o5qHiYEeeSLfON_Vg2jQ" x="-6" y="8"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_v-o5oHiYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_v-o5oXiYEeeSLfON_Vg2jQ" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v-o5oniYEeeSLfON_Vg2jQ" points="[0, 0, -228, 438]$[228, -438, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-o5qXiYEeeSLfON_Vg2jQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-o5qniYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_v-o5q3iYEeeSLfON_Vg2jQ" type="4001" element="_v9x983iYEeeSLfON_Vg2jQ" source="_t3K2xXiYEeeSLfON_Vg2jQ" target="_v-csVXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-o5r3iYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-o5sHiYEeeSLfON_Vg2jQ" x="-7" y="4"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-o5sXiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-o5sniYEeeSLfON_Vg2jQ" x="8" y="-3"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-o5s3iYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-o5tHiYEeeSLfON_Vg2jQ" x="6" y="-1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_v-o5rHiYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_v-o5rXiYEeeSLfON_Vg2jQ" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v-o5rniYEeeSLfON_Vg2jQ" points="[-59, 30, 154, -79]$[-213, 109, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-o5tXiYEeeSLfON_Vg2jQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-o5tniYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_v-vASniYEeeSLfON_Vg2jQ" type="4001" element="_v9-LNXiYEeeSLfON_Vg2jQ" source="_t3XEEniYEeeSLfON_Vg2jQ" target="_v-iy8niYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-vATniYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-vAT3iYEeeSLfON_Vg2jQ" x="4" y="-3"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-vAUHiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-vAUXiYEeeSLfON_Vg2jQ" x="-10" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-vAUniYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-vAU3iYEeeSLfON_Vg2jQ" x="6" y="5"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_v-vAS3iYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_v-vATHiYEeeSLfON_Vg2jQ" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v-vATXiYEeeSLfON_Vg2jQ" points="[-64, 34, 272, 160]$[-336, -126, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-vAVHiYEeeSLfON_Vg2jQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-vAVXiYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_v-vAVniYEeeSLfON_Vg2jQ" type="4001" element="_v9-LOHiYEeeSLfON_Vg2jQ" source="_v-csVXiYEeeSLfON_Vg2jQ" target="_v-iy93iYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-vAWniYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-vAW3iYEeeSLfON_Vg2jQ" x="-8" y="6"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-vAXHiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-vAXXiYEeeSLfON_Vg2jQ" x="8" y="-6"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-vAXniYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-vAX3iYEeeSLfON_Vg2jQ" x="8" y="-6"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_v-vAV3iYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_v-vAWHiYEeeSLfON_Vg2jQ" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v-vAWXiYEeeSLfON_Vg2jQ" points="[-21, 30, 99, -149]$[-100, 149, 20, -30]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-vAYHiYEeeSLfON_Vg2jQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-vAYXiYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_v-vAYniYEeeSLfON_Vg2jQ" type="4001" element="_v9-LO3iYEeeSLfON_Vg2jQ" source="_t3dKp3iYEeeSLfON_Vg2jQ" target="_v-iy93iYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_v-vAZniYEeeSLfON_Vg2jQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-vAZ3iYEeeSLfON_Vg2jQ" x="4" y="9"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-vAaHiYEeeSLfON_Vg2jQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-vAaXiYEeeSLfON_Vg2jQ" x="-4" y="-9"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_v-vAaniYEeeSLfON_Vg2jQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v-vAa3iYEeeSLfON_Vg2jQ" x="-4" y="-9"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_v-vAY3iYEeeSLfON_Vg2jQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_v-vAZHiYEeeSLfON_Vg2jQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v-vAZXiYEeeSLfON_Vg2jQ" points="[0, 0, 134, 66]$[-134, -66, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-vAbHiYEeeSLfON_Vg2jQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v-vAbXiYEeeSLfON_Vg2jQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_uqoq-IvnEee0qbDyquTUpg" type="4001" element="_uqcdsIvnEee0qbDyquTUpg" source="_uqoq8IvnEee0qbDyquTUpg" target="_v-csVXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_uqoq_IvnEee0qbDyquTUpg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uqoq_YvnEee0qbDyquTUpg" x="-11" y="-4"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_uqoq_ovnEee0qbDyquTUpg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uqoq_4vnEee0qbDyquTUpg" x="8" y="3"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_uqorAIvnEee0qbDyquTUpg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uqorAYvnEee0qbDyquTUpg" x="6" y="3"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_uqoq-YvnEee0qbDyquTUpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_uqoq-ovnEee0qbDyquTUpg" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uqoq-4vnEee0qbDyquTUpg" points="[29, 30, -91, -91]$[120, 121, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uquxkIvnEee0qbDyquTUpg" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uquxkYvnEee0qbDyquTUpg" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_BA4iIIvrEeeSFOYYNlAfHw" type="4001" element="_BAgHoIvrEeeSFOYYNlAfHw" source="_t24i43iYEeeSLfON_Vg2jQ" target="_-N6rQIvqEeeSFOYYNlAfHw">
+          <children xmi:type="notation:Node" xmi:id="_BA4iJIvrEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BA4iJYvrEeeSFOYYNlAfHw" x="-57" y="-4"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_BA4iJovrEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BA4iJ4vrEeeSFOYYNlAfHw" x="35" y="2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_BA4iKIvrEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BA4iKYvrEeeSFOYYNlAfHw" x="37" y="5"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_BA4iIYvrEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_BA4iIovrEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BA4iI4vrEeeSFOYYNlAfHw" points="[2, 10, -9, -91]$[9, 82, -2, -19]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BA-owIvrEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BBEvYIvrEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_DPwNcIvrEeeSFOYYNlAfHw" type="4001" element="_DPd5kIvrEeeSFOYYNlAfHw" source="_t3K2xXiYEeeSLfON_Vg2jQ" target="_-N6rQIvqEeeSFOYYNlAfHw">
+          <children xmi:type="notation:Node" xmi:id="_DPwNdIvrEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DPwNdYvrEeeSFOYYNlAfHw" x="-3" y="-15"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_DPwNdovrEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DPwNd4vrEeeSFOYYNlAfHw" x="-1" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_DPwNeIvrEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DPwNeYvrEeeSFOYYNlAfHw" x="1" y="4"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_DPwNcYvrEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_DPwNcovrEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DPwNc4vrEeeSFOYYNlAfHw" points="[65, -6, -297, -18]$[298, 8, -64, -4]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DPwNeovrEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DPwNe4vrEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_FMx60IvrEeeSFOYYNlAfHw" type="4001" element="_FMfm8IvrEeeSFOYYNlAfHw" source="_-N6rQIvqEeeSFOYYNlAfHw" target="_t3K2xXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_FMx61IvrEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FMx61YvrEeeSFOYYNlAfHw" x="-91" y="-8"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_FMx61ovrEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FMx614vrEeeSFOYYNlAfHw" x="-19" y="9"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_FMx62IvrEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FMx62YvrEeeSFOYYNlAfHw" x="-28" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_FMx60YvrEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_FMx60ovrEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_FMx604vrEeeSFOYYNlAfHw" points="[-27, -19, 335, -7]$[-67, -48, 295, -36]$[-297, -20, 65, -8]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FMx62ovrEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FMx624vrEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_HOTtsIvrEeeSFOYYNlAfHw" type="4001" element="_HOHgcIvrEeeSFOYYNlAfHw" source="_-N6rQIvqEeeSFOYYNlAfHw" target="_t3Q9Z3iYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_HOTttIvrEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HOTttYvrEeeSFOYYNlAfHw" x="1" y="-12"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HOTttovrEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HOTtt4vrEeeSFOYYNlAfHw" x="-1" y="8"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HOZ0UIvrEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HOZ0UYvrEeeSFOYYNlAfHw" x="-3" y="9"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_HOTtsYvrEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HOTtsovrEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HOTts4vrEeeSFOYYNlAfHw" points="[64, -2, -237, -7]$[251, -4, -50, -9]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HOZ0UovrEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HOZ0U4vrEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_Ok-ZQIvrEeeSFOYYNlAfHw" type="4001" element="_OksFYIvrEeeSFOYYNlAfHw" source="_-N6rQIvqEeeSFOYYNlAfHw" target="_v-iy8niYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_Ok-ZRIvrEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ok-ZRYvrEeeSFOYYNlAfHw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Ok-ZRovrEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ok-ZR4vrEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Ok-ZSIvrEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ok-ZSYvrEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ok-ZQYvrEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Ok-ZQovrEeeSFOYYNlAfHw" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ok-ZQ4vrEeeSFOYYNlAfHw" points="[0, 0, 273, -144]$[-273, 144, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ok-ZSovrEeeSFOYYNlAfHw" id="(0.0,0.41025641025641024)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ok-ZS4vrEeeSFOYYNlAfHw" id="(0.6,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_dVCpYIvtEeeSFOYYNlAfHw" type="4001" element="_dUwVgIvtEeeSFOYYNlAfHw" source="_-N6rQIvqEeeSFOYYNlAfHw" target="_aT828IvtEeeSFOYYNlAfHw">
+          <children xmi:type="notation:Node" xmi:id="_dVCpZIvtEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dVCpZYvtEeeSFOYYNlAfHw" x="-11" y="4"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_dVCpZovtEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dVCpZ4vtEeeSFOYYNlAfHw" x="9" y="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_dVCpaIvtEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dVCpaYvtEeeSFOYYNlAfHw" x="8" y="-2"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_dVCpYYvtEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_dVCpYovtEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dVCpY4vtEeeSFOYYNlAfHw" points="[55, 20, 39, -56]$[29, 57, 13, -19]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dVCpaovtEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dVCpa4vtEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_hkUtQIvtEeeSFOYYNlAfHw" type="4001" element="_hkCZYIvtEeeSFOYYNlAfHw" source="_aT828IvtEeeSFOYYNlAfHw" target="_fE1MAIvtEeeSFOYYNlAfHw">
+          <children xmi:type="notation:Node" xmi:id="_hkUtRIvtEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hkaz4IvtEeeSFOYYNlAfHw" x="-14" y="2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_hkaz4YvtEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hkaz4ovtEeeSFOYYNlAfHw" x="-3" y="3"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_hkaz44vtEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hkaz5IvtEeeSFOYYNlAfHw" x="-2" y="3"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_hkUtQYvtEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_hkUtQovtEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hkUtQ4vtEeeSFOYYNlAfHw" points="[-9, 20, -20, -83]$[6, 84, -5, -19]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hkaz5YvtEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hkaz5ovtEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_iUeX0IvtEeeSFOYYNlAfHw" type="4001" element="_iUSKkIvtEeeSFOYYNlAfHw" source="_fE1MAIvtEeeSFOYYNlAfHw" target="_t3XEEniYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_iUeX1IvtEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iUeX1YvtEeeSFOYYNlAfHw" x="5" y="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iUeX1ovtEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iUeX14vtEeeSFOYYNlAfHw" x="-17" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iUeX2IvtEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iUeX2YvtEeeSFOYYNlAfHw" x="-20" y="2"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_iUeX0YvtEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_iUeX0ovtEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_iUeX04vtEeeSFOYYNlAfHw" points="[-4, 20, 7, -117]$[-19, 118, -8, -19]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iUeX2ovtEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iUeX24vtEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_jiY8cIvtEeeSFOYYNlAfHw" type="4001" element="_jiS10IvtEeeSFOYYNlAfHw" source="_aT828IvtEeeSFOYYNlAfHw" target="_t3Q9bHiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_jifDEIvtEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jifDEYvtEeeSFOYYNlAfHw" x="3" y="-11"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_jifDEovtEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jifDE4vtEeeSFOYYNlAfHw" x="-3" y="9"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_jifDFIvtEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jifDFYvtEeeSFOYYNlAfHw" x="-5" y="8"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_jiY8cYvtEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_jiY8covtEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jiY8c4vtEeeSFOYYNlAfHw" points="[64, 2, -233, -22]$[247, 9, -50, -15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jifDFovtEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jifDF4vtEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_kgfjcIvtEeeSFOYYNlAfHw" type="4001" element="_kgTWMIvtEeeSFOYYNlAfHw" source="_fE1MAIvtEeeSFOYYNlAfHw" target="_t3Q9cXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_kgfjdIvtEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kgfjdYvtEeeSFOYYNlAfHw" x="-19" y="-14" width="92" height="13"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_kgfjdovtEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kgfjd4vtEeeSFOYYNlAfHw" x="88" y="-5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_kgfjeIvtEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kgfjeYvtEeeSFOYYNlAfHw" x="89" y="-4"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_kgfjcYvtEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_kgfjcovtEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kgfjc4vtEeeSFOYYNlAfHw" points="[64, 0, -210, -1]$[224, 1, -50, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kgfjeovtEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kgfje4vtEeeSFOYYNlAfHw" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nP-BcIvtEeeSFOYYNlAfHw" type="4001" element="_nPrtkIvtEeeSFOYYNlAfHw" source="_aT828IvtEeeSFOYYNlAfHw" target="_v-iy8niYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_nP-BdIvtEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nP-BdYvtEeeSFOYYNlAfHw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nP-BdovtEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nP-Bd4vtEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nP-BeIvtEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nP-BeYvtEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nP-BcYvtEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nP-BcovtEeeSFOYYNlAfHw" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nP-Bc4vtEeeSFOYYNlAfHw" points="[0, 0, 249, -86]$[-249, 86, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nP-BeovtEeeSFOYYNlAfHw" id="(0.0,0.2564102564102564)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nP-Be4vtEeeSFOYYNlAfHw" id="(1.0,0.4)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ny36MIvtEeeSFOYYNlAfHw" type="4001" element="_nylmUIvtEeeSFOYYNlAfHw" source="_fE1MAIvtEeeSFOYYNlAfHw" target="_v-iy8niYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_ny36NIvtEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ny36NYvtEeeSFOYYNlAfHw" x="-1" y="-7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ny36NovtEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ny36N4vtEeeSFOYYNlAfHw" x="2" y="14"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ny36OIvtEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ny36OYvtEeeSFOYYNlAfHw" x="2" y="12"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ny36MYvtEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ny36MovtEeeSFOYYNlAfHw" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ny36M4vtEeeSFOYYNlAfHw" points="[0, 0, 260, 22]$[-260, -22, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ny36OovtEeeSFOYYNlAfHw" id="(0.0,0.38461538461538464)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ny36O4vtEeeSFOYYNlAfHw" id="(1.0,0.4)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_KhLFQIvuEeeSFOYYNlAfHw" type="4001" element="_KgyqwIvuEeeSFOYYNlAfHw" source="_t3K2xXiYEeeSLfON_Vg2jQ" target="_aT828IvtEeeSFOYYNlAfHw">
+          <children xmi:type="notation:Node" xmi:id="_KhLFRIvuEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KhLFRYvuEeeSFOYYNlAfHw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_KhLFRovuEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KhLFR4vuEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_KhLFSIvuEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KhLFSYvuEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_KhLFQYvuEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_KhLFQovuEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KhLFQ4vuEeeSFOYYNlAfHw" points="[0, 0, -249, -104]$[249, 104, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KhLFSovuEeeSFOYYNlAfHw" id="(1.0,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KhLFS4vuEeeSFOYYNlAfHw" id="(0.0,0.5128205128205128)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_K0iGIIvuEeeSFOYYNlAfHw" type="4001" element="_K0PyQIvuEeeSFOYYNlAfHw" source="_aT828IvtEeeSFOYYNlAfHw" target="_t3K2xXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_K0oMwIvuEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K0oMwYvuEeeSFOYYNlAfHw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_K0oMwovuEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K0oMw4vuEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_K0oMxIvuEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K0oMxYvuEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_K0iGIYvuEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_K0iGIovuEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K0iGI4vuEeeSFOYYNlAfHw" points="[0, 0, 344, 72]$[-344, -72, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_K0uTYIvuEeeSFOYYNlAfHw" id="(0.7421875,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_K0uTYYvuEeeSFOYYNlAfHw" id="(1.0,0.4)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_LJCWgIvuEeeSFOYYNlAfHw" type="4001" element="_LIwCoIvuEeeSFOYYNlAfHw" source="_t3K2xXiYEeeSLfON_Vg2jQ" target="_fE1MAIvtEeeSFOYYNlAfHw">
+          <children xmi:type="notation:Node" xmi:id="_LJIdIIvuEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LJIdIYvuEeeSFOYYNlAfHw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_LJIdIovuEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LJIdI4vuEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_LJIdJIvuEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LJIdJYvuEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_LJCWgYvuEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_LJCWgovuEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LJCWg4vuEeeSFOYYNlAfHw" points="[0, 0, -338, -157]$[338, 157, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LJIdJovuEeeSFOYYNlAfHw" id="(0.6,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LJIdJ4vuEeeSFOYYNlAfHw" id="(0.203125,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_M1DMYIvuEeeSFOYYNlAfHw" type="4001" element="_M0qx4IvuEeeSFOYYNlAfHw" source="_fE1MAIvtEeeSFOYYNlAfHw" target="_t3K2xXiYEeeSLfON_Vg2jQ">
+          <children xmi:type="notation:Node" xmi:id="_M1DMZIvuEeeSFOYYNlAfHw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_M1DMZYvuEeeSFOYYNlAfHw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_M1DMZovuEeeSFOYYNlAfHw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_M1DMZ4vuEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_M1DMaIvuEeeSFOYYNlAfHw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_M1DMaYvuEeeSFOYYNlAfHw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_M1DMYYvuEeeSFOYYNlAfHw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_M1DMYovuEeeSFOYYNlAfHw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_M1DMY4vuEeeSFOYYNlAfHw" points="[0, 0, 384, 157]$[-384, -157, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_M1DMaovuEeeSFOYYNlAfHw" id="(0.375,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_M1DMa4vuEeeSFOYYNlAfHw" id="(0.4153846153846154,1.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_t2N0hHiYEeeSLfON_Vg2jQ" outgoingEdges="_BAgHoIvrEeeSFOYYNlAfHw" width="2" height="2">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Initial" href="attributetest.processmodel#//@process.0/@node.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Initial" href="attributetest.processmodel#//@process.0/@node.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Dot" xmi:id="_t2N0hXiYEeeSLfON_Vg2jQ" showIcon="false" backgroundColor="0,0,0">
+        <description xmi:type="style:DotDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='InitNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_t2N0hniYEeeSLfON_Vg2jQ" name="final" incomingEdges="_t2T7OHiYEeeSLfON_Vg2jQ" width="3" height="3">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:FlowFinal" href="attributetest.processmodel#//@process.0/@node.1"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:FlowFinal" href="attributetest.processmodel#//@process.0/@node.1"/>
+      <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_t2N0h3iYEeeSLfON_Vg2jQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_t2N0iHiYEeeSLfON_Vg2jQ" showIcon="false" hideLabelByDefault="true" workspacePath="/be.uantwerpen.msdl.process.design/icons/activity-final-2.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='FinalNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@nodeMappings[name='FinalNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_t2N0iXiYEeeSLfON_Vg2jQ" name="mechanicalModel : Matlab" outgoingEdges="_v9x983iYEeeSLfON_Vg2jQ _DPd5kIvrEeeSFOYYNlAfHw _KgyqwIvuEeeSFOYYNlAfHw _LIwCoIvuEeeSFOYYNlAfHw" incomingEdges="_FMfm8IvrEeeSFOYYNlAfHw _K0PyQIvuEeeSFOYYNlAfHw _M0qx4IvuEeeSFOYYNlAfHw" width="13" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="attributetest.processmodel#//@process.0/@node.3"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="attributetest.processmodel#//@process.0/@node.3"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_t2N0iniYEeeSLfON_Vg2jQ" iconPath="/be.uantwerpen.msdl.process.design/icons/cube.png" labelPosition="node" width="13" height="3" color="255,255,255">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@nodeMappings[name='ObjectNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@nodeMappings[name='ObjectNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_t2N0i3iYEeeSLfON_Vg2jQ" name="totalMass" incomingEdges="_t2T7SniYEeeSLfON_Vg2jQ _t2T7VniYEeeSLfON_Vg2jQ _t2T7WXiYEeeSLfON_Vg2jQ" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Attribute" href="attributetest.processmodel#//@propertyModel/@attribute.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Attribute" href="attributetest.processmodel#//@propertyModel/@attribute.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_t2N0jHiYEeeSLfON_Vg2jQ" iconPath="/be.uantwerpen.msdl.process.design/icons/attribute2.png" labelColor="255,255,255" borderColor="156,12,12" labelPosition="node" width="10" height="3" color="239,41,41">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_t2N0jXiYEeeSLfON_Vg2jQ" name="platformMass" incomingEdges="_t2T7TXiYEeeSLfON_Vg2jQ _HOHgcIvrEeeSFOYYNlAfHw" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Attribute" href="attributetest.processmodel#//@propertyModel/@attribute.1"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Attribute" href="attributetest.processmodel#//@propertyModel/@attribute.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_t2N0jniYEeeSLfON_Vg2jQ" iconPath="/be.uantwerpen.msdl.process.design/icons/attribute2.png" labelColor="255,255,255" borderColor="156,12,12" labelPosition="node" width="10" height="3" color="239,41,41">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_t2N0j3iYEeeSLfON_Vg2jQ" name="motorMass" incomingEdges="_t2T7U3iYEeeSLfON_Vg2jQ _jiS10IvtEeeSFOYYNlAfHw" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Attribute" href="attributetest.processmodel#//@propertyModel/@attribute.2"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Attribute" href="attributetest.processmodel#//@propertyModel/@attribute.2"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_t2N0kHiYEeeSLfON_Vg2jQ" iconPath="/be.uantwerpen.msdl.process.design/icons/attribute2.png" labelColor="255,255,255" borderColor="156,12,12" labelPosition="node" width="10" height="3" color="239,41,41">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_t2N0kXiYEeeSLfON_Vg2jQ" name="batteryMass" incomingEdges="_t2T7UHiYEeeSLfON_Vg2jQ _kgTWMIvtEeeSFOYYNlAfHw" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Attribute" href="attributetest.processmodel#//@propertyModel/@attribute.3"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Attribute" href="attributetest.processmodel#//@propertyModel/@attribute.3"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_t2N0kniYEeeSLfON_Vg2jQ" iconPath="/be.uantwerpen.msdl.process.design/icons/attribute2.png" labelColor="255,255,255" borderColor="156,12,12" labelPosition="node" width="10" height="3" color="239,41,41">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@nodeMappings[name='AttributeNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_t2N0mXiYEeeSLfON_Vg2jQ" name="AssignTotalMass : changeValue" outgoingEdges="_t2T7OHiYEeeSLfON_Vg2jQ _t2T7SniYEeeSLfON_Vg2jQ _v9-LNXiYEeeSLfON_Vg2jQ" incomingEdges="_iUSKkIvtEeeSFOYYNlAfHw" width="13" height="4">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" href="attributetest.processmodel#//@process.0/@node.2"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" href="attributetest.processmodel#//@process.0/@node.2"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_t2N0mniYEeeSLfON_Vg2jQ" iconPath="/be.uantwerpen.msdl.process.design/icons/automatic.png" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="252,233,79" foregroundColor="255,245,181">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='AutomatedActivityContainer']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_t2N0m3iYEeeSLfON_Vg2jQ" name="a : L3" outgoingEdges="_t2T7TXiYEeeSLfON_Vg2jQ _t2T7UHiYEeeSLfON_Vg2jQ _t2T7U3iYEeeSLfON_Vg2jQ _t2T7VniYEeeSLfON_Vg2jQ" width="13" height="4">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Relationship" href="attributetest.processmodel#//@propertyModel/@relationship.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Relationship" href="attributetest.processmodel#//@propertyModel/@relationship.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_t2N0nHiYEeeSLfON_Vg2jQ" iconPath="/be.uantwerpen.msdl.process.design/icons/rel.png" labelColor="255,255,255" borderSize="1" borderSizeComputationExpression="1" borderColor="114,73,110" backgroundStyle="GradientTopToBottom" backgroundColor="114,73,110" foregroundColor="173,127,168">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_t2N0nXiYEeeSLfON_Vg2jQ" name="totalMass = platformMass + motorMass + batteryMass">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_2:Formula" href="attributetest.processmodel#//@propertyModel/@relationship.0/@formula"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Formula" href="attributetest.processmodel#//@propertyModel/@relationship.0/@formula"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_t2N0nniYEeeSLfON_Vg2jQ" showIcon="false" labelColor="255,255,255" labelAlignment="LEFT" borderLineStyle="dot" labelPosition="node" color="255,255,255">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='FormulaSubNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='FormulaSubNode']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_t2T7IHiYEeeSLfON_Vg2jQ" name="b : L3" outgoingEdges="_t2T7WXiYEeeSLfON_Vg2jQ" width="13" height="4">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Relationship" href="attributetest.processmodel#//@propertyModel/@relationship.1"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Relationship" href="attributetest.processmodel#//@propertyModel/@relationship.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_t2T7IXiYEeeSLfON_Vg2jQ" iconPath="/be.uantwerpen.msdl.process.design/icons/rel.png" labelColor="255,255,255" borderSize="1" borderSizeComputationExpression="1" borderColor="114,73,110" backgroundStyle="GradientTopToBottom" backgroundColor="114,73,110" foregroundColor="173,127,168">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_t2T7IniYEeeSLfON_Vg2jQ" name="totalMass &lt; 150">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_2:Formula" href="attributetest.processmodel#//@propertyModel/@relationship.1/@formula"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Formula" href="attributetest.processmodel#//@propertyModel/@relationship.1/@formula"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_t2T7I3iYEeeSLfON_Vg2jQ" showIcon="false" labelColor="255,255,255" labelAlignment="LEFT" borderLineStyle="dot" labelPosition="node" color="255,255,255">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='FormulaSubNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='FormulaSubNode']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_t2T7JHiYEeeSLfON_Vg2jQ" name="L3" outgoingEdges="_v9-LO3iYEeeSLfON_Vg2jQ" width="13" height="4">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Relationship" href="attributetest.processmodel#//@propertyModel/@relationship.2"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Relationship" href="attributetest.processmodel#//@propertyModel/@relationship.2"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_t2T7JXiYEeeSLfON_Vg2jQ" iconPath="/be.uantwerpen.msdl.process.design/icons/rel.png" labelColor="255,255,255" borderSize="1" borderSizeComputationExpression="1" borderColor="114,73,110" backgroundStyle="GradientTopToBottom" backgroundColor="114,73,110" foregroundColor="173,127,168">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_t2T7JniYEeeSLfON_Vg2jQ" name="mass > 0">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_2:Formula" href="attributetest.processmodel#//@propertyModel/@relationship.2/@formula"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Formula" href="attributetest.processmodel#//@propertyModel/@relationship.2/@formula"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_t2T7J3iYEeeSLfON_Vg2jQ" showIcon="false" labelColor="255,255,255" labelAlignment="LEFT" borderLineStyle="dot" labelPosition="node" color="255,255,255">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='FormulaSubNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@containerMappings[name='RelationshipContainer']/@subNodeMappings[name='FormulaSubNode']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_t2T7OHiYEeeSLfON_Vg2jQ" sourceNode="_t2N0mXiYEeeSLfON_Vg2jQ" targetNode="_t2N0hniYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ControlFlow" href="attributetest.processmodel#//@process.0/@controlFlow.4"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:ControlFlow" href="attributetest.processmodel#//@process.0/@controlFlow.4"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_t2T7OXiYEeeSLfON_Vg2jQ" size="2" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_t2T7OniYEeeSLfON_Vg2jQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_t2T7SniYEeeSLfON_Vg2jQ" name="resolve_constraint" sourceNode="_t2N0mXiYEeeSLfON_Vg2jQ" targetNode="_t2N0i3iYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Intent" href="attributetest.processmodel#//@propertyModel/@intent.3"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Intent" href="attributetest.processmodel#//@propertyModel/@intent.3"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_t2T7S3iYEeeSLfON_Vg2jQ" lineStyle="dash" targetArrow="InputFillClosedArrow" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_t2T7THiYEeeSLfON_Vg2jQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_t2T7TXiYEeeSLfON_Vg2jQ" sourceNode="_t2N0m3iYEeeSLfON_Vg2jQ" targetNode="_t2N0jXiYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.0/@relationshipLink.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.0/@relationshipLink.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_t2T7TniYEeeSLfON_Vg2jQ" targetArrow="NoDecoration" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_t2T7T3iYEeeSLfON_Vg2jQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_t2T7UHiYEeeSLfON_Vg2jQ" sourceNode="_t2N0m3iYEeeSLfON_Vg2jQ" targetNode="_t2N0kXiYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.0/@relationshipLink.1"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.0/@relationshipLink.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_t2T7UXiYEeeSLfON_Vg2jQ" targetArrow="NoDecoration" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_t2T7UniYEeeSLfON_Vg2jQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_t2T7U3iYEeeSLfON_Vg2jQ" sourceNode="_t2N0m3iYEeeSLfON_Vg2jQ" targetNode="_t2N0j3iYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.0/@relationshipLink.2"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.0/@relationshipLink.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_t2T7VHiYEeeSLfON_Vg2jQ" targetArrow="NoDecoration" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_t2T7VXiYEeeSLfON_Vg2jQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_t2T7VniYEeeSLfON_Vg2jQ" sourceNode="_t2N0m3iYEeeSLfON_Vg2jQ" targetNode="_t2N0i3iYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.0/@relationshipLink.3"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.0/@relationshipLink.3"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_t2T7V3iYEeeSLfON_Vg2jQ" targetArrow="NoDecoration" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_t2T7WHiYEeeSLfON_Vg2jQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_t2T7WXiYEeeSLfON_Vg2jQ" sourceNode="_t2T7IHiYEeeSLfON_Vg2jQ" targetNode="_t2N0i3iYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.1/@relationshipLink.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.1/@relationshipLink.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_t2T7WniYEeeSLfON_Vg2jQ" targetArrow="NoDecoration" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_t2T7W3iYEeeSLfON_Vg2jQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_v9NWMHiYEeeSLfON_Vg2jQ" name="f1" outgoingEdges="_v9x98HiYEeeSLfON_Vg2jQ" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.0"/>
+      <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_v9NWMXiYEeeSLfON_Vg2jQ" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" borderColor="39,76,114" labelPosition="node" horizontalDiameter="10" verticalDiameter="3" color="194,239,255">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_v9NWMniYEeeSLfON_Vg2jQ" name="Matlab" outgoingEdges="_v9-LOHiYEeeSLfON_Vg2jQ" incomingEdges="_v9r3UHiYEeeSLfON_Vg2jQ _v9x983iYEeeSLfON_Vg2jQ _uqcdsIvnEee0qbDyquTUpg" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.1"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_v9NWM3iYEeeSLfON_Vg2jQ" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" borderColor="39,76,114" labelPosition="node" horizontalDiameter="10" verticalDiameter="3" color="194,239,255">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_v9NWNHiYEeeSLfON_Vg2jQ" name="f2" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.2"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.2"/>
+      <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_v9NWNXiYEeeSLfON_Vg2jQ" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" borderColor="39,76,114" labelPosition="node" horizontalDiameter="10" verticalDiameter="3" color="194,239,255">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_v9NWNniYEeeSLfON_Vg2jQ" name="changeValue" outgoingEdges="_v9r3UHiYEeeSLfON_Vg2jQ" incomingEdges="_v9x98HiYEeeSLfON_Vg2jQ _v9-LNXiYEeeSLfON_Vg2jQ _OksFYIvrEeeSFOYYNlAfHw _nPrtkIvtEeeSFOYYNlAfHw _nylmUIvtEeeSFOYYNlAfHw" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Transformation" href="attributetest.processmodel#//@ftg/@transformation.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Transformation" href="attributetest.processmodel#//@ftg/@transformation.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_v9NWN3iYEeeSLfON_Vg2jQ" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" labelColor="255,255,255" borderColor="39,76,114" labelPosition="node" horizontalDiameter="10" verticalDiameter="3" color="114,159,207">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_v9NWOHiYEeeSLfON_Vg2jQ" name="mass" incomingEdges="_v9-LOHiYEeeSLfON_Vg2jQ _v9-LO3iYEeeSLfON_Vg2jQ" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Capability" href="attributetest.processmodel#//@propertyModel/@capability.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Capability" href="attributetest.processmodel#//@propertyModel/@capability.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_v9Tc0HiYEeeSLfON_Vg2jQ" iconPath="/be.uantwerpen.msdl.process.design/icons/capability2.png" labelColor="255,255,255" borderColor="156,12,12" labelPosition="node" width="10" height="3" color="239,41,41">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_v9r3UHiYEeeSLfON_Vg2jQ" name="«transformationTo»" sourceNode="_v9NWNniYEeeSLfON_Vg2jQ" targetNode="_v9NWMniYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Transformation" href="attributetest.processmodel#//@ftg/@transformation.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_v9r3UXiYEeeSLfON_Vg2jQ" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_v9r3UniYEeeSLfON_Vg2jQ" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_v9x98HiYEeeSLfON_Vg2jQ" name="«transformedBy»" sourceNode="_v9NWMHiYEeeSLfON_Vg2jQ" targetNode="_v9NWNniYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_v9x98XiYEeeSLfON_Vg2jQ" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_v9x98niYEeeSLfON_Vg2jQ" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_v9x983iYEeeSLfON_Vg2jQ" name="«typedBy»" sourceNode="_t2N0iXiYEeeSLfON_Vg2jQ" targetNode="_v9NWMniYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="attributetest.processmodel#//@process.0/@node.3"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_v94EkHiYEeeSLfON_Vg2jQ" lineStyle="dash" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_v94EkXiYEeeSLfON_Vg2jQ" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_v9-LNXiYEeeSLfON_Vg2jQ" name="«typedBy»" sourceNode="_t2N0mXiYEeeSLfON_Vg2jQ" targetNode="_v9NWNniYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" href="attributetest.processmodel#//@process.0/@node.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_v9-LNniYEeeSLfON_Vg2jQ" lineStyle="dash" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_v9-LN3iYEeeSLfON_Vg2jQ" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_v9-LOHiYEeeSLfON_Vg2jQ" sourceNode="_v9NWMniYEeeSLfON_Vg2jQ" targetNode="_v9NWOHiYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_v9-LOXiYEeeSLfON_Vg2jQ" targetArrow="NoDecoration" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='CapabilityLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_v9-LOniYEeeSLfON_Vg2jQ" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='CapabilityLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_v9-LO3iYEeeSLfON_Vg2jQ" sourceNode="_t2T7JHiYEeeSLfON_Vg2jQ" targetNode="_v9NWOHiYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.2/@relationshipLink.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:RelationshipLink" href="attributetest.processmodel#//@propertyModel/@relationship.2/@relationshipLink.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_v-ER0HiYEeeSLfON_Vg2jQ" targetArrow="NoDecoration" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']/@conditionnalStyles.2/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_v-ER0XiYEeeSLfON_Vg2jQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='RelationshipEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_uqQQcIvnEee0qbDyquTUpg" name="Matlab" outgoingEdges="_uqcdsIvnEee0qbDyquTUpg" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Tool" href="attributetest.processmodel#//@ftg/@tool.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Tool" href="attributetest.processmodel#//@ftg/@tool.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_uqQQcYvnEee0qbDyquTUpg" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/tool.png" labelColor="255,255,255" borderColor="39,76,114" labelPosition="node" width="10" height="3" color="39,76,114">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_uqcdsIvnEee0qbDyquTUpg" name="«implements»" sourceNode="_uqQQcIvnEee0qbDyquTUpg" targetNode="_v9NWMniYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Tool" href="attributetest.processmodel#//@ftg/@tool.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_uqcdsYvnEee0qbDyquTUpg" lineStyle="dash" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_uqcdsovnEee0qbDyquTUpg" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_-M9pAIvqEeeSFOYYNlAfHw" name="DesignPlatform" outgoingEdges="_FMfm8IvrEeeSFOYYNlAfHw _HOHgcIvrEeeSFOYYNlAfHw _OksFYIvrEeeSFOYYNlAfHw _dUwVgIvtEeeSFOYYNlAfHw" incomingEdges="_BAgHoIvrEeeSFOYYNlAfHw _DPd5kIvrEeeSFOYYNlAfHw" width="13" height="3">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.4"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.4"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_-M9pAYvqEeeSFOYYNlAfHw" iconPath="/be.uantwerpen.msdl.process.design/icons/manual.png" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="209,209,209" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_BAgHoIvrEeeSFOYYNlAfHw" sourceNode="_t2N0hHiYEeeSLfON_Vg2jQ" targetNode="_-M9pAIvqEeeSFOYYNlAfHw">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ControlFlow" href="attributetest.processmodel#//@process.0/@controlFlow.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:ControlFlow" href="attributetest.processmodel#//@process.0/@controlFlow.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_BAgHoYvrEeeSFOYYNlAfHw" size="2" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_BAgHoovrEeeSFOYYNlAfHw" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_DPd5kIvrEeeSFOYYNlAfHw" sourceNode="_t2N0iXiYEeeSLfON_Vg2jQ" targetNode="_-M9pAIvqEeeSFOYYNlAfHw">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="attributetest.processmodel#//@process.0/@node.3"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_DPd5kYvrEeeSFOYYNlAfHw" targetArrow="InputFillClosedArrow" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_DPd5kovrEeeSFOYYNlAfHw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_FMfm8IvrEeeSFOYYNlAfHw" sourceNode="_-M9pAIvqEeeSFOYYNlAfHw" targetNode="_t2N0iXiYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.4"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_FMfm8YvrEeeSFOYYNlAfHw" targetArrow="InputFillClosedArrow" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_FMfm8ovrEeeSFOYYNlAfHw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_HOHgcIvrEeeSFOYYNlAfHw" name="modify" sourceNode="_-M9pAIvqEeeSFOYYNlAfHw" targetNode="_t2N0jXiYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Intent" href="attributetest.processmodel#//@propertyModel/@intent.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Intent" href="attributetest.processmodel#//@propertyModel/@intent.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_HOHgcYvrEeeSFOYYNlAfHw" lineStyle="dash" targetArrow="InputFillClosedArrow" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_HOHgcovrEeeSFOYYNlAfHw" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_OksFYIvrEeeSFOYYNlAfHw" name="«typedBy»" sourceNode="_-M9pAIvqEeeSFOYYNlAfHw" targetNode="_v9NWNniYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.4"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_OksFYYvrEeeSFOYYNlAfHw" lineStyle="dash" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_OksFYovrEeeSFOYYNlAfHw" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_Z23SUIvtEeeSFOYYNlAfHw" name="SelectMotor" outgoingEdges="_hkCZYIvtEeeSFOYYNlAfHw _jiS10IvtEeeSFOYYNlAfHw _nPrtkIvtEeeSFOYYNlAfHw _K0PyQIvuEeeSFOYYNlAfHw" incomingEdges="_dUwVgIvtEeeSFOYYNlAfHw _KgyqwIvuEeeSFOYYNlAfHw" width="13" height="3">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.5"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.5"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_Z3Ps0IvtEeeSFOYYNlAfHw" iconPath="/be.uantwerpen.msdl.process.design/icons/manual.png" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="209,209,209" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_dUwVgIvtEeeSFOYYNlAfHw" sourceNode="_-M9pAIvqEeeSFOYYNlAfHw" targetNode="_Z23SUIvtEeeSFOYYNlAfHw">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ControlFlow" href="attributetest.processmodel#//@process.0/@controlFlow.2"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:ControlFlow" href="attributetest.processmodel#//@process.0/@controlFlow.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_dUwVgYvtEeeSFOYYNlAfHw" size="2" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_dUwVgovtEeeSFOYYNlAfHw" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_fEQkQIvtEeeSFOYYNlAfHw" name="SelectBattery" outgoingEdges="_iUSKkIvtEeeSFOYYNlAfHw _kgTWMIvtEeeSFOYYNlAfHw _nylmUIvtEeeSFOYYNlAfHw _M0qx4IvuEeeSFOYYNlAfHw" incomingEdges="_hkCZYIvtEeeSFOYYNlAfHw _LIwCoIvuEeeSFOYYNlAfHw" width="13" height="3">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.6"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.6"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_fEQkQYvtEeeSFOYYNlAfHw" iconPath="/be.uantwerpen.msdl.process.design/icons/manual.png" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="209,209,209" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@containerMappings[name='ManualActivityContainer']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_hkCZYIvtEeeSFOYYNlAfHw" sourceNode="_Z23SUIvtEeeSFOYYNlAfHw" targetNode="_fEQkQIvtEeeSFOYYNlAfHw">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ControlFlow" href="attributetest.processmodel#//@process.0/@controlFlow.1"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:ControlFlow" href="attributetest.processmodel#//@process.0/@controlFlow.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_hkCZYYvtEeeSFOYYNlAfHw" size="2" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_hkCZYovtEeeSFOYYNlAfHw" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_iUSKkIvtEeeSFOYYNlAfHw" sourceNode="_fEQkQIvtEeeSFOYYNlAfHw" targetNode="_t2N0mXiYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ControlFlow" href="attributetest.processmodel#//@process.0/@controlFlow.3"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_1:ControlFlow" href="attributetest.processmodel#//@process.0/@controlFlow.3"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_iUSKkYvtEeeSFOYYNlAfHw" size="2" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_iUSKkovtEeeSFOYYNlAfHw" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']/@edgeMappings[name='ControlFlow']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_jiS10IvtEeeSFOYYNlAfHw" name="modify" sourceNode="_Z23SUIvtEeeSFOYYNlAfHw" targetNode="_t2N0j3iYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Intent" href="attributetest.processmodel#//@propertyModel/@intent.2"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Intent" href="attributetest.processmodel#//@propertyModel/@intent.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_jiS10YvtEeeSFOYYNlAfHw" lineStyle="dash" targetArrow="InputFillClosedArrow" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_jiS10ovtEeeSFOYYNlAfHw" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_kgTWMIvtEeeSFOYYNlAfHw" name="modify" sourceNode="_fEQkQIvtEeeSFOYYNlAfHw" targetNode="_t2N0kXiYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Intent" href="attributetest.processmodel#//@propertyModel/@intent.1"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Intent" href="attributetest.processmodel#//@propertyModel/@intent.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_kgTWMYvtEeeSFOYYNlAfHw" lineStyle="dash" targetArrow="InputFillClosedArrow" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_kgTWMovtEeeSFOYYNlAfHw" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']/@edgeMappings[name='IntentEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_nPrtkIvtEeeSFOYYNlAfHw" name="«typedBy»" sourceNode="_Z23SUIvtEeeSFOYYNlAfHw" targetNode="_v9NWNniYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.5"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_nPrtkYvtEeeSFOYYNlAfHw" lineStyle="dash" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_nPrtkovtEeeSFOYYNlAfHw" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_nylmUIvtEeeSFOYYNlAfHw" name="«typedBy»" sourceNode="_fEQkQIvtEeeSFOYYNlAfHw" targetNode="_v9NWNniYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.6"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_nylmUYvtEeeSFOYYNlAfHw" lineStyle="dash" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_nylmUovtEeeSFOYYNlAfHw" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TypeLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_KgyqwIvuEeeSFOYYNlAfHw" sourceNode="_t2N0iXiYEeeSLfON_Vg2jQ" targetNode="_Z23SUIvtEeeSFOYYNlAfHw">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="attributetest.processmodel#//@process.0/@node.3"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_KgyqwYvuEeeSFOYYNlAfHw" targetArrow="InputFillClosedArrow" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_KgyqwovuEeeSFOYYNlAfHw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_K0PyQIvuEeeSFOYYNlAfHw" sourceNode="_Z23SUIvtEeeSFOYYNlAfHw" targetNode="_t2N0iXiYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.5"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_K0PyQYvuEeeSFOYYNlAfHw" targetArrow="InputFillClosedArrow" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_K0PyQovuEeeSFOYYNlAfHw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_LIwCoIvuEeeSFOYYNlAfHw" sourceNode="_t2N0iXiYEeeSLfON_Vg2jQ" targetNode="_fEQkQIvtEeeSFOYYNlAfHw">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:Object" href="attributetest.processmodel#//@process.0/@node.3"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_LIwCoYvuEeeSFOYYNlAfHw" targetArrow="InputFillClosedArrow" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_LIwCoovuEeeSFOYYNlAfHw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_M0qx4IvuEeeSFOYYNlAfHw" sourceNode="_fEQkQIvtEeeSFOYYNlAfHw" targetNode="_t2N0iXiYEeeSLfON_Vg2jQ">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" href="attributetest.processmodel#//@process.0/@node.6"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_M0qx4YvuEeeSFOYYNlAfHw" targetArrow="InputFillClosedArrow" strokeColor="69,69,69">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_M0qx4ovuEeeSFOYYNlAfHw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']/@edgeMappings[name='ObjectFlowTo']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_t2T7YniYEeeSLfON_Vg2jQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='ProcessLayer']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='Objects']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='PropertyLayer']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ProcessModel']/@additionalLayers[name='FormalismLayer']"/>
+    <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="attributetest.processmodel#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_ncHOwIvnEee0qbDyquTUpg" name="new Resource Model">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_ncHOwYvnEee0qbDyquTUpg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_ncHOwovnEee0qbDyquTUpg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_ndcrgIvnEee0qbDyquTUpg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_ndcrgYvnEee0qbDyquTUpg" type="Sirius" element="_ncHOwIvnEee0qbDyquTUpg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_ndiyIIvnEee0qbDyquTUpg" type="2001" element="_ncHOxIvnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_ndu_YIvnEee0qbDyquTUpg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ndu_YYvnEee0qbDyquTUpg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nd7Mo4vnEee0qbDyquTUpg" type="3003" element="_ncHOxYvnEee0qbDyquTUpg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_nd7MpIvnEee0qbDyquTUpg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nd7MpYvnEee0qbDyquTUpg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_ndiyIYvnEee0qbDyquTUpg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ndiyIovnEee0qbDyquTUpg" x="300" y="84" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nd1GAIvnEee0qbDyquTUpg" type="2003" element="_ncHOxovnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_nd1GA4vnEee0qbDyquTUpg" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_nd7MoIvnEee0qbDyquTUpg" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_nd7MpovnEee0qbDyquTUpg" type="3010" element="_ncHOyIvnEee0qbDyquTUpg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_nd7Mp4vnEee0qbDyquTUpg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nd7MqIvnEee0qbDyquTUpg"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_nd7MoYvnEee0qbDyquTUpg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_nd7MoovnEee0qbDyquTUpg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nd1GAYvnEee0qbDyquTUpg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nd1GAovnEee0qbDyquTUpg" x="252" y="252"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_ndcrgovnEee0qbDyquTUpg"/>
+        <edges xmi:type="notation:Edge" xmi:id="_neHZ4IvnEee0qbDyquTUpg" type="4001" element="_ncHOyovnEee0qbDyquTUpg" source="_nd1GAIvnEee0qbDyquTUpg" target="_ndiyIIvnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_neHZ5IvnEee0qbDyquTUpg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_neHZ5YvnEee0qbDyquTUpg" x="-1" y="-6"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_neHZ5ovnEee0qbDyquTUpg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_neHZ54vnEee0qbDyquTUpg" x="1" y="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_neNggIvnEee0qbDyquTUpg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_neNggYvnEee0qbDyquTUpg" x="1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_neHZ4YvnEee0qbDyquTUpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_neHZ4ovnEee0qbDyquTUpg" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_neHZ44vnEee0qbDyquTUpg" points="[0, 0, 1, 138]$[-1, -138, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_neTnIIvnEee0qbDyquTUpg" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_neTnIYvnEee0qbDyquTUpg" id="(0.5,1.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_ncHOxIvnEee0qbDyquTUpg" tooltipText="" incomingEdges="_ncHOyovnEee0qbDyquTUpg" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_4:ResourceType" href="attributetest.processmodel#//@resourceModel/@resourceType.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_4:ResourceType" href="attributetest.processmodel#//@resourceModel/@resourceType.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_ncHOxYvnEee0qbDyquTUpg" labelPosition="node" color="255,255,255">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@nodeMappings[name='ResourceTypeNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@nodeMappings[name='ResourceTypeNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_ncHOxovnEee0qbDyquTUpg" outgoingEdges="_ncHOyovnEee0qbDyquTUpg" width="13" height="4">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_4:Resource" href="attributetest.processmodel#//@resourceModel/@resource.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_4:Resource" href="attributetest.processmodel#//@resourceModel/@resource.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_ncHOx4vnEee0qbDyquTUpg" iconPath="/be.uantwerpen.msdl.process.design/icons/resource.png" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="217,196,215" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ncHOyIvnEee0qbDyquTUpg" name="availability: 1">
+        <target xmi:type="be.uantwerpen.msdl.metamodels_4:Resource" href="attributetest.processmodel#//@resourceModel/@resource.0"/>
+        <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_4:Resource" href="attributetest.processmodel#//@resourceModel/@resource.0"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_ncHOyYvnEee0qbDyquTUpg" labelAlignment="LEFT" borderLineStyle="dot" labelPosition="node" color="255,255,255">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subNodeMappings[name='AvailabilitySubNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subNodeMappings[name='AvailabilitySubNode']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_ncHOyovnEee0qbDyquTUpg" name="«typedBy»" sourceNode="_ncHOxovnEee0qbDyquTUpg" targetNode="_ncHOxIvnEee0qbDyquTUpg">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_4:Resource" href="attributetest.processmodel#//@resourceModel/@resource.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_ncHOy4vnEee0qbDyquTUpg" lineStyle="dash" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@edgeMappings[name='ResourceTypeLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_ncHOzIvnEee0qbDyquTUpg" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer/@edgeMappings[name='ResourceTypeLink']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_ncHOzYvnEee0qbDyquTUpg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='ResourcesModel']/@defaultLayer"/>
+    <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="attributetest.processmodel#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_qHFAMIvnEee0qbDyquTUpg" name="new FTG">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_qHFAMYvnEee0qbDyquTUpg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_qHFAMovnEee0qbDyquTUpg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_qHFASYvnEee0qbDyquTUpg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_qHFASovnEee0qbDyquTUpg" type="Sirius" element="_qHFAMIvnEee0qbDyquTUpg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_qHLG0IvnEee0qbDyquTUpg" type="2001" element="_qHFANIvnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_qHLG04vnEee0qbDyquTUpg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_qHLG1IvnEee0qbDyquTUpg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUEIvnEee0qbDyquTUpg" type="3016" element="_qHFANYvnEee0qbDyquTUpg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_qHXUEYvnEee0qbDyquTUpg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUEovnEee0qbDyquTUpg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_qHLG0YvnEee0qbDyquTUpg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHLG0ovnEee0qbDyquTUpg" x="132" y="264" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_qHLG1YvnEee0qbDyquTUpg" type="2001" element="_qHFANovnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_qHLG2IvnEee0qbDyquTUpg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_qHLG2YvnEee0qbDyquTUpg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUE4vnEee0qbDyquTUpg" type="3016" element="_qHFAN4vnEee0qbDyquTUpg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_qHXUFIvnEee0qbDyquTUpg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUFYvnEee0qbDyquTUpg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_qHLG1ovnEee0qbDyquTUpg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHLG14vnEee0qbDyquTUpg" x="132" y="96" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_qHLG2ovnEee0qbDyquTUpg" type="2001" element="_qHFAOIvnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_qHLG3YvnEee0qbDyquTUpg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_qHLG3ovnEee0qbDyquTUpg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUFovnEee0qbDyquTUpg" type="3016" element="_qHFAOYvnEee0qbDyquTUpg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_qHXUF4vnEee0qbDyquTUpg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUGIvnEee0qbDyquTUpg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_qHLG24vnEee0qbDyquTUpg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHLG3IvnEee0qbDyquTUpg" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_qHLG34vnEee0qbDyquTUpg" type="2001" element="_qHFAOovnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_qHRNcIvnEee0qbDyquTUpg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_qHRNcYvnEee0qbDyquTUpg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUGYvnEee0qbDyquTUpg" type="3016" element="_qHFAO4vnEee0qbDyquTUpg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_qHXUGovnEee0qbDyquTUpg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUG4vnEee0qbDyquTUpg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_qHLG4IvnEee0qbDyquTUpg" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHLG4YvnEee0qbDyquTUpg" x="132" y="180" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_qHRNcovnEee0qbDyquTUpg" type="2001" element="_qHFAPIvnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_qHRNdYvnEee0qbDyquTUpg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_qHRNdovnEee0qbDyquTUpg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUHIvnEee0qbDyquTUpg" type="3003" element="_qHFAPYvnEee0qbDyquTUpg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_qHXUHYvnEee0qbDyquTUpg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUHovnEee0qbDyquTUpg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_qHRNc4vnEee0qbDyquTUpg" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHRNdIvnEee0qbDyquTUpg" x="132" width="100" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_r4J8QIvnEee0qbDyquTUpg" type="2001" element="_r39vAIvnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_r4J8Q4vnEee0qbDyquTUpg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_r4J8RIvnEee0qbDyquTUpg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_r4QC4IvnEee0qbDyquTUpg" type="3003" element="_r4D1oIvnEee0qbDyquTUpg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_r4QC4YvnEee0qbDyquTUpg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r4QC4ovnEee0qbDyquTUpg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_r4J8QYvnEee0qbDyquTUpg" fontColor="16777215" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r4J8QovnEee0qbDyquTUpg" x="336" y="192" width="100" height="30"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_qHFAS4vnEee0qbDyquTUpg"/>
+        <edges xmi:type="notation:Edge" xmi:id="_qHXUH4vnEee0qbDyquTUpg" type="4001" element="_qHFAPovnEee0qbDyquTUpg" source="_qHLG0IvnEee0qbDyquTUpg" target="_qHLG34vnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_qHXUI4vnEee0qbDyquTUpg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUJIvnEee0qbDyquTUpg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUJYvnEee0qbDyquTUpg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUJovnEee0qbDyquTUpg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUJ4vnEee0qbDyquTUpg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUKIvnEee0qbDyquTUpg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_qHXUIIvnEee0qbDyquTUpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_qHXUIYvnEee0qbDyquTUpg" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qHXUIovnEee0qbDyquTUpg" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qHXUKYvnEee0qbDyquTUpg" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qHXUKovnEee0qbDyquTUpg" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_qHXUK4vnEee0qbDyquTUpg" type="4001" element="_qHFAQYvnEee0qbDyquTUpg" source="_qHLG34vnEee0qbDyquTUpg" target="_qHLG1YvnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_qHXUL4vnEee0qbDyquTUpg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUMIvnEee0qbDyquTUpg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUMYvnEee0qbDyquTUpg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUMovnEee0qbDyquTUpg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUM4vnEee0qbDyquTUpg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUNIvnEee0qbDyquTUpg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_qHXULIvnEee0qbDyquTUpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_qHXULYvnEee0qbDyquTUpg" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qHXULovnEee0qbDyquTUpg" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qHXUNYvnEee0qbDyquTUpg" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qHXUNovnEee0qbDyquTUpg" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_qHXUN4vnEee0qbDyquTUpg" type="4001" element="_qHFARIvnEee0qbDyquTUpg" source="_qHLG1YvnEee0qbDyquTUpg" target="_qHRNcovnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_qHXUO4vnEee0qbDyquTUpg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUPIvnEee0qbDyquTUpg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUPYvnEee0qbDyquTUpg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUPovnEee0qbDyquTUpg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_qHXUP4vnEee0qbDyquTUpg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHXUQIvnEee0qbDyquTUpg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_qHXUOIvnEee0qbDyquTUpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_qHXUOYvnEee0qbDyquTUpg" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qHXUOovnEee0qbDyquTUpg" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qHdasIvnEee0qbDyquTUpg" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qHdasYvnEee0qbDyquTUpg" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_tzMsoIvnEee0qbDyquTUpg" type="4001" element="_tzAfYIvnEee0qbDyquTUpg" source="_r4J8QIvnEee0qbDyquTUpg" target="_qHLG1YvnEee0qbDyquTUpg">
+          <children xmi:type="notation:Node" xmi:id="_tzMspIvnEee0qbDyquTUpg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tzMspYvnEee0qbDyquTUpg" x="-2" y="-8"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_tzMspovnEee0qbDyquTUpg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tzMsp4vnEee0qbDyquTUpg" x="2" y="9"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_tzMsqIvnEee0qbDyquTUpg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tzMsqYvnEee0qbDyquTUpg" x="3" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_tzMsoYvnEee0qbDyquTUpg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_tzMsoovnEee0qbDyquTUpg" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tzMso4vnEee0qbDyquTUpg" points="[0, 0, 145, 90]$[-128, -79, 17, 11]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tzMsqovnEee0qbDyquTUpg" id="(0.24,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tzMsq4vnEee0qbDyquTUpg" id="(0.83,0.2)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_qHFANIvnEee0qbDyquTUpg" name="f1" outgoingEdges="_qHFAPovnEee0qbDyquTUpg" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.0"/>
+      <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_qHFANYvnEee0qbDyquTUpg" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" borderColor="39,76,114" labelPosition="node" horizontalDiameter="10" verticalDiameter="3" color="194,239,255">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_qHFANovnEee0qbDyquTUpg" name="Matlab" outgoingEdges="_qHFARIvnEee0qbDyquTUpg" incomingEdges="_qHFAQYvnEee0qbDyquTUpg _tzAfYIvnEee0qbDyquTUpg" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.1"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.1"/>
+      <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_qHFAN4vnEee0qbDyquTUpg" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" borderColor="39,76,114" labelPosition="node" horizontalDiameter="10" verticalDiameter="3" color="194,239,255">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_qHFAOIvnEee0qbDyquTUpg" name="f2" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.2"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.2"/>
+      <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_qHFAOYvnEee0qbDyquTUpg" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" borderColor="39,76,114" labelPosition="node" horizontalDiameter="10" verticalDiameter="3" color="194,239,255">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='FormalismNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_qHFAOovnEee0qbDyquTUpg" name="changeValue" outgoingEdges="_qHFAQYvnEee0qbDyquTUpg" incomingEdges="_qHFAPovnEee0qbDyquTUpg" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Transformation" href="attributetest.processmodel#//@ftg/@transformation.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Transformation" href="attributetest.processmodel#//@ftg/@transformation.0"/>
+      <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_qHFAO4vnEee0qbDyquTUpg" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/language.png" labelColor="255,255,255" borderColor="39,76,114" labelPosition="node" horizontalDiameter="10" verticalDiameter="3" color="114,159,207">
+        <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='TransformationNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_qHFAPIvnEee0qbDyquTUpg" name="mass" incomingEdges="_qHFARIvnEee0qbDyquTUpg" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_2:Capability" href="attributetest.processmodel#//@propertyModel/@capability.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_2:Capability" href="attributetest.processmodel#//@propertyModel/@capability.0"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_qHFAPYvnEee0qbDyquTUpg" iconPath="/be.uantwerpen.msdl.process.design/icons/capability2.png" labelColor="255,255,255" borderColor="156,12,12" labelPosition="node" width="10" height="3" color="239,41,41">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='CapabilityNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_qHFAPovnEee0qbDyquTUpg" name="«transformedBy»" sourceNode="_qHFANIvnEee0qbDyquTUpg" targetNode="_qHFAOovnEee0qbDyquTUpg">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_qHFAP4vnEee0qbDyquTUpg" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_qHFAQIvnEee0qbDyquTUpg" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformedByEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_qHFAQYvnEee0qbDyquTUpg" name="«transformationTo»" sourceNode="_qHFAOovnEee0qbDyquTUpg" targetNode="_qHFANovnEee0qbDyquTUpg">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Transformation" href="attributetest.processmodel#//@ftg/@transformation.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_qHFAQovnEee0qbDyquTUpg" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_qHFAQ4vnEee0qbDyquTUpg" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='TransformationToEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_qHFARIvnEee0qbDyquTUpg" sourceNode="_qHFANovnEee0qbDyquTUpg" targetNode="_qHFAPIvnEee0qbDyquTUpg">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Formalism" href="attributetest.processmodel#//@ftg/@formalism.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_qHFARYvnEee0qbDyquTUpg" targetArrow="NoDecoration" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='CapabilityLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_qHFARovnEee0qbDyquTUpg" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='CapabilityLink']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_r39vAIvnEee0qbDyquTUpg" name="Matlab" outgoingEdges="_tzAfYIvnEee0qbDyquTUpg" width="10" height="3" resizeKind="NSEW">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Tool" href="attributetest.processmodel#//@ftg/@tool.0"/>
+      <semanticElements xmi:type="be.uantwerpen.msdl.metamodels_3:Tool" href="attributetest.processmodel#//@ftg/@tool.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_r4D1oIvnEee0qbDyquTUpg" showIcon="false" iconPath="/be.uantwerpen.msdl.process.design/icons/tool.png" labelColor="255,255,255" borderColor="39,76,114" labelPosition="node" width="10" height="3" color="39,76,114">
+        <description xmi:type="style:SquareDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@nodeMappings[name='ToolNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_tzAfYIvnEee0qbDyquTUpg" name="«implements»" sourceNode="_r39vAIvnEee0qbDyquTUpg" targetNode="_qHFANovnEee0qbDyquTUpg">
+      <target xmi:type="be.uantwerpen.msdl.metamodels_3:Tool" href="attributetest.processmodel#//@ftg/@tool.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_tzAfYYvnEee0qbDyquTUpg" lineStyle="dash" size="2" strokeColor="39,76,114">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_tzAfYovnEee0qbDyquTUpg" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer/@edgeMappings[name='ImplementationLink']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_qHFAR4vnEee0qbDyquTUpg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/be.uantwerpen.msdl.process.design/description/process.odesign#//@ownedViewpoints[name='ProcessViewpoint']/@ownedRepresentations[name='FTG']/@defaultLayer"/>
+    <target xmi:type="be.uantwerpen.msdl.metamodels:ProcessModel" href="attributetest.processmodel#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

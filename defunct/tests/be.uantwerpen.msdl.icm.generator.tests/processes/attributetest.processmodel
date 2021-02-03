@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm" xmlns:be.uantwerpen.msdl.metamodels_2="metamodels.properties">
+  <ftg>
+    <formalism id="2e9a1049-0f04-4950-af76-8a97d1687ec0" name="f1" inputOf="//@ftg/@transformation.0"/>
+    <formalism id="099e598b-655a-495b-ac1e-fa2fe63c814b" name="CAD" types="//@process.0/@node.6" outputOf="//@ftg/@transformation.0" capability="//@propertyModel/@capability.0"/>
+    <formalism id="74f897f4-e4fa-4598-8748-246b660590b7" name="f2"/>
+    <transformation id="dca37635-bac3-416c-8ca2-12cb514e6251" name="changeValue" types="//@process.0/@node.3 //@process.0/@node.4 //@process.0/@node.2 //@process.0/@node.5" input="//@ftg/@formalism.0" output="//@ftg/@formalism.1"/>
+  </ftg>
+  <process id="eff55d2a-686c-49ba-83be-8b1a61ad0cac">
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Initial" id="626ce993-6e5a-404a-b0c6-1cbbb093eb34" controlOut="//@process.0/@controlFlow.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:FlowFinal" id="580617f9-5b50-4a9f-b64d-01fb10a5a3cf" controlIn="//@process.0/@controlFlow.4"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="d1af7588-c7dc-4603-8fc1-a57de98f574e" dataFlowFrom="//@process.0/@node.6" dataFlowTo="//@process.0/@node.6" controlIn="//@process.0/@controlFlow.0" controlOut="//@process.0/@controlFlow.1" name="a1" typedBy="//@ftg/@transformation.0" intent="//@propertyModel/@intent.0"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="a271392d-796d-4092-85df-978aa7b3a739" controlIn="//@process.0/@controlFlow.1" controlOut="//@process.0/@controlFlow.2" name="a2" typedBy="//@ftg/@transformation.0" intent="//@propertyModel/@intent.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="d3dc07f7-8d4e-4787-9d06-6368d4aac4f4" controlIn="//@process.0/@controlFlow.2" controlOut="//@process.0/@controlFlow.3" name="a3" typedBy="//@ftg/@transformation.0" intent="//@propertyModel/@intent.2"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="4fc32e34-e1f0-4b9c-81f0-1a2e6b05e5b1" controlIn="//@process.0/@controlFlow.3" controlOut="//@process.0/@controlFlow.4" name="a4" typedBy="//@ftg/@transformation.0" intent="//@propertyModel/@intent.3"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="021787eb-eb4f-477d-8b07-7534c200e873" dataFlowFrom="//@process.0/@node.2" dataFlowTo="//@process.0/@node.2" name="mechanicalModel" typedBy="//@ftg/@formalism.1"/>
+    <controlFlow id="dc3dcc34-c80a-4a25-9bf2-319c14de5494" from="//@process.0/@node.0" to="//@process.0/@node.2"/>
+    <controlFlow id="8b869382-7ddc-40e3-8277-f36d7855ad02" from="//@process.0/@node.2" to="//@process.0/@node.3"/>
+    <controlFlow id="9ff50c00-3fa0-4a37-bea2-906f6dfbf5aa" from="//@process.0/@node.3" to="//@process.0/@node.4"/>
+    <controlFlow id="3592b3dc-8d8e-4aeb-b721-a5abc027965f" from="//@process.0/@node.4" to="//@process.0/@node.5"/>
+    <controlFlow id="2aee7ced-ed47-474a-ae02-0b5b8bad2922" from="//@process.0/@node.5" to="//@process.0/@node.1"/>
+  </process>
+  <propertyModel>
+    <relationship name="a" id="f7c2a090-21e1-46f4-aeaf-0779528d0b28" subjectOf="//@propertyModel/@relationship.3/@relationshipLink.1" precision="L3">
+      <relationshipLink id="5f094f7c-ace5-401b-836e-34abaf06a6ea" subject="//@propertyModel/@attribute.1"/>
+      <relationshipLink id="f6cb5c07-4e8b-4c4a-81e7-34b55c16e9e9" subject="//@propertyModel/@attribute.3"/>
+      <relationshipLink id="20e734c7-2327-43cc-b2b4-361bf40b4e47" subject="//@propertyModel/@attribute.2"/>
+      <relationshipLink id="81f8b07d-b0f3-431a-8e71-58a0486537fc" subject="//@propertyModel/@attribute.0"/>
+      <formula id="a8c2a090-21e1-46f4-aeaf-0779528d0b99" definition="totalMass = platformMass + motorMass + batteryMass"/>
+    </relationship>
+    <relationship name="b" id="0e903f53-7b05-4a75-8c75-541177bc6914" subjectOf="//@propertyModel/@relationship.3/@relationshipLink.0" precision="L3">
+      <relationshipLink id="1d6df45d-73c9-4c2f-8f6a-faed18d97832" subject="//@propertyModel/@attribute.0"/>
+      <formula id="9f7fa6b6-a002-4963-a7d7-b905bc115a9d" definition="totalMass &lt;= 160"/>
+    </relationship>
+    <relationship name="" id="d3d41c62-0890-40ce-b0d7-57110f3aa2ec" precision="L3">
+      <relationshipLink id="8c730ba5-985b-4d46-b823-af15b271f138" subject="//@propertyModel/@capability.0"/>
+      <formula id="959f9172-025b-48f0-a008-9afbac5f4e98" definition="mass > 0"/>
+    </relationship>
+    <relationship name="" id="5695cccb-2a1e-4af1-a788-dabface6482f" precision="L3">
+      <relationshipLink id="06196c2e-fdd4-4333-937a-168e89da3d52" subject="//@propertyModel/@relationship.1"/>
+      <relationshipLink id="9aa1ef2d-f508-4ad7-9d56-af8ee8b1d65e" subject="//@propertyModel/@relationship.0"/>
+      <formula id="8e8b5d8a-8837-4eec-bbc6-149acfe283f8" definition="a &amp; b"/>
+    </relationship>
+    <intent id="9953bd30-0424-47c3-8c7d-10357752117f" activity="//@process.0/@node.2" subject="//@propertyModel/@attribute.1" type="MODIFY"/>
+    <intent id="93f07605-38e0-415d-af46-fa600d7c8e49" activity="//@process.0/@node.3" subject="//@propertyModel/@attribute.3" type="MODIFY"/>
+    <intent id="c8d30d70-14a7-4a21-8921-87e2132e85dd" activity="//@process.0/@node.4" subject="//@propertyModel/@attribute.2" type="MODIFY"/>
+    <intent id="30786bfd-5bb3-442d-9116-5d5ed24c4124" activity="//@process.0/@node.5" subject="//@propertyModel/@attribute.0" type="RESOLVE_CONSTRAINT"/>
+    <attribute id="94e7bc62-f3b0-4123-904d-8237dc01a880" intent="//@propertyModel/@intent.3" name="totalMass" subjectOf="//@propertyModel/@relationship.0/@relationshipLink.3 //@propertyModel/@relationship.1/@relationshipLink.0" typedBy="//@propertyModel/@capability.0">
+      <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_2:InMemoryAttributeDefinition"/>
+    </attribute>
+    <attribute id="27681976-27aa-4776-ae0e-f8ff69d4b41e" intent="//@propertyModel/@intent.0" name="platformMass" subjectOf="//@propertyModel/@relationship.0/@relationshipLink.0" typedBy="//@propertyModel/@capability.0">
+      <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_2:MatlabAttributeDefinition"/>
+    </attribute>
+    <attribute id="7d954c69-d3d8-4807-b48d-91f99ac6ae1c" intent="//@propertyModel/@intent.2" name="motorMass" subjectOf="//@propertyModel/@relationship.0/@relationshipLink.2" typedBy="//@propertyModel/@capability.0">
+      <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_2:MatlabAttributeDefinition"/>
+    </attribute>
+    <attribute id="c960a200-8109-46c4-9363-4517dbe19354" intent="//@propertyModel/@intent.1" name="batteryMass" subjectOf="//@propertyModel/@relationship.0/@relationshipLink.1" typedBy="//@propertyModel/@capability.0">
+      <attributedefinition xsi:type="be.uantwerpen.msdl.metamodels_2:MatlabAttributeDefinition"/>
+    </attribute>
+    <capability id="ef303680-6e80-43c2-8fb7-c4448cadfab8" name="mass" subjectOf="//@propertyModel/@relationship.2/@relationshipLink.0" formalism="//@ftg/@formalism.1" types="//@propertyModel/@attribute.3 //@propertyModel/@attribute.2 //@propertyModel/@attribute.1 //@propertyModel/@attribute.0"/>
+  </propertyModel>
+  <resourceModel>
+    <resourceType types="//@resourceModel/@resource.0"/>
+    <resource typedBy="//@resourceModel/@resourceType.0"/>
+  </resourceModel>
+  <codeGenProperties key="location" value="D:\GitHub\msdl\ICM\examples\be.uantwerpen.msdl.icm.examples.full\scripts"/>
+  <codeGenProperties key="rootPackage" value="be.uantwerpen.msdl.icm.examples.full.main"/>
+</be.uantwerpen.msdl.metamodels:ProcessModel>

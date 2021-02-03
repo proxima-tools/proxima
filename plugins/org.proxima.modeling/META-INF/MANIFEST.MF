@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PROxIMA Modeling functionality
 Bundle-SymbolicName: org.proxima.modeling;singleton:=true
+Automatic-Module-Name: org.proxima.modeling
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.proxima.modeling.internal.Activator
 Bundle-Vendor: Istvan David
@@ -16,5 +17,5 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.118.0",
  org.eclipse.sirius.diagram;bundle-version="6.3.1",
  org.eclipse.sirius.diagram.ui;bundle-version="6.3.1",
  org.proxima.metamodels;bundle-version="0.2.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy

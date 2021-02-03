@@ -9,12 +9,8 @@ import org.proxima.modeling.services.tests.validation.ValidationTopologyTests;
 import org.proxima.modeling.services.tests.validation.ValidationUniqueNameTests;
 
 @RunWith(Suite.class)
-@SuiteClasses({ 
-	LinkUnsetTests.class,
-	ValidationRequiredNameTests.class,
-	ValidationTopologyTests.class,
-	ValidationUniqueNameTests.class,
-	})
+@SuiteClasses({ LinkUnsetTests.class, ValidationRequiredNameTests.class, ValidationTopologyTests.class,
+		ValidationUniqueNameTests.class, })
 public class AllTests {
 
 }

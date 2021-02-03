@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<be.uantwerpen.msdl.metamodels:ProcessModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:be.uantwerpen.msdl.metamodels="metamodels.processmodel" xmlns:be.uantwerpen.msdl.metamodels_1="metamodels.pm">
+  <ftg>
+    <formalism id="bdc9cf3c-7d78-42f2-a01c-bafb70f13998" name="AMESim" types="//@process.0/@node.12" implementedBy="//@ftg/@tool.0"/>
+    <formalism id="314eb0e5-b99a-4493-9bc3-f8b8b66a7349" name="Simulink" types="//@process.0/@node.11" implementedBy="//@ftg/@tool.1"/>
+    <tool name="AMESim" implements="//@ftg/@formalism.0"/>
+    <tool name="Simulink" implements="//@ftg/@formalism.1"/>
+  </ftg>
+  <process id="eff55d2a-686c-49ba-83be-8b1a61ad0cac">
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Initial" id="626ce993-6e5a-404a-b0c6-1cbbb093eb34" controlOut="//@process.0/@controlFlow.11"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:FlowFinal" id="580617f9-5b50-4a9f-b64d-01fb10a5a3cf" controlIn="//@process.0/@controlFlow.10"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="3694bd4a-3259-4ee6-826c-091f2ab07e0f" dataFlowFrom="//@process.0/@node.12" dataFlowTo="//@process.0/@node.11" controlIn="//@process.0/@controlFlow.11" controlOut="//@process.0/@controlFlow.0" name="a1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Fork" id="729c1215-0177-4605-a982-827934939c20" controlIn="//@process.0/@controlFlow.0" controlOut="//@process.0/@controlFlow.2 //@process.0/@controlFlow.3" correspondingJoin="//@process.0/@node.6"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Fork" id="db9bfd06-8724-4501-a0a6-3fe64ff63a25" controlIn="//@process.0/@controlFlow.3" controlOut="//@process.0/@controlFlow.4 //@process.0/@controlFlow.5" correspondingJoin="//@process.0/@node.5"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Join" id="3bed6e07-10bc-4fc7-9901-476da5b20157" controlIn="//@process.0/@controlFlow.6 //@process.0/@controlFlow.7" controlOut="//@process.0/@controlFlow.8" correspondingFork="//@process.0/@node.4"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Join" id="f08d4250-dfe2-4a9f-ba56-23bf8742df3d" controlIn="//@process.0/@controlFlow.1 //@process.0/@controlFlow.8" controlOut="//@process.0/@controlFlow.9" correspondingFork="//@process.0/@node.3"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:AutomatedActivity" id="a271392d-796d-4092-85df-978aa7b3a739" dataFlowFrom="//@process.0/@node.11" controlIn="//@process.0/@controlFlow.5" controlOut="//@process.0/@controlFlow.6" name="a21" scriptFile="..\\be.uantwerpen.msdl.icm.test.data\\scripts\\test1.py"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" id="d3dc07f7-8d4e-4787-9d06-6368d4aac4f4" controlIn="//@process.0/@controlFlow.2" controlOut="//@process.0/@controlFlow.1" name="a3"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" id="97c8c0db-683c-4898-acfb-4f51887d161c" controlIn="//@process.0/@controlFlow.4" controlOut="//@process.0/@controlFlow.7" name="a22"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:ManualActivity" id="4fc32e34-e1f0-4b9c-81f0-1a2e6b05e5b1" controlIn="//@process.0/@controlFlow.9" controlOut="//@process.0/@controlFlow.10" name="a4"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="1536603c-d31b-4a78-ab09-f083387c122c" dataFlowFrom="//@process.0/@node.2" dataFlowTo="//@process.0/@node.7" name="controlModel" typedBy="//@ftg/@formalism.1"/>
+    <node xsi:type="be.uantwerpen.msdl.metamodels_1:Object" id="dbf81e0b-c84b-46a2-a4ce-f92d62e5a1fd" dataFlowTo="//@process.0/@node.2" name="electricalModel" typedBy="//@ftg/@formalism.0"/>
+    <controlFlow id="0205c064-4526-4e3f-ace2-5ca2aeb0d4d4" from="//@process.0/@node.2" to="//@process.0/@node.3"/>
+    <controlFlow id="8d6508df-034c-4333-bfcb-161febbf2b0b" from="//@process.0/@node.8" to="//@process.0/@node.6"/>
+    <controlFlow id="cffaa9e2-20db-475e-9cee-8408d6910844" from="//@process.0/@node.3" to="//@process.0/@node.8"/>
+    <controlFlow id="bf42ec12-53b9-4645-b389-a31db0577282" from="//@process.0/@node.3" to="//@process.0/@node.4"/>
+    <controlFlow id="81479877-9c31-4185-b710-9f4dfb39f877" from="//@process.0/@node.4" to="//@process.0/@node.9"/>
+    <controlFlow id="1ca36238-dc9e-4d1d-afc7-35f6078a9b6e" from="//@process.0/@node.4" to="//@process.0/@node.7"/>
+    <controlFlow id="b3a5a0d4-ea96-4e93-a950-752b332b4941" from="//@process.0/@node.7" to="//@process.0/@node.5"/>
+    <controlFlow id="5b383754-d65e-424f-ab0e-a1c77c85b7c4" from="//@process.0/@node.9" to="//@process.0/@node.5"/>
+    <controlFlow id="a11d0304-c6bd-4104-83dd-c38a0a581582" from="//@process.0/@node.5" to="//@process.0/@node.6"/>
+    <controlFlow id="a366f099-2846-41d0-b8c4-d5d38637c7f0" from="//@process.0/@node.6" to="//@process.0/@node.10"/>
+    <controlFlow id="1bd6f186-c2cf-413f-a784-79583accb678" from="//@process.0/@node.10" to="//@process.0/@node.1"/>
+    <controlFlow id="ac28bce2-e44f-4614-b056-11e679db3cf7" from="//@process.0/@node.0" to="//@process.0/@node.2"/>
+  </process>
+</be.uantwerpen.msdl.metamodels:ProcessModel>

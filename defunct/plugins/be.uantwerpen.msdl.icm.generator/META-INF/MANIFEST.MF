@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generators
+Bundle-SymbolicName: be.uantwerpen.msdl.icm.generator
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: be.uantwerpen.msdl.icm.generator.internal.Activator
+Bundle-Vendor: Istvan David
+Require-Bundle: org.eclipse.core.runtime,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.apache.log4j,
+ be.uantwerpen.msdl.metamodels
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: be.uantwerpen.msdl.icm.generator
+

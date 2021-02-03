@@ -1,0 +1,138 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Istvan David
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *    Istvan David - initial API and implementation
+ *******************************************************************************/
+
+package be.uantwerpen.msdl.icm.queries.validation
+
+import "metamodels.pm"
+import pattern be.uantwerpen.msdl.icm.queries.general.nodeControlInput
+import pattern be.uantwerpen.msdl.icm.queries.general.nodeControlOutput
+import pattern be.uantwerpen.msdl.icm.queries.general.nodeGloballyReachableFromNode
+import pattern be.uantwerpen.msdl.icm.queries.general.compoundActivity
+
+///**
+// * INIT->FINAL is guaranteed
+// */
+//pattern initReachesFinal(initNode : Initial, finalNode : FlowFinal){
+//	find nodeGloballyReachableFromNode(initNode, finalNode);
+//}
+
+/**
+ * FINAL should be reachable from every node
+ */
+pattern finalNotReachableFromNode(node : Node, finalNode: FlowFinal ){
+	neg find compoundActivity(node);
+	neg find nodeGloballyReachableFromNode(finalNode, node);
+	node != finalNode;
+}
+/**
+ * INIT should reach every node
+ */
+pattern initDoesNotReachNode(node : Node, initNode: Initial){
+	neg find compoundActivity(node);
+	neg find nodeGloballyReachableFromNode(node, initNode);
+	node != initNode;
+}
+
+/**
+ * INIT has no input and exactly one output
+ */
+pattern initNodeWithControlIn(initNode : Initial){
+	find nodeControlInput(initNode, _);
+}
+pattern initNodeWithNoControlIn(initNode : Initial){
+	neg find nodeControlInput(initNode, _);
+}
+pattern initNodeWithInvalidNumberOfControlOut(initNode : Initial){
+	outs == count find nodeControlOutput(initNode, _);
+	check(outs!=1);
+}
+/**
+ * FINAL has only one input, no output
+ */
+pattern finalNodeWithInvalidNumberOfIns(finalNode : FlowFinal){
+	ins == count find nodeControlInput(finalNode, _);
+	check(ins!=1);
+}
+pattern finalNodeWithControlOut(finalNode : FlowFinal){
+	find nodeControlOutput(finalNode, _);
+}
+pattern finalNodeWithNoControlOut(finalNode : FlowFinal){
+	neg find nodeControlOutput(finalNode, _);
+}
+/**
+ * FORK has exactly at least one input, at least one output
+ */
+pattern forkNodeWithInvalidNumberOfIns(forkNode : Fork){
+	forkIns == count find nodeControlInput(forkNode, _);
+	check(forkIns<1);
+}
+pattern forkNodeWithInvalidNumberOfOuts(forkNode : Fork){
+	forkOuts == count find nodeControlOutput(forkNode, _);
+	check(forkOuts<1);
+}
+ /**
+ * JOIN has at least one input, exactly one output
+ */
+pattern joinNodeWithInvalidNumberOfIns(joinNode : Join){
+ 	joinIns == count find nodeControlInput(joinNode, _);
+	check(joinIns<1);
+}
+pattern joinNodeWithInvalidNumberOfOuts(joinNode : Join){
+	joinOuts == count find nodeControlOutput(joinNode, _);
+	check(joinOuts!=1);
+}
+/**
+ * DECISION has at least one input, at least one output
+ */
+pattern decisionNodeWithInvalidNumberOfIns(decisionNode : Decision){
+ 	ins == count find nodeControlInput(decisionNode, _);
+	check(ins<1);
+}
+pattern decisionNodeWithInvalidNumberOfOuts(decisionNode : Decision){
+	outs == count find nodeControlOutput(decisionNode, _);
+	check(outs<1);
+}
+/**
+ * ACTIVITIES have at least one input, at least one output
+ */
+pattern activityWithInvalidNumberOfControlIn(activity : Activity){
+	neg find compoundActivity(node);
+ 	ins == count find nodeControlInput(activity, _);
+	check(ins<1);
+}
+pattern activityWithInvalidNumberOfControlOut(activity : Activity){
+	neg find compoundActivity(node);
+	outs == count find nodeControlOutput(activity, _);
+	check(outs<1);
+}
+
+/**
+ * CONTROL FLOWS have one input, one output
+ */
+pattern controlFlowWithInvalidNumberOfControlFrom(controlFlow: ControlFlow){
+ 	froms == count find nodeControlInput(_, controlFlow);
+	check(froms != 1);
+}
+pattern controlFlowWithInvalidNumberOfControlTo(controlFlow: ControlFlow){
+	tos == count find nodeControlOutput(_, controlFlow);
+	check(tos != 1);
+}
+/**
+ * Redundant control flows
+ */
+pattern redundantControlFlows(controlFlow1: ControlFlow, controlFlow2: ControlFlow){
+	ControlFlow.from(controlFlow1, node1);
+	ControlFlow.to(controlFlow1, node2);
+	ControlFlow.from(controlFlow2, node1);
+	ControlFlow.to(controlFlow2, node2);
+	
+	controlFlow1 != controlFlow2;
+}

@@ -1,0 +1,178 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Istvan David
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *    Istvan David - initial API and implementation
+ *******************************************************************************/
+
+package be.uantwerpen.msdl.icm.runtime.queries
+
+import "metamodels.enactment"
+import "metamodels.pm"
+import "metamodels.properties"
+
+pattern activeToken(token: Token){
+	Token.abstract(token, a);
+	a == false;
+}
+
+pattern tokenInNode(token : Token, node : Node){
+	find activeToken(token);
+	Token.currentNode(token, node);
+}
+
+pattern tokenInActivity(token : Token, node : Activity){
+	find activeToken(token);
+	find tokenInNode(token, node);
+}
+
+pattern activity(node: Node){
+	Activity(node);
+}
+
+pattern attributeModificationActivity(activity: Activity, attribute: Attribute){
+	Intent.activity(intent, activity);
+	Intent.subject(intent, attribute);
+	Intent.type(intent, ::MODIFY);
+}
+
+pattern fireable(token: Token, controlFlow: ControlFlow, fromNode: Node, toNode: Node)
+{ //fire from a non-activity
+	find tokenInNode(token, fromNode);
+	ControlFlow.from(controlFlow, fromNode);
+	ControlFlow.to(controlFlow, toNode);
+	neg find activity(fromNode);
+	neg find splitTokenInJoin(token, fromNode);
+}or{ //fire from a non-activity to a node where the direct sibling of the token is located
+	find tokenInNode(token, fromNode);
+	ControlFlow.from(controlFlow, fromNode);
+	ControlFlow.to(controlFlow, toNode);
+	neg find activity(fromNode);
+	find splitTokenInJoin(token, fromNode);
+	find splitTokenInJoin(token2, toNode);
+	find directSiblingTokens(token, token2);
+}or{ //fire from an activity
+	find tokenInNode(token, fromNode);
+	ControlFlow.from(controlFlow, fromNode);
+	ControlFlow.to(controlFlow, toNode);
+	find doneActivity(token, fromNode);
+}
+
+pattern availableActivity(token: Token, controlFlow: ControlFlow, activity: Activity){
+	find fireable(token, controlFlow, _, activity);
+}
+
+pattern availableFinish(token: Token, controlFlow: ControlFlow, final: Final){
+	find fireable(token, controlFlow, _, final);
+}
+
+pattern fireableToControl(token: Token, fromNode: Node, control: Control){
+	find fireable(token, _, fromNode, control);
+	Fork(control);
+}or{
+	find fireable(token, _, fromNode, control);
+	Join(control);
+}or{
+	find fireable(token, _, fromNode, control);
+	Decision(control);
+}or{
+	find fireable(token, _, fromNode, control);
+	Merge(control);
+}
+
+pattern splitTokenInJoin(token: Token, join: Join){
+	find tokenInNode(token, join);
+	find siblingTokens(token, token2);
+	find tokensInDifferentNodes(token, token2);
+}
+
+pattern joinable(join: Join){
+	find tokenInNode(token, join);
+	find siblingTokens(token, token2);
+	neg find tokensInDifferentNodes(token, token2);
+}
+
+pattern forkable(fork: Fork, token: Token){
+	find tokenInNode(token, fork);
+}
+
+pattern subTokenOf(subToken: Token, parent: Token){
+	Token.subTokenOf(subToken, parent);
+}
+
+pattern siblingTokens(token1: Token, token2: Token){
+	find activeToken(token1);
+	find activeToken(token2);
+	find subTokenOf+(token1, parent);
+	find subTokenOf+(token2, parent);
+	token1 != token2;
+}
+
+pattern directSiblingTokens(token1: Token, token2: Token){
+	find activeToken(token1);
+	find activeToken(token2);
+	find subTokenOf(token1, parent);
+	find subTokenOf(token2, parent);
+	token1 != token2;
+}
+
+pattern tokensInDifferentNodes(token1: Token, token2: Token){
+	Token.currentNode(token1, node1);
+	Token.currentNode(token2, node2);
+	node1 != node2;
+}
+
+//to detect runnable activity
+pattern readyActivity(token : Token, node : Activity){
+	find tokenInActivity(token, node);
+	Token.state(token, ::READY);
+}
+
+//to detect running activity
+pattern runnigActivity(token : Token, node : Activity){
+	find tokenInActivity(token, node);
+	Token.state(token, ::RUNNING);
+}
+
+//to detect executed activity
+pattern doneActivity(token : Token, node : Activity){
+	find tokenInActivity(token, node);
+	Token.state(token, ::DONE);
+}
+
+//to split tokens
+pattern tokenInFork(token : Token, node : Fork){
+	find tokenInNode(token, node);
+}
+
+//to re-join tokens
+pattern tokenInJoin(token : Token, node : Join){
+	find tokenInNode(token, node);
+}
+
+//to multiplex tokens
+pattern tokenInDecision(token : Token, node : Decision){
+	find tokenInNode(token, node);
+}
+
+//to de-multiplex tokens
+pattern tokenInMerge(token : Token, node : Merge){
+	find tokenInNode(token, node);
+}
+
+//to designate the end of an execution
+pattern finishedProcess(token : Token, node : FlowFinal){
+	find tokenInNode(token, node);
+}
+
+//to enable moving tokens from one node to another
+pattern enabledTransition(fromNode : Node, toNode : Node, token: Token){
+	ControlFlow.from(controlFlow, fromNode);
+	ControlFlow.to(controlFlow, toNode);
+	find tokenInNode(token, fromNode);
+	Token.state(token, ::DONE);
+}
