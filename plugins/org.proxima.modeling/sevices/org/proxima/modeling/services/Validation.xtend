@@ -32,6 +32,9 @@ import org.proxima.properties.RelationshipSubject
 import com.google.common.base.Strings
 import com.google.common.collect.Lists
 import org.proxima.pm.ProcessModel
+import org.proxima.pm.ObjectFlow
+import org.proxima.pm.Typeable
+import org.proxima.pm.AtomicActivity
 
 class Validation {
 
@@ -52,7 +55,7 @@ class Validation {
 	}
 
 	def formalismNameUnique(Formalism formalism) {
-		if(formalism.name.nullOrEmpty){
+		if (formalism.name.nullOrEmpty) {
 			return false
 		}
 		val ftg = formalism.eContainer as FormalismTransformationGraph
@@ -62,7 +65,7 @@ class Validation {
 	}
 
 	def transformationNameUnique(Transformation transformation) {
-		if(transformation.name.nullOrEmpty){
+		if (transformation.name.nullOrEmpty) {
 			return false
 		}
 		val ftg = transformation.eContainer as FormalismTransformationGraph
@@ -99,9 +102,37 @@ class Validation {
 		processModel.node.exists[n|n instanceof Activity]
 	}
 
+	/**
+	 * Typing - graph isomorphism
+	 */
+	def correctlyTypedObjectFlow(ObjectFlow objectFlow) {
+		val from = objectFlow.from
+		val to = objectFlow.to
+
+		if (from instanceof AtomicActivity && to instanceof org.proxima.pm.Object) {
+			return this.correctlyTypedObjectFlow((from as AtomicActivity), (to as org.proxima.pm.Object))
+		} else if (from instanceof org.proxima.pm.Object && to instanceof AtomicActivity) {
+			return this.correctlyTypedObjectFlow((to as org.proxima.pm.Object), (from as AtomicActivity))
+		} else {
+			return true
+		}
+	}
+
+	def dispatch correctlyTypedObjectFlow(AtomicActivity activity, org.proxima.pm.Object object) {
+		val transformation = activity.typedBy
+		val formalism = object.typedBy
+		
+		transformation.output.contains(formalism) && formalism.outputOf.contains(transformation)
+	}
+
+	def dispatch correctlyTypedObjectFlow(org.proxima.pm.Object object, AtomicActivity activity) {
+		val formalism = object.typedBy
+		val transformation = activity.typedBy
+		
+		formalism.inputOf.contains(transformation) && transformation.input.contains(formalism)
+	}
 
 ////////////////CURRENTLY NOT USED////////////////
-
 //	public def consistentScriptExtension(Transformation transformation) {
 //		if(transformation.definition === null) return true
 //		if(!(transformation.definition instanceof Script)) return true
@@ -113,7 +144,6 @@ class Validation {
 //			MatlabScript: return script.location.endsWith('.m')
 //		}
 //	}
-
 	public def formulaOnlyInL3Relationship(Relationship relationship) {
 		if (relationship.formula !== null) {
 			return relationship.precision.equals(Precision::L3)

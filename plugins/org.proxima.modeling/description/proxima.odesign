@@ -74,6 +74,9 @@
       <ownedRules xsi:type="validation:SemanticValidationRule" name="InconsistentScriptExtension" level="ERROR" message="Inconsistent script extension. The extension of the script file does not correspond to its type. (Use .py for Python and .m for Matlab scripts.)" targetClass="ftg.Transformation">
         <audits auditExpression="service:consistentScriptExtension()"/>
       </ownedRules>
+      <ownedRules xsi:type="validation:SemanticValidationRule" name="InconsistentTypingInTheObjectFlow" level="ERROR" message="Inconsistent typing in the object flow. Objects/Activities and Formalisms/Transformations must commute." targetClass="pm.ObjectFlow">
+        <audits auditExpression="service:correctlyTypedObjectFlow()"/>
+      </ownedRules>
     </validationSet>
     <ownedRepresentations xsi:type="description_1:TreeDescription" name="ProcessesTree" domainClass="proxima::ProximaModel">
       <subItemMappings name="RootNode" domainClass="proxima::ProximaModel" semanticCandidatesExpression="var:self">
